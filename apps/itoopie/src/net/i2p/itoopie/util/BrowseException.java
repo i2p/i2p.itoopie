@@ -1,4 +1,4 @@
-package net.i2p.desktopgui.util;
+package net.i2p.itoopie.util;
 
 public class BrowseException extends Exception {
 

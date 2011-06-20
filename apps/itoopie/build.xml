@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="all" name="desktopgui">
+<project basedir="." default="all" name="itoopie">
 
 	<property name="src" value="src"/>
 	<property name="build" value="build"/>
 	<property name="dist"  location="dist"/>
-	<property name="jar" value="desktopgui.jar"/>
+	<property name="jar" value="itoopie.jar"/>
 	<property name="resources" value="resources"/>
     <property name="javadoc" value="javadoc"/>
 
@@ -33,7 +33,7 @@
             	<pathelement location="../../router/java/build/router.jar" />
             </classpath>
 		</javac>
-        <copy todir="${build}/desktopgui/${resources}">
+        <copy todir="${build}/itoopie/${resources}">
             <fileset dir="${resources}" />
         </copy>
 	</target>
@@ -48,7 +48,7 @@
 
 		<jar basedir="${build}" destfile="${dist}/${jar}">
 			<manifest>
-				<attribute name="Main-Class" value="net.i2p.desktopgui.Main"/>
+				<attribute name="Main-Class" value="net.i2p.itoopie.Main"/>
 			</manifest>
 		</jar>
 	</target>
@@ -61,7 +61,7 @@
             packagenames="*" 
             use="true" 
             splitindex="true" 
-            windowtitle="Desktopgui">
+            windowtitle="itoopie">
             <classpath>
                 <pathelement location="../../router/java/build/router.jar" />
                 <pathelement location="../../core/java/build/i2p.jar" />
@@ -69,7 +69,8 @@
         </javadoc>
     </target>
 
-    <target name="poupdate">
+    <target name="poupdate" depends="init">
+	
         <exec executable="sh" osfamily="unix" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
             <arg value="-p" />

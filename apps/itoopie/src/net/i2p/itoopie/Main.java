@@ -1,4 +1,4 @@
-package net.i2p.desktopgui;
+package net.i2p.itoopie;
 
 /*
  * Main.java
@@ -8,13 +8,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import net.i2p.I2PAppContext;
-import net.i2p.desktopgui.router.RouterManager;
-import net.i2p.desktopgui.util.*;
-import net.i2p.util.Log;
-import net.i2p.util.Translate;
-import net.i2p.util.I2PProperties.I2PPropertyCallback;
-
 /**
  * The main class of the application.
  */
@@ -22,7 +15,6 @@ public class Main {
     
     ///Manages the lifetime of the tray icon.
     private TrayManager trayManager = null;
-    private final static Log log = new Log(Main.class);
 
     /**
      * Start the tray icon code (loads tray icon in the tray area).
@@ -31,7 +23,7 @@ public class Main {
     public void startUp() throws Exception {
         trayManager = TrayManager.getInstance();
         trayManager.startManager();
-        
+        /*
         if(RouterManager.inI2P()) {
             RouterManager.getRouterContext().addPropertyCallback(new I2PPropertyCallback() {
 
@@ -44,6 +36,7 @@ public class Main {
                 
             });
         }
+        */
     }
     
     public static void main(String[] args) {
@@ -58,16 +51,16 @@ public class Main {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
-            log.log(Log.ERROR, null, ex);
+            //log.log(Log.ERROR, null, ex);
         } catch (InstantiationException ex) {
-            log.log(Log.ERROR, null, ex);
+            //log.log(Log.ERROR, null, ex);
         } catch (IllegalAccessException ex) {
-            log.log(Log.ERROR, null, ex);
+            //log.log(Log.ERROR, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
-            log.log(Log.ERROR, null, ex);
+            //log.log(Log.ERROR, null, ex);
         }
         
-        ConfigurationManager.getInstance().loadArguments(args);
+        //ConfigurationManager.getInstance().loadArguments(args);
         
         final Main main = new Main();
         
@@ -81,7 +74,7 @@ public class Main {
                     main.startUp();
                 }
                 catch(Exception e) {
-                    log.error("Failed while running desktopgui!", e);
+                    //log.error("Failed while running desktopgui!", e);
                 }
                 
             }

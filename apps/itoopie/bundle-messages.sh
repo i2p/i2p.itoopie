@@ -9,8 +9,9 @@
 #
 # zzz - public domain
 # Mathiasdm - modifications for desktopgui
+# hottuna - modifications for itoopie
 #
-CLASS=net.i2p.desktopgui.messages
+CLASS=net.i2p.itoopie.messages
 TMPFILE=build/javafiles.txt
 export TZ=UTC
 
@@ -19,7 +20,7 @@ then
 	POUPDATE=1
 fi
 
-# add ../java/ so the refs will work in the po file
+# add ../src/ so the refs will work in the po file
 JPATHS="src"
 for i in locale/messages_*.po
 do
@@ -34,8 +35,8 @@ do
 	fi
 
     echo $LG
-	if [ -s build/net/i2p/desktopgui/messages_$LG.class -a \
-	     build/net/i2p/desktopgui/messages_$LG.class -nt $i -a \
+	if [ -s build/net/i2p/itoopie/messages_$LG.class -a \
+	     build/net/i2p/itoopie/messages_$LG.class -nt $i -a \
 	     ! -s $TMPFILE ]
 	then
 		continue
@@ -57,10 +58,10 @@ do
 		# To start a new translation, copy the header from an old translation to the new .po file,
 		# then ant distclean updater.
 		find $JPATHS -name *.java > $TMPFILE
-		xgettext -f $TMPFILE -F -L java --from-code=UTF-8 --add-comments\
+		xgettext -f $TMPFILE -F -L java --verbose --from-code=UTF-8 --add-comments\
 	                 --keyword=_ --keyword=_x --keyword=intl._ --keyword=intl.title \
 	                 --keyword=handler._ --keyword=formhandler._ \
-	                 --keyword=net.i2p.router.web.Messages.getString \
+	                 --keyword=net.i2p.itoopie.i18n.ItoopieTranslator.getString \
 		         -o ${i}t
 		if [ $? -ne 0 ]
 		then

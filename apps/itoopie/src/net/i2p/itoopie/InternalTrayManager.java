@@ -1,4 +1,4 @@
-package net.i2p.desktopgui;
+package net.i2p.itoopie;
 
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
@@ -7,14 +7,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.SwingWorker;
 
-import net.i2p.desktopgui.router.RouterManager;
-import net.i2p.desktopgui.util.BrowseException;
-import net.i2p.desktopgui.util.I2PDesktop;
-import net.i2p.util.Log;
+import net.i2p.itoopie.util.BrowseException;
+import net.i2p.itoopie.util.I2PDesktop;
 
 public class InternalTrayManager extends TrayManager {
 	
-	private final static Log log = new Log(InternalTrayManager.class);
 
     protected InternalTrayManager() {}
 
@@ -39,7 +36,7 @@ public class InternalTrayManager extends TrayManager {
                         try {
                             I2PDesktop.browse("http://localhost:7657");
                         } catch (BrowseException e1) {
-                            log.log(Log.WARN, "Failed to open browser!", e1);
+                            //log.log(Log.WARN, "Failed to open browser!", e1);
                         }    
                     }
                     
@@ -55,7 +52,7 @@ public class InternalTrayManager extends TrayManager {
 
                     @Override
                     protected Object doInBackground() throws Exception {
-                        RouterManager.restart();
+                        //RouterManager.restart();
                         return null;
                     }
                     
@@ -73,7 +70,7 @@ public class InternalTrayManager extends TrayManager {
                     
                     @Override
                     protected Object doInBackground() throws Exception {
-                        RouterManager.shutDown();
+                        //RouterManager.shutDown();
                         return null;
                     }
                     

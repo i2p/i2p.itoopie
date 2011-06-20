@@ -1,9 +1,5 @@
 package net.i2p.itoopie.i18n;
 
-import java.util.Locale;
-import java.util.ResourceBundle;
-
-
 public class ItoopieTranslator {
     
     private static final String BUNDLE_NAME = "net.i2p.itoopie.messages";

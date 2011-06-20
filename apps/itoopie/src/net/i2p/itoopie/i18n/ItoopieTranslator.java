@@ -2,7 +2,6 @@ package net.i2p.itoopie.i18n;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
-import net.i2p.itoopie.i18n.UTF8Control;
 
 
 public class ItoopieTranslator {

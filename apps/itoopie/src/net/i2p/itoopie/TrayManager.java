@@ -72,7 +72,8 @@ public class TrayManager {
      * @return image used for the tray icon
      */
     private Image getTrayImage() {
-        Image image = Toolkit.getDefaultToolkit().getImage("resources/images/itoopie.png");
+        URL url = getClass().getResource("/itoopie/resources/images/itoopie.png");
+        Image image = Toolkit.getDefaultToolkit().getImage(url);
         return image;
     }
     

@@ -25,6 +25,10 @@
 		<javac debug="true" deprecation="on" source="1.5" target="1.5" 
                        srcdir="${src}" destdir="${build}">
             <compilerarg line="${javac.compilerargs}" />
+            <classpath>
+            	<pathelement location="lib/commons-logging-1.1.1.jar" />
+            	<pathelement location="lib/json-smart-1.0.6.4.jar" />
+            </classpath>
 		</javac>
         <copy todir="${build}/itoopie/${resources}">
             <fileset dir="${resources}" />
@@ -55,6 +59,10 @@
             use="true" 
             splitindex="true" 
             windowtitle="itoopie">
+            <classpath>
+            	<pathelement location="lib/commons-logging-1.1.1.jar" />
+            	<pathelement location="lib/json-smart-1.0.6.4.jar" />
+            </classpath>
         </javadoc>
     </target>
 

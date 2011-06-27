@@ -2,6 +2,7 @@
 <project basedir="." default="all" name="itoopie">
 
 	<property name="src" value="src"/>
+    <property name="lib" value="lib"/>
 	<property name="build" value="build"/>
 	<property name="dist"  location="dist"/>
 	<property name="jar" value="itoopie.jar"/>
@@ -12,25 +13,35 @@
 
 	<target name="init">
 		<mkdir dir="${build}"/>
+		<mkdir dir="${build}/${lib}"/>
         <mkdir dir="${build}/${resources}"/>
         <mkdir dir="${build}/${javadoc}"/>
 		<mkdir dir="${dist}"/>
+		<copy todir="${build}/${lib}">
+            <fileset dir="${lib}" />
+        </copy>
 	</target>
+
 	<target name="clean">
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
 	</target>
 
 	<target name="compile" depends="init">
-		<javac debug="true" deprecation="on" source="1.5" target="1.5" 
-                       srcdir="${src}" destdir="${build}">
-            <compilerarg line="${javac.compilerargs}" />
+		<javac 
+			debug="true" 
+			deprecation="on" 
+			source="1.5" 
+			target="1.5" 
+            srcdir="${src}" 
+			destdir="${build}">
             <classpath>
-            	<pathelement location="lib/commons-logging-1.1.1.jar" />
-            	<pathelement location="lib/json-smart-1.0.6.4.jar" />
+            	<pathelement location="${lib}/commons-logging-1.1.1.jar" />
+            	<pathelement location="${lib}/json-smart-1.0.6.4.jar" />
             </classpath>
+            <compilerarg line="${javac.compilerargs}" />
 		</javac>
-        <copy todir="${build}/itoopie/${resources}">
+        <copy todir="${build}/${resources}">
             <fileset dir="${resources}" />
         </copy>
 	</target>
@@ -60,8 +71,8 @@
             splitindex="true" 
             windowtitle="itoopie">
             <classpath>
-            	<pathelement location="lib/commons-logging-1.1.1.jar" />
-            	<pathelement location="lib/json-smart-1.0.6.4.jar" />
+            	<pathelement location="${lib}/commons-logging-1.1.1.jar" />
+            	<pathelement location="${lib}/json-smart-1.0.6.4.jar" />
             </classpath>
         </javadoc>
     </target>

@@ -4,8 +4,6 @@ package net.i2p.itoopie;
  * Main.java
  */
 
-import java.net.InetSocketAddress;
-
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;

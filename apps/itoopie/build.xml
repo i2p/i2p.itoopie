@@ -16,7 +16,6 @@
         <mkdir dir="${build}/${javadoc}"/>
 		<mkdir dir="${dist}"/>
 	</target>
-
 	<target name="clean">
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>

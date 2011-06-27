@@ -55,10 +55,6 @@
             use="true" 
             splitindex="true" 
             windowtitle="itoopie">
-            <classpath>
-                <pathelement location="../../router/java/build/router.jar" />
-                <pathelement location="../../core/java/build/i2p.jar" />
-            </classpath>
         </javadoc>
     </target>
 

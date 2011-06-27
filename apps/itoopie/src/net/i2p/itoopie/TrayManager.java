@@ -26,7 +26,7 @@ import net.i2p.itoopie.util.I2PDesktop;
 /**
  * Manages the tray icon life.
  */
-public abstract class TrayManager {
+public class TrayManager {
 
     private static TrayManager instance = null;
     ///The tray area, or null if unsupported
@@ -41,7 +41,8 @@ public abstract class TrayManager {
     
     protected static synchronized TrayManager getInstance() {
         if(instance == null) {
-               instance = new InternalTrayManager();
+               instance = new TrayManager();
+               instance.startManager();
         }
         return instance;
     }
@@ -71,8 +72,7 @@ public abstract class TrayManager {
      * @return image used for the tray icon
      */
     private Image getTrayImage() {
-        URL url = getClass().getResource("/itoopie/resources/images/itoopie-logo.png");
-        Image image = Toolkit.getDefaultToolkit().getImage(url);
+        Image image = Toolkit.getDefaultToolkit().getImage("resources/images/itoopie.png");
         return image;
     }
     

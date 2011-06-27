@@ -1,0 +1,26 @@
+#: src/net/i2p/itoopie/gui/main.java:53
+msgid "Start I2P"
+msgstr "Start I2P"
+
+#: src/net/i2p/itoopie/gui/main.java:80
+#, fuzzy
+msgid "Push to start I2P"
+msgstr "Push to start I2P"
+
+#~ msgid "I2P is starting!"
+#~ msgstr "I2P is starting!"
+
+#~ msgid "Starting"
+#~ msgstr "Starting"
+
+#~ msgid "Launch I2P Browser"
+#~ msgstr "Launch I2P Browser"
+
+#~ msgid "Stop I2P"
+#~ msgstr "Stop I2P"
+
+#~ msgid "Browser not found"
+#~ msgstr "Browser niet gevonden"
+
+#~ msgid "The default browser for your system was not found."
+#~ msgstr "De standaard webbrowser voor je systeem werd niet gevonden."

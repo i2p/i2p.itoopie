@@ -36,7 +36,6 @@
             srcdir="${src}" 
 			destdir="${build}">
             <classpath>
-            	<pathelement location="${lib}/commons-logging-1.1.1.jar" />
             	<pathelement location="${lib}/json-smart-1.0.6.4.jar" />
             </classpath>
             <compilerarg line="${javac.compilerargs}" />
@@ -71,7 +70,6 @@
             splitindex="true" 
             windowtitle="itoopie">
             <classpath>
-            	<pathelement location="${lib}/commons-logging-1.1.1.jar" />
             	<pathelement location="${lib}/json-smart-1.0.6.4.jar" />
             </classpath>
         </javadoc>

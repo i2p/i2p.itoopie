@@ -26,12 +26,6 @@
 		<javac debug="true" deprecation="on" source="1.5" target="1.5" 
                        srcdir="${src}" destdir="${build}">
             <compilerarg line="${javac.compilerargs}" />
-            <classpath>
-                <pathelement location="../../core/java/build/i2p.jar" />
-                <!-- doesn't matter if we're not on win32, we just need the java classes, not the platform-dependent code -->
-                <pathelement location="../../installer/lib/wrapper/win32/wrapper.jar" />
-            	<pathelement location="../../router/java/build/router.jar" />
-            </classpath>
 		</javac>
         <copy todir="${build}/itoopie/${resources}">
             <fileset dir="${resources}" />

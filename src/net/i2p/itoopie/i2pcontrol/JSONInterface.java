@@ -48,6 +48,7 @@ public class JSONInterface{
 			_log.error("Bad URL: http://"+srvHost+":"+srvPort+"/"+srvTarget, e);
 		}
 		session = new JSONRPC2Session(srvURL);
+		session.
 	}
 	
 	

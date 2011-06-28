@@ -16,7 +16,6 @@ import javax.swing.SwingWorker;
 
 import net.i2p.itoopie.i18n.ItoopieTranslator;
 import net.i2p.itoopie.util.BrowseException;
-import net.i2p.itoopie.util.I2PDesktop;
 
 /**
  * Manages the tray icon life.
@@ -116,7 +115,7 @@ public class TrayManager {
                     @Override
                     protected void done() {
                         try {
-                            I2PDesktop.browse("http://localhost:7657");
+                        	System.out.println("Tried to open a browser");
                         } catch (BrowseException e1) {
                             //log.log(Log.WARN, "Failed to open browser!", e1);
                         }    

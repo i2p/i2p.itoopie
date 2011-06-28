@@ -9,6 +9,9 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
 import javax.swing.SwingWorker;
 
 import net.i2p.itoopie.i18n.ItoopieTranslator;
@@ -63,7 +66,9 @@ public class TrayManager {
      * @return image used for the tray icon
      */
     private Image getTrayImage() {
-        //URL url = getClass().getResource("/itoopie/resources/images/itoopie.png");
+        URL url = getClass().getResource("/resources/images/itoopie.png");
+        System.out.println("URL"+url.getFile());
+        //Image image = Toolkit.getDefaultToolkit().getImage(url);
         Image image = Toolkit.getDefaultToolkit().getImage("resources/images/itoopie.png");
         return image;
     }

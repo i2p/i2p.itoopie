@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-import javax.swing.ImageIcon;
 import javax.swing.SwingWorker;
 
 import net.i2p.itoopie.i18n.ItoopieTranslator;
@@ -114,11 +113,7 @@ public class TrayManager {
                     
                     @Override
                     protected void done() {
-                        try {
-                        	System.out.println("Tried to open a browser");
-                        } catch (BrowseException e1) {
-                            //log.log(Log.WARN, "Failed to open browser!", e1);
-                        }    
+                    	System.out.println("Tried to open a browser"); 
                     }
                     
                 }.execute();

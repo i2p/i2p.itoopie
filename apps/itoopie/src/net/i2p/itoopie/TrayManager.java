@@ -47,7 +47,7 @@ public class TrayManager {
     protected void startManager() {
         if(SystemTray.isSupported()) {
             tray = SystemTray.getSystemTray();
-            trayIcon = new TrayIcon(getTrayImage(), "I2P", getMainMenu());
+            trayIcon = new TrayIcon(getTrayImage(), "itoopie", getMainMenu());
             trayIcon.setImageAutoSize(true); //Resize image to fit the system tray
             try {
                 tray.add(trayIcon);
@@ -66,10 +66,26 @@ public class TrayManager {
      * @return image used for the tray icon
      */
     private Image getTrayImage() {
-        URL url = getClass().getResource("/resources/images/itoopie.png");
-        System.out.println("URL"+url.getFile());
-        //Image image = Toolkit.getDefaultToolkit().getImage(url);
-        Image image = Toolkit.getDefaultToolkit().getImage("resources/images/itoopie.png");
+        
+        // Assume square icons.
+        int icoHeight = (int) SystemTray.getSystemTray().getTrayIconSize().getHeight();
+        int desiredHeight;
+        if	(icoHeight == 16 ||
+        		icoHeight == 24 ||
+        		icoHeight == 32 ||
+        		icoHeight == 48 ||
+        		icoHeight == 64 ||
+        		icoHeight == 128 ||
+        		icoHeight == 256 ||
+        		icoHeight == 512){
+        	desiredHeight = icoHeight;
+        } else {
+        	desiredHeight = 512;
+        }
+        
+        URL url = getClass().getResource("/resources/images/itoopie-"+desiredHeight+".png");
+        Image image = Toolkit.getDefaultToolkit().getImage(url);
+        //Image image = Toolkit.getDefaultToolkit().getImage("resources/images/itoopie-"+desiredHeight+".png");
         return image;
     }
     

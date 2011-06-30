@@ -4,6 +4,8 @@ package net.i2p.itoopie;
  * Main.java
  */
 
+import java.security.Security;
+
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -76,6 +78,17 @@ public class Main {
         _conf.parseConfigStr("server-name=localhost");
         _conf.parseConfigStr("server-port=7656");
         _conf.parseConfigStr("server-target=jsonrpc");
+        
+        
+        for (java.security.Provider p : Security.getProviders()){
+        	System.out.println("Provider: " + p.getName());
+        }
+        for (String p : Security.getAlgorithms("KeyStore")){
+        	System.out.println("KeyStore algorithm: " + p);
+        }
+        for (String p : Security.getAlgorithms("Cipher")){
+        	System.out.println("Cipher algorithm: " + p);
+        }
         
         String str = null;
 		try {

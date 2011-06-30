@@ -29,10 +29,10 @@ public class CertificateManager {
 	private static final String DEFAULT_KEYSTORE_LOCATION = "key.store";
 	private static final String DEFAULT_KEYSTORE_PASSWORD = "nut'nfancy";
 	private static final String DEFAULT_KEYSTORE_ALGORITHM  = "SunX509";
+	public static final String DEFAULT_CERT_SPI = "X.509";
 	private static KeyStore _ks;
 	private static Log _log;
 	
-
 	static {
 		_log = LogFactory.getLog(CertificateManager.class);
 	}

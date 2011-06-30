@@ -43,9 +43,9 @@ public class JSONInterface{
 		int srvPort = _conf.getConf("server-port", 7656);
 		String srvTarget = _conf.getConf("server-target", "jsonrpc");
 		try {
-			srvURL = new URL("http://"+srvHost+":"+srvPort+"/"+srvTarget);
+			srvURL = new URL("https://"+srvHost+":"+srvPort+"/"+srvTarget);
 		} catch (MalformedURLException e){
-			_log.error("Bad URL: http://"+srvHost+":"+srvPort+"/"+srvTarget, e);
+			_log.error("Bad URL: https://"+srvHost+":"+srvPort+"/"+srvTarget, e);
 		}
 		session = new JSONRPC2Session(srvURL);
 	}
@@ -83,7 +83,6 @@ public class JSONInterface{
 	
 	@SuppressWarnings("unchecked")
 	public static String getEcho(String str) throws JSONRPC2Error{
-		
 		
 		JSONRPC2Request req = new JSONRPC2Request("echo", incrNonce());
 		@SuppressWarnings("rawtypes")

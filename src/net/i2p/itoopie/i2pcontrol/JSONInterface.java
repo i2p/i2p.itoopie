@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import net.i2p.itoopie.util.ConfigurationManager;
+import net.i2p.itoopie.configuration.ConfigurationManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

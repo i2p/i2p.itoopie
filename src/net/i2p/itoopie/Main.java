@@ -4,8 +4,6 @@ package net.i2p.itoopie;
  * Main.java
  */
 
-import java.security.Security;
-
 import javax.net.ssl.HttpsURLConnection;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -16,9 +14,9 @@ import org.apache.commons.logging.LogFactory;
 
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Error;
 
+import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.JSONInterface;
 import net.i2p.itoopie.security.CertificateHelper;
-import net.i2p.itoopie.util.ConfigurationManager;
 
 /**
  * The main class of the application.

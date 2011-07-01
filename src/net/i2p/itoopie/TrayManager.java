@@ -29,6 +29,7 @@ public class TrayManager {
     ///Our tray icon, or null if unsupported
     protected TrayIcon trayIcon = null;
     
+    
     /**
      * Instantiate tray manager.
      */

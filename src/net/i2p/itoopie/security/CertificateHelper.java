@@ -1,9 +1,20 @@
 package net.i2p.itoopie.security;
 
 import java.io.ByteArrayInputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSession;
+import javax.security.cert.CertificateEncodingException;
+
+import net.i2p.itoopie.gui.CertificateGUI;
+import net.i2p.itoopie.i18n.Transl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,5 +41,101 @@ public class CertificateHelper {
 		}
 		
 		return null;
+	}
+	
+	// Converts to java.security
+	public static java.security.cert.X509Certificate convert(javax.security.cert.X509Certificate cert) {
+	    try {
+	        byte[] encoded = cert.getEncoded();
+	        ByteArrayInputStream bis = new ByteArrayInputStream(encoded);
+	        java.security.cert.CertificateFactory cf
+	            = java.security.cert.CertificateFactory.getInstance("X.509");
+	        return (java.security.cert.X509Certificate)cf.generateCertificate(bis);
+	    } catch (java.security.cert.CertificateEncodingException e) {
+	    } catch (javax.security.cert.CertificateEncodingException e) {
+	    } catch (java.security.cert.CertificateException e) {
+	    }
+	    return null;
+	}
+
+	// Converts to javax.security
+	public static javax.security.cert.X509Certificate convert(java.security.cert.X509Certificate cert) {
+	    try {
+	        byte[] encoded = cert.getEncoded();
+	        return javax.security.cert.X509Certificate.getInstance(encoded);
+	    } catch (java.security.cert.CertificateEncodingException e) {
+	    } catch (javax.security.cert.CertificateEncodingException e) {
+	    } catch (javax.security.cert.CertificateException e) {
+	    }
+	    return null;
+	}
+	
+	
+	public static String getThumbPrint(javax.security.cert.X509Certificate cert){
+		try {
+			return getThumbPrint(convert(cert));
+		} catch (Exception e){
+			return Transl._("Unable to create hash of the given cert, ") + cert;
+		}
+	}
+	
+    public static String getThumbPrint(java.security.cert.X509Certificate cert) 
+            throws NoSuchAlgorithmException, CertificateEncodingException {
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            byte[] der = null;
+			try {
+				der = cert.getEncoded();
+			} catch (java.security.cert.CertificateEncodingException e) {
+				e.printStackTrace();
+			}
+            md.update(der);
+            byte[] digest = md.digest();
+            return hexify(digest);
+
+        }
+
+        private static String hexify (byte bytes[]) {
+
+            char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', 
+                            '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+            StringBuffer buf = new StringBuffer(bytes.length * 2);
+
+            for (int i = 0; i < bytes.length; ++i) {
+                    buf.append(hexDigits[(bytes[i] & 0xf0) >> 4]);
+                buf.append(hexDigits[bytes[i] & 0x0f]);
+            }
+
+            return buf.toString();
+        }
+
+
+	
+	
+	public static HostnameVerifier getHostnameVerifier(){
+		return new HostnameVerifier(){
+		
+	        public boolean verify(String urlHostName, SSLSession session) {
+	            String serverHost = session.getPeerHost();
+					try {
+						javax.security.cert.X509Certificate[] certs = session.getPeerCertificateChain();
+						
+						if (CertificateManager.contains(serverHost)){
+							if (CertificateManager.verifyCert(serverHost, CertificateHelper.convert(certs[0]))){
+								return true; // Remote host has provided valid certificate that is store locally. 
+							} else {
+								// Remote host has provided a certificate that != the stored certificate for this host
+								return CertificateGUI.overwriteCert(serverHost, certs[0]);
+							}
+						} else {
+							// GUI, Add new host! new host
+							return CertificateGUI.saveNewCert(serverHost, certs[0]);
+						}
+					} catch (SSLPeerUnverifiedException e) {
+						_log.fatal("Remote host could not be verified, possibly due to using not using athentication");
+						return false;
+					}	
+	        }
+	    };
 	}
 }

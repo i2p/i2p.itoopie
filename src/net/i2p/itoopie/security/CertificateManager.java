@@ -2,17 +2,21 @@ package net.i2p.itoopie.security;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.security.InvalidKeyException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.SignatureException;
 import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 import javax.net.ssl.TrustManager;
@@ -37,39 +41,16 @@ public class CertificateManager {
 		_log = LogFactory.getLog(CertificateManager.class);
 	}
 
-	/**
-	 * Export X509Certificate as a file.
-	 * 
-	 * @param cert - X509Certificate to export
-	 * @param file - Destination file for certificate
-	 */
-	@SuppressWarnings("unused")
-	private static void export(X509Certificate cert, File file) {
+	
+	public static boolean verifyCert(String storedCertAlias, X509Certificate cert){
 		try {
-			// Get the encoded form which is suitable for exporting
-			byte[] buf = cert.getEncoded();
-
-			FileOutputStream os = new FileOutputStream(file);
-			// Never write certificate in binary form.
-			if (false) {
-				// Write in binary form
-				os.write(buf);
-			} else {
-				// Write in text form
-				Writer wr = new OutputStreamWriter(os, Charset.forName("UTF-8"));
-				wr.write("-----BEGIN CERTIFICATE-----\n");
-				wr.write(new sun.misc.BASE64Encoder().encode(buf));
-				wr.write("\n-----END CERTIFICATE-----\n");
-				wr.flush();
-			}
-			os.close();
-		} catch (CertificateEncodingException e) {
-			_log.error(
-					"Bad certificate, can't be base64 encoded as a X509Certificate",
-					e);
-		} catch (IOException e) {
-			_log.error("File " + file.getAbsolutePath().toString()
-					+ " couldn't be written", e);
+			X509Certificate storedCert = (X509Certificate) getDefaultKeyStore().getCertificate(storedCertAlias);
+			storedCert.verify(cert.getPublicKey());
+			return true;
+		} catch (KeyStoreException e) {
+			return false; // Was unable to read cert with given alias. Which is fine.
+		} catch (Exception e) {
+			return false; // Something is wrong with the provided key.
 		}
 	}
 
@@ -91,15 +72,37 @@ public class CertificateManager {
 	 * @return - True if store was successful, false in other cases.
 	 */
 	public static boolean putServerCert(String name, X509Certificate cert) {
+		KeyStore ks = getDefaultKeyStore();
 		try {
-			if (getDefaultKeyStore().containsAlias(name)){
+			if (ks.containsAlias(name)){
 				return false;
 			} else {
-				getDefaultKeyStore().setCertificateEntry(name, cert);
+				ks.setCertificateEntry(name, cert);
+				saveKeyStore(ks);
 				return true;
 			}
 		} catch (KeyStoreException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+	/**
+	 * Force store server X509Certificate under the name provided even if a certificate with the given alias already exists.
+	 * 
+	 * @param name - Name of the certificate
+	 * @param cert - X509Certificate to store
+	 * @return - True if store was successful, false in other cases.
+	 */
+	public static boolean forcePutServerCert(String name, X509Certificate cert) {
+		KeyStore ks = getDefaultKeyStore();
+		try {
+			ks.setCertificateEntry(name, cert);
+			saveKeyStore(ks);
+			return true;
+		} catch (KeyStoreException e) {
 			e.printStackTrace();
 		}
 		return false;
@@ -114,11 +117,13 @@ public class CertificateManager {
 	 * @return - True if the overwrite was successful, false in other cases
 	 */
 	public static boolean overwriteServerCert(String name, X509Certificate cert){
+		KeyStore ks = getDefaultKeyStore();
 		try {
-			if (getDefaultKeyStore().containsAlias(name)){
+			if (ks.containsAlias(name)){
 				return false;
 			} else {
 				getDefaultKeyStore().setCertificateEntry(name, cert);
+				saveKeyStore(ks);
 				return true;
 			}
 		} catch (KeyStoreException e) {
@@ -153,13 +158,12 @@ public class CertificateManager {
 	 */
 	private static synchronized KeyStore getDefaultKeyStore(){
 		if (_ks == null){
-			KeyStore ks = null;
 			try {
-				ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
+				_ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
 				if ((new File(DEFAULT_KEYSTORE_LOCATION)).exists()){
 					InputStream is = new FileInputStream(DEFAULT_KEYSTORE_LOCATION);
-					ks.load(is, DEFAULT_KEYSTORE_PASSWORD.toCharArray());
-					return ks;
+					_ks.load(is, DEFAULT_KEYSTORE_PASSWORD.toCharArray());
+					return _ks;
 				} else {
 					throw new IOException("KeyStore file " + DEFAULT_KEYSTORE_LOCATION + "wasn't readable");
 				}
@@ -167,16 +171,37 @@ public class CertificateManager {
 				// Ignore. Not an issue. Let's just create a new keystore instead.
 			}
 			try {
-				ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
-				ks.load(null, DEFAULT_KEYSTORE_PASSWORD.toCharArray());
-				ks.store(new FileOutputStream(DEFAULT_KEYSTORE_LOCATION), DEFAULT_KEYSTORE_PASSWORD.toCharArray());
-				return ks;
+				_ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
+				_ks.load(null, DEFAULT_KEYSTORE_PASSWORD.toCharArray());
+				saveKeyStore(_ks);
+				return _ks;
 			} catch (Exception e){
 				// Log perhaps?
 			}
 			return null;
 		} else {
 			return _ks;
+		}
+	}
+	
+	private static void saveKeyStore(KeyStore ks){
+		try {
+			ks.store(new FileOutputStream(DEFAULT_KEYSTORE_LOCATION), DEFAULT_KEYSTORE_PASSWORD.toCharArray());
+		} catch (KeyStoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CertificateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

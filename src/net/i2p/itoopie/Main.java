@@ -6,6 +6,7 @@ package net.i2p.itoopie;
 
 import java.security.Security;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -16,6 +17,7 @@ import org.apache.commons.logging.LogFactory;
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Error;
 
 import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.security.CertificateHelper;
 import net.i2p.itoopie.util.ConfigurationManager;
 
 /**
@@ -27,6 +29,7 @@ public class Main {
     private TrayManager trayManager = null;
     private static ConfigurationManager _conf;
     private static Log _log;
+    public static final boolean isDebug = true;
 
     /**
      * Start the tray icon code (loads tray icon in the tray area).
@@ -62,6 +65,7 @@ public class Main {
         System.setProperty("java.awt.headless", "false");
         _conf = ConfigurationManager.getInstance();
         _log = LogFactory.getLog(Main.class);
+        HttpsURLConnection.setDefaultHostnameVerifier(CertificateHelper.getHostnameVerifier());
         
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -75,20 +79,11 @@ public class Main {
             //log.log(Log.ERROR, null, ex);
         }
         
-        _conf.parseConfigStr("server-name=localhost");
-        _conf.parseConfigStr("server-port=7656");
+        _conf.parseConfigStr("server-name=127.0.0.1");
+        _conf.parseConfigStr("server-port=5555");
         _conf.parseConfigStr("server-target=jsonrpc");
         
         
-        for (java.security.Provider p : Security.getProviders()){
-        	System.out.println("Provider: " + p.getName());
-        }
-        for (String p : Security.getAlgorithms("KeyStore")){
-        	System.out.println("KeyStore algorithm: " + p);
-        }
-        for (String p : Security.getAlgorithms("Cipher")){
-        	System.out.println("Cipher algorithm: " + p);
-        }
         
         String str = null;
 		try {

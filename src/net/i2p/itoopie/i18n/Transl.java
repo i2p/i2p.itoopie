@@ -1,6 +1,6 @@
 package net.i2p.itoopie.i18n;
 
-public class ItoopieTranslator {
+public class Transl {
     
     private static final String BUNDLE_NAME = "net.i2p.itoopie.messages";
      

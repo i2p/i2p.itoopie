@@ -11,10 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
+import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
-import net.i2p.itoopie.i18n.ItoopieTranslator;
+import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.util.BrowseException;
+import net.i2p.itoopie.util.IsJar;
 
 /**
  * Manages the tray icon life.
@@ -81,14 +83,12 @@ public class TrayManager {
         	desiredHeight = 512;
         }
         
-        URL url = getClass().getResource("/resources/images/itoopie-"+desiredHeight+".png");
-        Image image = Toolkit.getDefaultToolkit().getImage(url);
-        //Image image = Toolkit.getDefaultToolkit().getImage("resources/images/itoopie-"+desiredHeight+".png");
-        return image;
-    }
-    
-    protected static String _(String s) {
-        return ItoopieTranslator._(s);
+        if (IsJar.isRunningJar()){
+        	URL url = getClass().getResource("/resources/images/itoopie-"+desiredHeight+".png");
+        	return Toolkit.getDefaultToolkit().getImage(url);
+        } else {
+        	return Toolkit.getDefaultToolkit().getImage("resources/images/itoopie-"+desiredHeight+".png");
+        }
     }
     
     
@@ -99,7 +99,7 @@ public class TrayManager {
     public PopupMenu getMainMenu() {
         PopupMenu popup = new PopupMenu();
         
-        MenuItem browserLauncher = new MenuItem(_("Launch I2P Browser"));
+        MenuItem browserLauncher = new MenuItem(Transl._("Launch I2P Browser"));
         browserLauncher.addActionListener(new ActionListener() {
             
             @Override
@@ -119,25 +119,7 @@ public class TrayManager {
                 }.execute();
             }
         });
-        MenuItem restartItem = new MenuItem(_("Restart I2P"));
-        restartItem.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                new SwingWorker<Object, Object>() {
-
-                    @Override
-                    protected Object doInBackground() throws Exception {
-                        //RouterManager.restart();
-                        return null;
-                    }
-                    
-                }.execute();
-                
-            }
-            
-        });
-        MenuItem stopItem = new MenuItem(_("Stop I2P"));
+        MenuItem stopItem = new MenuItem(Transl._("Exit itoopie"));
         stopItem.addActionListener(new ActionListener() {
 
             @Override
@@ -146,19 +128,13 @@ public class TrayManager {
                     
                     @Override
                     protected Object doInBackground() throws Exception {
-                        //RouterManager.shutDown();
+                        System.exit(0);
                         return null;
                     }
-                    
                 }.execute();
-                
             }
-            
         });
         
-        popup.add(browserLauncher);
-        popup.addSeparator();
-        popup.add(restartItem);
         popup.add(stopItem);
         
         return popup;

@@ -13,6 +13,13 @@ import java.util.regex.*;
 
 import javax.net.ssl.*;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.security.CertificateHelper;
+import net.i2p.itoopie.security.CertificateManager;
+
 import com.thetransactioncompany.jsonrpc2.*;
 
 
@@ -106,7 +113,11 @@ import com.thetransactioncompany.jsonrpc2.*;
  * @version 1.2 (2011-03-29)
  */
 public class JSONRPC2Session {
-
+	private static final Log _log;
+	
+	static {
+		_log = LogFactory.getLog(JSONRPC2Session.class);
+	}
 
 	/** 
 	 * The server URL, which protocol must be HTTP or HTTPS. 
@@ -428,6 +439,7 @@ public class JSONRPC2Session {
 					public void checkServerTrusted(X509Certificate[] certs, String authType) { }
 				}
 			};
+
 		
 			try {
 				SSLContext sc = SSLContext.getInstance("SSL");

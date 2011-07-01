@@ -48,6 +48,7 @@ public class JSONInterface{
 			_log.error("Bad URL: https://"+srvHost+":"+srvPort+"/"+srvTarget, e);
 		}
 		session = new JSONRPC2Session(srvURL);
+		session.trustAllCerts(true);
 	}
 	
 	
@@ -94,6 +95,24 @@ public class JSONInterface{
 		if (resp.indicatesSuccess()){
 			Map inParams = (HashMap)resp.getResult();
 			return (String) inParams.get("result");
+		} else {
+				throw resp.getError();
+		}	
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static String getServerCert(String str) throws JSONRPC2Error{
+		
+		JSONRPC2Request req = new JSONRPC2Request("echo", incrNonce());
+		@SuppressWarnings("rawtypes")
+		Map params = new HashMap();
+		params.put("echo", str);
+		req.setParams(params);
+		
+		JSONRPC2Response resp = sendReq(req);
+		if (resp.indicatesSuccess()){
+			Map inParams = (HashMap)resp.getResult();
+			return (String) inParams.get("serverCert");
 		} else {
 				throw resp.getError();
 		}	

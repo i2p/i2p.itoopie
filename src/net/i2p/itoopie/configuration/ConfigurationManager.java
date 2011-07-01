@@ -2,7 +2,6 @@ package net.i2p.itoopie.configuration;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -18,7 +17,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * Manage the configuration of I2PControl.
- * @author mathias
+ * @author MathiasDM
  * modified: hottuna
  *
  */

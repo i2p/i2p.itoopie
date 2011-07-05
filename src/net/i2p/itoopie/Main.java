@@ -78,9 +78,9 @@ public class Main {
             //log.log(Log.ERROR, null, ex);
         }
         
-        _conf.parseConfigStr("server-name=127.0.0.1");
-        _conf.parseConfigStr("server-port=5555");
-        _conf.parseConfigStr("server-target=jsonrpc");
+        _conf.parseConfigStr("server.hostname=127.0.0.1");
+        _conf.parseConfigStr("server.port=5555");
+        _conf.parseConfigStr("server.target=jsonrpc");
         
         
         
@@ -118,6 +118,12 @@ public class Main {
             }
             
         });
+    }
+    
+    @SuppressWarnings("static-access")
+	public static void beginShutdown(){
+    	_conf.writeConfFile();
+    	System.exit(0);
     }
     
     /**

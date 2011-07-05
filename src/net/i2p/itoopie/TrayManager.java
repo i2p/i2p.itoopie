@@ -129,7 +129,7 @@ public class TrayManager {
                     
                     @Override
                     protected Object doInBackground() throws Exception {
-                        System.exit(0);
+                        Main.beginShutdown();
                         return null;
                     }
                 }.execute();

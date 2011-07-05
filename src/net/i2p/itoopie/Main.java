@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Error;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONInterface;
 import net.i2p.itoopie.security.CertificateHelper;
 
@@ -86,8 +87,8 @@ public class Main {
         String str = null;
 		try {
 			str = JSONInterface.getEcho("Echo this mofo!");
-		} catch (JSONRPC2Error e) {
-			_log.debug("getEcho Echo this mofo! failed.", e);
+		}catch (InvalidPasswordException e) {
+			e.printStackTrace();
 		}
 		System.out.println("Echo response: " + str);
 		
@@ -95,8 +96,8 @@ public class Main {
         Double dbl = null;
 		try {
 			dbl = JSONInterface.getRateStat("bw.sendRate", 3600000L);
-		} catch (JSONRPC2Error e) {
-			_log.debug("getRateStat(bw.sendRate, 3600000L) failed.", e);
+		} catch (InvalidPasswordException e) {
+			e.printStackTrace();
 		}
         System.out.println("rateStat: " + dbl);
         

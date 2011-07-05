@@ -124,7 +124,6 @@ public class JSONInterface {
 
 	private static synchronized String getNewToken()
 			throws InvalidPasswordException {
-		System.out.println("getNewToken()");
 		JSONRPC2Request req = new JSONRPC2Request("authenticate", incrNonce());
 
 		Map outParams = new HashMap();

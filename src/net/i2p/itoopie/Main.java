@@ -4,6 +4,12 @@ package net.i2p.itoopie;
  * Main.java
  */
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
+
 import javax.net.ssl.HttpsURLConnection;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -13,10 +19,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Error;
+import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.i2pcontrol.JSONInterface.NETWORK_INFO;
 import net.i2p.itoopie.security.CertificateHelper;
 
 /**
@@ -83,24 +92,97 @@ public class Main {
         _conf.parseConfigStr("server.target=jsonrpc");
         
         
-        
-        String str = null;
+        // Test basic echo method
 		try {
-			str = JSONInterface.getEcho("Echo this mofo!");
+			String str = JSONInterface.getEcho("Echo this mofo!");
+			System.out.println("Echo response: " + str);
 		}catch (InvalidPasswordException e) {
 			e.printStackTrace();
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
 		}
-		System.out.println("Echo response: " + str);
 		
-		
-        Double dbl = null;
+		// Test reading a rateStat
 		try {
-			dbl = JSONInterface.getRateStat("bw.sendRate", 3600000L);
+			Double dbl = JSONInterface.getRateStat("bw.sendRate", 3600000L);
+			System.out.println("rateStat: " + dbl);
 		} catch (InvalidPasswordException e) {
 			e.printStackTrace();
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		} catch (InvalidParametersException e) {
+			System.out.println("Bad parameters sent..");
 		}
-        System.out.println("rateStat: " + dbl);
         
+        // Test reading all settings
+        try {
+        	HashMap hm = JSONInterface.getNetworkInfo(JSONInterface.NETWORK_INFO.values());
+			System.out.println("getNetworkInfo: All: ");
+			Set<Entry> set = hm.entrySet();
+			for (Entry e : set){
+				System.out.println(e.getKey() +":"+ e.getValue());
+			}
+		} catch (InvalidPasswordException e1) {
+			//e1.printStackTrace();
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		}
+
+        
+        
+        // Test saving all settings
+        try { 
+        	HashMap<NETWORK_INFO, String> hm = new HashMap<NETWORK_INFO,String>();
+        	
+        	List<NETWORK_INFO> list = Arrays.asList(NETWORK_INFO.values());
+        	for (NETWORK_INFO i : list){
+        		hm.put(i, "66"); // 66 is an arbitrary number that should work for most fields.
+        	}
+        	HashMap nextHM= JSONInterface.setNetworkSetting(hm);
+        	System.out.println("setNetworkInfo: All: ");
+        	Set<Entry> set = nextHM.entrySet();
+        	for (Entry e : set){
+        		System.out.println(e.getKey() +":"+ e.getValue());
+        	}
+        } catch (InvalidPasswordException e){
+        	//e.printStackTrace();
+        } catch (JSONRPC2SessionException e){
+        	//e.printStackTrace();
+        	System.out.println("Connection failed..");
+        } catch (InvalidParametersException e) {
+        	System.out.println("Bad parameters sent..");
+        }
+        
+        // Manually test saving all(?) settings
+        try { 
+        	HashMap<NETWORK_INFO, String> hm = new HashMap<NETWORK_INFO,String>();
+        	hm.put(NETWORK_INFO.BW_IN, "666");
+        	hm.put(NETWORK_INFO.BW_OUT, "666");
+        	hm.put(NETWORK_INFO.BW_SHARE, "66");
+        	hm.put(NETWORK_INFO.DETECTED_IP, "66.66.66.66");
+        	hm.put(NETWORK_INFO.LAPTOP_MODE, "true");
+        	hm.put(NETWORK_INFO.TCP_AUTOIP, "always");
+        	hm.put(NETWORK_INFO.TCP_HOSTNAME, "66.66.66.66");
+        	hm.put(NETWORK_INFO.TCP_PORT, "66");
+        	hm.put(NETWORK_INFO.UDP_AUTO_IP, "local,upnp,ssu");
+        	hm.put(NETWORK_INFO.UDP_HOSTNAME, "66.66.66.66");
+        	hm.put(NETWORK_INFO.UDP_PORT, "66");
+        	hm.put(NETWORK_INFO.UPNP, "true");
+        	
+        	HashMap nextHM= JSONInterface.setNetworkSetting(hm);
+        	System.out.println("setNetworkInfo: Manual: ");
+        	Set<Entry> set = nextHM.entrySet();
+        	for (Entry e : set){
+        		System.out.println(e.getKey() +":"+ e.getValue());
+        	}
+        } catch (InvalidPasswordException e){
+        	//e.printStackTrace();
+        } catch (JSONRPC2SessionException e){
+        	//e.printStackTrace();
+        	System.out.println("Connection failed..");
+        } catch (InvalidParametersException e) {
+        	System.out.println("Bad parameters sent..");
+        }
         final Main main = new Main();
         main.launchForeverLoop();
         //We'll be doing GUI work, so let's stay in the event dispatcher thread.

@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
 import net.i2p.itoopie.i18n.Transl;
-import net.i2p.itoopie.util.BrowseException;
 import net.i2p.itoopie.util.IsJar;
 
 /**

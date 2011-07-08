@@ -12,7 +12,6 @@ import javax.swing.SwingWorker;
 
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.JSONInterface;
-import net.i2p.itoopie.util.BrowseException;
 
 public class Main {
 

@@ -1,21 +1,33 @@
 package net.i2p.itoopie.gui;
 
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.SwingWorker;
+import javax.swing.JTabbedPane;
+import java.awt.BorderLayout;
 
-import net.i2p.itoopie.i18n.Transl;
-import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import javax.swing.Icon;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+
+import net.i2p.itoopie.gui.component.LogoPanel;
+import net.i2p.itoopie.util.IconLoader;
+import javax.swing.UIManager;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.FlowLayout;
 
 public class Main {
 
 	private JFrame frame;
+	private final static Color VERY_LIGHT = new Color(230,230,230);
+	private final static Color LIGHT = new Color(215,215,215);
+	private final static Color MEDIUM = new Color (175,175,175);
+	private final static Color DARK = new Color(145,145,145);
 
 	/**
 	 * Launch the application.
@@ -44,86 +56,52 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(0, 0, 450, 300);
-		frame.getContentPane().setLayout(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GUIHelper.setDefaultStyle();
+
+
+		frame = new RegisteredFrame();
+		frame.setBounds(100, 100, 450, 300);
 		
-		JButton btnStop = new JButton(Transl._("Stop I2P"));
-		btnStop.setBounds(293, 91, 125, 25);
-		frame.getContentPane().add(btnStop);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
-		JLabel lblStop = new JLabel(Transl._("Push to stop I2P"));
-		lblStop.setBounds(293, 78, 125, 15);
-		frame.getContentPane().add(lblStop);
+		JPanel overviewPanel = new LogoPanel("itoopie-opaque12");
+		tabbedPane.addTab("Overview", null, overviewPanel, null);
+		overviewPanel.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnStart = new JButton(Transl._("Start I2P"));
-		btnStart.setBounds(43, 91, 125, 25);
-		frame.getContentPane().add(btnStart);
+		JPanel configPanel = new LogoPanel("itoopie-opaque12");
+		tabbedPane.addTab("Configuration", null, configPanel, null);
+		configPanel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblStart = new JLabel(Transl._("Push to start I2P"));
-		lblStart.setBounds(42, 78, 125, 15);
-		frame.getContentPane().add(lblStart);
+		JPanel logPanel = new LogoPanel("itoopie-opaque12");
+		tabbedPane.addTab("Logs", null, logPanel, null);
+		logPanel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblGetRate = new JLabel(Transl._("Get bwSend rate"));
-		lblGetRate.setBounds(293, 172, 125, 15);
-		frame.getContentPane().add(lblGetRate);
+		JPanel statusPanel = new JPanel();
+		frame.getContentPane().add(statusPanel, BorderLayout.SOUTH);
+		statusPanel.setBounds(100, 15, 100, 100);
+		statusPanel.setLayout(new BorderLayout(0, 0));
 		
-		final JLabel lblDispRate = new JLabel(Transl._("Rate not update yet, push button."));
-		lblDispRate.setBounds(0,255,450,15);
-		frame.getContentPane().add(lblDispRate);
+		JLabel statusLbl = StatusHandler.getStatusLbl();
+		statusLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		statusPanel.add(statusLbl, BorderLayout.CENTER);
 		
-		JButton btnGetRate = new JButton(Transl._("Update"));
-		btnGetRate.setBounds(293, 185, 125, 25);
-		frame.getContentPane().add(btnGetRate);
+		JPanel buttonWrapper = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) buttonWrapper.getLayout();
+		flowLayout.setHgap(10);
+		flowLayout.setVgap(3);
+		statusPanel.add(buttonWrapper, BorderLayout.EAST);
 		
-		JButton btnConnect = new JButton(Transl._("Connect"));
-		btnConnect.addActionListener(new ActionListener() {
+		JButton settingsBtn = new JButton("Settings");
+		buttonWrapper.add(settingsBtn);
+		settingsBtn.setIcon(new ImageIcon(IconLoader.getIcon("cogwheel", 16)));
+		settingsBtn.addActionListener(new ActionListener(){
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				Settings.start();
 			}
 		});
-		btnConnect.setBounds(43, 185, 125, 25);
-		frame.getContentPane().add(btnConnect);
 		
-		JLabel lblConnect = new JLabel(Transl._("Connect to I2P"));
-		lblConnect.setBounds(43, 172, 125, 15);
-		frame.getContentPane().add(lblConnect);
-		
-		
-		btnStop.addActionListener(new ActionListener(){
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				new SwingWorker<Object, Object>() {
-					
-					@Override
-					protected Object doInBackground() throws Exception {
-						return null;
-					}
-					
-					@Override
-					protected void done() {
-						System.out.println("Tried to open url");
-					}
-				}.execute();	
-			}
-			
-		});
-		
-		btnGetRate.addActionListener(new ActionListener(){
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				new SwingWorker<Object, Object>() {
-					
-					@Override
-					protected Object doInBackground() throws Exception {
-						double rate = JSONInterface.getRateStat("bw.sendRate", 3600000L);
-						lblDispRate.setText(Transl._("Current bw.sendRate: " + rate));
-						return null;
-					}
-				}.execute();
-			}
-		});
+		frame.setVisible(true);
 	}
 }

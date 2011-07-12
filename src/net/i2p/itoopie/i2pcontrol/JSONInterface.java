@@ -12,7 +12,10 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.security.CertificateHelper;
 
 import org.GNOME.Accessibility.CollectionHelper;
 import org.apache.commons.logging.Log;
@@ -94,6 +97,12 @@ public class JSONInterface {
 		session = new JSONRPC2Session(srvURL);
 		session.trustAllCerts(true);
 	}
+	
+	public static void testSettings() throws InvalidPasswordException, JSONRPC2SessionException{
+        HttpsURLConnection.setDefaultHostnameVerifier(CertificateHelper.getHostnameVerifier());
+		setupSession();
+		getNewToken();
+	}
 
 	private static JSONRPC2Response sendReq(JSONRPC2Request req)
 			throws InvalidPasswordException, UnrecoverableFailedRequestException,
@@ -174,7 +183,7 @@ public class JSONInterface {
 
 		Map outParams = new HashMap();
 		outParams.put("Password",
-				_conf.getConf("server.password", DEFAULT_PASSWORD));
+				_conf.getConf("server.password", _conf.getConf("server.password", DEFAULT_PASSWORD)));
 		req.setParams(outParams);
 
 		JSONRPC2Response resp = null;

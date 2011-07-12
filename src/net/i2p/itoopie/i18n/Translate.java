@@ -23,7 +23,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @since 0.7.9
  */
 public abstract class Translate {
-    public static final String PROP_LANG = "routerconsole.lang";
     private static final String _localeLang = Locale.getDefault().getLanguage();
     @SuppressWarnings("unchecked")
 	private static final Map<String, ResourceBundle> _bundles = new ConcurrentHashMap(2);

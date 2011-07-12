@@ -9,12 +9,16 @@ import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.net.URL;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
+import net.i2p.itoopie.gui.WindowHandler;
 import net.i2p.itoopie.i18n.Transl;
+import net.i2p.itoopie.util.IconLoader;
 import net.i2p.itoopie.util.IsJar;
 
 /**
@@ -47,8 +51,32 @@ public class TrayManager {
     protected void startManager() {
         if(SystemTray.isSupported()) {
             tray = SystemTray.getSystemTray();
-            trayIcon = new TrayIcon(getTrayImage(), "itoopie", getMainMenu());
+            trayIcon = new TrayIcon(IconLoader.getTrayImage(), "itoopie", getMainMenu());
             trayIcon.setImageAutoSize(true); //Resize image to fit the system tray
+            
+            trayIcon.addMouseListener(new MouseListener(){
+
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					WindowHandler.toggleFrames();
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent arg0) {				
+				}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {			
+				}
+
+				@Override
+				public void mousePressed(MouseEvent arg0) {				
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent arg0) {				
+				}
+            });
             try {
                 tray.add(trayIcon);
             } catch (AWTException e) {
@@ -61,36 +89,6 @@ public class TrayManager {
     }
 
     
-    /**
-     * Get tray icon image from the itoopie resources in the jar file.
-     * @return image used for the tray icon
-     */
-    private Image getTrayImage() {
-        
-        // Assume square icons.
-        int icoHeight = (int) SystemTray.getSystemTray().getTrayIconSize().getHeight();
-        int desiredHeight;
-        if	(icoHeight == 16 ||
-        		icoHeight == 24 ||
-        		icoHeight == 32 ||
-        		icoHeight == 48 ||
-        		icoHeight == 64 ||
-        		icoHeight == 128 ||
-        		icoHeight == 256 ||
-        		icoHeight == 512){
-        	desiredHeight = icoHeight;
-        } else {
-        	desiredHeight = 512;
-        }
-        
-        if (IsJar.isRunningJar()){
-        	URL url = getClass().getResource("/resources/images/itoopie-"+desiredHeight+".png");
-        	return Toolkit.getDefaultToolkit().getImage(url);
-        } else {
-        	return Toolkit.getDefaultToolkit().getImage("resources/images/itoopie-"+desiredHeight+".png");
-        }
-    }
-    
     
     /**
      * Build a popup menu, adding callbacks to the different items.
@@ -98,27 +96,6 @@ public class TrayManager {
      */
     public PopupMenu getMainMenu() {
         PopupMenu popup = new PopupMenu();
-        
-        MenuItem browserLauncher = new MenuItem(Transl._("Launch I2P Browser"));
-        browserLauncher.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                new SwingWorker<Object, Object>() {
-
-                    @Override
-                    protected Object doInBackground() throws Exception {
-                        return null;
-                    }
-                    
-                    @Override
-                    protected void done() {
-                    	System.out.println("Tried to open a browser"); 
-                    }
-                    
-                }.execute();
-            }
-        });
         MenuItem stopItem = new MenuItem(Transl._("Exit itoopie"));
         stopItem.addActionListener(new ActionListener() {
 
@@ -136,7 +113,6 @@ public class TrayManager {
         });
         
         popup.add(stopItem);
-        
         return popup;
     }
 }

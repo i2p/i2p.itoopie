@@ -20,7 +20,7 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2Session;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
-public class JSONInterface {
+public class JSONRPC2Interface {
 	private static Log _log;
 	private static ConfigurationManager _conf;
 	private static String DEFAULT_PASSWORD = "itoopie";
@@ -30,7 +30,7 @@ public class JSONInterface {
 	private static String token;
 		
 	static {
-		_log = LogFactory.getLog(JSONInterface.class);
+		_log = LogFactory.getLog(JSONRPC2Interface.class);
 		_conf = ConfigurationManager.getInstance();
 		Random rnd = new Random();
 		nonce = rnd.nextInt();

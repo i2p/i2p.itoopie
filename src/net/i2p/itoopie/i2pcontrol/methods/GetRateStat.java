@@ -8,7 +8,7 @@ import org.apache.commons.logging.LogFactory;
 
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
-import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.UnrecoverableFailedRequestException;
 
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Request;
@@ -22,7 +22,7 @@ public class GetRateStat{
 	public static Double execute(String stat, long period)
 			throws InvalidPasswordException, JSONRPC2SessionException, InvalidParametersException {
 
-		JSONRPC2Request req = new JSONRPC2Request("GetRate", JSONInterface.incrNonce());
+		JSONRPC2Request req = new JSONRPC2Request("GetRate", JSONRPC2Interface.incrNonce());
 		@SuppressWarnings("rawtypes")
 		Map params = new HashMap();
 		params.put("Stat", stat);
@@ -31,7 +31,7 @@ public class GetRateStat{
 
 		JSONRPC2Response resp = null;
 		try {
-			resp = JSONInterface.sendReq(req);
+			resp = JSONRPC2Interface.sendReq(req);
 			HashMap inParams = (HashMap) resp.getResult();
 			Double dbl = (Double) inParams.get("Result");
 			return dbl;

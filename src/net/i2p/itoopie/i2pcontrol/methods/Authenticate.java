@@ -9,7 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
-import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.UnrecoverableFailedRequestException;
 
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Request;
@@ -23,7 +23,7 @@ public class Authenticate {
 	
 	public static String execute()
 			throws InvalidPasswordException, JSONRPC2SessionException {
-		JSONRPC2Request req = new JSONRPC2Request("Authenticate", JSONInterface.incrNonce());
+		JSONRPC2Request req = new JSONRPC2Request("Authenticate", JSONRPC2Interface.incrNonce());
 
 		Map outParams = new HashMap();
 		outParams.put("Password",
@@ -32,7 +32,7 @@ public class Authenticate {
 
 		JSONRPC2Response resp = null;
 		try {
-			resp = JSONInterface.sendReq(req);
+			resp = JSONRPC2Interface.sendReq(req);
 			Map inParams = (HashMap) resp.getResult();
 			return (String) inParams.get("Token");
 		}catch (UnrecoverableFailedRequestException e) {

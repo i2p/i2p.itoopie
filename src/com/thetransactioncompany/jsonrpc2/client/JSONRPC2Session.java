@@ -16,7 +16,7 @@ import javax.net.ssl.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.security.CertificateHelper;
 import net.i2p.itoopie.security.CertificateManager;
 

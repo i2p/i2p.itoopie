@@ -12,7 +12,7 @@ import org.apache.commons.logging.LogFactory;
 
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
-import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.UnrecoverableFailedRequestException;
 import net.i2p.itoopie.i2pcontrol.methods.NetworkInfo.NETWORK_INFO;
 
@@ -26,7 +26,7 @@ public class GetNetworkSetting {
 	public static HashMap execute(NETWORK_INFO ... options) 
 			throws InvalidPasswordException, JSONRPC2SessionException{
 		
-		JSONRPC2Request req = new JSONRPC2Request("NetworkSetting", JSONInterface.incrNonce());
+		JSONRPC2Request req = new JSONRPC2Request("NetworkSetting", JSONRPC2Interface.incrNonce());
 		@SuppressWarnings("rawtypes")
 		Map outParams = new HashMap();
 		List<NETWORK_INFO> list = Arrays.asList(options);
@@ -39,7 +39,7 @@ public class GetNetworkSetting {
 
 		JSONRPC2Response resp = null;
 		try {
-			resp = JSONInterface.sendReq(req);
+			resp = JSONRPC2Interface.sendReq(req);
 			HashMap map = (HashMap) resp.getResult();
 			if (map != null){
 				Set<Entry> set = map.entrySet();

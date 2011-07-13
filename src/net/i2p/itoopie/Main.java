@@ -24,7 +24,7 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
-import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.methods.GetEcho;
 import net.i2p.itoopie.i2pcontrol.methods.GetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;

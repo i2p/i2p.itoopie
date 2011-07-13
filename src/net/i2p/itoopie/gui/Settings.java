@@ -32,7 +32,7 @@ import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.component.ProgressiveDisclosurePanel;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
-import net.i2p.itoopie.i2pcontrol.JSONInterface;
+import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import javax.swing.BoxLayout;
 import java.awt.Component;
 
@@ -220,7 +220,7 @@ public class Settings extends RegisteredFrame{
 			try {
 				System.out.println("Password changed: \""+oldPW+"\"->\"" + pwText + "\"");
 				_conf.setConf("server.password", pwText);
-				JSONInterface.testSettings();
+				JSONRPC2Interface.testSettings();
 				newSettings = true;
 			} catch (InvalidPasswordException e) {
 				_conf.setConf("server.password", oldPW);

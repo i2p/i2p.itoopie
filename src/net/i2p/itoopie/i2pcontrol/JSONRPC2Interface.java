@@ -23,7 +23,6 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 public class JSONRPC2Interface {
 	private static Log _log;
 	private static ConfigurationManager _conf;
-	private static String DEFAULT_PASSWORD = "itoopie";
 	private static int nonce;
 	private static final int MAX_NBR_RETRIES = 2;
 	private static JSONRPC2Session session;

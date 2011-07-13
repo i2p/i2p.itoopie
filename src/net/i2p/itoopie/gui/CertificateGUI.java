@@ -1,6 +1,10 @@
 package net.i2p.itoopie.gui;
 
+import java.awt.BorderLayout;
+
 import javax.security.cert.X509Certificate;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -17,6 +21,10 @@ public class CertificateGUI {
 
 	public static boolean saveNewCert(String hostname, X509Certificate cert){
 		JFrame frame = new JFrame();
+		frame.setLayout(new BorderLayout());
+		JButton bt = new JButton();
+		bt.setText("text");
+		frame.add(bt, BorderLayout.NORTH);
 		
 		String title = Transl._("New remote host detected");
 		String hostString = Transl._("Would you like permanently trust the certificate from the remote host " + hostname + "?");

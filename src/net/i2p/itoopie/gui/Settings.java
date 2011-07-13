@@ -1,14 +1,9 @@
 package net.i2p.itoopie.gui;
 
-import java.awt.Container;
 import java.awt.EventQueue;
-import java.awt.Frame;
-
 import javax.swing.JFrame;
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.InetAddress;
@@ -16,20 +11,13 @@ import java.net.UnknownHostException;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JSlider;
-import javax.swing.SwingWorker;
-
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
-import net.i2p.itoopie.gui.component.ProgressiveDisclosurePanel;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
@@ -94,7 +82,7 @@ public class Settings extends RegisteredFrame{
 		GUIHelper.setDefaultStyle();
 		
 		setTitle("itoopie Settings");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 150);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		

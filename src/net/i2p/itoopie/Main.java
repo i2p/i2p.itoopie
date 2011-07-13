@@ -25,7 +25,11 @@ import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONInterface;
-import net.i2p.itoopie.i2pcontrol.JSONInterface.NETWORK_INFO;
+import net.i2p.itoopie.i2pcontrol.methods.GetEcho;
+import net.i2p.itoopie.i2pcontrol.methods.GetNetworkSetting;
+import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;
+import net.i2p.itoopie.i2pcontrol.methods.NetworkInfo.NETWORK_INFO;
+import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 import net.i2p.itoopie.security.CertificateHelper;
 
 /**
@@ -126,7 +130,7 @@ public class Main {
         
         // Test basic echo method
 		try {
-			String str = JSONInterface.getEcho("Echo this mofo!");
+			String str = GetEcho.execute("Echo this mofo!");
 			System.out.println("Echo response: " + str);
 		}catch (InvalidPasswordException e) {
 			e.printStackTrace();
@@ -136,7 +140,7 @@ public class Main {
 		
 		// Test reading a rateStat
 		try {
-			Double dbl = JSONInterface.getRateStat("bw.sendRate", 3600000L);
+			Double dbl = GetRateStat.execute("bw.sendRate", 3600000L);
 			System.out.println("rateStat: " + dbl);
 		} catch (InvalidPasswordException e) {
 			e.printStackTrace();
@@ -148,7 +152,7 @@ public class Main {
         
         // Test reading all settings
         try {
-        	HashMap hm = JSONInterface.getNetworkInfo(JSONInterface.NETWORK_INFO.values());
+        	HashMap hm = GetNetworkSetting.execute(NETWORK_INFO.values());
 			System.out.println("getNetworkInfo: All: ");
 			Set<Entry> set = hm.entrySet();
 			for (Entry e : set){
@@ -170,7 +174,7 @@ public class Main {
         	for (NETWORK_INFO i : list){
         		hm.put(i, "66"); // 66 is an arbitrary number that should work for most fields.
         	}
-        	HashMap nextHM= JSONInterface.setNetworkSetting(hm);
+        	HashMap nextHM= SetNetworkSetting.execute(hm);
         	System.out.println("setNetworkInfo: All: ");
         	Set<Entry> set = nextHM.entrySet();
         	for (Entry e : set){
@@ -201,7 +205,7 @@ public class Main {
         	hm.put(NETWORK_INFO.UDP_PORT, "66");
         	hm.put(NETWORK_INFO.UPNP, "true");
         	
-        	HashMap nextHM= JSONInterface.setNetworkSetting(hm);
+        	HashMap nextHM= SetNetworkSetting.execute(hm);
         	System.out.println("setNetworkInfo: Manual: ");
         	Set<Entry> set = nextHM.entrySet();
         	for (Entry e : set){

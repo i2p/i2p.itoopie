@@ -24,6 +24,7 @@ import javax.swing.JSeparator;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSlider;
+import javax.swing.SwingWorker;
 
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
@@ -171,67 +172,89 @@ public class Settings extends RegisteredFrame{
 	
 	@SuppressWarnings("static-access")
 	private int saveSettings(){
+		boolean newSettings = false;
+		
 		String ipText = textFieldRouterIP.getText();
-		try {
-			InetAddress.getByName(ipText);
-			_conf.setConf("server.hostname", ipText);
-		} catch (UnknownHostException e) {
-			JOptionPane.showConfirmDialog(
-				    this,
-				    Transl._(ipText + " can not be interpreted as an ip address.\r\n" + 
-							"\r\nTry entering the ip address of the machine running i2p."),
-				    Transl._("Invalid ip address."),
-				    JOptionPane.DEFAULT_OPTION,
-				    JOptionPane.ERROR_MESSAGE);
-			return SAVE_ERROR;
+		if (!ipText.equals(_conf.getConf("server.hostname", "127.0.0.1"))){
+			System.out.println("Password changed: \""+_conf.getConf("server.hostname","127.0.0.1")+"\"->\"" + ipText + "\"");
+			try {
+				InetAddress.getByName(ipText);
+				newSettings = true;
+				_conf.setConf("server.hostname", ipText);
+			} catch (UnknownHostException e) {
+				JOptionPane.showConfirmDialog(
+					    this,
+					    Transl._(ipText + " can not be interpreted as an ip address.\r\n" + 
+								"\r\nTry entering the ip address of the machine running i2p."),
+					    Transl._("Invalid ip address."),
+					    JOptionPane.DEFAULT_OPTION,
+					    JOptionPane.ERROR_MESSAGE);
+				return SAVE_ERROR;
+			}
 		}
 		
 		String  portText = textFieldRouterPort.getText();
-		try {
-			int nbr = Integer.parseInt(portText);
-			if (nbr > 65535 || nbr <= 0)
-				throw new NumberFormatException();
-			_conf.setConf("server.port", nbr);
-		} catch (NumberFormatException e){
-			JOptionPane.showConfirmDialog(
-				    this,
-				    Transl._(portText + " can not be interpreted as a port.\r\n" + 
-							"\r\nA port has to be a number in the range 1-65535."),
-				    Transl._("Invalid port."),
-				    JOptionPane.DEFAULT_OPTION,
-				    JOptionPane.ERROR_MESSAGE);
-			return SAVE_ERROR;
+		if (!portText.equals(_conf.getConf("server.port",7560)+"")){
+			System.out.println("Password changed: \""+_conf.getConf("server.port",7560)+"\"->\"" + portText + "\"");
+			try {
+				int nbr = Integer.parseInt(portText);
+				if (nbr > 65535 || nbr <= 0)
+					throw new NumberFormatException();
+				newSettings = true;
+				_conf.setConf("server.port", nbr);
+			} catch (NumberFormatException e){
+				JOptionPane.showConfirmDialog(
+					    this,
+					    Transl._(portText + " can not be interpreted as a port.\r\n" + 
+								"\r\nA port has to be a number in the range 1-65535."),
+					    Transl._("Invalid port."),
+					    JOptionPane.DEFAULT_OPTION,
+					    JOptionPane.ERROR_MESSAGE);
+				return SAVE_ERROR;
+			}
 		}
 		
 		String pwText = new String(passwordField.getPassword());
 		String oldPW = _conf.getConf("server.password", "itoopie");
-		try {
-			_conf.setConf("server.password", pwText);
-			JSONInterface.testSettings();
-		} catch (InvalidPasswordException e) {
-			_conf.setConf("server.password", oldPW);
-			JOptionPane.showConfirmDialog(
-				    this,
-				    Transl._("The password was not accepted as valid by the specified host.\r\n" + 
-							"\r\nPassword was reset to the default password, \"itoopie\"."),
-				    Transl._("Rejected password."),
-				    JOptionPane.DEFAULT_OPTION,
-				    JOptionPane.ERROR_MESSAGE);
-			return SAVE_ERROR;
-		} catch (JSONRPC2SessionException e) {
-			e.printStackTrace();
-			JOptionPane.showConfirmDialog(
-				    this,
-				    Transl._("The remote host at the ip and port did not respond.\r\n" + 
-							"\r\nMaybe I2PControl is not running on the remote I2P router, \r\n" + 
-				    		"maybe the I2P router is not started."),
-				    Transl._("Connection failed."),
-				    JOptionPane.DEFAULT_OPTION,
-				    JOptionPane.ERROR_MESSAGE);
-			return SAVE_ERROR;
+		if (!pwText.equals(oldPW)){
+			try {
+				System.out.println("Password changed: \""+oldPW+"\"->\"" + pwText + "\"");
+				_conf.setConf("server.password", pwText);
+				JSONInterface.testSettings();
+				newSettings = true;
+			} catch (InvalidPasswordException e) {
+				_conf.setConf("server.password", oldPW);
+				JOptionPane.showConfirmDialog(
+					    this,
+					    Transl._("The password was not accepted as valid by the specified host.\r\n" + 
+								"\r\nPassword was reset to the default password, \"itoopie\"."),
+					    Transl._("Rejected password."),
+					    JOptionPane.DEFAULT_OPTION,
+					    JOptionPane.ERROR_MESSAGE);
+				return SAVE_ERROR;
+			} catch (JSONRPC2SessionException e) {
+				e.printStackTrace();
+				JOptionPane.showConfirmDialog(
+					    this,
+					    Transl._("The remote host at the ip and port did not respond.\r\n" + 
+								"\r\nMaybe I2PControl is not running on the remote I2P router, \r\n" + 
+					    		"maybe the I2P router is not started."),
+					    Transl._("Connection failed."),
+					    JOptionPane.DEFAULT_OPTION,
+					    JOptionPane.ERROR_MESSAGE);
+				return SAVE_ERROR;
+			}
 		}
-		_conf.writeConfFile();
-		StatusHandler.setStatus("Settings saved");
+		if (newSettings){
+			StatusHandler.setStatus("Settings saved");
+			(new Thread() {
+				@Override
+				public void run(){
+					_conf.writeConfFile();
+				}
+			}).start();
+		}
 		return SAVE_OK;
 	}
+
 }

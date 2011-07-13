@@ -86,11 +86,11 @@ public class Main {
 		ChartPanel pt = new ChartPanel(partTunnelChart);
 		pt.setSize(300, 135);
 		pt.setLocation(15, 15);;
-		pt.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+		pt.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		ChartPanel cp = new ChartPanel(bwChart);
 		cp.setSize(300,135);
 		cp.setLocation(15, 165);
-		cp.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY));
+		cp.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		
 		overviewPanel.add(pt);
 		overviewPanel.add(cp);

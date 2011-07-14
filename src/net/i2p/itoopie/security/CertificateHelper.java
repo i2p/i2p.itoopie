@@ -116,7 +116,7 @@ public class CertificateHelper {
 		return new HostnameVerifier(){
 		
 	        public boolean verify(String urlHostName, SSLSession session) {
-	            String serverHost = session.getPeerHost();
+	            String serverHost = session.getPeerHost() + ":" + session.getPeerPort();
 					try {
 						javax.security.cert.X509Certificate[] certs = session.getPeerCertificateChain();
 						

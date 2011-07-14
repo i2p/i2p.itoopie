@@ -152,6 +152,14 @@ public class Settings extends RegisteredFrame{
 		populateSettings();
 	}
 	
+	@Override
+	public void setVisible(boolean isVisible){
+		if (isVisible){
+			populateSettings();
+		}
+		super.setVisible(isVisible);
+	}
+	
 	private void populateSettings(){
 		textFieldRouterIP.setText(_conf.getConf("server.hostname", "127.0.0.1"));
 		textFieldRouterPort.setText(_conf.getConf("server.port", 7560)+"");
@@ -160,89 +168,96 @@ public class Settings extends RegisteredFrame{
 	
 	@SuppressWarnings("static-access")
 	private int saveSettings(){
-		boolean newSettings = false;
+		String oldIP = _conf.getConf("server.hostname", "127.0.0.1");
+		int oldPort = _conf.getConf("server.port", 7560);
+		String oldPW = _conf.getConf("server.password", "itoopie");
+
 		
 		String ipText = textFieldRouterIP.getText();
-		if (!ipText.equals(_conf.getConf("server.hostname", "127.0.0.1"))){
-			System.out.println("Password changed: \""+_conf.getConf("server.hostname","127.0.0.1")+"\"->\"" + ipText + "\"");
-			try {
-				InetAddress.getByName(ipText);
-				newSettings = true;
-				_conf.setConf("server.hostname", ipText);
-			} catch (UnknownHostException e) {
-				JOptionPane.showConfirmDialog(
-					    this,
-					    Transl._(ipText + " can not be interpreted as an ip address.\r\n" + 
-								"\r\nTry entering the ip address of the machine running i2p."),
-					    Transl._("Invalid ip address."),
-					    JOptionPane.DEFAULT_OPTION,
-					    JOptionPane.ERROR_MESSAGE);
-				return SAVE_ERROR;
-			}
+		try {
+			InetAddress.getByName(ipText);
+		} catch (UnknownHostException e) {
+			JOptionPane.showConfirmDialog(
+				    this,
+				    Transl._(ipText + " can not be interpreted as an ip address.\r\n" + 
+							"\r\nTry entering the ip address of the machine running i2p."),
+				    Transl._("Invalid ip address."),
+				    JOptionPane.DEFAULT_OPTION,
+				    JOptionPane.ERROR_MESSAGE);
+			return SAVE_ERROR;
 		}
 		
 		String  portText = textFieldRouterPort.getText();
-		if (!portText.equals(_conf.getConf("server.port",7560)+"")){
-			System.out.println("Password changed: \""+_conf.getConf("server.port",7560)+"\"->\"" + portText + "\"");
-			try {
-				int nbr = Integer.parseInt(portText);
-				if (nbr > 65535 || nbr <= 0)
-					throw new NumberFormatException();
-				newSettings = true;
-				_conf.setConf("server.port", nbr);
-			} catch (NumberFormatException e){
-				JOptionPane.showConfirmDialog(
-					    this,
-					    Transl._(portText + " can not be interpreted as a port.\r\n" + 
-								"\r\nA port has to be a number in the range 1-65535."),
-					    Transl._("Invalid port."),
-					    JOptionPane.DEFAULT_OPTION,
-					    JOptionPane.ERROR_MESSAGE);
-				return SAVE_ERROR;
-			}
+		int port = 0;
+		try {
+			port = Integer.parseInt(portText);
+			if (port > 65535 || port <= 0)
+				throw new NumberFormatException();
+		} catch (NumberFormatException e){
+			JOptionPane.showConfirmDialog(
+				    this,
+				    Transl._(portText + " can not be interpreted as a port.\r\n" + 
+							"\r\nA port has to be a number in the range 1-65535."),
+				    Transl._("Invalid port."),
+				    JOptionPane.DEFAULT_OPTION,
+				    JOptionPane.ERROR_MESSAGE);
+			return SAVE_ERROR;
 		}
 		
 		String pwText = new String(passwordField.getPassword());
-		String oldPW = _conf.getConf("server.password", "itoopie");
-		if (!pwText.equals(oldPW)){
-			try {
-				System.out.println("Password changed: \""+oldPW+"\"->\"" + pwText + "\"");
-				_conf.setConf("server.password", pwText);
-				JSONRPC2Interface.testSettings();
-				newSettings = true;
-			} catch (InvalidPasswordException e) {
-				_conf.setConf("server.password", oldPW);
-				JOptionPane.showConfirmDialog(
-					    this,
-					    Transl._("The password was not accepted as valid by the specified host.\r\n" + 
-								"\r\nPassword was reset to the default password, \"itoopie\"."),
-					    Transl._("Rejected password."),
-					    JOptionPane.DEFAULT_OPTION,
-					    JOptionPane.ERROR_MESSAGE);
-				return SAVE_ERROR;
-			} catch (JSONRPC2SessionException e) {
-				e.printStackTrace();
-				JOptionPane.showConfirmDialog(
-					    this,
-					    Transl._("The remote host at the ip and port did not respond.\r\n" + 
-								"\r\nMaybe I2PControl is not running on the remote I2P router, \r\n" + 
-					    		"maybe the I2P router is not started."),
-					    Transl._("Connection failed."),
-					    JOptionPane.DEFAULT_OPTION,
-					    JOptionPane.ERROR_MESSAGE);
-				return SAVE_ERROR;
+		try {
+			_conf.setConf("server.hostname", ipText);
+			_conf.setConf("server.port", port);
+			_conf.setConf("server.password", pwText);
+			JSONRPC2Interface.testSettings();
+		} catch (InvalidPasswordException e) {
+			_conf.setConf("server.password", oldPW);
+			JOptionPane.showConfirmDialog(
+				    this,
+				    Transl._("The password was not accepted as valid by the specified host.\r\n" + 
+							"\r\n(by default the password is, \"itoopie\")"),
+				    Transl._("Rejected password."),
+				    JOptionPane.DEFAULT_OPTION,
+				    JOptionPane.ERROR_MESSAGE);
+			return SAVE_ERROR;
+		} catch (JSONRPC2SessionException e) {
+			_conf.setConf("server.hostname", oldIP);
+			_conf.setConf("server.port", oldPort);
+			_conf.setConf("server.password", oldPW);
+			JOptionPane.showConfirmDialog(
+				    this,
+				    Transl._("The remote host at the ip and port did not respond.\r\n" + 
+							"\r\nMaybe I2PControl is not running on the remote I2P router, \r\n" + 
+				    		"maybe the I2P router is not started."),
+				    Transl._("Connection failed."),
+				    JOptionPane.DEFAULT_OPTION,
+				    JOptionPane.ERROR_MESSAGE);
+			return SAVE_ERROR;
+		}
+		_conf.setConf("server.hostname", ipText);
+		_conf.setConf("server.port", port);
+		_conf.setConf("server.password", pwText);
+		
+		System.out.println("Ip old->new: \""+_conf.getConf("server.hostname","127.0.0.1")+"\"->\"" + ipText + "\"");
+		System.out.println("Port old->new: \""+_conf.getConf("server.port",7560)+"\"->\"" + portText + "\"");
+		System.out.println("Password old->new: \""+oldPW+"\"->\"" + pwText + "\"");
+	
+		StatusHandler.setStatus("Settings saved");
+		
+		(new Thread() {
+			@Override
+			public void run(){
+				_conf.writeConfFile();
 			}
-		}
-		if (newSettings){
-			StatusHandler.setStatus("Settings saved");
-			(new Thread() {
-				@Override
-				public void run(){
-					_conf.writeConfFile();
-				}
-			}).start();
-		}
+		}).start();
 		return SAVE_OK;
 	}
-
+	
+	
+	/**
+	 * Used to signify that a setting was not accepted.
+	 * @author hottuna
+	 *
+	 */
+	private class BadSettingsException extends Exception{	}
 }

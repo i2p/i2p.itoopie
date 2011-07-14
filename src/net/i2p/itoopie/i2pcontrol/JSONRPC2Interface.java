@@ -130,7 +130,7 @@ public class JSONRPC2Interface {
 				}
 			}
 			return resp;
-		}catch (FailedRequestException e) {
+		} catch (FailedRequestException e) {
 			return sendReq(req, ++tryNbr);
 		}
 	}

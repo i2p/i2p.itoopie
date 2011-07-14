@@ -164,5 +164,6 @@ public class Main {
 		});
 		
 		frame.setVisible(true);
+		frame.repaint(); // Force repaint to make sure that Logo is loaded.
 	}
 }

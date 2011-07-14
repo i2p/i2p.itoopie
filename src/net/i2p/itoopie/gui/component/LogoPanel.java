@@ -19,7 +19,6 @@ public class LogoPanel extends JPanel {
 	public LogoPanel(String imageName){
 		super();
 		bg = IconLoader.getIcon(imageName, 128);
-		super.repaint();
 	}
 	
 	@Override

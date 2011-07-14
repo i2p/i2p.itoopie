@@ -22,9 +22,15 @@ import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import javax.swing.BoxLayout;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.awt.Component;
 
 public class Settings extends RegisteredFrame{
+	private static final Log _log = LogFactory.getLog(Settings.class);
+	
 	private final static int SAVE_OK = 0;
 	private final static int SAVE_ERROR = 1;
 	private static Boolean instanceShown = false;
@@ -128,10 +134,7 @@ public class Settings extends RegisteredFrame{
 		passwordField = new JPasswordField();
 		passwordField.setBounds(240, 60, 100, 19);
 		networkPanel.add(passwordField);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(30, 85, 384, 1);
-		networkPanel.add(separator);
+
 		
 		JButton btnDone = new JButton("Done");
 		btnDone.setAlignmentY(Component.BOTTOM_ALIGNMENT);
@@ -238,9 +241,9 @@ public class Settings extends RegisteredFrame{
 		_conf.setConf("server.port", port);
 		_conf.setConf("server.password", pwText);
 		
-		System.out.println("Ip old->new: \""+_conf.getConf("server.hostname","127.0.0.1")+"\"->\"" + ipText + "\"");
-		System.out.println("Port old->new: \""+_conf.getConf("server.port",7560)+"\"->\"" + portText + "\"");
-		System.out.println("Password old->new: \""+oldPW+"\"->\"" + pwText + "\"");
+		_log.debug("Ip old->new: \""+_conf.getConf("server.hostname","127.0.0.1")+"\"->\"" + ipText + "\"");
+		_log.debug("Port old->new: \""+_conf.getConf("server.port",7560)+"\"->\"" + portText + "\"");
+		_log.debug("Password old->new: \""+oldPW+"\"->\"" + pwText + "\"");
 	
 		StatusHandler.setStatus("Settings saved");
 		

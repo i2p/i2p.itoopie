@@ -253,11 +253,4 @@ public class Settings extends RegisteredFrame{
 		return SAVE_OK;
 	}
 	
-	
-	/**
-	 * Used to signify that a setting was not accepted.
-	 * @author hottuna
-	 *
-	 */
-	private class BadSettingsException extends Exception{	}
 }

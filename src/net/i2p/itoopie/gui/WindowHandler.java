@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 
 public class WindowHandler {
 	private static final HashSet<JFrame> _frames = new HashSet<JFrame>();
-	private static Boolean areFramesShown = false;
+	private static boolean areFramesShown = false;
 	
-	public static void registerFrame(JFrame frame){
+	public static void register(JFrame frame){
 		_frames.add(frame);
 	}
 	

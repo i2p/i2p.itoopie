@@ -13,7 +13,7 @@ public class RegisteredFrame extends JFrame implements WindowListener{
 	public RegisteredFrame(String name) {
         super(name);
         super.addWindowListener(this);
-        WindowHandler.registerFrame(this);
+        WindowHandler.register(this);
         this.setIconImage(IconLoader.getIcon("itoopie", 128));
 	}
 
@@ -21,7 +21,7 @@ public class RegisteredFrame extends JFrame implements WindowListener{
     public RegisteredFrame() {
         super();
         super.addWindowListener(this);
-        WindowHandler.registerFrame(this);
+        WindowHandler.register(this);
         this.setIconImage(IconLoader.getIcon("itoopie", 128));
     }
 

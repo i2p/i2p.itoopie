@@ -72,6 +72,7 @@ public class Main {
 		frame = new RegisteredFrame();
 		frame.setBounds(100, 100, 550, 400);
 		frame.setResizable(false);
+		WindowHandler.registerMain(frame);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
@@ -82,14 +83,13 @@ public class Main {
 				
 		Chart2D bwChart = BandwidthChart.getChart();
 		Chart2D partTunnelChart = ParticipatingTunnelsChart.getChart();
-		//bwChart.setPreferredSize(new Dimension(30,100));
 		ChartPanel pt = new ChartPanel(partTunnelChart);
 		pt.setSize(300, 135);
-		pt.setLocation(15, 15);;
+		pt.setLocation(15, 10);
 		pt.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		ChartPanel cp = new ChartPanel(bwChart);
 		cp.setSize(300,135);
-		cp.setLocation(15, 165);
+		cp.setLocation(15, 155);
 		cp.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		
 		overviewPanel.add(pt);
@@ -102,10 +102,8 @@ public class Main {
 		
 		JPanel configArea = new JPanel();
 		configArea.setOpaque(false);
-		//configArea.setLayout(new Grid());
 		configPanel.add(configArea, BorderLayout.CENTER);
 
-		
 		
 		JPanel buttonArea = new JPanel();
 		buttonArea.setOpaque(false);
@@ -164,6 +162,7 @@ public class Main {
 		});
 		
 		frame.setVisible(true);
-		frame.repaint(); // Force repaint to make sure that Logo is loaded.
+		//frame.repaint(); // Force repaint to make sure that Logo is loaded.
 	}
+	
 }

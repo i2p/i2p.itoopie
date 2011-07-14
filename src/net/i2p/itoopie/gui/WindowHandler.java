@@ -7,10 +7,15 @@ import javax.swing.JFrame;
 
 public class WindowHandler {
 	private static final HashSet<JFrame> _frames = new HashSet<JFrame>();
+	private static JFrame mainFrame;
 	private static boolean areFramesShown = false;
 	
 	public static void register(JFrame frame){
 		_frames.add(frame);
+	}
+	
+	public static void registerMain(JFrame frame){
+		mainFrame = frame;
 	}
 	
 	public static void deRegister(JFrame frame){
@@ -21,12 +26,18 @@ public class WindowHandler {
 		for (JFrame frame : _frames){
 			frame.setVisible(false);
 		}
+		if (mainFrame != null){
+			mainFrame.setVisible(false);
+		}
 		areFramesShown = false;
 	}
 	
 	public static void showFrames(){
 		for (JFrame frame : _frames){
 			frame.setVisible(true);
+		}
+		if (mainFrame != null){
+			mainFrame.setVisible(true);
 		}
 		areFramesShown = true;
 	}

@@ -14,6 +14,7 @@ import java.awt.event.MouseListener;
 import java.net.URL;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 import net.i2p.itoopie.gui.WindowHandler;
@@ -49,39 +50,43 @@ public class TrayManager {
      * Add the tray icon to the system tray and start everything up.
      */
     protected void startManager() {
-        if(SystemTray.isSupported()) {
-            tray = SystemTray.getSystemTray();
-            trayIcon = new TrayIcon(IconLoader.getTrayImage(), "itoopie", getMainMenu());
-            trayIcon.setImageAutoSize(true); //Resize image to fit the system tray
-            
-            trayIcon.addMouseListener(new MouseListener(){
-
-				@Override
-				public void mouseClicked(MouseEvent arg0) {
-					WindowHandler.toggleFrames();
-				}
-
-				@Override
-				public void mouseEntered(MouseEvent arg0) {				
-				}
-
-				@Override
-				public void mouseExited(MouseEvent arg0) {			
-				}
-
-				@Override
-				public void mousePressed(MouseEvent arg0) {				
-				}
-
-				@Override
-				public void mouseReleased(MouseEvent arg0) {				
-				}
-            });
-            try {
-                tray.add(trayIcon);
-            } catch (AWTException e) {
-            }
-        }
+    	SwingUtilities.invokeLater(new Runnable(){
+    		public void run(){
+		        if(SystemTray.isSupported()) {
+		            tray = SystemTray.getSystemTray();
+		            trayIcon = new TrayIcon(IconLoader.getTrayImage(), "itoopie", getMainMenu());
+		            trayIcon.setImageAutoSize(true); //Resize image to fit the system tray
+		            
+		            trayIcon.addMouseListener(new MouseListener(){
+		
+						@Override
+						public void mouseClicked(MouseEvent arg0) {
+							WindowHandler.toggleFrames();
+						}
+		
+						@Override
+						public void mouseEntered(MouseEvent arg0) {				
+						}
+		
+						@Override
+						public void mouseExited(MouseEvent arg0) {			
+						}
+		
+						@Override
+						public void mousePressed(MouseEvent arg0) {				
+						}
+		
+						@Override
+						public void mouseReleased(MouseEvent arg0) {				
+						}
+		            });
+		            try {
+		                tray.add(trayIcon);
+		            } catch (AWTException e) {
+		            }
+		        }
+    		}
+    	});
     }
     
     protected void languageChanged() {

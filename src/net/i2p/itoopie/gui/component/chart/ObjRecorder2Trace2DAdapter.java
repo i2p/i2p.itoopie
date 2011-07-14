@@ -24,11 +24,11 @@
 package net.i2p.itoopie.gui.component.chart;
 
 import info.monitorenter.gui.chart.ITrace2D;
-import info.monitorenter.reflection.ObjectRecorder;
-import info.monitorenter.util.TimeStampedValue;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import net.i2p.itoopie.util.TimeStampedValue;
 
 /**
  * A simple adapter that allows displaying of timestamped values from an

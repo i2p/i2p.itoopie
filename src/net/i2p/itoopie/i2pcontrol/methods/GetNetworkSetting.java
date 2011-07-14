@@ -14,7 +14,7 @@ import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.UnrecoverableFailedRequestException;
-import net.i2p.itoopie.i2pcontrol.methods.NetworkInfo.NETWORK_INFO;
+import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
 
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Request;
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
@@ -23,15 +23,15 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 public class GetNetworkSetting {
 	private final static Log _log = LogFactory.getLog(GetNetworkSetting.class);
 	
-	public static HashMap execute(NETWORK_INFO ... options) 
+	public static HashMap execute(NETWORK_SETTING ... options) 
 			throws InvalidPasswordException, JSONRPC2SessionException{
 		
 		JSONRPC2Request req = new JSONRPC2Request("NetworkSetting", JSONRPC2Interface.incrNonce());
 		@SuppressWarnings("rawtypes")
 		Map outParams = new HashMap();
-		List<NETWORK_INFO> list = Arrays.asList(options);
+		List<NETWORK_SETTING> list = Arrays.asList(options);
 		
-		for (NETWORK_INFO i : list){
+		for (NETWORK_SETTING i : list){
 			outParams.put(i.toString(), null);
 		}
 
@@ -45,7 +45,7 @@ public class GetNetworkSetting {
 				Set<Entry> set = map.entrySet();
 				HashMap output = new HashMap();
 				for (Entry e: set){
-					output.put(NetworkInfo.enumMap.get(e.getKey()), e.getValue());
+					output.put(NetworkSetting.enumMap.get(e.getKey()), e.getValue());
 				}
 				return map;
 			} else {

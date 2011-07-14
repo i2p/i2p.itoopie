@@ -43,7 +43,7 @@ public class JSONRPC2Interface {
 	public static void setupSession() {
 		URL srvURL = null;
 		String srvHost = _conf.getConf("server.hostname", "localhost");
-		int srvPort = _conf.getConf("server.port", 7656);
+		int srvPort = _conf.getConf("server.port", 7650);
 		String srvTarget = _conf.getConf("server.target", "jsonrpc");
 		try {
 			srvURL = new URL("https://" + srvHost + ":" + srvPort + "/"

@@ -6,6 +6,13 @@ public class StatusHandler {
 	private static final JLabel statusLbl;
 	private static final String DEFAULT_STATUS = "Status";
 	
+	private interface StatusMessage{ public String getStatusMessage(); };
+	public static enum DEFAULT_STATUS implements StatusMessage {
+		CONNECTED 			{ public String getStatusMessage(){ return "Connected to I2P router."; }},
+		NOT_CONNECTED	 	{ public String getStatusMessage(){ return "Unable to connect to I2P router."; }},
+		INVALID_PASSWORD	{ public String getStatusMessage(){ return "I2P router rejected password."; }}
+	}
+	
 	static{
 		statusLbl = new JLabel();
 		statusLbl.setText(DEFAULT_STATUS);
@@ -21,6 +28,10 @@ public class StatusHandler {
 	
 	public static JLabel getStatusLbl(){
 		return statusLbl;
+	}
+	
+	public static void setDefaultStatus(DEFAULT_STATUS status){
+		statusLbl.setText(status.getStatusMessage());
 	}
 	
 }

@@ -28,7 +28,7 @@ import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.methods.GetEcho;
 import net.i2p.itoopie.i2pcontrol.methods.GetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;
-import net.i2p.itoopie.i2pcontrol.methods.NetworkInfo.NETWORK_INFO;
+import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 import net.i2p.itoopie.security.CertificateHelper;
 
@@ -77,21 +77,12 @@ public class Main {
 
         final Main main = new Main();
         main.launchForeverLoop();
-        //We'll be doing GUI work, so let's stay in the event dispatcher thread.
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    main.startUp();
-                }
-                catch(Exception e) {
-                    //log.error("Failed while running desktopgui!", e);
-                }
-                
-            }
-            
-        });
+        try {
+			main.startUp();
+		} catch (Exception e) {
+			_log.error("Error during TrayManager launch.", e);
+		}
+        testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -129,6 +120,7 @@ public class Main {
         
         
         // Test basic echo method
+        System.out.println("GetEcho");
 		try {
 			String str = GetEcho.execute("Echo this mofo!");
 			System.out.println("Echo response: " + str);
@@ -139,6 +131,7 @@ public class Main {
 		}
 		
 		// Test reading a rateStat
+		System.out.println("GetRateStat");
 		try {
 			Double dbl = GetRateStat.execute("bw.sendRate", 3600000L);
 			System.out.println("rateStat: " + dbl);
@@ -151,15 +144,16 @@ public class Main {
 		}
         
         // Test reading all settings
+		System.out.println("GetNetworkSetting");
         try {
-        	HashMap hm = GetNetworkSetting.execute(NETWORK_INFO.values());
+        	HashMap hm = GetNetworkSetting.execute(NETWORK_SETTING.values());
 			System.out.println("getNetworkInfo: All: ");
 			Set<Entry> set = hm.entrySet();
 			for (Entry e : set){
 				System.out.println(e.getKey() +":"+ e.getValue());
 			}
 		} catch (InvalidPasswordException e1) {
-			//e1.printStackTrace();
+			System.out.println("Invalid password..");
 		} catch (JSONRPC2SessionException e) {
 			System.out.println("Connection failed..");
 		}
@@ -167,11 +161,12 @@ public class Main {
         
         
         // Test saving all settings
+        System.out.println("SetNetworkSetting - fail");
         try { 
-        	HashMap<NETWORK_INFO, String> hm = new HashMap<NETWORK_INFO,String>();
+        	HashMap<NETWORK_SETTING, String> hm = new HashMap<NETWORK_SETTING,String>();
         	
-        	List<NETWORK_INFO> list = Arrays.asList(NETWORK_INFO.values());
-        	for (NETWORK_INFO i : list){
+        	List<NETWORK_SETTING> list = Arrays.asList(NETWORK_SETTING.values());
+        	for (NETWORK_SETTING i : list){
         		hm.put(i, "66"); // 66 is an arbitrary number that should work for most fields.
         	}
         	HashMap nextHM= SetNetworkSetting.execute(hm);
@@ -190,20 +185,21 @@ public class Main {
         }
         
         // Manually test saving all(?) settings
+        System.out.println("SetNetworkSetting");
         try { 
-        	HashMap<NETWORK_INFO, String> hm = new HashMap<NETWORK_INFO,String>();
-        	hm.put(NETWORK_INFO.BW_IN, "666");
-        	hm.put(NETWORK_INFO.BW_OUT, "666");
-        	hm.put(NETWORK_INFO.BW_SHARE, "66");
-        	hm.put(NETWORK_INFO.DETECTED_IP, "66.66.66.66");
-        	hm.put(NETWORK_INFO.LAPTOP_MODE, "true");
-        	hm.put(NETWORK_INFO.TCP_AUTOIP, "always");
-        	hm.put(NETWORK_INFO.TCP_HOSTNAME, "66.66.66.66");
-        	hm.put(NETWORK_INFO.TCP_PORT, "66");
-        	hm.put(NETWORK_INFO.UDP_AUTO_IP, "local,upnp,ssu");
-        	hm.put(NETWORK_INFO.UDP_HOSTNAME, "66.66.66.66");
-        	hm.put(NETWORK_INFO.UDP_PORT, "66");
-        	hm.put(NETWORK_INFO.UPNP, "true");
+        	HashMap<NETWORK_SETTING, String> hm = new HashMap<NETWORK_SETTING,String>();
+        	hm.put(NETWORK_SETTING.BW_IN, "666");
+        	hm.put(NETWORK_SETTING.BW_OUT, "666");
+        	hm.put(NETWORK_SETTING.BW_SHARE, "66");
+        	hm.put(NETWORK_SETTING.DETECTED_IP, "66.66.66.66");
+        	hm.put(NETWORK_SETTING.LAPTOP_MODE, "true");
+        	hm.put(NETWORK_SETTING.TCP_AUTOIP, "always");
+        	hm.put(NETWORK_SETTING.TCP_HOSTNAME, "66.66.66.66");
+        	hm.put(NETWORK_SETTING.TCP_PORT, "66");
+        	hm.put(NETWORK_SETTING.UDP_AUTO_IP, "local,upnp,ssu");
+        	hm.put(NETWORK_SETTING.UDP_HOSTNAME, "66.66.66.66");
+        	hm.put(NETWORK_SETTING.UDP_PORT, "66");
+        	hm.put(NETWORK_SETTING.UPNP, "true");
         	
         	HashMap nextHM= SetNetworkSetting.execute(hm);
         	System.out.println("setNetworkInfo: Manual: ");

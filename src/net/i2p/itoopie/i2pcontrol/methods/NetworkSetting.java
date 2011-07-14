@@ -19,15 +19,15 @@ import java.util.HashMap;
  */
 
 
-public class NetworkInfo{
-	public final static HashMap<String,NETWORK_INFO> enumMap;
+public class NetworkSetting{
+	public final static HashMap<String,NETWORK_SETTING> enumMap;
 
 	
 	/**
 	 * Describes the most common network related settings and their API key.
 	 * @author hottuna
 	 */
-	public enum NETWORK_INFO implements RemoteSetable{
+	public enum NETWORK_SETTING implements RemoteSetable{
 		DETECTED_IP { 	public boolean isSetable(){ return false;} public String toString() { return "i2p.router.net.ssu.detectedip"; }},
 		TCP_PORT { 		public boolean isSetable(){ return true;}  public String toString() { return "i2p.router.net.ntcp.port"; }},
 		TCP_HOSTNAME { 	public boolean isSetable(){ return true;}  public String toString() { return "i2p.router.net.ntcp.hostname"; }},
@@ -43,8 +43,8 @@ public class NetworkInfo{
 		};
 		
 	static {
-		enumMap = new HashMap<String,NETWORK_INFO>();
-		for (NETWORK_INFO n : NETWORK_INFO.values()){
+		enumMap = new HashMap<String,NETWORK_SETTING>();
+		for (NETWORK_SETTING n : NETWORK_SETTING.values()){
 			enumMap.put(n.toString(), n);
 		}
 	}

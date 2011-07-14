@@ -38,6 +38,8 @@ public class Main {
 	private final static Color LIGHT = new Color(215,215,215);
 	private final static Color MEDIUM = new Color (175,175,175);
 	private final static Color DARK = new Color(145,145,145);
+	public final static int FRAME_WIDTH = 550;
+	public final static int FRAME_HEIGHT = 400;
 
 	/**
 	 * Launch the application.
@@ -70,7 +72,7 @@ public class Main {
 
 
 		frame = new RegisteredFrame();
-		frame.setBounds(100, 100, 550, 400);
+		frame.setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 		frame.setResizable(false);
 		WindowHandler.registerMain(frame);
 		
@@ -98,39 +100,7 @@ public class Main {
 		
 		JPanel configPanel = new ConfigurationPanel("itoopie-opaque12");
 		tabbedPane.addTab("Configuration", null, configPanel, null);
-		configPanel.setLayout(new BorderLayout(0, 0));
-		
-		JPanel configArea = new JPanel();
-		configArea.setOpaque(false);
-		configPanel.add(configArea, BorderLayout.CENTER);
 
-		
-		JPanel buttonArea = new JPanel();
-		buttonArea.setOpaque(false);
-		buttonArea.setLayout(new BorderLayout(0, 0));
-		configPanel.add(buttonArea, BorderLayout.SOUTH);
-		
-		JPanel buttonAreaEast = new JPanel();
-		buttonAreaEast.setLayout(new BorderLayout(0, 0));
-		buttonAreaEast.setOpaque(false);
-		buttonArea.add(buttonAreaEast, BorderLayout.EAST);
-		
-		JPanel applyBtnWrapper = new JPanel();
-		applyBtnWrapper.setOpaque(false);
-		FlowLayout flowApplyBtnWrapper = new FlowLayout();
-		flowApplyBtnWrapper.setVgap(0);
-		flowApplyBtnWrapper.setHgap(3);
-		applyBtnWrapper.setLayout(flowApplyBtnWrapper);
-		buttonAreaEast.add(applyBtnWrapper);
-		
-		
-		FlowLayout flowLayout = (FlowLayout) applyBtnWrapper.getLayout();
-		flowLayout.setHgap(10);
-		flowLayout.setVgap(3);
-		
-		JButton btnApply = new JButton("Apply");
-		btnApply.setOpaque(true);
-		applyBtnWrapper.add(btnApply, BorderLayout.EAST);
 		
 		JPanel logPanel = new LogoPanel("itoopie-opaque12");
 		tabbedPane.addTab("Logs", null, logPanel, null);
@@ -146,9 +116,9 @@ public class Main {
 		statusPanel.add(statusLbl, BorderLayout.CENTER);
 		
 		JPanel buttonWrapper = new JPanel();
-		flowLayout = (FlowLayout) buttonWrapper.getLayout();
+		FlowLayout flowLayout = (FlowLayout) buttonWrapper.getLayout();
 		flowLayout.setHgap(10);
-		flowLayout.setVgap(3);
+		flowLayout.setVgap(0);
 		statusPanel.add(buttonWrapper, BorderLayout.EAST);
 		
 		JButton settingsBtn = new JButton("Settings");

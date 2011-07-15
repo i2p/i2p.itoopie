@@ -261,12 +261,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+tcpPort + " ' can not be interpreted as a TCP port.\r\n" + 
-							"\r\nA port has to be a number in the range 1-65535." + 
-							"\r\n\r\nWould you like to ignore that the TCP port isn't set?"),
+				    Transl._("' "+udpPort + " ' can not be interpreted as a UDP port.\r\n" + 
+							"\r\nA port has to be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
-				    JOptionPane.YES_NO_OPTION,
+				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
+			return SAVE_STATUS.SAVE_FAILED_LOCALLY;
 		}
 		
 		//Check UDP port

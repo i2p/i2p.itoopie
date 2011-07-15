@@ -242,8 +242,8 @@ public class Main {
 			System.out.println("Connection failed..");
 		}
         
-        // Test restart
-        
+        // Test restart - worked at one point :) Possibly now as well.
+        /*
         System.out.println("\nSetRouterRunner: Restart");
         try {
 			SetRouterRunner.execute(ROUTER_RUNNER.RESTART);
@@ -251,9 +251,9 @@ public class Main {
 			System.out.println("Invalid password..");
 		} catch (JSONRPC2SessionException e) {
 			System.out.println("Connection failed..");
-		}
+		}*/
         
-        // Test restart graceful
+        // Test restart graceful - worked at one point :) Possibly now as well.
         /*
         System.out.println("\nSetRouterRunner: Restart Graceful");
         try {
@@ -263,5 +263,16 @@ public class Main {
 		} catch (JSONRPC2SessionException e) {
 			System.out.println("Connection failed..");
 		}*/
+        
+        /*
+        System.out.println("\nSetRouterRunner: Shutdown ");
+        try {
+			SetRouterRunner.execute(ROUTER_RUNNER.SHUTDOWN);
+		} catch (InvalidPasswordException e1) {
+			System.out.println("Invalid password..");
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		}
+		*/
     }
 }

@@ -24,6 +24,7 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.TrayManager;
+import net.i2p.itoopie.gui.WindowHandler;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
@@ -67,7 +68,6 @@ public class Main {
         _log = LogFactory.getLog(Main.class);
         HttpsURLConnection.setDefaultHostnameVerifier(CertificateHelper.getHostnameVerifier());
         
-        
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
@@ -84,6 +84,10 @@ public class Main {
 		} catch (Exception e) {
 			_log.error("Error during TrayManager launch.", e);
 		}
+        
+        // Popup Main window.
+        WindowHandler.toggleFrames();
+
         //testStuff(); // Delete Me
     }
     

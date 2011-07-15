@@ -5,6 +5,7 @@ package net.i2p.itoopie;
  */
 
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -82,7 +83,7 @@ public class Main {
 		} catch (Exception e) {
 			_log.error("Error during TrayManager launch.", e);
 		}
-        testStuff(); // Delete Me
+        //testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -146,9 +147,9 @@ public class Main {
         // Test reading all settings
 		System.out.println("GetNetworkSetting");
         try {
-        	HashMap hm = GetNetworkSetting.execute(NETWORK_SETTING.values());
+        	EnumMap<NETWORK_SETTING, Object> em = GetNetworkSetting.execute(NETWORK_SETTING.values());
 			System.out.println("getNetworkInfo: All: ");
-			Set<Entry> set = hm.entrySet();
+			Set<Entry<NETWORK_SETTING, Object>> set = em.entrySet();
 			for (Entry e : set){
 				System.out.println(e.getKey() +":"+ e.getValue());
 			}
@@ -169,9 +170,9 @@ public class Main {
         	for (NETWORK_SETTING i : list){
         		hm.put(i, "66"); // 66 is an arbitrary number that should work for most fields.
         	}
-        	HashMap nextHM= SetNetworkSetting.execute(hm);
+        	EnumMap<NETWORK_SETTING, Object> nextHM= SetNetworkSetting.execute(hm);
         	System.out.println("setNetworkInfo: All: ");
-        	Set<Entry> set = nextHM.entrySet();
+        	Set<Entry<NETWORK_SETTING, Object>> set = nextHM.entrySet();
         	for (Entry e : set){
         		System.out.println(e.getKey() +":"+ e.getValue());
         	}
@@ -201,9 +202,9 @@ public class Main {
         	hm.put(NETWORK_SETTING.UDP_PORT, "66");
         	hm.put(NETWORK_SETTING.UPNP, "true");
         	
-        	HashMap nextHM= SetNetworkSetting.execute(hm);
+        	EnumMap<NETWORK_SETTING, Object> nextHM= SetNetworkSetting.execute(hm);
         	System.out.println("setNetworkInfo: Manual: ");
-        	Set<Entry> set = nextHM.entrySet();
+        	Set<Entry<NETWORK_SETTING, Object>> set = nextHM.entrySet();
         	for (Entry e : set){
         		System.out.println(e.getKey() +":"+ e.getValue());
         	}

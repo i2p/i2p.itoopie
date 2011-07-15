@@ -1,5 +1,6 @@
 package net.i2p.itoopie.i2pcontrol.methods;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -22,7 +23,7 @@ public class SetNetworkSetting {
 	private final static Log _log = LogFactory.getLog(SetNetworkSetting.class);
 	
 	
-	public static HashMap<NETWORK_SETTING, Boolean> execute(Map<NETWORK_SETTING,String> settings) 
+	public static EnumMap<NETWORK_SETTING, Object> execute(Map<NETWORK_SETTING,String> settings) 
 			throws InvalidPasswordException, JSONRPC2SessionException, InvalidParametersException{
 		
 		JSONRPC2Request req = new JSONRPC2Request("NetworkSetting", JSONRPC2Interface.incrNonce());
@@ -31,7 +32,7 @@ public class SetNetworkSetting {
 
 		Set<Entry<NETWORK_SETTING,String>> set = settings.entrySet();
 		for (Entry<NETWORK_SETTING,String> e : set){
-			if(e.getKey().isSetable()){
+			if(e.getKey().isWritable()){
 				outParams.put(e.getKey().toString(), e.getValue());
 			}
 		}
@@ -41,7 +42,22 @@ public class SetNetworkSetting {
 		try {
 			resp = JSONRPC2Interface.sendReq(req);
 			HashMap map = (HashMap) resp.getResult();
-			return map;
+			if (map != null){
+				Set<Entry> inputSet = map.entrySet();
+				EnumMap<NETWORK_SETTING, Object> output = new EnumMap<NETWORK_SETTING, Object>(NETWORK_SETTING.class);
+				// Present the result as an <Enum,Object> map.
+				for (Entry e: inputSet){
+					String key = (String) e.getKey();
+					NETWORK_SETTING NS = NetworkSetting.getEnum(key);
+					// If the enum exists. They should exists, but safety first.
+					if (NS != null){
+						output.put(NS, e.getValue());
+					}
+				}
+				return output;
+			} else {
+				return new EnumMap<NETWORK_SETTING, Object>(NETWORK_SETTING.class);
+			}
 		} catch (UnrecoverableFailedRequestException e) {
 			_log.error("setNetworkInfo failed.", e);
 		}

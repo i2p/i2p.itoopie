@@ -22,6 +22,8 @@ import javax.swing.ImageIcon;
 import net.i2p.itoopie.gui.component.BandwidthChart;
 import net.i2p.itoopie.gui.component.LogoPanel;
 import net.i2p.itoopie.gui.component.ParticipatingTunnelsChart;
+import net.i2p.itoopie.gui.component.TabLogoPanel;
+import net.i2p.itoopie.gui.component.util.TabChangeListener;
 import net.i2p.itoopie.util.IconLoader;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
@@ -79,27 +81,14 @@ public class Main {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
-		JPanel overviewPanel = new LogoPanel("itoopie-opaque12");
+		TabLogoPanel overviewPanel = new OverviewTab("itoopie-opaque12");
 		tabbedPane.addTab("Overview", null, overviewPanel, null);
-		overviewPanel.setLayout(null);
-				
-		Chart2D bwChart = BandwidthChart.getChart();
-		Chart2D partTunnelChart = ParticipatingTunnelsChart.getChart();
-		ChartPanel pt = new ChartPanel(partTunnelChart);
-		pt.setSize(300, 135);
-		pt.setLocation(15, 10);
-		pt.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-		ChartPanel cp = new ChartPanel(bwChart);
-		cp.setSize(300,135);
-		cp.setLocation(15, 155);
-		cp.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-		
-		overviewPanel.add(pt);
-		overviewPanel.add(cp);
+		tabbedPane.addChangeListener(new TabChangeListener(overviewPanel));
 		
 		
-		JPanel configPanel = new ConfigurationPanel("itoopie-opaque12");
+		TabLogoPanel configPanel = new ConfigurationTab("itoopie-opaque12");
 		tabbedPane.addTab("Configuration", null, configPanel, null);
+		tabbedPane.addChangeListener(new TabChangeListener(configPanel));
 
 		
 		JPanel logPanel = new LogoPanel("itoopie-opaque12");

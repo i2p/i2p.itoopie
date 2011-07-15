@@ -3,22 +3,11 @@ package net.i2p.itoopie.i2pcontrol.methods;
 import java.util.HashMap;
 
 
-/*
- * i2p.router.net.ntcp.port
- * i2p.router.net.ntcp.hostname
- * i2p.router.net.ntcp.autoip // true|always|false //disables autodetect|disabled //disables ntcp
- * i2p.router.net.ssu.port
- * i2p.router.net.ssu.hostname
- * i2p.router.net.ssu.detectedip
- * i2p.router.net.ssu.autoip //[local,upnp,ssu] any of prev., in order |fixed // fixed = no detection
- * i2p.router.net.upnp //
- * i2p.router.net.bw.share
- * i2p.router.net.bw.in
- * i2p.router.net.bw.out
- * i2p.router.net.laptopmode
+
+/**
+ * Describes the most common network related settings and their API key.
+ * @author hottuna
  */
-
-
 public class NetworkSetting{
 	private final static HashMap<String,NETWORK_SETTING> enumMap;
 

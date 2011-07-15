@@ -15,11 +15,11 @@ import javax.security.cert.CertificateEncodingException;
 
 import net.i2p.itoopie.gui.CertificateGUI;
 import net.i2p.itoopie.i18n.Transl;
+import net.i2p.itoopie.util.Base64;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class CertificateHelper {
 	

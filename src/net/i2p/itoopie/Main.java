@@ -31,8 +31,12 @@ import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.methods.GetEcho;
 import net.i2p.itoopie.i2pcontrol.methods.GetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;
+import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo;
 import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
+import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
+import net.i2p.itoopie.i2pcontrol.methods.RouterRunner.ROUTER_RUNNER;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
+import net.i2p.itoopie.i2pcontrol.methods.SetRouterRunner;
 import net.i2p.itoopie.security.CertificateHelper;
 
 /**
@@ -88,7 +92,7 @@ public class Main {
         // Popup Main window.
         WindowHandler.toggleFrames();
 
-        //testStuff(); // Delete Me
+        testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -121,12 +125,12 @@ public class Main {
     
     private static void testStuff(){
         _conf.parseConfigStr("server.hostname=127.0.0.1");
-        _conf.parseConfigStr("server.port=5555");
+        _conf.parseConfigStr("server.port=7560");
         _conf.parseConfigStr("server.target=jsonrpc");
         
         
         // Test basic echo method
-        System.out.println("GetEcho");
+        System.out.println("\nGetEcho");
 		try {
 			String str = GetEcho.execute("Echo this mofo!");
 			System.out.println("Echo response: " + str);
@@ -137,7 +141,7 @@ public class Main {
 		}
 		
 		// Test reading a rateStat
-		System.out.println("GetRateStat");
+		System.out.println("\nGetRateStat");
 		try {
 			Double dbl = GetRateStat.execute("bw.sendRate", 3600000L);
 			System.out.println("rateStat: " + dbl);
@@ -150,7 +154,7 @@ public class Main {
 		}
         
         // Test reading all settings
-		System.out.println("GetNetworkSetting");
+		System.out.println("\nGetNetworkSetting");
         try {
         	EnumMap<NETWORK_SETTING, Object> em = GetNetworkSetting.execute(NETWORK_SETTING.values());
 			System.out.println("getNetworkInfo: All: ");
@@ -167,7 +171,7 @@ public class Main {
         
         
         // Test saving all settings
-        System.out.println("SetNetworkSetting - fail");
+        System.out.println("\nSetNetworkSetting - fail");
         try { 
         	HashMap<NETWORK_SETTING, String> hm = new HashMap<NETWORK_SETTING,String>();
         	
@@ -191,7 +195,7 @@ public class Main {
         }
         
         // Manually test saving all(?) settings
-        System.out.println("SetNetworkSetting");
+        System.out.println("\nSetNetworkSetting");
         try { 
         	HashMap<NETWORK_SETTING, String> hm = new HashMap<NETWORK_SETTING,String>();
         	hm.put(NETWORK_SETTING.BW_IN, "666");
@@ -221,5 +225,43 @@ public class Main {
         } catch (InvalidParametersException e) {
         	System.out.println("Bad parameters sent..");
         }
+        
+        
+        // Test reading all router info
+		System.out.println("\nGetRouterInfo");
+        try {
+        	EnumMap<ROUTER_INFO, Object> em = GetRouterInfo.execute(ROUTER_INFO.values());
+			System.out.println("getNetworkInfo: All: ");
+			Set<Entry<ROUTER_INFO, Object>> set = em.entrySet();
+			for (Entry e : set){
+				System.out.println(e.getKey() +":"+ e.getValue());
+			}
+		} catch (InvalidPasswordException e1) {
+			System.out.println("Invalid password..");
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		}
+        
+        // Test restart
+        
+        System.out.println("\nSetRouterRunner: Restart");
+        try {
+			SetRouterRunner.execute(ROUTER_RUNNER.RESTART);
+		} catch (InvalidPasswordException e1) {
+			System.out.println("Invalid password..");
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		}
+        
+        // Test restart graceful
+        /*
+        System.out.println("\nSetRouterRunner: Restart Graceful");
+        try {
+			SetRouterRunner.execute(ROUTER_RUNNER.RESTART_GRACEFUL);
+		} catch (InvalidPasswordException e1) {
+			System.out.println("Invalid password..");
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		}*/
     }
 }

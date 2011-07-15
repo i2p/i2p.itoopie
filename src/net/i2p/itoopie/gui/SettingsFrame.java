@@ -29,8 +29,8 @@ import org.apache.commons.logging.LogFactory;
 
 import java.awt.Component;
 
-public class Settings extends RegisteredFrame{
-	private static final Log _log = LogFactory.getLog(Settings.class);
+public class SettingsFrame extends RegisteredFrame{
+	private static final Log _log = LogFactory.getLog(SettingsFrame.class);
 	
 	private final static int SAVE_OK = 0;
 	private final static int SAVE_ERROR = 1;
@@ -48,7 +48,7 @@ public class Settings extends RegisteredFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Settings window = new Settings();
+					SettingsFrame window = new SettingsFrame();
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,7 +60,7 @@ public class Settings extends RegisteredFrame{
 	/**
 	 * Create the application.
 	 */
-	private Settings() {
+	private SettingsFrame() {
 		_conf = ConfigurationManager.getInstance();
 		initialize();
 	}
@@ -79,7 +79,7 @@ public class Settings extends RegisteredFrame{
 	 */
 	public static void start(){
 		if (!instanceShown)
-			(new Settings()).setVisible(true);
+			(new SettingsFrame()).setVisible(true);
 	}
 	
 	/**

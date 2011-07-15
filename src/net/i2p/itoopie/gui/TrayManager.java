@@ -1,4 +1,4 @@
-package net.i2p.itoopie;
+package net.i2p.itoopie.gui;
 
 import java.awt.AWTException;
 import java.awt.Image;
@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
-import net.i2p.itoopie.gui.WindowHandler;
+import net.i2p.itoopie.Main;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.util.IconLoader;
 import net.i2p.itoopie.util.IsJar;
@@ -39,7 +39,7 @@ public class TrayManager {
      */
     protected TrayManager() {}
     
-    protected static synchronized TrayManager getInstance() {
+    public static synchronized TrayManager getInstance() {
         if(instance == null) {
                instance = new TrayManager();
         }
@@ -49,7 +49,7 @@ public class TrayManager {
     /**
      * Add the tray icon to the system tray and start everything up.
      */
-    protected void startManager() {
+    public void startManager() {
     	SwingUtilities.invokeLater(new Runnable(){
     		public void run(){
 		        if(SystemTray.isSupported()) {

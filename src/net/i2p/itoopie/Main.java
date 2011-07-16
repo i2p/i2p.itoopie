@@ -265,6 +265,7 @@ public class Main {
 		}*/
         
         /*
+		// Test shutdown - worked at one point :) Possibly now as well.
         System.out.println("\nSetRouterRunner: Shutdown ");
         try {
 			SetRouterRunner.execute(ROUTER_RUNNER.SHUTDOWN);

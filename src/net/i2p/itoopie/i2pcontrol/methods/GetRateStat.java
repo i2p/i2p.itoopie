@@ -35,6 +35,8 @@ public class GetRateStat{
 			resp = JSONRPC2Interface.sendReq(req);
 			HashMap inParams = (HashMap) resp.getResult();
 			
+			if (inParams == null)
+				return 0D;
 			
 			try {
 				Double dbl = (Double) inParams.get("Result"); 

@@ -32,9 +32,11 @@ import net.i2p.itoopie.i2pcontrol.methods.GetEcho;
 import net.i2p.itoopie.i2pcontrol.methods.GetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;
 import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo;
+import net.i2p.itoopie.i2pcontrol.methods.I2PControl.I2P_CONTROL;
 import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
 import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
 import net.i2p.itoopie.i2pcontrol.methods.RouterRunner.ROUTER_RUNNER;
+import net.i2p.itoopie.i2pcontrol.methods.SetI2PControl;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.SetRouterRunner;
 import net.i2p.itoopie.security.CertificateHelper;
@@ -93,7 +95,7 @@ public class Main {
         // Popup Main window.
         WindowHandler.toggleFrames();
 
-        //testStuff(); // Delete Me
+//        testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -126,8 +128,41 @@ public class Main {
     
     private static void testStuff(){
         _conf.parseConfigStr("server.hostname=127.0.0.1");
-        _conf.parseConfigStr("server.port=7650");
+        _conf.parseConfigStr("server.port=7888");
         _conf.parseConfigStr("server.target=jsonrpc");
+        
+        
+        // Try port switching
+        System.out.println("\nI2PControl - Port Switch");
+        try {
+	        HashMap<I2P_CONTROL, String> hm = new HashMap<I2P_CONTROL, String>();
+	        hm.put(I2P_CONTROL.PORT, 7888+"");
+	        SetI2PControl.execute(hm);
+	        _conf.setConf("server.port", 7888);
+	        Thread.sleep(10*1000);
+        } catch (InvalidPasswordException e) {
+			e.printStackTrace();
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		} catch (InvalidParametersException e) {
+			System.out.println("Bad parameters sent..");
+		} catch (InterruptedException e) {	}
+        
+        
+        // Try passwd switching
+        System.out.println("\nI2PControl - Password Switch");
+        try {
+	        HashMap<I2P_CONTROL, String> hm = new HashMap<I2P_CONTROL, String>();
+	        hm.put(I2P_CONTROL.PASSWORD, "itoopi");
+	        SetI2PControl.execute(hm);
+	        _conf.setConf("server.password", "itoopi");
+        } catch (InvalidPasswordException e) {
+			e.printStackTrace();
+		} catch (JSONRPC2SessionException e) {
+			System.out.println("Connection failed..");
+		} catch (InvalidParametersException e) {
+			System.out.println("Bad parameters sent..");
+		}
         
         
         // Test basic echo method

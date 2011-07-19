@@ -9,6 +9,9 @@ import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -33,6 +36,8 @@ import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.methods.GetNetworkSetting;
+import net.i2p.itoopie.i2pcontrol.methods.RouterRunner.ROUTER_RUNNER;
+import net.i2p.itoopie.i2pcontrol.methods.SetRouterRunner;
 import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 
@@ -97,9 +102,18 @@ public class ConfigurationTab extends TabLogoPanel {
 					@Override
 					public void run() {
 						applyNewSettings();
-						btnApply.repaint(); // Removes a transparent ring around button after clicks.
 					}
 				});
+			}
+		});
+		btnApply.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				getRootPane().repaint(); // Removes a transparent ring around button after mouse hovering.
+			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				getRootPane().repaint(); // Removes a transparent ring around button after mouse hovering.
 			}
 		});
 		
@@ -371,6 +385,24 @@ public class ConfigurationTab extends TabLogoPanel {
 		switch (saveSettings()){
 			case SAVED_RESTART_NEEDED: 
 				StatusHandler.setStatus(SAVE_STATUS.SAVED_RESTART_NEEDED.toString());
+				int n = JOptionPane.showConfirmDialog(
+					    this,
+					    Transl._("The new settings have been applied,\r\n" + "" +
+					    		"but the I2P router needs to be restarted for some to take effect.\r\n" + 
+								"\r\nWould you like to restart the I2P router now?"),
+					    Transl._("Restart needed for new settings."),
+					    JOptionPane.YES_NO_OPTION,
+					    JOptionPane.INFORMATION_MESSAGE);
+				if (n == JOptionPane.YES_OPTION){
+					try {
+						SetRouterRunner.execute(ROUTER_RUNNER.RESTART);
+						StatusHandler.setStatus(Transl._("Restarting I2P node.. "));
+					} catch (InvalidPasswordException e) {
+						StatusHandler.setStatus(Transl._("Restart failed: ") + DEFAULT_STATUS.INVALID_PASSWORD);
+					} catch (JSONRPC2SessionException e) {
+						StatusHandler.setStatus(Transl._("Restart failed: ") + DEFAULT_STATUS.NOT_CONNECTED);
+					}
+				}
 				break;
 			case SAVED_OK:
 				StatusHandler.setStatus(SAVE_STATUS.SAVED_OK.toString());

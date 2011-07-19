@@ -1,6 +1,9 @@
 package net.i2p.itoopie.gui;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -19,9 +22,12 @@ import javax.swing.JSeparator;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.gui.component.RegisteredFrame;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
+import net.i2p.itoopie.security.ItoopieHostnameVerifier;
+
 import javax.swing.BoxLayout;
 
 import org.apache.commons.logging.Log;
@@ -137,10 +143,14 @@ public class SettingsFrame extends RegisteredFrame{
 		networkPanel.add(passwordField);
 
 		
-		JButton btnDone = new JButton("Done");
-		btnDone.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		btnDone.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		getContentPane().add(btnDone);
+		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		buttonPanel.setAlignmentY(BOTTOM_ALIGNMENT);
+		buttonPanel.setMaximumSize(new Dimension(2000, 24));
+		getContentPane().add(buttonPanel);
+		
+		
+		JButton btnDone = new JButton("Apply");
+		buttonPanel.add(btnDone);
 		btnDone.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -152,8 +162,21 @@ public class SettingsFrame extends RegisteredFrame{
 			}
 		});
 		
+		
+		JButton btnClose = new JButton(Transl._("Discard"));
+		buttonPanel.add(btnClose);
+		btnClose.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		
+		
 		// Run on init.
 		populateSettings();
+		
+		validate();
 	}
 	
 	@Override
@@ -166,14 +189,15 @@ public class SettingsFrame extends RegisteredFrame{
 	
 	private void populateSettings(){
 		textFieldRouterIP.setText(_conf.getConf("server.hostname", "127.0.0.1"));
-		textFieldRouterPort.setText(_conf.getConf("server.port", 7560)+"");
+		textFieldRouterPort.setText(_conf.getConf("server.port", 7650)+"");
 		passwordField.setText(_conf.getConf("server.password", "itoopie"));
 	}
 	
 	@SuppressWarnings("static-access")
 	private int saveSettings(){
+		ItoopieHostnameVerifier.clearRecentlyDenied();
 		String oldIP = _conf.getConf("server.hostname", "127.0.0.1");
-		int oldPort = _conf.getConf("server.port", 7560);
+		int oldPort = _conf.getConf("server.port", 7650);
 		String oldPW = _conf.getConf("server.password", "itoopie");
 
 		
@@ -238,12 +262,13 @@ public class SettingsFrame extends RegisteredFrame{
 				    JOptionPane.ERROR_MESSAGE);
 			return SAVE_ERROR;
 		}
+		
 		_conf.setConf("server.hostname", ipText);
 		_conf.setConf("server.port", port);
 		_conf.setConf("server.password", pwText);
 		
 		_log.debug("Ip old->new: \""+_conf.getConf("server.hostname","127.0.0.1")+"\"->\"" + ipText + "\"");
-		_log.debug("Port old->new: \""+_conf.getConf("server.port",7560)+"\"->\"" + portText + "\"");
+		_log.debug("Port old->new: \""+_conf.getConf("server.port",7650)+"\"->\"" + portText + "\"");
 		_log.debug("Password old->new: \""+oldPW+"\"->\"" + pwText + "\"");
 	
 		StatusHandler.setStatus("Settings saved");

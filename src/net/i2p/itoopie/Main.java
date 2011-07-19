@@ -38,6 +38,7 @@ import net.i2p.itoopie.i2pcontrol.methods.RouterRunner.ROUTER_RUNNER;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.SetRouterRunner;
 import net.i2p.itoopie.security.CertificateHelper;
+import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 
 /**
  * The main class of the application.
@@ -70,7 +71,7 @@ public class Main {
         System.setProperty("java.awt.headless", "false");
         _conf = ConfigurationManager.getInstance();
         _log = LogFactory.getLog(Main.class);
-        HttpsURLConnection.setDefaultHostnameVerifier(CertificateHelper.getHostnameVerifier());
+        HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier());
         
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -92,7 +93,7 @@ public class Main {
         // Popup Main window.
         WindowHandler.toggleFrames();
 
-        testStuff(); // Delete Me
+        //testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -125,7 +126,7 @@ public class Main {
     
     private static void testStuff(){
         _conf.parseConfigStr("server.hostname=127.0.0.1");
-        _conf.parseConfigStr("server.port=7560");
+        _conf.parseConfigStr("server.port=7650");
         _conf.parseConfigStr("server.target=jsonrpc");
         
         

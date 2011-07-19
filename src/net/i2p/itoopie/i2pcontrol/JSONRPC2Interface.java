@@ -10,6 +10,7 @@ import javax.net.ssl.HttpsURLConnection;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.methods.Authenticate;
 import net.i2p.itoopie.security.CertificateHelper;
+import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -57,7 +58,7 @@ public class JSONRPC2Interface {
 	}
 	
 	public static void testSettings() throws InvalidPasswordException, JSONRPC2SessionException{
-        HttpsURLConnection.setDefaultHostnameVerifier(CertificateHelper.getHostnameVerifier());
+        HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier());
 		setupSession();
 		Authenticate.execute();
 	}

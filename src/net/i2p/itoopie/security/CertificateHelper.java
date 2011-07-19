@@ -22,7 +22,7 @@ import org.apache.commons.logging.LogFactory;
 
 
 public class CertificateHelper {
-	
+
 	private static Log _log;
 	
 	static {
@@ -108,34 +108,4 @@ public class CertificateHelper {
 
             return buf.toString();
         }
-
-
-	
-	
-	public static HostnameVerifier getHostnameVerifier(){
-		return new HostnameVerifier(){
-		
-	        public boolean verify(String urlHostName, SSLSession session) {
-	            String serverHost = session.getPeerHost() + ":" + session.getPeerPort();
-					try {
-						javax.security.cert.X509Certificate[] certs = session.getPeerCertificateChain();
-						
-						if (CertificateManager.contains(serverHost)){
-							if (CertificateManager.verifyCert(serverHost, CertificateHelper.convert(certs[0]))){
-								return true; // Remote host has provided valid certificate that is store locally. 
-							} else {
-								// Remote host has provided a certificate that != the stored certificate for this host
-								return CertificateGUI.overwriteCert(serverHost, certs[0]);
-							}
-						} else {
-							// GUI, Add new host! new host
-							return CertificateGUI.saveNewCert(serverHost, certs[0]);
-						}
-					} catch (SSLPeerUnverifiedException e) {
-						_log.fatal("Remote host could not be verified, possibly due to using not using athentication");
-						return false;
-					}	
-	        }
-	    };
-	}
 }

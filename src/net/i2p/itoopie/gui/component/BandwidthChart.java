@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.gui.component.chart.BandwidthTracker;
 import net.i2p.itoopie.gui.component.chart.DummyDataCollector;
 import net.i2p.itoopie.gui.component.chart.RateStatTracker;
 import net.i2p.itoopie.gui.component.chart.ObjRecorder2Trace2DAdapter;
@@ -30,7 +31,7 @@ import net.i2p.itoopie.i18n.Transl;
 
 public class BandwidthChart {
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
-	private final static int DEFAULT_UPDATE_INTERVAL =1000; // Update every 1000th ms
+	private final static int DEFAULT_UPDATE_INTERVAL = 2500; // Update every 2500th ms
 	private final static int DEFAULT_GRAPH_INTERVAL = 2*3600; // The graph will cover a maximum of 2hrs
 	private final static String DATE_FORMAT = "HH:mm:ss";
 	
@@ -70,12 +71,12 @@ public class BandwidthChart {
 	    chart.getAxisY().setAxisTitle(new AxisTitle(""));
 	
 	    // force ranges:
-	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 20)));
+	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 5)));
 
-	    //new ObjRecorder2Trace2DAdapter(dataBWIn, new RateStatTracker("bw.sendRate", 3600000L), "m_value", updateInterval);
-	    new ObjRecorder2Trace2DAdapter(dataBWIn, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
-	    //new ObjRecorder2Trace2DAdapter(dataBWOut, new RateStatTracker("bw.recvRate", 3600000L), "m_value", updateInterval);
-	    new ObjRecorder2Trace2DAdapter(dataBWOut, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataBWIn, new BandwidthTracker("bw.sendRate", 60*1000L), "m_value", updateInterval);
+//	    new ObjRecorder2Trace2DAdapter(dataBWIn, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataBWOut, new BandwidthTracker("bw.recvRate", 60*1000L), "m_value", updateInterval);
+//	    new ObjRecorder2Trace2DAdapter(dataBWOut, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    return chart;
 	}
 	

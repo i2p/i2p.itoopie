@@ -1,10 +1,11 @@
-package net.i2p.itoopie.gui;
+package net.i2p.itoopie.gui.component;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
+import net.i2p.itoopie.gui.WindowHandler;
 import net.i2p.itoopie.util.IconLoader;
 
 public class RegisteredFrame extends JFrame implements WindowListener{

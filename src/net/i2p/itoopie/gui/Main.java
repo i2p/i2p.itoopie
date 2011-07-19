@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import net.i2p.itoopie.gui.component.BandwidthChart;
 import net.i2p.itoopie.gui.component.LogoPanel;
 import net.i2p.itoopie.gui.component.ParticipatingTunnelsChart;
+import net.i2p.itoopie.gui.component.RegisteredFrame;
 import net.i2p.itoopie.gui.component.TabLogoPanel;
 import net.i2p.itoopie.gui.component.util.TabChangeListener;
 import net.i2p.itoopie.util.IconLoader;
@@ -120,8 +121,9 @@ public class Main {
 			}
 		});
 		
+		frame.validate();
+		frame.repaint(); // Force repaint to make sure that Logo is loaded.
 		frame.setVisible(true);
-		//frame.repaint(); // Force repaint to make sure that Logo is loaded.
 	}
 	
 }

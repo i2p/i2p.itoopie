@@ -64,8 +64,8 @@ public class ParticipatingTunnelsChart {
 	    // force ranges:
 	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 20)));
 
-	    //new ObjRecorder2Trace2DAdapter(dataPartTunnels, new RateStatTracker("tunnel.participatingTunnels", 3600000L), "m_value", updateInterval);
-	    new ObjRecorder2Trace2DAdapter(dataPartTunnels, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataPartTunnels, new RateStatTracker("tunnel.participatingTunnels", 3600000L), "m_value", updateInterval);
+	    //new ObjRecorder2Trace2DAdapter(dataPartTunnels, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    return chart;
 	}
 	

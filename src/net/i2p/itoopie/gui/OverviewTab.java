@@ -2,6 +2,7 @@ package net.i2p.itoopie.gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.util.EnumMap;
 
 import info.monitorenter.gui.chart.Chart2D;
 import info.monitorenter.gui.chart.views.ChartPanel;
@@ -10,16 +11,27 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 
+import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
+
+import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.gui.StatusHandler.DEFAULT_STATUS;
 import net.i2p.itoopie.gui.component.BandwidthChart;
 import net.i2p.itoopie.gui.component.MultiLineLabel;
 import net.i2p.itoopie.gui.component.ParticipatingTunnelsChart;
 import net.i2p.itoopie.gui.component.TabLogoPanel;
 import net.i2p.itoopie.gui.component.multilinelabel.MultiLineLabelUI;
 import net.i2p.itoopie.i18n.Transl;
+import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
+import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo;
+import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
 
 public class OverviewTab extends TabLogoPanel {
+	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
+	private final static int DEFAULT_INFO_UPDATE_INTERVAL = 30*1000; // Milliseconds.
+	
 	JLabel lblI2P;
 	JLabel lblVersion;
 	JLabel lblVersionSpecified;
@@ -64,7 +76,7 @@ public class OverviewTab extends TabLogoPanel {
 		add(lblVersionSpecified);
 		lblVersionSpecified.setBounds(395, 50, 140, 15);
 		lblVersionSpecified.setHorizontalAlignment(SwingConstants.LEFT);
-		lblVersionSpecified.setText("0.8.7-48rc"); // Delete Me
+//		lblVersionSpecified.setText("0.8.7-48rc"); // Delete Me
 		
 		
 		lblUptime = new JLabel();
@@ -77,7 +89,7 @@ public class OverviewTab extends TabLogoPanel {
 		add(lblUptimeSpecified);
 		lblUptimeSpecified.setBounds(395, 70, 140, 15);
 		lblUptimeSpecified.setHorizontalAlignment(SwingConstants.LEFT);
-		lblUptimeSpecified.setText("93 min"); // Delete Me
+//		lblUptimeSpecified.setText("93 min"); // Delete Me
 
 		
 		lblStatus = new JLabel();
@@ -90,7 +102,7 @@ public class OverviewTab extends TabLogoPanel {
 		add(lblStatusSpecified);
 		lblStatusSpecified.setBounds(395, 90, 140, 15);
 		lblStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
-		lblStatusSpecified.setText("Rejecting Tunnels"); // Delete Me
+//		lblStatusSpecified.setText("Rejecting Tunnels"); // Delete Me
 
 		lblNetworkStatus = new JLabel();
 		add(lblNetworkStatus);
@@ -103,14 +115,53 @@ public class OverviewTab extends TabLogoPanel {
 		lblNetworkStatusSpecified.setBounds(395, 110, 130, 60);
 		lblNetworkStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNetworkStatusSpecified.setVerticalTextAlignment(JLabel.TOP);
-		lblNetworkStatusSpecified.setText("WARN-Firewalled with Inbound TCP Enabled".replace('-', ' ')); // Delete Me
+//		lblNetworkStatusSpecified.setText("WARN-Firewalled with Inbound TCP Enabled".replace('-', ' ')); // Delete Me
 
 		validate();
+		
+		
+		final int updateInterval = _conf.getConf("overview.info.updateinterval", DEFAULT_INFO_UPDATE_INTERVAL);
+		
+		(new Thread(){
+			@Override
+			public void run() {
+				while (true) {
+					populateInfo();
+					try {
+						Thread.sleep(updateInterval);
+					} catch (InterruptedException e){} // Doesn't matter.
+				}
+			}
+		}).start();
 	}
+	
+	private void populateInfo(){
+		try {
+			EnumMap<ROUTER_INFO, Object> em = GetRouterInfo.execute(ROUTER_INFO.VERSION,
+					ROUTER_INFO.UPTIME, ROUTER_INFO.STATUS, ROUTER_INFO.NETWORK_STATUS);
+			
+			
+			lblVersionSpecified.setText((String) em.get(ROUTER_INFO.VERSION));
+			lblUptimeSpecified.setText((String) em.get(ROUTER_INFO.UPTIME));
+			lblUptimeSpecified.revalidate();
+			lblStatusSpecified.setText((String) em.get(ROUTER_INFO.STATUS));
+			lblNetworkStatusSpecified.setText(((String) em.get(ROUTER_INFO.NETWORK_STATUS)).replace("-", " "));
+			
+			
+			this.getRootPane().repaint(); // Repainting jlabel or jpanel is not enough.
+			
+			StatusHandler.setDefaultStatus(DEFAULT_STATUS.CONNECTED);
+		} catch (InvalidPasswordException e) {
+			StatusHandler.setDefaultStatus(DEFAULT_STATUS.INVALID_PASSWORD);
+		} catch (JSONRPC2SessionException e) {
+			StatusHandler.setDefaultStatus(DEFAULT_STATUS.NOT_CONNECTED);
+		}
+	}
+	
 
 	@Override
 	public void onTabFocus(ChangeEvent e) {
-		// Do thigns when shown?
+		populateInfo();
 	}
 
 	/**
@@ -131,4 +182,7 @@ public class OverviewTab extends TabLogoPanel {
 			}
 		});
 	}
+	
+	
+	
 }

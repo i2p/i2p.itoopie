@@ -1,5 +1,6 @@
 package net.i2p.itoopie.i2pcontrol.methods;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,11 +34,24 @@ public class GetRateStat{
 		try {
 			resp = JSONRPC2Interface.sendReq(req);
 			HashMap inParams = (HashMap) resp.getResult();
-			Double dbl = (Double) inParams.get("Result");
-			return dbl;
+			
+			
+			try {
+				Double dbl = (Double) inParams.get("Result"); 
+				return dbl;
+			} catch (ClassCastException e){
+				_log.debug("Error: Tried to cast a BigDecimal as Double");
+			}
+			try {
+				BigDecimal bigNum = (BigDecimal) inParams.get("Result"); 					
+				Double dbl = bigNum.doubleValue();
+				return dbl;
+			} catch (ClassCastException e){
+				_log.debug("Error: Tried to cast a double as a BigDecimal");
+			} 
 		}catch (UnrecoverableFailedRequestException e) {
 			_log.error("getRateStat failed.", e);
 		}
-		return null;
+		return new Double(0);
 	}
 }

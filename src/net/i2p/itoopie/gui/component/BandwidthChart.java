@@ -31,8 +31,8 @@ import net.i2p.itoopie.i18n.Transl;
 
 public class BandwidthChart {
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
-	private final static int DEFAULT_UPDATE_INTERVAL = 2500; // Update every 2500th ms
-	private final static int DEFAULT_GRAPH_INTERVAL = 2*3600; // The graph will cover a maximum of 2hrs
+	private final static int DEFAULT_UPDATE_INTERVAL = 10000; // Update every 2500th ms
+	private final static int DEFAULT_GRAPH_INTERVAL = 2*3600*1000; // The graph will cover a maximum of 2hrs
 	private final static String DATE_FORMAT = "HH:mm:ss";
 	
 	public static Chart2D getChart(){
@@ -42,7 +42,7 @@ public class BandwidthChart {
 	    Chart2D chart = new Chart2D();
 	    chart.setUseAntialiasing(true);
 	    chart.setMinPaintLatency(20);
-	    ITrace2D dataBWIn = new Trace2DLtd( updateInterval*graphInterval );
+	    ITrace2D dataBWIn = new Trace2DLtd( graphInterval/updateInterval );
 	    dataBWIn.setStroke(new BasicStroke(1));
 	    dataBWIn.setColor(new Color(255, 0, 0, 255));
 	    dataBWIn.setName(Transl._("Bandwidth In [KB/s]"));
@@ -51,7 +51,7 @@ public class BandwidthChart {
 	    dataBWIn.setTracePainter(dotPainter);
 	    chart.addTrace(dataBWIn);
 	
-	    ITrace2D dataBWOut = new Trace2DLtd( updateInterval*graphInterval );
+	    ITrace2D dataBWOut = new Trace2DLtd( graphInterval/updateInterval );
 	    dataBWOut.setStroke(new BasicStroke(1));
 	    dataBWOut.setColor(new Color(0, 0, 255, 255));
 	    dataBWOut.setName(Transl._("Bandwidth Out [KB/s]"));
@@ -73,9 +73,9 @@ public class BandwidthChart {
 	    // force ranges:
 	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 5)));
 
-	    new ObjRecorder2Trace2DAdapter(dataBWIn, new BandwidthTracker("bw.sendRate", 60*1000L), "m_value", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataBWOut, new BandwidthTracker("bw.sendRate", 60*1000L), "m_value", updateInterval);
 //	    new ObjRecorder2Trace2DAdapter(dataBWIn, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
-	    new ObjRecorder2Trace2DAdapter(dataBWOut, new BandwidthTracker("bw.recvRate", 60*1000L), "m_value", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataBWIn, new BandwidthTracker("bw.recvRate", 60*1000L), "m_value", updateInterval);
 //	    new ObjRecorder2Trace2DAdapter(dataBWOut, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    return chart;
 	}

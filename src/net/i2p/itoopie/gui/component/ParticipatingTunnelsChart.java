@@ -30,8 +30,8 @@ import net.i2p.itoopie.i18n.Transl;
 
 public class ParticipatingTunnelsChart {
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
-	private final static int DEFAULT_UPDATE_INTERVAL = 1000; // Update every 1000th ms
-	private final static int DEFAULT_GRAPH_INTERVAL = 2*3600; // The graph will cover a maximum of 2hrs
+	private final static int DEFAULT_UPDATE_INTERVAL = 10000; // Update every 1000th ms
+	private final static int DEFAULT_GRAPH_INTERVAL = 2*3600*1000; // The graph will cover a maximum of 2hrs
 	private final static String DATE_FORMAT = "HH:mm:ss";
 	
 	public static Chart2D getChart(){
@@ -41,7 +41,7 @@ public class ParticipatingTunnelsChart {
 	    Chart2D chart = new Chart2D();
 	    chart.setUseAntialiasing(true);
 	    chart.setMinPaintLatency(20);
-	    ITrace2D dataPartTunnels = new Trace2DLtd( updateInterval*graphInterval );
+	    ITrace2D dataPartTunnels = new Trace2DLtd(  graphInterval/updateInterval  );
 	    dataPartTunnels.setStroke(new BasicStroke(1));
 	    dataPartTunnels.setColor(new Color(255, 0, 0, 255));
 	    dataPartTunnels.setName(Transl._("Number of tunnels we are participating in."));
@@ -64,7 +64,7 @@ public class ParticipatingTunnelsChart {
 	    // force ranges:
 	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 20)));
 
-	    new ObjRecorder2Trace2DAdapter(dataPartTunnels, new RateStatTracker("tunnel.participatingTunnels", 3600000L), "m_value", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataPartTunnels, new RateStatTracker("tunnel.participatingTunnels", 60*1000L), "m_value", updateInterval);
 	    //new ObjRecorder2Trace2DAdapter(dataPartTunnels, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    return chart;
 	}

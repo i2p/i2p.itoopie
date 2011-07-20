@@ -28,6 +28,8 @@ import net.i2p.itoopie.gui.component.util.TabChangeListener;
 import net.i2p.itoopie.util.IconLoader;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -36,7 +38,8 @@ import java.awt.FlowLayout;
 
 public class Main {
 
-	private JFrame frame;
+	private static JFrame frame;
+	private static JTabbedPane tabbedPane;
 	private final static Color VERY_LIGHT = new Color(230,230,230);
 	private final static Color LIGHT = new Color(215,215,215);
 	private final static Color MEDIUM = new Color (175,175,175);
@@ -79,7 +82,7 @@ public class Main {
 		frame.setResizable(false);
 		WindowHandler.registerMain(frame);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
 		TabLogoPanel overviewPanel = new OverviewTab("itoopie-opaque12");
@@ -124,6 +127,16 @@ public class Main {
 		frame.validate();
 		frame.repaint(); // Force repaint to make sure that Logo is loaded.
 		frame.setVisible(true);
+	}
+	
+	
+	/**
+	 * Used to manually trigger updates for the tab being shown.
+	 */
+	public static void fireNewChange(){
+		for (ChangeListener ch : tabbedPane.getChangeListeners()){
+			ch.stateChanged(new ChangeEvent(tabbedPane));
+		}
 	}
 	
 }

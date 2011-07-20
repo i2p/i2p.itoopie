@@ -26,9 +26,14 @@ public class TabChangeListener implements ChangeListener {
     /**
      * Fire onTabFocus for visible tabs when stateChanged.
      */
-    public void stateChanged(ChangeEvent e) {
+    public void stateChanged(final ChangeEvent e) {
         if (adaptee.isVisible()){
-        	adaptee.onTabFocus(e);
+        	(new Thread(){
+        		@Override
+        		public void run(){
+        			adaptee.onTabFocus(e);        			
+        		}
+        	}).start();
         }
     }
 }

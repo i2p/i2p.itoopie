@@ -128,7 +128,7 @@ public class Main {
     
     private static void testStuff(){
         _conf.parseConfigStr("server.hostname=127.0.0.1");
-        _conf.parseConfigStr("server.port=7888");
+        _conf.parseConfigStr("server.port=5555");
         _conf.parseConfigStr("server.target=jsonrpc");
         
         

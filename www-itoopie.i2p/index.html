@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- The new doctype -->
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>itoopie - the simple I2P UI</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="icon" href="images/favicon.png">
+</head>
+<body>        
+    	<section id="page"> <!-- Defining the #page section with the section tag -->
+            <header> <!-- Defining the header section of the page with the appropriate tag -->
+                <hgroup>
+                    <h1 style="text-transform:lowercase">itoopie</h1>
+                    <h3>making I2P easy</h3>
+                </hgroup>
+                                
+                <nav class="clear"> <!-- The nav link semantically marks your main site navigation -->
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#changlog">Changelog</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <section id="articles">
+                <div class="line"></div>
+                
+                <article id="about"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+                    <h2>About</h2>
+                    <div class="line"></div>
+                    <div class="articleBody clear">
+                    	<figure> <!-- The figure tag marks data (usually an image) that is part of the article -->
+	                    	<img src="images/itoopie-main.png">
+                        </figure>
+                        
+                        <p>itoopie is a simple graphical user interface for <a href="http://i2p2.de">I2P</a>.</p>
+						<p>itoopie connects to any <a href="http://i2p2.de">I2P</a> node running the I2PControl plugin. 
+The I2PControl plugin allows itoopie to connect to a <a href="http://i2p2.de">I2P</a> node even if it is running on another machine 
+and even if that machine is somewhere else on the internet.</p>
+                        <p>itoopie allows the user to set download and upload speed of <a href="http://i2p2.de">I2P</a> nodes. 
+Other features include setting network ports and choosing how much bandwidth to share with others. itoopie also support graphing bandwidth usage of <a href="http://i2p2.de">I2P</a> as well as graphing how many tunnels in the <a href="http://i2p2.de">I2P</a> network we are participating in now.</p>
+                    </div>
+                </article>
+
+                <div class="line"></div>
+                
+                <article id="download">
+                    <h2>Download</h2>
+                    <div class="line"></div>
+                    <div class="articleBody clear">
+                    	<figure style="width:512px; height:255px;">
+	                    	<img style="margin-top:-45px;" src="images/itoopie-opaque25-512.png">
+                        </figure>
+                        
+                        <p>itoopie can be downloaded from here, <a href="files/itoopieinstall.jar">itoopieinstall.jar</a></p>
+                        <p>Before running itoopie, I2PControl needs to be installed. Instruction can be found <a href="#installation">below</a>.</p>
+						<p>The installer can be run by opening <tt>itoopieinstaller.exe</tt> or running <tt>java -jar itoopieinstall.exe</tt> (yes, really).</p>
+						<p>The default port for I2PControl is <tt>7650</tt>, the default password is <tt>itoopie</tt>. 
+These settings can easily be restored by shutting down <a href="http://i2p2.de">I2P</a> and deleting a file called I2PControl.conf. 
+<br>
+On Windows the file can be found in <tt>C:\Users\**username**\AppData\Roaming\I2P\plugins\I2PControl\</tt>. 
+<br>
+On Unix (Linux, Mac OSX and *BSD) the file will be found in <tt>~/.i2p/plugins/I2PControl/</tt>. 
+<br>
+After <a href="http://i2p2.de">I2P</a> has been started again settings will be restored to their defaults.</p>
+                    </div>
+                </article>
+
+				<!-- Article 3 start -->
+
+                <div class="line"></div>
+                <article id="installation">
+                    <h2>Installation</h2>
+                    <div class="line"></div>
+                    <div class="articleBody clear">
+                    	<figure>
+	                    	<img src="images/itoopie-configuration.png">
+                        </figure>
+                        
+                        <p>itoopie requires I2PControl to be installed on the <a href="http://i2p2.de">I2P</a> node you whish to connect to. The installation steps required are as follows.</p>
+<p>Install I2PControl by visiting <a href="http://localhost:7657/configclients">http://localhost:7657/configclients</a> and 
+entering <tt>http://itoopie.i2p/files/I2PControl.xpi2p</tt> in the 'Plugin Installation' field. Click 'Install Plugin' and wait for the plugin to be downloaded, installed and started (usually less than 1 minute).</p>
+
+                        <p>When I2PControl has been installed itoopie is ready to be installed, instructions can be found <a href="#download">above</a>.</p>
+                    </div>
+                </article>
+                
+				<!-- Article 2 end -->
+
+				<!-- Article 3 start -->
+
+                <div class="line"></div>
+                
+                <article id="changlog">
+                    <h2>Changelog</h2>
+                    
+                    <div class="line"></div>
+                    
+                    <div class="articleBody clear">
+                    	<figure style="width:450px; height:260px;">
+	                    	<img src="images/itoopie-settings.png">
+                        </figure>
+
+                        <p>Version 0.1</p>
+						<tt>Added graphs.</tt>
+						<tt>Added support for changing the port of I2PControl</tt>
+                    </div>
+                </article>
+                
+				<!-- Article 3 end -->
+
+
+            </section>            
+		</section> <!-- Closing the #page section -->   
+
+</body></html>

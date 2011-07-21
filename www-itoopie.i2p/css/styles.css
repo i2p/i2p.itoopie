@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header, footer, article, section, hgroup, nav, figure {
+    display: block;
+}
+body {
+    background-color: #DDDDDD;
+    color: #666666;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 0.825em;
+}
+a, a:visited {
+    color: #385894;
+    outline: medium none;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a img {
+    border: medium none;
+}
+h1, h2, h3 {
+    font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+    text-shadow: 0 1px 1px black;
+}
+h1 {
+    font-size: 3.5em;
+    padding: 0.5em 0 0;
+    text-transform: uppercase;
+}
+h3 {
+    font-family: forte,"Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+    font-size: 2em;
+    font-weight: normal;
+    margin: 0 0 1em;
+}
+h2 {
+    font-size: 2.2em;
+    font-weight: normal;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+p {
+    line-height: 1.5em;
+    padding-bottom: 1em;
+}
+.line {
+    background-color: #DDDDDD;
+    border-bottom: 1px solid #999999;
+    height: 1px;
+    margin: 1em 0;
+    overflow: hidden;
+}
+article .line {
+    background-color: #AAAAAA;
+    border-bottom-color: #CCCCCC;
+    margin: 1.3em 0;
+}
+footer .line {
+    margin: 2em 0;
+}
+nav {
+    background: url("img/gradient_light.jpg") repeat-x scroll 50% 50% #F8F8F8;
+    border: 1px solid #FCFCFC;
+    box-shadow: 0 1px 1px #333333;
+    padding: 0 5px;
+    position: absolute;
+    right: 0;
+    top: 4em;
+}
+.clear:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a, nav ul li a:visited {
+    color: #565656;
+    display: block;
+    float: left;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 5px 2px;
+    padding: 7px 10px 4px;
+    text-shadow: 0 1px 1px white;
+    text-transform: uppercase;
+}
+nav ul li a:hover {
+    background-color: #F0F0F0;
+    text-decoration: none;
+}
+nav, article, nav ul li a, figure {
+    border-radius: 10px 10px 10px 10px;
+}
+#page {
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+}
+article {
+    background-color: #EEEEEE;
+    border: 1px solid #AAAAAA;
+    margin: 3em 0;
+    padding: 20px;
+    text-shadow: 0 2px 0 white;
+}
+figure {
+    border: 3px solid #E0E0E0;
+    float: right;
+    height: 300px;
+    margin-left: 15px;
+    overflow: hidden;
+    width: 550px;
+}
+figure:hover {
+    box-shadow: 0 0 2px #4D7788;
+}
+figure img {
+    margin-left: 0;
+}
+footer {
+    font-size: 0.825em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+footer p {
+    margin-bottom: -2.5em;
+    position: relative;
+}
+footer a, footer a:visited {
+    background-color: #213E4A;
+    color: #CCCCCC;
+    display: block;
+    padding: 2px 4px;
+    position: relative;
+    z-index: 100;
+}
+footer a:hover {
+    background-color: #142830;
+    text-decoration: none;
+}
+footer a.by {
+    float: left;
+}
+footer a.up {
+    float: right;
+}
+

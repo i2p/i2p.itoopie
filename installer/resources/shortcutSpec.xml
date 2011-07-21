@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+ <programGroup defaultName="itoopie" location="startMenu" />
+ <shortcut name="itoopie" 
+			target="$INSTALL_PATH\itoopie.exe" 
+			commandLine=""
+			workingDirectory="$INSTALL_PATH"
+			iconFile="$INSTALL_PATH\logo.png"
+			initialState="noShow"
+			programGroup="yes"
+			startMenu="yes"
+			desktop="yes"
+			startup="no" />
+</shortcuts>

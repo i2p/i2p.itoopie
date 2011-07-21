@@ -1,0 +1,24 @@
+<launch4jConfig>
+  <headerType>0</headerType>
+  <jar>../dist/itoopie.jar</jar>
+  <outfile>../dist/itoopie.exe</outfile>
+  <errTitle>itoopie</errTitle>
+  <chdir>.</chdir>
+  <customProcName>false</customProcName>
+  <icon>resources/start.ico</icon>
+  <jre>
+    <minVersion>1.5.0</minVersion>
+    <!--
+    <minHeapSize>64</minHeapSize>
+    -->
+    <maxHeapSize>256</maxHeapSize>
+  </jre>
+<!--
+  <splash>
+    <file>resources/i2plogo.bmp</file>
+    <waitForWindow>false</waitForWindow>
+    <timeout>10</timeout>
+    <timeoutErr>false</timeoutErr>
+  </splash>
+-->
+</launch4jConfig>

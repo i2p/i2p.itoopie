@@ -93,6 +93,58 @@
         </exec>
     </target>
 
+
+
+    <target name="installer" depends="jar" >
+        <copy file="${resources}/images/itoopie-256.png" tofile="${dist}/logo.png"/>
+        <ant target="doAppEXE" />
+
+        <taskdef name="izpack" classpath="${basedir}/installer/lib/izpack/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
+        <izpack input="${basedir}/installer/install.xml" 
+            output="${basedir}/install.jar" 
+            installerType="standard" 
+            basedir="${basedir}"
+            compression="deflate"
+            compressionlevel="9" />
+
+        <ant target="installerexe" />
+    </target>
+    <target name="installerexe">
+        <!--<condition property="noExe">
+	    	<os arch="x86_64" />
+		</condition>
+        <condition property="noExe">
+	    	<os arch="amd64" />
+		</condition>
+		<condition property="noExe">
+			<not>
+			    <or>
+			        <os name="Linux" />
+			        <os family="windows" />
+			    </or>
+		   </not>
+		</condition>-->
+	    <ant target="doInstallerEXE" />
+    </target>
+
+    <target name="doInstallerEXE" unless="noExe">
+
+	<!-- now the installer exe -->
+	<taskdef name="launch4j"
+                 classname="net.sf.launch4j.ant.Launch4jTask"
+                 classpath="${basedir}/installer/lib/launch4j/launch4j.jar:${basedir}/installer/lib/launch4j/lib/xstream.jar" />
+        <launch4j configFile="installer/itoopieinstaller.xml" />
+	</target>
+	<!-- thazzit -->
+
+
+    <target name="doAppEXE" unless="noExe">
+	<taskdef name="launch4j"
+                 classname="net.sf.launch4j.ant.Launch4jTask"
+                 classpath="${basedir}/installer/lib/launch4j/launch4j.jar:${basedir}/installer/lib/launch4j/lib/xstream.jar" />
+        <launch4j configFile="installer/itoopiestandalone.xml" />
+	</target>
+
 	<target name="dist" depends="jar" />	
 	<target name="all" depends="jar" />
 </project>

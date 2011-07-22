@@ -108,6 +108,7 @@
             compressionlevel="9" />
 
         <ant target="installerexe" />
+		<checksum file="itoopieinstall.exe" algorithm="SHA-512" fileext=".sha512"/>
     </target>
     <target name="installerexe">
         <!--<condition property="noExe">

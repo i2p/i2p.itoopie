@@ -22,9 +22,8 @@ import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
-import net.i2p.itoopie.gui.component.chart.BandwidthTracker;
-import net.i2p.itoopie.gui.component.chart.DummyDataCollector;
-import net.i2p.itoopie.gui.component.chart.RateStatTracker;
+import net.i2p.itoopie.gui.component.chart.InboundBandwidthTracker;
+import net.i2p.itoopie.gui.component.chart.OutboundBandwidthTracker;
 import net.i2p.itoopie.gui.component.chart.ObjRecorder2Trace2DAdapter;
 import net.i2p.itoopie.i18n.Transl;
 
@@ -73,9 +72,9 @@ public class BandwidthChart {
 	    // force ranges:
 	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 5)));
 
-	    new ObjRecorder2Trace2DAdapter(dataBWOut, new BandwidthTracker("bw.sendRate", 60*1000L), "m_value", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataBWOut, new InboundBandwidthTracker(), "m_value", updateInterval);
 //	    new ObjRecorder2Trace2DAdapter(dataBWIn, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
-	    new ObjRecorder2Trace2DAdapter(dataBWIn, new BandwidthTracker("bw.recvRate", 60*1000L), "m_value", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataBWIn, new OutboundBandwidthTracker(), "m_value", updateInterval);
 //	    new ObjRecorder2Trace2DAdapter(dataBWOut, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    return chart;
 	}

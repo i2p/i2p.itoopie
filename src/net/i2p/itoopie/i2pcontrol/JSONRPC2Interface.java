@@ -78,7 +78,6 @@ public class JSONRPC2Interface {
 		}
 		HashMap outParams = (HashMap) req.getParams();
 		outParams.put("Token", token); // Add authentication token
-		outParams.put("API", ItoopieVersion.I2PCONTROL_API_VERSION);
 		req.setParams(outParams);
 
 		JSONRPC2Response resp = null;

@@ -1,13 +1,18 @@
 package net.i2p.itoopie.gui.component.chart;
 
+import java.util.EnumMap;
+import java.util.HashMap;
+
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;
+import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo;
+import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
 
-public class BandwidthTracker extends Thread {
+public class InboundBandwidthTracker extends Thread {
 	
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
 	/** Last read bw */
@@ -17,19 +22,11 @@ public class BandwidthTracker extends Thread {
 	private final static int DEFAULT_UPDATE_INTERVAL = 100; // Update every 100th ms
 
 	private int updateInterval = _conf.getConf("graph.updateinterval", DEFAULT_UPDATE_INTERVAL);
-	
-	/** Which RateStat to measure from the router */
-	private String rateStat;
-	
-	/** Which period of a stat to measure */
-	private long period;
 
 	/**
 	 * Start daemon that checks to current inbound bandwidth of the router.
 	 */
-	public BandwidthTracker(String rateStat, long period) {
-		this.rateStat = rateStat;
-		this.period = period;
+	public InboundBandwidthTracker() {
 		this.setDaemon(true);
 		this.start();
 	}
@@ -39,13 +36,14 @@ public class BandwidthTracker extends Thread {
 	 */
 	@Override
 	public void run() {
-
+		EnumMap<ROUTER_INFO, Object> em;
 		while (true) {
 			try {
-				m_value = GetRateStat.execute(rateStat, period) / 1024; //Bytes -> KBytes
+				em = GetRouterInfo.execute(ROUTER_INFO.BW_INBOUND_1S);
+				double dbl = (Double) em.get(ROUTER_INFO.BW_INBOUND_1S);
+				m_value = dbl / 1024; //Bytes -> KBytes
 			} catch (InvalidPasswordException e) {
 			} catch (JSONRPC2SessionException e) {
-			} catch (InvalidParametersException e) {
 			}
 
 			try {

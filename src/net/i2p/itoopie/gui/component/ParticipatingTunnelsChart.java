@@ -22,8 +22,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
-import net.i2p.itoopie.gui.component.chart.DummyDataCollector;
-import net.i2p.itoopie.gui.component.chart.RateStatTracker;
+import net.i2p.itoopie.gui.component.chart.ParticipatingTunnelsTracker;
 import net.i2p.itoopie.gui.component.chart.ObjRecorder2Trace2DAdapter;
 import net.i2p.itoopie.i18n.Transl;
 
@@ -64,7 +63,7 @@ public class ParticipatingTunnelsChart {
 	    // force ranges:
 	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 20)));
 
-	    new ObjRecorder2Trace2DAdapter(dataPartTunnels, new RateStatTracker("tunnel.participatingTunnels", 60*1000L), "m_value", updateInterval);
+	    new ObjRecorder2Trace2DAdapter(dataPartTunnels, new ParticipatingTunnelsTracker(), "m_value", updateInterval);
 	    //new ObjRecorder2Trace2DAdapter(dataPartTunnels, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    return chart;
 	}

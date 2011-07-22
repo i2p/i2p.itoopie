@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import net.i2p.itoopie.ItoopieVersion;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
@@ -28,6 +29,7 @@ public class Authenticate {
 		Map outParams = new HashMap();
 		outParams.put("Password",
 				_conf.getConf("server.password", _conf.getConf("server.password", DEFAULT_PASSWORD)));
+		outParams.put("API", ItoopieVersion.I2PCONTROL_API_VERSION);
 		req.setParams(outParams);
 
 		JSONRPC2Response resp = null;

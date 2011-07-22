@@ -25,6 +25,7 @@ import net.i2p.itoopie.gui.component.ParticipatingTunnelsChart;
 import net.i2p.itoopie.gui.component.RegisteredFrame;
 import net.i2p.itoopie.gui.component.TabLogoPanel;
 import net.i2p.itoopie.gui.component.util.TabChangeListener;
+import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.util.IconLoader;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
@@ -77,7 +78,7 @@ public class Main {
 		GUIHelper.setDefaultStyle();
 
 
-		frame = new RegisteredFrame();
+		frame = new RegisteredFrame("itoopie");
 		frame.setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 		frame.setResizable(false);
 		WindowHandler.registerMain(frame);
@@ -85,19 +86,23 @@ public class Main {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
-		TabLogoPanel overviewPanel = new OverviewTab("itoopie-opaque12");
-		tabbedPane.addTab("Overview", null, overviewPanel, null);
-		tabbedPane.addChangeListener(new TabChangeListener(overviewPanel));
+		TabLogoPanel overviewTab = new OverviewTab("itoopie-opaque12");
+		tabbedPane.addTab(Transl._("Overview"), null, overviewTab, null);
+		tabbedPane.addChangeListener(new TabChangeListener(overviewTab));
 		
 		
-		TabLogoPanel configPanel = new ConfigurationTab("itoopie-opaque12");
-		tabbedPane.addTab("Configuration", null, configPanel, null);
-		tabbedPane.addChangeListener(new TabChangeListener(configPanel));
+		TabLogoPanel configTab = new ConfigurationTab("itoopie-opaque12");
+		tabbedPane.addTab(Transl._("Configuration"), null, configTab, null);
+		tabbedPane.addChangeListener(new TabChangeListener(configTab));
 
 		
 		JPanel logPanel = new LogoPanel("itoopie-opaque12");
-		tabbedPane.addTab("Logs", null, logPanel, null);
-		logPanel.setLayout(new BorderLayout(0, 0));
+		tabbedPane.addTab(Transl._("Logs"), null, logPanel, null);
+		
+		
+		TabLogoPanel aboutTab = new AboutTab("itoopie-opaque12");
+		tabbedPane.addTab(Transl._("About"), null, aboutTab, null);
+
 		
 		JPanel statusPanel = new JPanel();
 		frame.getContentPane().add(statusPanel, BorderLayout.SOUTH);

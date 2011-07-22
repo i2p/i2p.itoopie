@@ -16,21 +16,42 @@ public class RouterInfo{
 	 * @author hottuna
 	 */
 	public enum ROUTER_INFO implements Remote{
-		VERSION { 			public boolean isReadable(){ return true;}
-							public boolean isWritable(){ return false;}  
-							public String toString() { return "i2p.router.version"; }},
+		VERSION { 				public boolean isReadable(){ return true;}
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.version"; }},
 						
-		UPTIME { 			public boolean isReadable(){ return true;}	
-							public boolean isWritable(){ return false;}  
-							public String toString() { return "i2p.router.uptime"; }},
+		UPTIME { 				public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.uptime"; }},
 						
-		STATUS { 			public boolean isReadable(){ return true;}	
-							public boolean isWritable(){ return false;}  
-							public String toString() { return "i2p.router.status"; }},
+		STATUS { 				public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.status"; }},
 						
-		NETWORK_STATUS {	public boolean isReadable(){ return true;}	
-							public boolean isWritable(){ return false;}  
-							public String toString() { return "i2p.router.net.status"; }}
+		NETWORK_STATUS {		public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.net.status"; }},
+		
+		BW_INBOUND_1S {			public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.net.bw.inbound.1s"; }},
+							
+		BW_INBOUND_15S {		public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.net.bw.inbound.15s"; }},
+		
+		BW_OUTBOUND_1S {		public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.net.bw.outbound.1s"; }},
+							
+		BW_OUTBOUND_15S {		public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.net.bw.outbound.15s"; }},
+		
+		TUNNELS_PARTICIPATING {	public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.net.tunnels.participating"; }}
+							
 	};
 		
 	static {

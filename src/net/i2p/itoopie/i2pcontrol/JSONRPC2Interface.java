@@ -7,6 +7,7 @@ import java.util.Random;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import net.i2p.itoopie.ItoopieVersion;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.methods.Authenticate;
 import net.i2p.itoopie.security.CertificateHelper;
@@ -77,11 +78,14 @@ public class JSONRPC2Interface {
 		}
 		HashMap outParams = (HashMap) req.getParams();
 		outParams.put("Token", token); // Add authentication token
+		outParams.put("API", ItoopieVersion.I2PCONTROL_API_VERSION);
 		req.setParams(outParams);
 
 		JSONRPC2Response resp = null;
 		try {
 			resp = session.send(req);
+			System.out.println("Request: " + req.toString());
+			System.out.println("Response: " + resp.toString());
 			JSONRPC2Error err = resp.getError();
 			if (err != null) {
 				switch (err.getCode()) {
@@ -128,11 +132,20 @@ public class JSONRPC2Interface {
 					token = Authenticate.execute();
 					throw new FailedRequestException();
 					// break;
+				case -32005:
+					// I2PControl API version not provided
+					throw new InvalidI2PControlAPI(err.getMessage());
+				case -32006:
+					// I2PControl API version not supported
+					throw new InvalidI2PControlAPI(err.getMessage());
 				}
 			}
 			return resp;
 		} catch (FailedRequestException e) {
 			return sendReq(req, ++tryNbr);
+		} catch (InvalidI2PControlAPI e) {
+			_log.error(e);
+			return null;
 		}
 	}
 }

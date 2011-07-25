@@ -22,6 +22,8 @@ import java.security.cert.X509Certificate;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
+import net.i2p.itoopie.configuration.ConfigurationManager;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -160,12 +162,12 @@ public class CertificateManager {
 		if (_ks == null){
 			try {
 				_ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
-				if ((new File(DEFAULT_KEYSTORE_LOCATION)).exists()){
-					InputStream is = new FileInputStream(DEFAULT_KEYSTORE_LOCATION);
+				if ((new File(ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION)).exists()){
+					InputStream is = new FileInputStream(ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION);
 					_ks.load(is, DEFAULT_KEYSTORE_PASSWORD.toCharArray());
 					return _ks;
 				} else {
-					throw new IOException("KeyStore file " + DEFAULT_KEYSTORE_LOCATION + "wasn't readable");
+					throw new IOException("KeyStore file " + ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION + "wasn't readable");
 				}
 			} catch (Exception e) {
 				// Ignore. Not an issue. Let's just create a new keystore instead.
@@ -186,7 +188,7 @@ public class CertificateManager {
 	
 	private static void saveKeyStore(KeyStore ks){
 		try {
-			ks.store(new FileOutputStream(DEFAULT_KEYSTORE_LOCATION), DEFAULT_KEYSTORE_PASSWORD.toCharArray());
+			ks.store(new FileOutputStream(ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION), DEFAULT_KEYSTORE_PASSWORD.toCharArray());
 		} catch (KeyStoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

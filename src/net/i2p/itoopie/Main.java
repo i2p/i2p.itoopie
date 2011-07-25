@@ -52,7 +52,6 @@ public class Main {
     private TrayManager trayManager = null;
     private static ConfigurationManager _conf;
     private static Log _log;
-    public static final boolean isDebug = true;
 
     /**
      * Start the tray icon code (loads tray icon in the tray area).

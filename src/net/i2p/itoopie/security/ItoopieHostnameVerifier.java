@@ -28,7 +28,7 @@ public class ItoopieHostnameVerifier implements HostnameVerifier{
 			if (CertificateManager.contains(serverHost)) {
 				if (CertificateManager.verifyCert(serverHost,
 						CertificateHelper.convert(certs[0]))) {
-					return true; // Remote host has provided valid certificate that is store locally.
+					return true; // Remote host has provided valid certificate that is stored locally.
 				} else {
 					// Remote host has provided a certificate that != the stored certificate for this host
 					if (CertificateGUI.overwriteCert(serverHost, certs[0])){

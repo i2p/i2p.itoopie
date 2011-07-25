@@ -25,7 +25,7 @@ fi
 if which find|grep -q -i windows ; then
 	export PATH=.:/bin:/usr/local/bin:$PATH
 fi
-# Fast mode - update ondemond
+# Fast mode - update ondemand
 # set LG2 to the language you need in envrionment varibales to enable this
 
 # add ../java/ so the refs will work in the po file

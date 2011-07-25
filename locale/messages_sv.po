@@ -31,52 +31,52 @@ msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:32
 msgid "New remote host detected"
-msgstr ""
+msgstr "Ny fjärrvärd upptäckt"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:33
 msgid "Would you like permanently trust the certificate from the remote host "
-msgstr ""
+msgstr "Vill du permanent lite på certifikatet från fjärrvärden "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:46
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:95
 msgid "Certificate info"
-msgstr ""
+msgstr "Certifikat info"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:47
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:96
 msgid "Name: "
-msgstr ""
+msgstr "Namn: "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:48
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:97
 msgid "Algorithm: "
-msgstr ""
+msgstr "Algoritm: "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:49
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:98
 msgid "Serial: "
-msgstr ""
+msgstr "Serienummer: "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:50
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:99
 msgid "SHA-1 ID-hash: "
-msgstr ""
+msgstr "SHA-1 hash:"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:80
 msgid "Warning, new remote host detected"
-msgstr ""
+msgstr "Varning, ny fjärrvärd funnen"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:81
 msgid "The certificate of "
-msgstr ""
+msgstr "Certifikatet från"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:113
 msgid "Are you sure that you trust the new certificate?"
-msgstr ""
+msgstr "Är du säker på att du vill lite på det nya certifkatet?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:114
 msgid "Is that you final answer?"
-msgstr ""
+msgstr "Är det ditt slutgiltiga svar?"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
 msgid "Settings read from I2P router."
@@ -183,7 +183,6 @@ msgid "Invalid share percentage."
 msgstr "Ogiltig utdelningsprocent."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:391
-#, fuzzy
 msgid ""
 "The new settings have been applied,\n"
 "but the I2P router needs to be restarted for some to take effect.\n"
@@ -210,43 +209,43 @@ msgstr "Omstart misslyckades: "
 
 #: src/net/i2p/itoopie/gui/Main.java:90
 msgid "Overview"
-msgstr ""
+msgstr "Översikt"
 
 #: src/net/i2p/itoopie/gui/Main.java:95
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 #: src/net/i2p/itoopie/gui/Main.java:100
 msgid "Logs"
-msgstr ""
+msgstr "Loggar"
 
 #: src/net/i2p/itoopie/gui/Main.java:104
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:72
 msgid "Version:"
-msgstr ""
+msgstr "Version:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:86
 msgid "Uptime:"
-msgstr ""
+msgstr "Uptid:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:99
 msgid "Status:"
-msgstr ""
+msgstr "Status:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:111
 msgid "Netstatus:"
-msgstr ""
+msgstr "Nätstatus:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:57
 msgid "No changes found, settings not saved."
-msgstr ""
+msgstr "Inga förändringar hittade, inställningar ej sparade."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:168
 msgid "Settings saved."
-msgstr ""
+msgstr "Inställningar sparade."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:172
 #, fuzzy
@@ -255,29 +254,27 @@ msgstr "Ogiltiga inställningar, sparar ej."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:211
 msgid "Discard"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:266
 msgid "New password:"
-msgstr ""
+msgstr "Nytt lösen:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:272
 msgid "Password:"
-msgstr ""
+msgstr "Lösen:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:282
 msgid "Repeat:"
-msgstr ""
+msgstr "Upprepa:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:293
-#, fuzzy
 msgid "New port:"
-msgstr "TCP port:"
+msgstr "Ny port:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:299
-#, fuzzy
 msgid "Port:"
-msgstr "TCP port:"
+msgstr "Port:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:336
 msgid ""
@@ -285,11 +282,13 @@ msgid ""
 "\n"
 "Try entering the ip address of the machine running i2p."
 msgstr ""
+" kan inte tolkas som en ipadress.\n"
+"\n"
+"Försök använda maskinen som kör I2Ps ipadress."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:338
-#, fuzzy
 msgid "Invalid ip address."
-msgstr "Ogiltig port."
+msgstr "Ogiltig ipadress."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:352
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:476
@@ -298,6 +297,9 @@ msgid ""
 "\n"
 "A port has to be a number in the range 1-65535."
 msgstr ""
+" kan inte tolkas som en port.\n"
+"\n"
+"En port måsta vara ett nummer i intervallet 1-65535."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:369
 msgid ""
@@ -305,10 +307,13 @@ msgid ""
 "\n"
 "(by default the password is, \"itoopie\")"
 msgstr ""
+"Lösenordet accepterades inte av den angivna värden.\n"
+"\n"
+"(standarlösenordet är \"itoopie\")"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:371
 msgid "Rejected password."
-msgstr ""
+msgstr "Lösen avvisat."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:381
 msgid ""
@@ -317,50 +322,51 @@ msgid ""
 "Maybe I2PControl is not running on the remote I2P router, \n"
 "maybe the I2P router is not started."
 msgstr ""
+"Fjärrvärden vid angiven ip och port svarade inte.\n"
+"I2PControl kanske inte körs på I2P routern, \n"
+"I2P routern kanske inte är startad."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:384
 msgid "Connection failed."
-msgstr ""
+msgstr "Anslutning misslyckades."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:420
 msgid "The new password and the repeated new password do not match.\n"
-msgstr ""
+msgstr "Det nya lösenordet och det upprepade lösenordert överensstämmer inte.\n"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:421
 msgid "Mistyped password."
-msgstr ""
+msgstr "Felskrivet lösenord."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:430
 msgid "The new password is the same as the old password.\n"
-msgstr ""
+msgstr "Det nya lösenordet är samma som det gamla lösenorder.\n"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:431
 msgid "No new password."
-msgstr ""
+msgstr "Inget nytt lösenord."
 
 #: src/net/i2p/itoopie/gui/TrayManager.java:87
 msgid "Exit itoopie"
-msgstr ""
+msgstr "Avsluta itoopie"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:47
-#, fuzzy
 msgid "Bandwidth In [KB/s]"
-msgstr "Bandbredd:"
+msgstr "Bandbredd In [KB/s]:"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:56
-#, fuzzy
 msgid "Bandwidth Out [KB/s]"
-msgstr "Bandbredd:"
+msgstr "Bandbredd ut [KB/s]:"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:65
 #: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:56
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 #: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:46
 msgid "Number of tunnels we are participating in."
-msgstr ""
+msgstr "Antalet I2P tunnlar vi deltar i."
 
 #: src/net/i2p/itoopie/security/CertificateHelper.java:78
 msgid "Unable to create hash of the given cert, "
-msgstr ""
+msgstr "Kunde ej skapa en hash av det angivna certifikatet, "

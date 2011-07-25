@@ -1,11 +1,148 @@
-#: src/net/i2p/itoopie/gui/main.java:53
-msgid "Start I2P"
-msgstr "Start I2P"
+# itoopie
+# Copyright (C) 2011  itoopie
+# This file is distributed under the same license as the routerconsole package.
+# To contribute translations, see http://www.i2p2.de/newdevelopers
+# hottuna <dev@robertfoss.se>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: itoopie\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-25 11:57+0000\n"
+"PO-Revision-Date: 2010-07-25 14:09+0100\n"
+"Last-Translator: hottuna <dev@robertfoss.se>\n"
+"Language-Team: hottuna <dev@robertfoss.se>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: src/net/i2p/itoopie/gui/main.java:80
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
+msgid "Settings read from I2P router."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:48
+msgid "Settings aren't valid, not saving."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
+msgid "I2P router rejected settings."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:50
+msgid "Not connected, unable to save."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
+msgid "Saved settings on I2P router."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
+msgid "Saved settings on I2P router. I2P router needs to be restarted."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:96
+msgid "Apply"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:132
+msgid "Bandwidth:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:137
+msgid "Download:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:146
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:160
+msgid "KB/s"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:151
+msgid "Upload:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:165
+msgid "Share:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:174
+msgid "%"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:184
+msgid "Network:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:189
+msgid "TCP port:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:199
+msgid "UDP port:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:209
+msgid "UPNP:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:211
+msgid "Enable UPNP"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:279
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:296
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:313
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:330
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:347
+msgid "' "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:281
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:298
+msgid "Invalid port."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:315
+msgid "Invalid download speed."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:332
+msgid "Invalid upload speed."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:349
+msgid "Invalid share percentage."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:391
+msgid ""
+"The new settings have been applied,\n"
+"but the I2P router needs to be restarted for some to take effect.\n"
+"\n"
+"Would you like to restart the I2P router now?"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:394
+msgid "Restart needed for new settings."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:400
+msgid "Restarting I2P node.. "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:402
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:404
+msgid "Restart failed: "
+msgstr ""
+
+#~ msgid "Start I2P"
+#~ msgstr "Start I2P"
+
 #, fuzzy
-msgid "Push to start I2P"
-msgstr "Push to start I2P"
+#~ msgid "Push to start I2P"
+#~ msgstr "Push to start I2P"
 
 #~ msgid "I2P is starting!"
 #~ msgstr "I2P is starting!"

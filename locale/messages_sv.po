@@ -1,26 +1,143 @@
-#: src/net/i2p/itoopie/gui/main.java:53
-msgid "Start I2P"
-msgstr "Starta I2P"
+# itoopie
+# Copyright (C) 2011  itoopie
+# This file is distributed under the same license as the routerconsole package.
+# To contribute translations, see http://www.i2p2.de/newdevelopers
+# hottuna <dev@robertfoss.se>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: itoopie\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-25 11:57+0000\n"
+"PO-Revision-Date: 2010-07-25 14:09+0100\n"
+"Last-Translator: hottuna <dev@robertfoss.se>\n"
+"Language-Team: hottuna <dev@robertfoss.se>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: src/net/i2p/itoopie/gui/main.java:80
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
+msgid "Settings read from I2P router."
+msgstr "Inställningar lästa från I2P routern."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:48
+msgid "Settings aren't valid, not saving."
+msgstr "Ogiltiga inställningar, sparar ej."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
+msgid "I2P router rejected settings."
+msgstr "I2P routern avvisade inställningar."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:50
+msgid "Not connected, unable to save."
+msgstr "Ej ansluten, kan inte spara."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
+msgid "Saved settings on I2P router."
+msgstr "Inställningar sparades till I2P router."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
+msgid "Saved settings on I2P router. I2P router needs to be restarted."
+msgstr "Sparade inställningar på I2P routern. I2P routern behöver startas om."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:96
+msgid "Apply"
+msgstr "Verkställ"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:132
+msgid "Bandwidth:"
+msgstr "Bandbredd:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:137
+msgid "Download:"
+msgstr "Nerladdning:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:146
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:160
+msgid "KB/s"
+msgstr "KB/s"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:151
+msgid "Upload:"
+msgstr "Uppladdning:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:165
+msgid "Share:"
+msgstr "Utdelning:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:174
+msgid "%"
+msgstr "%"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:184
+msgid "Network:"
+msgstr "Nätverk:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:189
+msgid "TCP port:"
+msgstr "TCP port:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:199
+msgid "UDP port:"
+msgstr "UDP port:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:209
+msgid "UPNP:"
+msgstr "UPNP:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:211
+msgid "Enable UPNP"
+msgstr "Slå på UPNP"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:279
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:296
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:313
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:330
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:347
+msgid "' "
+msgstr "' "
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:281
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:298
+msgid "Invalid port."
+msgstr "Ogiltig port."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:315
+msgid "Invalid download speed."
+msgstr "Ogiltig nerladdningshastighet."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:332
+msgid "Invalid upload speed."
+msgstr "Ogiltig uppladdningshastighet."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:349
+msgid "Invalid share percentage."
+msgstr "Ogiltig utdelningsprocent."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:391
 #, fuzzy
-msgid "Push to start I2P"
-msgstr "Tryck för att starta I2P"
+msgid ""
+"The new settings have been applied,\n"
+"but the I2P router needs to be restarted for some to take effect.\n"
+"\n"
+"Would you like to restart the I2P router now?"
+msgstr ""
+"De nya inställningarna har sparats,\n"
+"men I2P routern måste startas om för att verkställa.\n"
+"\n"
+"Vill du starta om I2P routern nu?"
 
-#~ msgid "I2P is starting!"
-#~ msgstr "I2P is startar!"
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:394
+msgid "Restart needed for new settings."
+msgstr "Omstart krävs för nya inställningar."
 
-#~ msgid "Starting"
-#~ msgstr "Startar"
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:400
+msgid "Restarting I2P node.. "
+msgstr "Startar om I2P nod.."
 
-#~ msgid "Launch I2P Browser"
-#~ msgstr "Starta I2P browser"
-
-#~ msgid "Stop I2P"
-#~ msgstr "Stoppa I2P"
-
-#~ msgid "Browser not found"
-#~ msgstr "Browser niet gevonden"
-
-#~ msgid "The default browser for your system was not found."
-#~ msgstr "De standaard webbrowser voor je systeem werd niet gevonden."
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:402
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:404
+msgid "Restart failed: "
+msgstr "Omstart misslyckades: "

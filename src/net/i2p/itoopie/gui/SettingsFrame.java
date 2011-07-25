@@ -333,8 +333,8 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (UnknownHostException e) {
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._(ipText + " can not be interpreted as an ip address.\r\n" + 
-							"\r\nTry entering the ip address of the machine running i2p."),
+				    Transl._(ipText + " can not be interpreted as an ip address.\n" + 
+							"\nTry entering the ip address of the machine running i2p."),
 				    Transl._("Invalid ip address."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -349,8 +349,8 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._(portText + " can not be interpreted as a port.\r\n" + 
-							"\r\nA port has to be a number in the range 1-65535."),
+				    Transl._(portText + " can not be interpreted as a port.\n" + 
+							"\nA port has to be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -366,8 +366,8 @@ public class SettingsFrame extends RegisteredFrame{
 			_conf.setConf("server.password", oldPW);
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The password was not accepted as valid by the specified host.\r\n" + 
-							"\r\n(by default the password is, \"itoopie\")"),
+				    Transl._("The password was not accepted as valid by the specified host.\n" + 
+							"\n(by default the password is, \"itoopie\")"),
 				    Transl._("Rejected password."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -378,8 +378,8 @@ public class SettingsFrame extends RegisteredFrame{
 			_conf.setConf("server.password", oldPW);
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The remote host at the ip and port did not respond.\r\n" + 
-							"\r\nMaybe I2PControl is not running on the remote I2P router, \r\n" + 
+				    Transl._("The remote host at the ip and port did not respond.\n" + 
+							"\nMaybe I2PControl is not running on the remote I2P router, \n" + 
 				    		"maybe the I2P router is not started."),
 				    Transl._("Connection failed."),
 				    JOptionPane.DEFAULT_OPTION,
@@ -417,7 +417,7 @@ public class SettingsFrame extends RegisteredFrame{
 		if (!pw.equals(pwRepeat)){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The new password and the repeated new password do not match.\r\n"),
+				    Transl._("The new password and the repeated new password do not match.\n"),
 				    Transl._("Mistyped password."),
 				    JOptionPane.OK_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -427,7 +427,7 @@ public class SettingsFrame extends RegisteredFrame{
 		if (pw.equals(oldPW)){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The new password is the same as the old password.\r\n"),
+				    Transl._("The new password is the same as the old password.\n"),
 				    Transl._("No new password."),
 				    JOptionPane.OK_CANCEL_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -473,8 +473,8 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._(port + " can not be interpreted as a port.\r\n" + 
-							"\r\nA port has to be a number in the range 1-65535."),
+				    Transl._(port + " can not be interpreted as a port.\n" + 
+							"\nA port has to be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.OK_CANCEL_OPTION,
 				    JOptionPane.ERROR_MESSAGE);

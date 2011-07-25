@@ -276,8 +276,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+udpPort + " ' can not be interpreted as a UDP port.\r\n" + 
-							"\r\nA port has to be a number in the range 1-65535."),
+				    Transl._("' "+udpPort + " ' can not be interpreted as a UDP port.\n" + 
+							"\nA port has to be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -293,8 +293,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+udpPort + " ' can not be interpreted as a UDP port.\r\n" + 
-							"\r\nA port has to be a number in the range 1-65535."),
+				    Transl._("' "+udpPort + " ' can not be interpreted as a UDP port.\n" + 
+							"\nA port has to be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -310,8 +310,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+download + " ' can not be interpreted as an download spped.\r\n" + 
-							"\r\nA port has to be a number larger than 0."),
+				    Transl._("' "+download + " ' can not be interpreted as an download spped.\n" + 
+							"\nA port has to be a number larger than 0."),
 				    Transl._("Invalid download speed."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -327,8 +327,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+upload + " ' can not be interpreted as an upload spped.\r\n" + 
-							"\r\nA port has to be a number larger than 0."),
+				    Transl._("' "+upload + " ' can not be interpreted as an upload spped.\n" + 
+							"\nA port has to be a number larger than 0."),
 				    Transl._("Invalid upload speed."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -344,8 +344,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+share + " ' can not be interpreted as a percentage.\r\n" + 
-							"\r\nThe percentage has to be a number in the range 0-100."),
+				    Transl._("' "+share + " ' can not be interpreted as a percentage.\n" + 
+							"\nThe percentage has to be a number in the range 0-100."),
 				    Transl._("Invalid share percentage."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -388,9 +388,9 @@ public class ConfigurationTab extends TabLogoPanel {
 				StatusHandler.setStatus(SAVE_STATUS.SAVED_RESTART_NEEDED.toString());
 				int n = JOptionPane.showConfirmDialog(
 					    this,
-					    Transl._("The new settings have been applied,\r\n" + "" +
-					    		"but the I2P router needs to be restarted for some to take effect.\r\n" + 
-								"\r\nWould you like to restart the I2P router now?"),
+					    Transl._("The new settings have been applied,\n" + "" +
+					    		"but the I2P router needs to be restarted for some to take effect.\n" + 
+								"\nWould you like to restart the I2P router now?"),
 					    Transl._("Restart needed for new settings."),
 					    JOptionPane.YES_NO_OPTION,
 					    JOptionPane.INFORMATION_MESSAGE);

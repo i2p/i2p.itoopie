@@ -58,7 +58,7 @@ do
 		# To start a new translation, copy the header from an old translation to the new .po file,
 		# then ant distclean updater.
 		
-		xgettext -f $TMPFILE -F -L java --from-code=UTF-8 --add-comments\
+		xgettext -f $TMPFILE -F -L java --from-code=UTF-8 --add-comments\ --keyword=._
 	                 --keyword=_ --keyword=_x --keyword=intl._ --keyword=intl.title \
 	                 --keyword=handler._ --keyword=formhandler._ \
 	                 --keyword=net.i2p.itoopie.i18n.ItoopieTranslator.getString \

@@ -9,24 +9,37 @@
 #
 # zzz - public domain
 # Mathiasdm - modifications for desktopgui
-# hottuna - modifications for itoopie
 #
 CLASS=net.i2p.itoopie.messages
 TMPFILE=build/javafiles.txt
 export TZ=UTC
+RC=0
 
 if [ "$1" = "-p" ]
 then
 	POUPDATE=1
 fi
 
-# add ../src/ so the refs will work in the po file
+# on windows, one must specify the path of commnad find
+# since windows has its own retarded version of find.
+if which find|grep -q -i windows ; then
+	export PATH=.:/bin:/usr/local/bin:$PATH
+fi
+# Fast mode - update ondemond
+# set LG2 to the language you need in envrionment varibales to enable this
+
+# add ../java/ so the refs will work in the po file
 JPATHS="src"
 for i in locale/messages_*.po
 do
 	# get language
 	LG=${i#locale/messages_}
 	LG=${LG%.po}
+	
+	# skip, if specified
+	if [ $LG2 ]; then
+		[ $LG != $LG2 ] && continue || echo INFO: Language update is set to [$LG2] only.
+	fi
 
 	if [ "$POUPDATE" = "1" ]
 	then
@@ -34,9 +47,8 @@ do
 		find $JPATHS -name *.java -newer $i > $TMPFILE
 	fi
 
-    echo $LG
-	if [ -s build/net/i2p/itoopie/messages_$LG.class -a \
-	     build/net/i2p/itoopie/messages_$LG.class -nt $i -a \
+	if [ -s build/net/i2p/desktopgui/messages_$LG.class -a \
+	     build/net/i2p/desktopgui/messages_$LG.class -nt $i -a \
 	     ! -s $TMPFILE ]
 	then
 		continue
@@ -57,23 +69,25 @@ do
 		# In a jsp, you must use a helper or handler that has the context set.
 		# To start a new translation, copy the header from an old translation to the new .po file,
 		# then ant distclean updater.
-		
-		xgettext -f $TMPFILE -F -L java --from-code=UTF-8 --add-comments\ --keyword=._
+		find $JPATHS -name *.java > $TMPFILE
+		xgettext -f $TMPFILE -F -L java --from-code=UTF-8 --add-comments\
 	                 --keyword=_ --keyword=_x --keyword=intl._ --keyword=intl.title \
 	                 --keyword=handler._ --keyword=formhandler._ \
-	                 --keyword=net.i2p.itoopie.i18n.ItoopieTranslator.getString \
+	                 --keyword=net.i2p.router.web.Messages.getString \
 		         -o ${i}t
 		if [ $? -ne 0 ]
 		then
-			echo 'Warning - xgettext failed, not updating translations'
+			echo "ERROR - xgettext failed on ${i}, not updating translations"
 			rm -f ${i}t
+			RC=1
 			break
 		fi
 		msgmerge -U --backup=none $i ${i}t
 		if [ $? -ne 0 ]
 		then
-			echo 'Warning - msgmerge failed, not updating translations'
+			echo "ERROR - msgmerge failed on ${i}, not updating translations"
 			rm -f ${i}t
+			RC=1
 			break
 		fi
 		rm -f ${i}t
@@ -81,16 +95,22 @@ do
 		touch $i
 	fi
 
-	echo "Generating ${CLASS}_$LG ResourceBundle..."
+    if [ "$LG" != "en" ]
+    then
+        # only generate for non-source language
+        echo "Generating ${CLASS}_$LG ResourceBundle..."
 
-	# convert to class files in build
-	msgfmt --java --statistics -r $CLASS -l $LG -d build $i
-	if [ $? -ne 0 ]
-	then
-		echo 'Warning - msgfmt failed, not updating translations'
-		break
-	fi
+        # convert to class files in build
+        msgfmt --java --statistics -r $CLASS -l $LG -d build $i
+        if [ $? -ne 0 ]
+        then
+            echo "ERROR - msgfmt failed on ${i}, not updating translations"
+            # msgfmt leaves the class file there so the build would work the next time
+            find build -name messages_${LG}.class -exec rm -f {} \;
+            RC=1
+            break
+        fi
+    fi
 done
 rm -f $TMPFILE
-# todo: return failure
-exit 0
+exit $RC

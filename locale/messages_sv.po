@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: itoopie\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-25 11:57+0000\n"
+"POT-Creation-Date: 2011-07-25 12:51+0000\n"
 "PO-Revision-Date: 2010-07-25 14:09+0100\n"
 "Last-Translator: hottuna <dev@robertfoss.se>\n"
 "Language-Team: hottuna <dev@robertfoss.se>\n"
@@ -18,15 +18,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+#: src/net/i2p/itoopie/gui/AboutTab.java:27
+msgid ""
+"itoopie and I2PControl were sponsored by Relakks & Ipredator.\n"
+"Development began during the summer of 2011 and the first alpha was launched "
+"in Juli.\n"
+"\n"
+"I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping "
+"privacy and anonymity online.\n"
+"// hottuna"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:32
+msgid "New remote host detected"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:33
+msgid "Would you like permanently trust the certificate from the remote host "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:46
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:95
+msgid "Certificate info"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:47
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:96
+msgid "Name: "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:48
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:97
+msgid "Algorithm: "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:49
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:98
+msgid "Serial: "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:50
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:99
+msgid "SHA-1 ID-hash: "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:80
+msgid "Warning, new remote host detected"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:81
+msgid "The certificate of "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:113
+msgid "Are you sure that you trust the new certificate?"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:114
+msgid "Is that you final answer?"
+msgstr ""
+
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
 msgid "Settings read from I2P router."
 msgstr "Inställningar lästa från I2P routern."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:48
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:53
 msgid "Settings aren't valid, not saving."
 msgstr "Ogiltiga inställningar, sparar ej."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:54
 msgid "I2P router rejected settings."
 msgstr "I2P routern avvisade inställningar."
 
@@ -35,10 +97,12 @@ msgid "Not connected, unable to save."
 msgstr "Ej ansluten, kan inte spara."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:55
 msgid "Saved settings on I2P router."
 msgstr "Inställningar sparades till I2P router."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:56
 msgid "Saved settings on I2P router. I2P router needs to be restarted."
 msgstr "Sparade inställningar på I2P routern. I2P routern behöver startas om."
 
@@ -101,6 +165,8 @@ msgstr "' "
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:281
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:298
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:354
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:478
 msgid "Invalid port."
 msgstr "Ogiltig port."
 
@@ -141,3 +207,160 @@ msgstr "Startar om I2P nod.."
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:404
 msgid "Restart failed: "
 msgstr "Omstart misslyckades: "
+
+#: src/net/i2p/itoopie/gui/Main.java:90
+msgid "Overview"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/Main.java:95
+msgid "Configuration"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/Main.java:100
+msgid "Logs"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/Main.java:104
+msgid "About"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:72
+msgid "Version:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:86
+msgid "Uptime:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:99
+msgid "Status:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:111
+msgid "Netstatus:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:57
+msgid "No changes found, settings not saved."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:168
+msgid "Settings saved."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:172
+#, fuzzy
+msgid "Settings not saved, no changes found."
+msgstr "Ogiltiga inställningar, sparar ej."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:211
+msgid "Discard"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:266
+msgid "New password:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:272
+msgid "Password:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:282
+msgid "Repeat:"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:293
+#, fuzzy
+msgid "New port:"
+msgstr "TCP port:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:299
+#, fuzzy
+msgid "Port:"
+msgstr "TCP port:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:336
+msgid ""
+" can not be interpreted as an ip address.\n"
+"\n"
+"Try entering the ip address of the machine running i2p."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:338
+#, fuzzy
+msgid "Invalid ip address."
+msgstr "Ogiltig port."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:352
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:476
+msgid ""
+" can not be interpreted as a port.\n"
+"\n"
+"A port has to be a number in the range 1-65535."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:369
+msgid ""
+"The password was not accepted as valid by the specified host.\n"
+"\n"
+"(by default the password is, \"itoopie\")"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:371
+msgid "Rejected password."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:381
+msgid ""
+"The remote host at the ip and port did not respond.\n"
+"\n"
+"Maybe I2PControl is not running on the remote I2P router, \n"
+"maybe the I2P router is not started."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:384
+msgid "Connection failed."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:420
+msgid "The new password and the repeated new password do not match.\n"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:421
+msgid "Mistyped password."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:430
+msgid "The new password is the same as the old password.\n"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:431
+msgid "No new password."
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/TrayManager.java:87
+msgid "Exit itoopie"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/component/BandwidthChart.java:47
+#, fuzzy
+msgid "Bandwidth In [KB/s]"
+msgstr "Bandbredd:"
+
+#: src/net/i2p/itoopie/gui/component/BandwidthChart.java:56
+#, fuzzy
+msgid "Bandwidth Out [KB/s]"
+msgstr "Bandbredd:"
+
+#: src/net/i2p/itoopie/gui/component/BandwidthChart.java:65
+#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:56
+msgid "Time"
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:46
+msgid "Number of tunnels we are participating in."
+msgstr ""
+
+#: src/net/i2p/itoopie/security/CertificateHelper.java:78
+msgid "Unable to create hash of the given cert, "
+msgstr ""

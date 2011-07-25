@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: itoopie\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-25 12:51+0000\n"
+"POT-Creation-Date: 2011-07-25 13:18+0000\n"
 "PO-Revision-Date: 2010-07-25 14:09+0100\n"
 "Last-Translator: hottuna <dev@robertfoss.se>\n"
 "Language-Team: hottuna <dev@robertfoss.se>\n"
@@ -28,6 +28,11 @@ msgid ""
 "privacy and anonymity online.\n"
 "// hottuna"
 msgstr ""
+
+#: src/net/i2p/itoopie/gui/AboutTab.java:41
+#: src/net/i2p/itoopie/gui/OverviewTab.java:72
+msgid "Version:"
+msgstr "Version:"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:32
 msgid "New remote host detected"
@@ -107,6 +112,7 @@ msgid "Saved settings on I2P router. I2P router needs to be restarted."
 msgstr "Sparade inställningar på I2P routern. I2P routern behöver startas om."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:96
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:160
 msgid "Apply"
 msgstr "Verkställ"
 
@@ -136,6 +142,7 @@ msgid "%"
 msgstr "%"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:184
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:228
 msgid "Network:"
 msgstr "Nätverk:"
 
@@ -166,7 +173,7 @@ msgstr "' "
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:281
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:298
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:354
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:478
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:475
 msgid "Invalid port."
 msgstr "Ogiltig port."
 
@@ -223,9 +230,9 @@ msgstr "Loggar"
 msgid "About"
 msgstr "Om"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:72
-msgid "Version:"
-msgstr "Version:"
+#: src/net/i2p/itoopie/gui/Main.java:122
+msgid "Settings"
+msgstr "Inställningar."
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:86
 msgid "Uptime:"
@@ -248,21 +255,42 @@ msgid "Settings saved."
 msgstr "Inställningar sparade."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:172
-#, fuzzy
 msgid "Settings not saved, no changes found."
-msgstr "Ogiltiga inställningar, sparar ej."
+msgstr "Inställningar ej sparade, inga förändringar funna."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:178
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:181
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:184
+msgid "New remote port: "
+msgstr "Ny fjärrport:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:191
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:194
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:197
+msgid "New remote password: "
+msgstr "Nytt fjärrlösen:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:211
 msgid "Discard"
 msgstr "Avbryt"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:266
-msgid "New password:"
-msgstr "Nytt lösen:"
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:234
+msgid "IP address:"
+msgstr "Ipadress."
 
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:244
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:299
+msgid "Port:"
+msgstr "Port:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:254
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:272
 msgid "Password:"
 msgstr "Lösen:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:266
+msgid "New password:"
+msgstr "Nytt lösen:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:282
 msgid "Repeat:"
@@ -271,10 +299,6 @@ msgstr "Upprepa:"
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:293
 msgid "New port:"
 msgstr "Ny port:"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:299
-msgid "Port:"
-msgstr "Port:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:336
 msgid ""
@@ -291,7 +315,7 @@ msgid "Invalid ip address."
 msgstr "Ogiltig ipadress."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:352
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:476
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:473
 msgid ""
 " can not be interpreted as a port.\n"
 "\n"
@@ -330,21 +354,34 @@ msgstr ""
 msgid "Connection failed."
 msgstr "Anslutning misslyckades."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:420
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:417
 msgid "The new password and the repeated new password do not match.\n"
-msgstr "Det nya lösenordet och det upprepade lösenordert överensstämmer inte.\n"
+msgstr ""
+"Det nya lösenordet och det upprepade lösenordert överensstämmer inte.\n"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:421
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:418
 msgid "Mistyped password."
 msgstr "Felskrivet lösenord."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:430
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:427
 msgid "The new password is the same as the old password.\n"
 msgstr "Det nya lösenordet är samma som det gamla lösenorder.\n"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:431
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:428
 msgid "No new password."
 msgstr "Inget nytt lösenord."
+
+#: src/net/i2p/itoopie/gui/StatusHandler.java:13
+msgid "Connected to I2P router."
+msgstr "Ansluten till I2P router."
+
+#: src/net/i2p/itoopie/gui/StatusHandler.java:14
+msgid "Unable to connect to I2P router."
+msgstr "Kunde ej ansluta till I2P router."
+
+#: src/net/i2p/itoopie/gui/StatusHandler.java:15
+msgid "I2P router rejected password."
+msgstr "I2P routern avvisade lösenord."
 
 #: src/net/i2p/itoopie/gui/TrayManager.java:87
 msgid "Exit itoopie"

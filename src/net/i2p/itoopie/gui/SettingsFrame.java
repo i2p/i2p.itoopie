@@ -157,7 +157,7 @@ public class SettingsFrame extends RegisteredFrame{
 		getContentPane().add(buttonPanel);
 		
 		
-		JButton btnDone = new JButton("Apply");
+		JButton btnDone = new JButton(Transl._("Apply"));
 		buttonPanel.add(btnDone);
 		btnDone.addActionListener(new ActionListener(){
 			@Override
@@ -175,26 +175,26 @@ public class SettingsFrame extends RegisteredFrame{
 				REMOTE_SAVE_STATUS newPortStatus = saveNewPort();
 				switch (newPortStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus("New remote port: " + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._("New remote port: ") + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus("New remote port: " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._("New remote port: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus("New remote port: " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._("New remote port: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
 				REMOTE_SAVE_STATUS newPasswordStatus = saveNewPassword();
 				switch (newPasswordStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus("New remote password: " + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._("New remote password: ") + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus("New remote password: " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._("New remote password: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus("New remote password: " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._("New remote password: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
@@ -225,13 +225,13 @@ public class SettingsFrame extends RegisteredFrame{
 	}
 	
 	private void setupNetworkPanel(JPanel networkPanel){
-		JLabel lblI2PControl = new JLabel("Network:");
+		JLabel lblI2PControl = new JLabel(Transl._("Network:"));
 		lblI2PControl.setBounds(10, 10, 120, 15);
 		networkPanel.add(lblI2PControl);
 		lblI2PControl.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		
-		JLabel lblRouterIP = new JLabel("IP address:");
+		JLabel lblRouterIP = new JLabel(Transl._("IP address:"));
 		lblRouterIP.setBounds(138, 10, 100, 15);
 		networkPanel.add(lblRouterIP);
 		lblRouterIP.setHorizontalAlignment(SwingConstants.LEFT);
@@ -241,7 +241,7 @@ public class SettingsFrame extends RegisteredFrame{
 		networkPanel.add(txtRouterIP);
 		
 		
-		JLabel lblRouterPort = new JLabel("Port:");
+		JLabel lblRouterPort = new JLabel(Transl._("Port:"));
 		lblRouterPort.setBounds(138, 35, 100, 15);
 		networkPanel.add(lblRouterPort);
 		lblRouterPort.setHorizontalAlignment(SwingConstants.LEFT);
@@ -251,7 +251,7 @@ public class SettingsFrame extends RegisteredFrame{
 		networkPanel.add(txtRouterPort);
 		
 		
-		JLabel lblRouterPassword = new JLabel("Password:");
+		JLabel lblRouterPassword = new JLabel(Transl._("Password:"));
 		lblRouterPassword.setBounds(138, 60, 100, 15);
 		networkPanel.add(lblRouterPassword);
 		lblRouterPassword.setHorizontalAlignment(SwingConstants.LEFT);
@@ -391,9 +391,6 @@ public class SettingsFrame extends RegisteredFrame{
 		_conf.setConf("server.port", port);
 		_conf.setConf("server.password", pwText);
 		
-		_log.debug("Ip old->new: \""+_conf.getConf("server.hostname","127.0.0.1")+"\"->\"" + ipText + "\"");
-		_log.debug("Port old->new: \""+_conf.getConf("server.port",7650)+"\"->\"" + portText + "\"");
-		_log.debug("Password old->new: \""+oldPW+"\"->\"" + pwText + "\"");
 	
 		
 		(new Thread() {

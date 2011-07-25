@@ -119,7 +119,7 @@ public class Main {
 		flowLayout.setVgap(0);
 		statusPanel.add(buttonWrapper, BorderLayout.EAST);
 		
-		JButton settingsBtn = new JButton("Settings");
+		JButton settingsBtn = new JButton(Transl._("Settings"));
 		buttonWrapper.add(settingsBtn);
 		settingsBtn.setIcon(new ImageIcon(IconLoader.getIcon("cogwheel", 16)));
 		settingsBtn.addActionListener(new ActionListener(){

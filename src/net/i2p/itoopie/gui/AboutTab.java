@@ -38,7 +38,7 @@ public class AboutTab extends TabLogoPanel {
 		lblVersion = new JLabel();
 		add(lblVersion);
 		lblVersion.setBounds(285, 50, 100, 15);
-		lblVersion.setText("Version:");
+		lblVersion.setText(Transl._("Version:"));
 		lblVersion.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		

@@ -64,6 +64,7 @@ public class Main {
     }
     
     public static void main(String[] args) {
+    	Locale.setDefault(new Locale("sv", "SE"));
         beginStartup(args);
     }
 

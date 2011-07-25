@@ -74,6 +74,7 @@ public class CertificateGUI {
 
 	public static boolean overwriteCert(String hostname, X509Certificate cert){
 		if (!isVerifying){
+			isVerifying = true;
 			JFrame frame = new JFrame();
 			
 			String title = Transl._("Warning, new remote host detected");

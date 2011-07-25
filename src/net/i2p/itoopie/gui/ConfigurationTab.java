@@ -47,6 +47,7 @@ public class ConfigurationTab extends TabLogoPanel {
 	private static enum SAVE_STATUS{
 		SAVE_FAILED_LOCALLY		{ public String toString(){return Transl._("Settings aren't valid, not saving.");} },
 		SAVE_FAILED_REMOTELY	{ public String toString(){return Transl._("I2P router rejected settings.");} },
+		SAVE_FAILED_NO_CONN		{ public String toString(){return Transl._("Not connected, unable to save.");} },
 		SAVED_OK 				{ public String toString(){return Transl._("Saved settings on I2P router.");} },
 		SAVED_RESTART_NEEDED	{ public String toString(){return Transl._("Saved settings on I2P router. I2P router needs to be restarted.");} }
 	};
@@ -375,7 +376,7 @@ public class ConfigurationTab extends TabLogoPanel {
 			return SAVE_STATUS.SAVE_FAILED_LOCALLY;
 		} catch (JSONRPC2SessionException e) {
 			StatusHandler.setDefaultStatus(DEFAULT_STATUS.NOT_CONNECTED);
-			return SAVE_STATUS.SAVE_FAILED_LOCALLY;
+			return SAVE_STATUS.SAVE_FAILED_NO_CONN;
 		} catch (InvalidParametersException e) {
 			return SAVE_STATUS.SAVE_FAILED_REMOTELY;
 		}
@@ -412,6 +413,9 @@ public class ConfigurationTab extends TabLogoPanel {
 				break;
 			case SAVE_FAILED_LOCALLY:
 				StatusHandler.setStatus(SAVE_STATUS.SAVE_FAILED_LOCALLY.toString());
+				break;
+			case SAVE_FAILED_NO_CONN:
+				StatusHandler.setStatus(SAVE_STATUS.SAVE_FAILED_NO_CONN.toString());
 				break;
 		}
 	}

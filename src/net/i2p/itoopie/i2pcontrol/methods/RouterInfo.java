@@ -50,8 +50,27 @@ public class RouterInfo{
 		
 		TUNNELS_PARTICIPATING {	public boolean isReadable(){ return true;}	
 								public boolean isWritable(){ return false;}  
-								public String toString() { return "i2p.router.net.tunnels.participating"; }}
+								public String toString() { return "i2p.router.net.tunnels.participating"; }},
+					
+		KNOWN_PEERS {			public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.netdb.knownpeers"; }},
+		
+		ACTIVE_PEERS {			public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.netdb.activepeers"; }},
 							
+		FAST_PEERS {			public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.netdb.fastpeers"; }},
+		
+		HIGH_CAPACITY_PEERS {	public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.netdb.highcapacitypeers"; }},
+								
+		IS_RESEEDING {			public boolean isReadable(){ return true;}	
+								public boolean isWritable(){ return false;}  
+								public String toString() { return "i2p.router.netdb.isreseeding"; }}													
 	};
 		
 	static {

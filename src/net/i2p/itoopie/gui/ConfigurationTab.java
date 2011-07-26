@@ -36,8 +36,8 @@ import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.methods.GetNetworkSetting;
-import net.i2p.itoopie.i2pcontrol.methods.RouterRunner.ROUTER_RUNNER;
-import net.i2p.itoopie.i2pcontrol.methods.SetRouterRunner;
+import net.i2p.itoopie.i2pcontrol.methods.RouterManager.ROUTER_MANAGER;
+import net.i2p.itoopie.i2pcontrol.methods.SetRouterManager;
 import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 
@@ -396,7 +396,7 @@ public class ConfigurationTab extends TabLogoPanel {
 					    JOptionPane.INFORMATION_MESSAGE);
 				if (n == JOptionPane.YES_OPTION){
 					try {
-						SetRouterRunner.execute(ROUTER_RUNNER.RESTART);
+						SetRouterManager.execute(ROUTER_MANAGER.RESTART);
 						StatusHandler.setStatus(Transl._("Restarting I2P node.. "));
 					} catch (InvalidPasswordException e) {
 						StatusHandler.setStatus(Transl._("Restart failed: ") + DEFAULT_STATUS.INVALID_PASSWORD);

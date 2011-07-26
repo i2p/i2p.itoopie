@@ -36,10 +36,10 @@ import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo;
 import net.i2p.itoopie.i2pcontrol.methods.I2PControl.I2P_CONTROL;
 import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
 import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
-import net.i2p.itoopie.i2pcontrol.methods.RouterRunner.ROUTER_RUNNER;
+import net.i2p.itoopie.i2pcontrol.methods.RouterManager.ROUTER_MANAGER;
 import net.i2p.itoopie.i2pcontrol.methods.SetI2PControl;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
-import net.i2p.itoopie.i2pcontrol.methods.SetRouterRunner;
+import net.i2p.itoopie.i2pcontrol.methods.SetRouterManager;
 import net.i2p.itoopie.security.CertificateHelper;
 import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 
@@ -95,7 +95,7 @@ public class Main {
         // Popup Main window.
         WindowHandler.toggleFrames();
 
-//        testStuff(); // Delete Me
+        testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -133,6 +133,7 @@ public class Main {
         
         
         // Try port switching
+        /*
         System.out.println("\nI2PControl - Port Switch");
         try {
 	        HashMap<I2P_CONTROL, String> hm = new HashMap<I2P_CONTROL, String>();
@@ -261,6 +262,7 @@ public class Main {
         } catch (InvalidParametersException e) {
         	System.out.println("Bad parameters sent..");
         }
+        */
         
         
         // Test reading all router info
@@ -276,6 +278,7 @@ public class Main {
 			System.out.println("Invalid password..");
 		} catch (JSONRPC2SessionException e) {
 			System.out.println("Connection failed..");
+			e.printStackTrace();
 		}
         
         // Test restart - worked at one point :) Possibly now as well.

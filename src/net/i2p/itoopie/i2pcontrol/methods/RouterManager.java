@@ -7,15 +7,15 @@ import java.util.HashMap;
  * Describes the ways a I2P router can be restarted.
  * @author hottuna
  */
-public class RouterRunner{
-	private final static HashMap<String,ROUTER_RUNNER> enumMap;
+public class RouterManager{
+	private final static HashMap<String,ROUTER_MANAGER> enumMap;
 
 	
 	/**
 	 * Describes the ways a I2P router can be restarted.
 	 * @author hottuna
 	 */
-	public enum ROUTER_RUNNER implements Remote{
+	public enum ROUTER_MANAGER implements Remote{
 		RESTART { 			public boolean isReadable(){ return true;}
 							public boolean isWritable(){ return false;}  
 							public String toString() { return "Restart"; }},
@@ -30,17 +30,21 @@ public class RouterRunner{
 						
 		SHUTDOWN_GRACEFUL {	public boolean isReadable(){ return true;}	
 							public boolean isWritable(){ return false;}  
-							public String toString() { return "ShutdownGraceful"; }}
+							public String toString() { return "ShutdownGraceful"; }},
+							
+		RESEED {			public boolean isReadable(){ return true;}	
+							public boolean isWritable(){ return false;}  
+							public String toString() { return "Reseed"; }}
 	};
 		
 	static {
-		enumMap = new HashMap<String,ROUTER_RUNNER>();
-		for (ROUTER_RUNNER n : ROUTER_RUNNER.values()){
+		enumMap = new HashMap<String,ROUTER_MANAGER>();
+		for (ROUTER_MANAGER n : ROUTER_MANAGER.values()){
 			enumMap.put(n.toString(), n);
 		}
 	}
 	
-	public static ROUTER_RUNNER getEnum(String key){
+	public static ROUTER_MANAGER getEnum(String key){
 		return enumMap.get(key);
 	}
 }

@@ -26,7 +26,9 @@ import net.i2p.itoopie.gui.component.multilinelabel.MultiLineLabelUI;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo;
+import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo.NETWORK_STATUS;
 import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
+import net.i2p.itoopie.util.DataHelper;
 
 public class OverviewTab extends TabLogoPanel {
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
@@ -142,10 +144,12 @@ public class OverviewTab extends TabLogoPanel {
 			
 			
 			lblVersionSpecified.setText((String) em.get(ROUTER_INFO.VERSION));
-			lblUptimeSpecified.setText((String) em.get(ROUTER_INFO.UPTIME));
-			lblUptimeSpecified.revalidate();
+			lblUptimeSpecified.setText(DataHelper.formatDuration((Long) em.get(ROUTER_INFO.UPTIME)));
 			lblStatusSpecified.setText((String) em.get(ROUTER_INFO.STATUS));
-			lblNetworkStatusSpecified.setText(((String) em.get(ROUTER_INFO.NETWORK_STATUS)).replace("-", " "));
+			Long netStatus = (Long) em.get(ROUTER_INFO.NETWORK_STATUS);
+			Integer intNetStatus = netStatus.intValue();
+			NETWORK_STATUS enumNetStatus = GetRouterInfo.getEnum(intNetStatus);
+			lblNetworkStatusSpecified.setText(enumNetStatus.toString());
 			
 			
 			this.getRootPane().repaint(); // Repainting jlabel or jpanel is not enough.
@@ -155,6 +159,8 @@ public class OverviewTab extends TabLogoPanel {
 			StatusHandler.setDefaultStatus(DEFAULT_STATUS.INVALID_PASSWORD);
 		} catch (JSONRPC2SessionException e) {
 			StatusHandler.setDefaultStatus(DEFAULT_STATUS.NOT_CONNECTED);
+		} catch (Exception e){
+			e.printStackTrace();
 		}
 	}
 	

@@ -53,6 +53,8 @@
     <resources>
         <res id="Installer.image" src="installer/resources/itoopielogo.png" />
 		<res id="shortcutSpec.xml" src="installer/resources/shortcutSpec.xml" />
+		<res src="installer/resources/Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml"/>
+
     </resources>
    
     <panels>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+<skipIfNotSupported/>
+<programGroup defaultName="itoopie" location="applications" />
+ <shortcut name="itoopie" 
+			target="java" 
+			commandLine="-jar &quot;$INSTALL_PATH/itoopie.jar&quot;"
+			workingDirectory="$INSTALL_PATH"
+			iconFile="$INSTALL_PATH/logo.png"
+			initialState="noShow"
+			applications="yes"
+			type="Application"
+			encoding="UTF-8"
+			terminal="false"
+			KdeSubstUID="false"
+			Categories="Java;Application;Network;"
+			description="The simple I2P GUI!"
+			startMenu="yes"
+			desktop="Yes"
+			startup="no" />
+<shortcut
+			name="Uninstaller"
+			programGroup="yes"
+			applications="no"
+			startMenu="no"
+			startup="no"
+			target="java"
+			commandLine="-jar &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
+			Categories="Java;Application;Network;"
+			initialState="noShow"
+			iconFile="trashcan_full"
+			terminal="false"
+			iconIndex="0"
+			workingDirectory=""
+			type="Application"
+			encoding="UTF-8"
+			description="IzPack uninstaller" />
+</shortcuts>

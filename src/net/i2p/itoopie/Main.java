@@ -95,7 +95,7 @@ public class Main {
         // Popup Main window.
         WindowHandler.toggleFrames();
 
-        testStuff(); // Delete Me
+//        testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")

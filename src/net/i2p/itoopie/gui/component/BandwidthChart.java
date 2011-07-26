@@ -73,9 +73,7 @@ public class BandwidthChart {
 	    chart.getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 5)));
 
 	    new ObjRecorder2Trace2DAdapter(dataBWIn, new InboundBandwidthTracker(), "m_value", updateInterval);
-//	    new ObjRecorder2Trace2DAdapter(dataBWIn, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    new ObjRecorder2Trace2DAdapter(dataBWOut, new OutboundBandwidthTracker(), "m_value", updateInterval);
-//	    new ObjRecorder2Trace2DAdapter(dataBWOut, new DummyDataCollector(0.5, 1000), "m_number", updateInterval);
 	    return chart;
 	}
 	

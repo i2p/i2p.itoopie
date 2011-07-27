@@ -7,6 +7,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.security.CertificateHelper;
@@ -20,7 +21,7 @@ public class CertificateGUI {
 		System.out.println("Overwrite cert: " + overwriteCert(null,null));		
 	}
 
-	public static boolean saveNewCert(String hostname, X509Certificate cert){
+	public static synchronized boolean saveNewCert(String hostname, X509Certificate cert){
 		if (!isVerifying){
 			isVerifying = true;
 			JFrame frame = new JFrame();
@@ -60,6 +61,7 @@ public class CertificateGUI {
 			
 			if (n == JOptionPane.YES_OPTION){
 				CertificateManager.forcePutServerCert(hostname, CertificateHelper.convert(cert));
+				updateUI();
 				isVerifying = false;
 				return true;
 			} else {
@@ -116,6 +118,7 @@ public class CertificateGUI {
 					    JOptionPane.ERROR_MESSAGE);
 				if (n == JOptionPane.YES_OPTION){
 					CertificateManager.forcePutServerCert(hostname, CertificateHelper.convert(cert));
+					updateUI();
 					isVerifying = false;
 					return true; // Confirmation positive
 				} else {
@@ -128,5 +131,29 @@ public class CertificateGUI {
 		} else {
 			return false;
 		}
+	}
+	
+	/**
+	 * Upon new cert accepted it is probable a good idea to show it by updating the GUI.
+	 */
+	private static void updateUI(){
+		// Sleep before updating.
+		(new Thread(){
+			@Override
+			public void run(){
+				System.out.println("CertGUI Thread populateInfo() - sleep");
+				try {
+					Thread.sleep(250);
+				} catch (InterruptedException e) {} 
+				SwingUtilities.invokeLater(new Runnable(){
+		
+					@Override
+					public void run() {
+						System.out.println("CertGUI Thread invokeLater populateInfo()");
+						Main.fireNewChange();
+					}
+				});
+			}
+		}).start();
 	}
 }

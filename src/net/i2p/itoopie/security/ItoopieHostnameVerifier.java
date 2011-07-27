@@ -54,8 +54,11 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 			}
 		}
 	}
-
-
+	
+	/**
+	 * Clear recently denied filter to allow connections from a 
+	 * host that has had it's certificate denied recently.
+	 */
 	public static void clearRecentlyDenied() {
 		recentlyDeniedHosts.clear();
 	}

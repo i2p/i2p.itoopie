@@ -4,6 +4,7 @@ package net.i2p.itoopie;
  * Main.java
  */
 
+import java.awt.Font;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.FontUIResource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -24,6 +26,7 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Error;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.gui.GUIHelper;
 import net.i2p.itoopie.gui.TrayManager;
 import net.i2p.itoopie.gui.WindowHandler;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
@@ -77,12 +80,13 @@ public class Main {
         
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            GUIHelper.setDefaultStyle();
         } catch (ClassNotFoundException ex) {
         } catch (InstantiationException ex) {
         } catch (IllegalAccessException ex) {
         } catch (UnsupportedLookAndFeelException ex) {
         }
-        
+
 
         final Main main = new Main();
         main.launchForeverLoop();
@@ -95,7 +99,7 @@ public class Main {
         // Popup Main window.
         WindowHandler.toggleFrames();
 
-//        testStuff(); // Delete Me
+        //testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -315,4 +319,5 @@ public class Main {
 		}
 		*/
     }
+
 }

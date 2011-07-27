@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
@@ -122,6 +124,8 @@ public class SettingsFrame extends RegisteredFrame{
 		setBounds(0, 0, 450, 260);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		JPanel networkPanel = new JPanel();
 		networkPanel.setLayout(null);

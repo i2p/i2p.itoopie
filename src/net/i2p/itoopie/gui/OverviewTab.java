@@ -128,7 +128,6 @@ public class OverviewTab extends TabLogoPanel {
 			@Override
 			public void run() {
 				while (true) {
-					System.out.println("Overview populateInfo()");
 					populateInfo();
 					try {
 						Thread.sleep(updateInterval);

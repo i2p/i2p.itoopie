@@ -35,8 +35,7 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 						if (CertificateGUI.overwriteCert(serverHost, certs[0])) {
 							return true;
 						} else {
-							recentlyDeniedHosts.add(session.getPeerHost() + ":"
-									+ session.getPeerPort());
+							recentlyDeniedHosts.add(session.getPeerHost() + ":" + session.getPeerPort());
 							return false;
 						}
 					}

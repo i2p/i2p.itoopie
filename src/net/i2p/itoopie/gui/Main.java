@@ -41,10 +41,6 @@ public class Main {
 
 	private static JFrame frame;
 	private static JTabbedPane tabbedPane;
-	private final static Color VERY_LIGHT = new Color(230,230,230);
-	private final static Color LIGHT = new Color(215,215,215);
-	private final static Color MEDIUM = new Color (175,175,175);
-	private final static Color DARK = new Color(145,145,145);
 	public final static int FRAME_WIDTH = 550;
 	public final static int FRAME_HEIGHT = 400;
 

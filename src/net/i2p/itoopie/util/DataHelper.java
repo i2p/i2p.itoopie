@@ -1,6 +1,7 @@
 package net.i2p.itoopie.util;
 
 import net.i2p.itoopie.i18n.Transl;
+import net.i2p.itoopie.i18n.Translate;
 
 public class DataHelper {
 
@@ -21,22 +22,27 @@ public class DataHelper {
             // Note to translators, may be negative or zero, 2999 maximum.
             // {0,number,####} prevents 1234 from being output as 1,234 in the English locale.
             // If you want the digit separator in your locale, translate as {0}.
-           return Transl._("1 ms", "{0,number,####} ms", (int) ms);
+           return ngettext("1 ms", "{0,number,####} ms", (int) ms);
         } else if (ms < 2 * 60 * 1000) {
             // seconds
-            return Transl._("1 sec", "{0} sec", (int) (ms / 1000));
+            return ngettext("1 second", "{0} seconds", (int) (ms / 1000));
         } else if (ms < 120 * 60 * 1000) {
             // minutes
-           return Transl._("1 min", "{0} min", (int) (ms / (60 * 1000)));
+           return ngettext("1 minute", "{0} minutes", (int) (ms / (60 * 1000)));
         } else if (ms < 2 * 24 * 60 * 60 * 1000) {
             // hours
-            return Transl._("1 hour", "{0} hours", (int) (ms / (60 * 60 * 1000)));
+            return ngettext("1 hour", "{0} hours", (int) (ms / (60 * 60 * 1000)));
         } else if (ms > 1000l * 24l * 60l * 60l * 1000l) {
         	// >1000 days
             return Transl._("n/a");
         } else {
             // days
-            return Transl._("1 day", "{0} days", (int) (ms / (24 * 60 * 60 * 1000)));
+            return ngettext("1 day", "{0} days", (int) (ms / (24 * 60 * 60 * 1000)));
         }
+    }
+    
+    
+    private static String ngettext(String s, String p, int n) {
+        return Translate.getString(n, s, p, Transl.BUNDLE_NAME);
     }
 }

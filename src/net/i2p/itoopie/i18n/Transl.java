@@ -2,7 +2,7 @@ package net.i2p.itoopie.i18n;
 
 public class Transl {
     
-    private static final String BUNDLE_NAME = "net.i2p.itoopie.messages";
+    public static final String BUNDLE_NAME = "net.i2p.itoopie.messages";
      
     
     public static String _(String s) {
@@ -39,7 +39,7 @@ public class Transl {
      *  @param s singluar string, optionally with {0} e.g. "one tunnel"
      *  @param p plural string optionally with {0} e.g. "{0} tunnels"
      */
-    public static String getString(int n, String s, String p) {
+    public static String _(int n, String s, String p) {
     	return Translate.getString( n, s, p, BUNDLE_NAME);
     }
 	

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: itoopie\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-25 13:18+0000\n"
+"POT-Creation-Date: 2011-07-27 07:25+0000\n"
 "PO-Revision-Date: 2010-07-25 14:09+0100\n"
 "Last-Translator: hottuna <dev@robertfoss.se>\n"
 "Language-Team: hottuna <dev@robertfoss.se>\n"
@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:41
-#: src/net/i2p/itoopie/gui/OverviewTab.java:72
+#: src/net/i2p/itoopie/gui/OverviewTab.java:74
 msgid "Version:"
 msgstr "Version:"
 
@@ -234,15 +234,15 @@ msgstr "Om"
 msgid "Settings"
 msgstr "Inställningar."
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:86
+#: src/net/i2p/itoopie/gui/OverviewTab.java:88
 msgid "Uptime:"
 msgstr "Uptid:"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:99
+#: src/net/i2p/itoopie/gui/OverviewTab.java:101
 msgid "Status:"
 msgstr "Status:"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:111
+#: src/net/i2p/itoopie/gui/OverviewTab.java:113
 msgid "Netstatus:"
 msgstr "Nätstatus:"
 
@@ -404,6 +404,114 @@ msgstr "Tid"
 msgid "Number of tunnels we are participating in."
 msgstr "Antalet I2P tunnlar vi deltar i."
 
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
+msgid "Ok."
+msgstr "Ok."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
+msgid "Testing."
+msgstr "Testar."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
+msgid "Firewalled."
+msgstr "Bakom brandvägg."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:33
+msgid "Hidden."
+msgstr "Gömd."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:34
+msgid "Warning, firewalled and fast."
+msgstr "Varning, bakom brandvägg och snabb."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
+msgid "Warning, firewalled and floodfill."
+msgstr "Varning, bakom brandvägg och 'floodfill'."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
+msgid "Warning, firewalled with inbound TCP enabled."
+msgstr "Varning, bakom brandvägg med TCP påslaget."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
+msgid "Warning, firewalled with UDP disabled."
+msgstr "Varning, bakom brandvägg med UDP avslaget."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
+msgid "Error, I2CP issue. Check logs."
+msgstr "Fel, I2CP problem. Kontrollera loggar."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
+msgid "Error, clock skew. Try setting system clock."
+msgstr "Fel, klockvridning. Testa ställa systemklockan."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:40
+msgid "Error, private TCP address."
+msgstr "Fel, private TCP adress."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:41
+msgid "Error, behind symmetric NAT. Can't recieve connections."
+msgstr "Fel, bakom symmetrisk NAT. Kan inte ta emot anslutningar."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
+msgid "Error, UDP port already in use."
+msgstr "Fel, UDP porten används redan."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
+msgid "Error, no active peers. Check connection and firewall."
+msgstr "Fel, inga aktiva peers. Kontrollera anslutning och brandvägg."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:44
+msgid "Error, UDP disabled and TCP unset."
+msgstr "Fel, UDP avslaget och TCP ej inställt."
+
 #: src/net/i2p/itoopie/security/CertificateHelper.java:78
 msgid "Unable to create hash of the given cert, "
 msgstr "Kunde ej skapa en hash av det angivna certifikatet, "
+
+#. milliseconds
+#. Note to translators, may be negative or zero, 2999 maximum.
+#. {0,number,####} prevents 1234 from being output as 1,234 in the English locale.
+#. If you want the digit separator in your locale, translate as {0}.
+#: src/net/i2p/itoopie/util/DataHelper.java:25
+#, java-format
+msgid "1 ms"
+msgid_plural "{0,number,####} ms"
+msgstr[0] "1 ms"
+msgstr[1] "{0,number,####} ms"
+
+#. seconds
+#: src/net/i2p/itoopie/util/DataHelper.java:28
+#, java-format
+msgid "1 second"
+msgid_plural "{0} seconds"
+msgstr[0] "1 sekund"
+msgstr[1] "{0} sekunder"
+
+#. minutes
+#: src/net/i2p/itoopie/util/DataHelper.java:31
+#, java-format
+msgid "1 minute"
+msgid_plural "{0} minutes"
+msgstr[0] "1 minut"
+msgstr[1] "{0} minuter"
+
+#. hours
+#: src/net/i2p/itoopie/util/DataHelper.java:34
+#, java-format
+msgid "1 hour"
+msgid_plural "{0} hours"
+msgstr[0] "1 timme"
+msgstr[1] "{0} timmar"
+
+#. >1000 days
+#: src/net/i2p/itoopie/util/DataHelper.java:37
+msgid "n/a"
+msgstr "n/a"
+
+#. days
+#: src/net/i2p/itoopie/util/DataHelper.java:40
+#, java-format
+msgid "1 day"
+msgid_plural "{0} days"
+msgstr[0] "1 dag"
+msgstr[1] "{0} dagar"

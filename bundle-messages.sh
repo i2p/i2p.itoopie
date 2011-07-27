@@ -71,7 +71,7 @@ do
 		# then ant distclean updater.
 		find $JPATHS -name *.java > $TMPFILE
 		xgettext -f $TMPFILE -F -L java --from-code=UTF-8 --add-comments\
-	                 --keyword=_ --keyword=_x --keyword=intl._ --keyword=intl.title \
+	                 --keyword=_ --keyword='_:1,2,3c' --keyword=_x --keyword=intl._ --keyword=intl.title \
 	                 --keyword=handler._ --keyword=formhandler._ \
 	                 --keyword=net.i2p.router.web.Messages.getString \
 		         -o ${i}t

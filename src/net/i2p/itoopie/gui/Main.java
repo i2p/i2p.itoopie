@@ -1,38 +1,26 @@
 package net.i2p.itoopie.gui;
 
-import info.monitorenter.gui.chart.Chart2D;
-import info.monitorenter.gui.chart.views.ChartPanel;
-
-import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
-import net.i2p.itoopie.gui.component.BandwidthChart;
-import net.i2p.itoopie.gui.component.LogoPanel;
-import net.i2p.itoopie.gui.component.ParticipatingTunnelsChart;
 import net.i2p.itoopie.gui.component.RegisteredFrame;
 import net.i2p.itoopie.gui.component.TabLogoPanel;
 import net.i2p.itoopie.gui.component.util.TabChangeListener;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.util.IconLoader;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
+
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.FlowLayout;

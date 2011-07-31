@@ -14,6 +14,7 @@ import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
 import net.i2p.itoopie.i2pcontrol.UnrecoverableFailedRequestException;
+import net.i2p.itoopie.i2pcontrol.methods.NetworkSetting.NETWORK_SETTING;
 import net.i2p.itoopie.i2pcontrol.methods.RouterManager.ROUTER_MANAGER;
 
 import com.thetransactioncompany.jsonrpc2.JSONRPC2Request;
@@ -24,15 +25,19 @@ public class SetRouterManager {
 	private final static Log _log = LogFactory.getLog(SetRouterManager.class);
 	
 	
-	public static EnumMap<ROUTER_MANAGER, Object> execute(ROUTER_MANAGER cmd) 
+	public static EnumMap<ROUTER_MANAGER, Object> execute(Map<ROUTER_MANAGER,String> commands) 
 			throws InvalidPasswordException, JSONRPC2SessionException{
 		
 		JSONRPC2Request req = new JSONRPC2Request("RouterManager", JSONRPC2Interface.incrNonce());
 		
 		Map outParams = new HashMap();
 
-
-		outParams.put(cmd.toString(), null);
+		Set<Entry<ROUTER_MANAGER,String>> set = commands.entrySet();
+		for (Entry<ROUTER_MANAGER,String> e : set){
+			if(e.getKey().isWritable()){
+				outParams.put(e.getKey().toString(), e.getValue());
+			}
+		}
 		req.setParams(outParams);
 
 		JSONRPC2Response resp = null;

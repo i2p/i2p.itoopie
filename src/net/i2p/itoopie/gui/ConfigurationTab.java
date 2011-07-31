@@ -95,7 +95,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		final JButton btnApply = new JButton(Transl._("Apply"));
 		add(btnApply);
-		btnApply.setBounds(450, 272, 75, 24);
+		btnApply.setBounds(450, 272, 100, 24);
 		btnApply.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -401,7 +401,9 @@ public class ConfigurationTab extends TabLogoPanel {
 					    JOptionPane.INFORMATION_MESSAGE);
 				if (n == JOptionPane.YES_OPTION){
 					try {
-						SetRouterManager.execute(ROUTER_MANAGER.RESTART);
+						HashMap<ROUTER_MANAGER, String> hm = new HashMap<ROUTER_MANAGER,String>();
+						hm.put(ROUTER_MANAGER.RESTART, null);
+						SetRouterManager.execute(hm);
 						StatusHandler.setStatus(Transl._("Restarting I2P node.. "));
 					} catch (InvalidPasswordException e) {
 						StatusHandler.setStatus(Transl._("Restart failed: ") + DEFAULT_STATUS.INVALID_PASSWORD);

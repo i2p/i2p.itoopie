@@ -214,24 +214,29 @@ public class ConfigurationTab extends TabLogoPanel {
 	}
 	
 	private void populateSettings(){
-		try {
-			EnumMap<NETWORK_SETTING, Object> em = GetNetworkSetting.execute(NETWORK_SETTING.TCP_PORT, NETWORK_SETTING.UDP_PORT, 
-					NETWORK_SETTING.UPNP, NETWORK_SETTING.BW_IN, NETWORK_SETTING.BW_OUT, NETWORK_SETTING.BW_SHARE);
-			
-			txtTCPPort.setText((String) em.get(NETWORK_SETTING.TCP_PORT));
-			txtUDPPort.setText((String) em.get(NETWORK_SETTING.UDP_PORT));
-			boolean upnpValue = Boolean.parseBoolean((String) em.get(NETWORK_SETTING.UPNP));
-			chkbxUPNP.setSelected(upnpValue);
-			txtDownload.setText((String) em.get(NETWORK_SETTING.BW_IN));
-			txtUpload.setText((String) em.get(NETWORK_SETTING.BW_OUT));
-			txtShare.setText((String) em.get(NETWORK_SETTING.BW_SHARE));
-			StatusHandler.setStatus(SETTINGS_READ);
-			
-		} catch (InvalidPasswordException e) {
-			StatusHandler.setDefaultStatus(DEFAULT_STATUS.INVALID_PASSWORD);
-		} catch (JSONRPC2SessionException e) {
-			StatusHandler.setDefaultStatus(DEFAULT_STATUS.NOT_CONNECTED);
-		}
+		SwingUtilities.invokeLater(new Runnable(){
+			@Override
+			public void run(){
+				try {
+					EnumMap<NETWORK_SETTING, Object> em = GetNetworkSetting.execute(NETWORK_SETTING.TCP_PORT, NETWORK_SETTING.UDP_PORT, 
+							NETWORK_SETTING.UPNP, NETWORK_SETTING.BW_IN, NETWORK_SETTING.BW_OUT, NETWORK_SETTING.BW_SHARE);
+					
+					txtTCPPort.setText((String) em.get(NETWORK_SETTING.TCP_PORT));
+					txtUDPPort.setText((String) em.get(NETWORK_SETTING.UDP_PORT));
+					boolean upnpValue = Boolean.parseBoolean((String) em.get(NETWORK_SETTING.UPNP));
+					chkbxUPNP.setSelected(upnpValue);
+					txtDownload.setText((String) em.get(NETWORK_SETTING.BW_IN));
+					txtUpload.setText((String) em.get(NETWORK_SETTING.BW_OUT));
+					txtShare.setText((String) em.get(NETWORK_SETTING.BW_SHARE));
+					StatusHandler.setStatus(SETTINGS_READ);
+					
+				} catch (InvalidPasswordException e) {
+					StatusHandler.setDefaultStatus(DEFAULT_STATUS.INVALID_PASSWORD);
+				} catch (JSONRPC2SessionException e) {
+					StatusHandler.setDefaultStatus(DEFAULT_STATUS.NOT_CONNECTED);
+				}
+			}
+		});
 	}
 
 	/**

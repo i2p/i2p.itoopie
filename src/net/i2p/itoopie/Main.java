@@ -99,7 +99,7 @@ public class Main {
         // Popup Main window.
         WindowHandler.toggleFrames();
 
-        //testStuff(); // Delete Me
+        testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")
@@ -266,9 +266,8 @@ public class Main {
         } catch (InvalidParametersException e) {
         	System.out.println("Bad parameters sent..");
         }
+        
         */
-        
-        
         // Test reading all router info
 		System.out.println("\nGetRouterInfo");
         try {
@@ -284,6 +283,7 @@ public class Main {
 			System.out.println("Connection failed..");
 			e.printStackTrace();
 		}
+
         
         // Test restart - worked at one point :) Possibly now as well.
         /*

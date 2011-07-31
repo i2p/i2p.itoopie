@@ -90,10 +90,6 @@ public class Main {
 		TabLogoPanel configTab = new ConfigurationTab("itoopie-opaque12");
 		tabbedPane.addTab(Transl._("Configuration"), null, configTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(configTab));
-
-		
-		JPanel logPanel = new LogoPanel("itoopie-opaque12");
-		tabbedPane.addTab(Transl._("Logs"), null, logPanel, null);
 		
 		
 		TabLogoPanel aboutTab = new AboutTab("itoopie-opaque12");

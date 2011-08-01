@@ -244,7 +244,7 @@ public class SettingsFrame extends RegisteredFrame{
 	}
 	
 	private void setupConnectPanel(JPanel networkPanel){
-		JLabel lblI2PControl = new JLabel(Transl._("Connect to I2PControl"));
+		JLabel lblI2PControl = new JLabel(Transl._("Connect to I2P node"));
 		lblI2PControl.setBounds(10, 10, 228, 15);
 		networkPanel.add(lblI2PControl);
 		lblI2PControl.setHorizontalAlignment(SwingConstants.RIGHT);

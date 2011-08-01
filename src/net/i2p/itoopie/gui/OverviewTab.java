@@ -48,8 +48,8 @@ public class OverviewTab extends TabLogoPanel {
 		super(imageName);
 		super.setLayout(null);
 
-		Chart2D bwChart = BandwidthChart.getChart();
-		Chart2D partTunnelChart = ParticipatingTunnelsChart.getChart();
+		final BandwidthChart bwChart = new BandwidthChart();
+		Chart2D partTunnelChart = new ParticipatingTunnelsChart();
 		ChartPanel pt = new ChartPanel(partTunnelChart);
 		pt.setSize(300, 135);
 		pt.setLocation(15, 10);

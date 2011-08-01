@@ -36,22 +36,26 @@ public class OutboundBandwidthTracker extends Thread {
 	 */
 	@Override
 	public void run() {
-		EnumMap<ROUTER_INFO, Object> em;
+		
 		while (true) {
-			try {
-				em = GetRouterInfo.execute(ROUTER_INFO.BW_OUTBOUND_1S);
-				double dbl = (Double) em.get(ROUTER_INFO.BW_OUTBOUND_1S);
-				m_value = dbl / 1024; //Bytes -> KBytes
-			} catch (InvalidPasswordException e) {
-			} catch (JSONRPC2SessionException e) {
-			}
-
+			
+			runOnce();
 			try {
 				Thread.sleep(updateInterval);
 			} catch (InterruptedException e) {
 				// nop
 			}
 
+		}
+	}
+	
+	public synchronized void runOnce(){
+		try {
+			EnumMap<ROUTER_INFO, Object> em = GetRouterInfo.execute(ROUTER_INFO.BW_OUTBOUND_1S);
+			double dbl = (Double) em.get(ROUTER_INFO.BW_OUTBOUND_1S);
+			m_value = dbl / 1024; //Bytes -> KBytes
+		} catch (InvalidPasswordException e) {
+		} catch (JSONRPC2SessionException e) {
 		}
 	}
 }

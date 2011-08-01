@@ -36,22 +36,25 @@ public class ParticipatingTunnelsTracker extends Thread {
 	 */
 	@Override
 	public void run() {
-		EnumMap<ROUTER_INFO, Object> em;
 		while (true) {
-			try {
-				em = GetRouterInfo.execute(ROUTER_INFO.TUNNELS_PARTICIPATING);
-				Long nbr = (Long) em.get(ROUTER_INFO.TUNNELS_PARTICIPATING);
-				m_value = nbr.doubleValue();
-			} catch (InvalidPasswordException e) {
-			} catch (JSONRPC2SessionException e) {
-			}
-
+			
+			runOnce();
 			try {
 				Thread.sleep(updateInterval);
 			} catch (InterruptedException e) {
 				// nop
 			}
 
+		}
+	}
+	
+	public synchronized void runOnce(){
+		try {
+			EnumMap<ROUTER_INFO, Object> em = GetRouterInfo.execute(ROUTER_INFO.TUNNELS_PARTICIPATING);
+			Long nbr = (Long) em.get(ROUTER_INFO.TUNNELS_PARTICIPATING);
+			m_value = nbr.doubleValue();
+		} catch (InvalidPasswordException e) {
+		} catch (JSONRPC2SessionException e) {
 		}
 	}
 }

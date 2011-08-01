@@ -24,7 +24,7 @@ public class GetI2PControl {
 	
 	
 	public static EnumMap<I2P_CONTROL, Object> execute(I2P_CONTROL ... settings) 
-			throws InvalidPasswordException, JSONRPC2SessionException, InvalidParametersException{
+			throws InvalidPasswordException, JSONRPC2SessionException{
 		
 		JSONRPC2Request req = new JSONRPC2Request("I2PControl", JSONRPC2Interface.incrNonce());
 		
@@ -59,6 +59,8 @@ public class GetI2PControl {
 			}
 		} catch (UnrecoverableFailedRequestException e) {
 			_log.error("getI2PControl failed.", e);
+		} catch (InvalidParametersException e) {
+			_log.error("getI2PControl was rejected by remote host as invalid.", e);
 		}
 		return null;
 	}

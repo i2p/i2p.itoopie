@@ -14,6 +14,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.EnumMap;
 import java.util.HashMap;
 
 import javax.swing.JComboBox;
@@ -23,6 +24,8 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
+import javax.swing.SwingUtilities;
+
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
@@ -32,16 +35,17 @@ import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
+import net.i2p.itoopie.i2pcontrol.methods.I2PControl;
+import net.i2p.itoopie.i2pcontrol.methods.I2PControl.ADDRESSES;
 import net.i2p.itoopie.i2pcontrol.methods.I2PControl.I2P_CONTROL;
+import net.i2p.itoopie.i2pcontrol.methods.GetI2PControl;
 import net.i2p.itoopie.i2pcontrol.methods.SetI2PControl;
 import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 
-import javax.swing.BoxLayout;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.awt.Component;
 
 public class SettingsFrame extends RegisteredFrame{
 	
@@ -59,24 +63,10 @@ public class SettingsFrame extends RegisteredFrame{
 		NO_CHANGES				{ public String toString(){return Transl._("No changes found, settings not saved.");} }
 	};
 	
-	private interface Address { public String getAddress();}
-	private enum ADDRESSES implements Address {
-		LOCAL { 			public String getAddress(){ return "127.0.0.1";}
-		public String toString(){ return Transl._("local host (127.0.0.1)"); }},
-		
-		LAN_192_168 {		public String getAddress(){ return "192.168.0.0";}
-		public String toString(){ return Transl._("lan host (192.168.*.*)"); }},
-		
-		LAN_10 {			public String getAddress(){ return "10.0.0.0";}
-		public String toString(){ return Transl._("lan host (10.*.*.*)"); }},
-		
-		ANY {				public String getAddress(){ return "0.0.0.0";}
-		public String toString(){ return Transl._("any host (*.*.*.*)"); }}
-	};
+
 
 
 	private static final Log _log = LogFactory.getLog(SettingsFrame.class);
-	private static final HashMap<String, ADDRESSES> reverseAddressMap;
 	private static Boolean instanceShown = false;
 
 	// ConnectPanel
@@ -91,13 +81,7 @@ public class SettingsFrame extends RegisteredFrame{
 	private JPasswordField txtRetypeNewPassword;
 	
 	private ConfigurationManager _conf;
-	
-	static {
-		reverseAddressMap = new HashMap<String,ADDRESSES>();
-		for (ADDRESSES n : ADDRESSES.values()){
-			reverseAddressMap.put(n.toString(), n);
-		}
-	}
+
 
 	/**
 	 * Launch the application.
@@ -149,10 +133,10 @@ public class SettingsFrame extends RegisteredFrame{
 		
 		setTitle("itoopie Settings");
 		setBounds(0, 0, 450, 310);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
 		getContentPane().setLayout(null);
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		JPanel connectPanel = new JPanel();
 		connectPanel.setLayout(null);
@@ -193,6 +177,19 @@ public class SettingsFrame extends RegisteredFrame{
 					StatusHandler.setStatus(Transl._("Settings not saved, no changes found."));
 				}
 				
+				REMOTE_SAVE_STATUS newAddressStatus = saveNewAddress();
+				switch (newAddressStatus){
+				case SAVED_OK:
+					StatusHandler.setStatus(Transl._("New remote address: ") + REMOTE_SAVE_STATUS.SAVED_OK);
+					break;
+				case SAVE_FAILED_LOCALLY:
+					StatusHandler.setStatus(Transl._("New remote address: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					break;
+				case SAVE_FAILED_REMOTELY:
+					StatusHandler.setStatus(Transl._("New remote address: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					break;
+				}
+				
 				REMOTE_SAVE_STATUS newPortStatus = saveNewPort();
 				switch (newPortStatus){
 				case SAVED_OK:
@@ -221,7 +218,8 @@ public class SettingsFrame extends RegisteredFrame{
 				
 				if (localSettingStatus != LOCAL_SAVE_STATUS.SAVE_ERROR &&
 						newPortStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newPortStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY &&
-						newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY){
+						newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY &&
+						newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY){
 					Main.fireNewChange();
 					dispose();
 				}
@@ -344,7 +342,31 @@ public class SettingsFrame extends RegisteredFrame{
 		txtRouterPort.setText(_conf.getConf("server.port", 7650)+"");
 		passwordField.setText(_conf.getConf("server.password", "itoopie"));
 		
-		GetI
+		(new Thread(){
+			@Override
+			public void run(){
+				try {
+					EnumMap<I2P_CONTROL, Object> em = GetI2PControl.execute(I2P_CONTROL.ADDRESS);
+					String currentAddress = (String) em.get(I2P_CONTROL.ADDRESS);
+					final ADDRESSES currentAddr = I2PControl.getAddressEnum(currentAddress);
+
+					if (currentAddr != null){
+						currentComboAddressOption = currentAddr.ordinal();
+					
+						SwingUtilities.invokeLater(new Runnable(){
+							@Override
+							public void run(){
+								comboAddress.setSelectedIndex(currentAddr.ordinal());			
+							}
+						});
+					}
+					
+				} catch (InvalidPasswordException e) {
+				} catch (JSONRPC2SessionException e) {
+				}
+				
+			}
+		}).start();
 	}
 	
 	@SuppressWarnings("static-access")
@@ -527,6 +549,29 @@ public class SettingsFrame extends RegisteredFrame{
 			return REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY;
 		} catch (InvalidParametersException e) {
 			return REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY;
+		}
+	}
+	
+	private REMOTE_SAVE_STATUS saveNewAddress(){
+		int indexSelected = comboAddress.getSelectedIndex();
+		if (indexSelected != currentComboAddressOption){
+			ADDRESSES[] addresses = ADDRESSES.values();
+			HashMap<I2P_CONTROL, String> hm = new HashMap<I2P_CONTROL, String>();
+			hm.put(I2P_CONTROL.ADDRESS, addresses[indexSelected].getAddress());
+			try {
+				SetI2PControl.execute(hm);
+				return REMOTE_SAVE_STATUS.SAVED_OK;
+			} catch (InvalidPasswordException e) {
+				StatusHandler.setDefaultStatus(DEFAULT_STATUS.INVALID_PASSWORD);
+				return REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY;
+			} catch (JSONRPC2SessionException e) {
+				StatusHandler.setDefaultStatus(DEFAULT_STATUS.NOT_CONNECTED);
+				return REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY;
+			} catch (InvalidParametersException e) {
+				return REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY;
+			}
+		} else {
+			return REMOTE_SAVE_STATUS.NO_CHANGES;
 		}
 	}
 }

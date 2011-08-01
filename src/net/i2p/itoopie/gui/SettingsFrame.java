@@ -16,6 +16,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -43,7 +44,6 @@ import org.apache.commons.logging.LogFactory;
 import java.awt.Component;
 
 public class SettingsFrame extends RegisteredFrame{
-	private static final Log _log = LogFactory.getLog(SettingsFrame.class);
 	
 	private enum LOCAL_SAVE_STATUS {
 		SAVE_OK,
@@ -59,19 +59,45 @@ public class SettingsFrame extends RegisteredFrame{
 		NO_CHANGES				{ public String toString(){return Transl._("No changes found, settings not saved.");} }
 	};
 	
+	private interface Address { public String getAddress();}
+	private enum ADDRESSES implements Address {
+		LOCAL { 			public String getAddress(){ return "127.0.0.1";}
+		public String toString(){ return Transl._("local host (127.0.0.1)"); }},
+		
+		LAN_192_168 {		public String getAddress(){ return "192.168.0.0";}
+		public String toString(){ return Transl._("lan host (192.168.*.*)"); }},
+		
+		LAN_10 {			public String getAddress(){ return "10.0.0.0";}
+		public String toString(){ return Transl._("lan host (10.*.*.*)"); }},
+		
+		ANY {				public String getAddress(){ return "0.0.0.0";}
+		public String toString(){ return Transl._("any host (*.*.*.*)"); }}
+	};
+
+
+	private static final Log _log = LogFactory.getLog(SettingsFrame.class);
+	private static final HashMap<String, ADDRESSES> reverseAddressMap;
 	private static Boolean instanceShown = false;
 
-	// NetworkPanel
+	// ConnectPanel
 	private JTextField txtRouterIP;
 	private JTextField txtRouterPort;
 	private JPasswordField passwordField;
-	// PasswordPanel
+	// ChangePanel
+	private JComboBox comboAddress;
+	private int currentComboAddressOption = 0;
+	private JTextField txtNewPort;
 	private JPasswordField txtNewPassword;
 	private JPasswordField txtRetypeNewPassword;
-	// PortPanel
-	private JTextField txtNewPort;
 	
 	private ConfigurationManager _conf;
+	
+	static {
+		reverseAddressMap = new HashMap<String,ADDRESSES>();
+		for (ADDRESSES n : ADDRESSES.values()){
+			reverseAddressMap.put(n.toString(), n);
+		}
+	}
 
 	/**
 	 * Launch the application.
@@ -94,6 +120,7 @@ public class SettingsFrame extends RegisteredFrame{
 	 */
 	private SettingsFrame() {
 		_conf = ConfigurationManager.getInstance();
+		GUIHelper.setDefaultStyle();
 		initialize();
 	}
 	
@@ -121,43 +148,33 @@ public class SettingsFrame extends RegisteredFrame{
 		GUIHelper.setDefaultStyle();
 		
 		setTitle("itoopie Settings");
-		setBounds(0, 0, 450, 260);
+		setBounds(0, 0, 450, 310);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		JPanel networkPanel = new JPanel();
-		networkPanel.setLayout(null);
-		networkPanel.setBounds(0, 0, 426, 89);
-		getContentPane().add(networkPanel);
-		setupNetworkPanel(networkPanel);
+		JPanel connectPanel = new JPanel();
+		connectPanel.setLayout(null);
+		connectPanel.setBounds(0, 0, 426, 99);
+		getContentPane().add(connectPanel);
+		setupConnectPanel(connectPanel);
 		
 
 		JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
-		separator.setBounds((96)/2, 90, (getWidth()-96), 1);
+		separator.setBounds((96)/2, 108, (getWidth()-96), 2);
 		getContentPane().add(separator);
 		
-		JPanel newPasswordPanel = new JPanel();
-		newPasswordPanel.setLayout(null);
-		newPasswordPanel.setBounds(0, 90, 426, 64);
-		getContentPane().add(newPasswordPanel);
-		setupNewPasswordPanel(newPasswordPanel);
-
-		
-		separator = new JSeparator(SwingConstants.HORIZONTAL);
-		separator.setBounds((96)/2, 155, (getWidth()-96), 1);
-		getContentPane().add(separator);
+		JPanel newChangePanel = new JPanel();
+		newChangePanel.setLayout(null);
+		newChangePanel.setBounds(0, 110, 426, 135);
+		getContentPane().add(newChangePanel);
+		setupChangePanel(newChangePanel);
 		
 		
-		JPanel newPortPanel = new JPanel();
-		newPortPanel.setLayout(null);
-		newPortPanel.setBounds(0, 155, 426, 35);
-		getContentPane().add(newPortPanel);
-		setupNewPortPanel(newPortPanel);
 		
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		buttonPanel.setBounds(0, 200, getWidth()-10, 35);
+		buttonPanel.setBounds(0, getHeight()-60, getWidth()-10, 35);
 		getContentPane().add(buttonPanel);
 		
 		
@@ -228,93 +245,106 @@ public class SettingsFrame extends RegisteredFrame{
 		validate();
 	}
 	
-	private void setupNetworkPanel(JPanel networkPanel){
-		JLabel lblI2PControl = new JLabel(Transl._("Network:"));
-		lblI2PControl.setBounds(10, 10, 120, 15);
+	private void setupConnectPanel(JPanel networkPanel){
+		JLabel lblI2PControl = new JLabel(Transl._("Connect to I2PControl"));
+		lblI2PControl.setBounds(10, 10, 228, 15);
 		networkPanel.add(lblI2PControl);
 		lblI2PControl.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		
 		JLabel lblRouterIP = new JLabel(Transl._("IP address:"));
-		lblRouterIP.setBounds(138, 10, 100, 15);
+		lblRouterIP.setBounds(138, 30, 100, 15);
 		networkPanel.add(lblRouterIP);
-		lblRouterIP.setHorizontalAlignment(SwingConstants.LEFT);
+		lblRouterIP.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtRouterIP = new JTextField();
-		txtRouterIP.setBounds(240, 10, 90, 19);
+		txtRouterIP.setBounds(240, 30, 90, 19);
 		networkPanel.add(txtRouterIP);
 		
 		
 		JLabel lblRouterPort = new JLabel(Transl._("Port:"));
-		lblRouterPort.setBounds(138, 35, 100, 15);
+		lblRouterPort.setBounds(10, 55, 228, 15);
 		networkPanel.add(lblRouterPort);
-		lblRouterPort.setHorizontalAlignment(SwingConstants.LEFT);
+		lblRouterPort.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtRouterPort = new JTextField();
-		txtRouterPort.setBounds(240, 35, 45, 19);
+		txtRouterPort.setBounds(240, 55, 45, 19);
 		networkPanel.add(txtRouterPort);
 		
 		
 		JLabel lblRouterPassword = new JLabel(Transl._("Password:"));
-		lblRouterPassword.setBounds(138, 60, 100, 15);
+		lblRouterPassword.setBounds(10, 80, 228, 15);
 		networkPanel.add(lblRouterPassword);
-		lblRouterPassword.setHorizontalAlignment(SwingConstants.LEFT);
+		lblRouterPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(240, 60, 90, 19);
+		passwordField.setBounds(240, 80, 90, 19);
 		networkPanel.add(passwordField);
 	}
 
 	
-	private void setupNewPasswordPanel(JPanel pwdPanel){
-		JLabel lblNewPassword = new JLabel(Transl._("New password:"));
-		lblNewPassword.setBounds(10, 10, 120, 15);
-		pwdPanel.add(lblNewPassword);
-		lblNewPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+	private void setupChangePanel(JPanel changePanel){
+		JLabel lblChange = new JLabel(Transl._("Change I2PControl"));
+		lblChange.setBounds(10, 10, 228, 15);
+		changePanel.add(lblChange);
+		lblChange.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		
-		JLabel lblNewPassword2 = new JLabel(Transl._("Password:"));
-		lblNewPassword2.setBounds(138, 10, 100, 15);
-		pwdPanel.add(lblNewPassword2);
-		lblNewPassword2.setHorizontalAlignment(SwingConstants.LEFT);
+		JLabel lblAddress = new JLabel(Transl._("Change address:"));
+		lblAddress.setBounds(10, 30, 228, 15);
+		changePanel.add(lblAddress);
+		lblAddress.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		txtNewPassword = new JPasswordField();
-		txtNewPassword.setBounds(240, 10, 90, 19);
-		pwdPanel.add(txtNewPassword);
+		comboAddress = new JComboBox();
+		setupAddressComboBox(comboAddress);
+		comboAddress.setBounds(240, 30, 170, 19);
+		changePanel.add(comboAddress);
 		
-		
-		JLabel lblRetypeNewPassword = new JLabel(Transl._("Repeat:"));
-		lblRetypeNewPassword.setBounds(138, 35, 100, 15);
-		pwdPanel.add(lblRetypeNewPassword);
-		lblRetypeNewPassword.setHorizontalAlignment(SwingConstants.LEFT);
-		
-		txtRetypeNewPassword = new JPasswordField();
-		txtRetypeNewPassword.setBounds(240, 35, 90, 19);
-		pwdPanel.add(txtRetypeNewPassword);
-	}
-	
-	private void setupNewPortPanel(JPanel portPanel){
-		JLabel lblPort = new JLabel(Transl._("New port:"));
-		lblPort.setBounds(10, 10, 120, 15);
-		portPanel.add(lblPort);
+		JLabel lblPort = new JLabel(Transl._("Change port:"));
+		lblPort.setBounds(10, 60, 228, 15);
+		changePanel.add(lblPort);
 		lblPort.setHorizontalAlignment(SwingConstants.RIGHT);
 		
-		
-		JLabel lblPort2 = new JLabel(Transl._("Port:"));
-		lblPort2.setBounds(138, 10, 100, 15);
-		portPanel.add(lblPort2);
-		lblPort2.setHorizontalAlignment(SwingConstants.LEFT);
-		
 		txtNewPort = new JTextField();
-		txtNewPort.setBounds(240, 10, 45, 19);
-		portPanel.add(txtNewPort);
+		txtNewPort.setBounds(240, 60, 45, 19);
+		changePanel.add(txtNewPort);
+		
+		
+		JLabel lblNewPassword = new JLabel(Transl._("New password:"));
+		lblNewPassword.setBounds(10, 90, 228, 15);
+		changePanel.add(lblNewPassword);
+		lblNewPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+
+		
+		txtNewPassword = new JPasswordField();
+		txtNewPassword.setBounds(240, 90, 90, 19);
+		changePanel.add(txtNewPassword);
+		
+		
+		JLabel lblRetypeNewPassword = new JLabel(Transl._("Repeat password:"));
+		lblRetypeNewPassword.setBounds(10, 115, 228, 15);
+		changePanel.add(lblRetypeNewPassword);
+		lblRetypeNewPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		txtRetypeNewPassword = new JPasswordField();
+		txtRetypeNewPassword.setBounds(240, 115, 90, 19);
+		changePanel.add(txtRetypeNewPassword);
 	}
 
 	
+	private void setupAddressComboBox(JComboBox comboBox) {
+		for (ADDRESSES addr : ADDRESSES.values()){
+			comboBox.addItem(addr.toString());
+		}
+		comboBox.setSelectedIndex(0);
+	}
+
 	private void populateSettings(){
 		txtRouterIP.setText(_conf.getConf("server.hostname", "127.0.0.1"));
 		txtRouterPort.setText(_conf.getConf("server.port", 7650)+"");
 		passwordField.setText(_conf.getConf("server.password", "itoopie"));
+		
+		GetI
 	}
 	
 	@SuppressWarnings("static-access")
@@ -328,7 +358,7 @@ public class SettingsFrame extends RegisteredFrame{
 		String portText = txtRouterPort.getText();
 		String pwText = new String(passwordField.getPassword());
 		
-//		// Exit SAVE_STATUS.NO_CHANGES if no changes are found. Possibly just a annoying check.
+//		// Exit SAVE_STATUS.NO_CHANGES if no changes are found. Possibly just an annoying check.
 //		if (ipText.equals(oldIP) && portText.equals(oldPort+"") && pwText.equals(oldPW))
 //			return LOCAL_SAVE_STATUS.NO_CHANGES;
 		

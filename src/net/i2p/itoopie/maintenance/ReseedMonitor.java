@@ -46,10 +46,10 @@ public class ReseedMonitor extends TimerTask{
 			Boolean isReseeding = (Boolean) em.get(ROUTER_INFO.IS_RESEEDING);
 			if (knownPeers != null && isReseeding != null){
 				if (knownPeers < MIN_KNOWN_PEERS){
+					_log.info("Few peers detected, initiating reseed..");
 					HashMap<ROUTER_MANAGER, String> hm = new HashMap<ROUTER_MANAGER, String>();
 					hm.put(ROUTER_MANAGER.RESEED, null);
 					SetRouterManager.execute(hm);
-					_log.info("Reseed initiated..");
 				}
 			}
 		} catch (InvalidPasswordException e) {

@@ -24,7 +24,7 @@ public class I2PControl{
 							public boolean isWritable(){ return true;}  
 							public String toString() { return "i2pcontrol.port"; }},
 							
-		ADDRESS { 	public boolean isReadable(){ return false;}	
+		ADDRESS { 			public boolean isReadable(){ return false;}	
 							public boolean isWritable(){ return true;}  
 							public String toString() { return "i2pcontrol.address"; }}
 							

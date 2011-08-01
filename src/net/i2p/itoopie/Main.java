@@ -96,8 +96,8 @@ public class Main {
         WindowHandler.toggleFrames();
         
         
-		reseedMonitor = new Timer();
 		// Start running periodic task after 2 minutes, run periodically every 10th minute.
+        reseedMonitor = new Timer();
 		reseedMonitor.scheduleAtFixedRate(new ReseedMonitor(), 2*60*1000, 10*60*1000);
 
         //testStuff(); // Delete Me

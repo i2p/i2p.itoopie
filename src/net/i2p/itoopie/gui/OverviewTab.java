@@ -64,57 +64,57 @@ public class OverviewTab extends TabLogoPanel {
 
 		lblI2P = new JLabel();
 		add(lblI2P);
-		lblI2P.setBounds(285, 30, 100, 15);
+		lblI2P.setBounds(290, 30, 100, 15);
 		lblI2P.setText("I2P");
 		lblI2P.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		lblVersion = new JLabel();
 		add(lblVersion);
-		lblVersion.setBounds(285, 50, 100, 15);
+		lblVersion.setBounds(290, 50, 100, 15);
 		lblVersion.setText(Transl._("Version:"));
 		lblVersion.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		lblVersionSpecified = new JLabel();
 		add(lblVersionSpecified);
-		lblVersionSpecified.setBounds(395, 50, 140, 15);
+		lblVersionSpecified.setBounds(400, 50, 140, 15);
 		lblVersionSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 //		lblVersionSpecified.setText("0.8.7-48rc"); // Delete Me
 		
 		
 		lblUptime = new JLabel();
 		add(lblUptime);
-		lblUptime.setBounds(285, 70, 100, 15);
+		lblUptime.setBounds(290, 70, 100, 15);
 		lblUptime.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblUptime.setText(Transl._("Uptime:"));
 		
 		lblUptimeSpecified = new JLabel();
 		add(lblUptimeSpecified);
-		lblUptimeSpecified.setBounds(395, 70, 140, 15);
+		lblUptimeSpecified.setBounds(400, 70, 140, 15);
 		lblUptimeSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 //		lblUptimeSpecified.setText("93 min"); // Delete Me
 
 		
 		lblStatus = new JLabel();
 		add(lblStatus);
-		lblStatus.setBounds(285, 90, 100, 15);
+		lblStatus.setBounds(290, 90, 100, 15);
 		lblStatus.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblStatus.setText(Transl._("Status:"));
 
 		lblStatusSpecified = new JLabel();
 		add(lblStatusSpecified);
-		lblStatusSpecified.setBounds(395, 90, 140, 15);
+		lblStatusSpecified.setBounds(400, 90, 140, 15);
 		lblStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 //		lblStatusSpecified.setText("Rejecting Tunnels"); // Delete Me
 
 		lblNetworkStatus = new JLabel();
 		add(lblNetworkStatus);
-		lblNetworkStatus.setBounds(285, 110, 100, 15);
+		lblNetworkStatus.setBounds(290, 110, 100, 15);
 		lblNetworkStatus.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNetworkStatus.setText(Transl._("Netstatus:"));
 
 		lblNetworkStatusSpecified = new MultiLineLabel();
 		add(lblNetworkStatusSpecified);
-		lblNetworkStatusSpecified.setBounds(395, 110, 130, 60);
+		lblNetworkStatusSpecified.setBounds(400, 110, 130, 60);
 		lblNetworkStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNetworkStatusSpecified.setVerticalTextAlignment(JLabel.TOP);
 //		lblNetworkStatusSpecified.setText("WARN-Firewalled with Inbound TCP Enabled".replace('-', ' ')); // Delete Me

@@ -31,20 +31,20 @@ public class AboutTab extends TabLogoPanel {
 		
 		lblitoopie = new JLabel();
 		add(lblitoopie);
-		lblitoopie.setBounds(285, 30, 100, 15);
+		lblitoopie.setBounds(290, 30, 100, 15);
 		lblitoopie.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblitoopie.setText("itoopie");
 		
 		lblVersion = new JLabel();
 		add(lblVersion);
-		lblVersion.setBounds(285, 50, 100, 15);
+		lblVersion.setBounds(290, 50, 100, 15);
 		lblVersion.setText(Transl._("Version:"));
 		lblVersion.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		
 		lblVersionSpecified = new JLabel();
 		add(lblVersionSpecified);
-		lblVersionSpecified.setBounds(395, 50, 100, 15);
+		lblVersionSpecified.setBounds(400, 50, 100, 15);
 		lblVersionSpecified.setText("v" + ItoopieVersion.VERSION);
 		
 		validate();

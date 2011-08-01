@@ -36,6 +36,8 @@ public class SetRouterManager {
 		for (Entry<ROUTER_MANAGER,String> e : set){
 			if(e.getKey().isWritable()){
 				outParams.put(e.getKey().toString(), e.getValue());
+			} else if (e.getKey().isReadable()){
+				outParams.put(e.getKey().toString(), null);
 			}
 		}
 		req.setParams(outParams);

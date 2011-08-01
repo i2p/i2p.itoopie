@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 
 /**
- * Describes the ways a I2P router can be restarted.
+ * Describes the ways a I2P router operation can be altered.
  * @author hottuna
  */
 public class I2PControl{
@@ -12,7 +12,7 @@ public class I2PControl{
 
 	
 	/**
-	 * Describes the ways a I2P router can be restarted.
+	 * Describes the ways a I2P router operation can be altered.
 	 * @author hottuna
 	 */
 	public enum I2P_CONTROL implements Remote{
@@ -20,9 +20,15 @@ public class I2PControl{
 							public boolean isWritable(){ return true;}  
 							public String toString() { return "i2pcontrol.password"; }},
 						
-		PORT { 			public boolean isReadable(){ return false;}	
+		PORT { 				public boolean isReadable(){ return false;}	
 							public boolean isWritable(){ return true;}  
-							public String toString() { return "i2pcontrol.port"; }}
+							public String toString() { return "i2pcontrol.port"; }},
+							
+		ADDRESS { 	public boolean isReadable(){ return false;}	
+							public boolean isWritable(){ return true;}  
+							public String toString() { return "i2pcontrol.address"; }}
+							
+							
 	};
 		
 	static {

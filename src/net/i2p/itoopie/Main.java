@@ -4,20 +4,15 @@ package net.i2p.itoopie;
  * Main.java
  */
 
-import java.awt.Font;
-import java.util.Arrays;
+
 import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+import java.util.Timer;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.net.ssl.HttpsURLConnection;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.plaf.FontUIResource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -43,7 +38,7 @@ import net.i2p.itoopie.i2pcontrol.methods.RouterManager.ROUTER_MANAGER;
 import net.i2p.itoopie.i2pcontrol.methods.SetI2PControl;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.SetRouterManager;
-import net.i2p.itoopie.security.CertificateHelper;
+import net.i2p.itoopie.maintenance.ReseedMonitor;
 import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 
 /**
@@ -54,6 +49,7 @@ public class Main {
     ///Manages the lifetime of the tray icon.
     private TrayManager trayManager = null;
     private static ConfigurationManager _conf;
+    private static Timer reseedMonitor;
     private static Log _log;
 
     /**
@@ -98,8 +94,13 @@ public class Main {
         
         // Popup Main window.
         WindowHandler.toggleFrames();
+        
+        
+		reseedMonitor = new Timer();
+		// Start running periodic task after 2 minutes, run periodically every 10th minute.
+		reseedMonitor.scheduleAtFixedRate(new ReseedMonitor(), 2*60*1000, 10*60*1000);
 
-        testStuff(); // Delete Me
+        //testStuff(); // Delete Me
     }
     
     @SuppressWarnings("static-access")

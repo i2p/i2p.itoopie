@@ -3,3 +3,10 @@ Current setup:
     * 'ant' in the i2p.itoopie directory
 * Run:
 	java -jar itoopie.jar
+
+
+Thanks to
+- KillYourTV for debugging and helping out with platform testing as well as fixing the shortcuts of the installer.
+- User for tons of testing and a lot of good ideas and requests.
+- ReturningNovice for testing and finding bugs.
+- zzz for helping out with broad knowledge of I2P, build process and Jetty.

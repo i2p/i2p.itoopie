@@ -162,8 +162,9 @@ public class SettingsFrame extends RegisteredFrame{
 		getContentPane().add(buttonPanel);
 		
 		
-		JButton btnDone = new JButton(Transl._("Apply"));
+		JButton btnDone = new JButton(Transl._(" Apply "));
 		buttonPanel.add(btnDone);
+		
 		btnDone.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -227,7 +228,7 @@ public class SettingsFrame extends RegisteredFrame{
 		});
 		
 		
-		JButton btnClose = new JButton(Transl._("Discard"));
+		JButton btnClose = new JButton(Transl._(" Discard "));
 		buttonPanel.add(btnClose);
 		btnClose.addActionListener(new ActionListener(){
 			@Override

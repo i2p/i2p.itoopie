@@ -5,18 +5,19 @@ import java.awt.Font;
 
 import javax.swing.UIManager;
 import javax.swing.plaf.FontUIResource;
+import javax.swing.plaf.InsetsUIResource;
 
 public class GUIHelper {
-	private final static Color VERY_LIGHT = new Color(230,230,230);
-	private final static Color LIGHT = new Color(215,215,215);
-	private final static Color MEDIUM = new Color (175,175,175);
-	private final static Color DARK = new Color(145,145,145);
+	public final static Color VERY_LIGHT = new Color(230,230,230);
+	public final static Color LIGHT = new Color(215,215,215);
+	public final static Color MEDIUM = new Color (175,175,175);
+	public final static Color DARK = new Color(145,145,145);
 	public final static FontUIResource DEFAULT_FONT = new FontUIResource(Font.SANS_SERIF,Font.PLAIN,12);
 	
 	public static void setDefaultStyle(){
 		//Selected tab
 		UIManager.put("TabbedPane.focus", VERY_LIGHT);
-		UIManager.put("TabbedPane.selected", VERY_LIGHT);
+		UIManager.put("TabbedPane.selected", LIGHT);
 		UIManager.put("TabbedPane.selectHighlight", Color.BLACK);
 		//General shadow around each tab
 		UIManager.put("TabbedPane.light", Color.WHITE);
@@ -26,6 +27,7 @@ public class GUIHelper {
 	    UIManager.put("Button.background", Color.WHITE); 
 	    
 	    setDefaultFonts();
+	    setTabLooks();
 	}
 	
 	private static void setDefaultFonts(){
@@ -60,5 +62,14 @@ public class GUIHelper {
 		UIManager.put("ToolBar.font", DEFAULT_FONT);
 		UIManager.put("ToolTip.font", DEFAULT_FONT);
 		UIManager.put("Tree.font", DEFAULT_FONT);
+	}
+	
+	public static void setTabLooks(){
+		UIManager.put("TabbedPane.font",new FontUIResource(Font.SANS_SERIF,Font.PLAIN,13));
+		UIManager.put("TabbedPane.contentBorderInsets", new InsetsUIResource(2, 2, 3, 3));
+		UIManager.put("TabbedPane.tabAreaInsets", new InsetsUIResource(3,2,0,2));
+		UIManager.put("TabbedPane.tabInsets", new InsetsUIResource(6,4,2,4));
+		UIManager.put("TabbedPane.textIconGap", 4);
+		//UIManager.put(key, value)
 	}
 }

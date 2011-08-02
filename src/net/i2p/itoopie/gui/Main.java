@@ -1,14 +1,17 @@
 package net.i2p.itoopie.gui;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JRootPane;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
@@ -18,6 +21,7 @@ import net.i2p.itoopie.gui.component.util.TabChangeListener;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.util.IconLoader;
 
+import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -31,6 +35,7 @@ public class Main {
 	private static JTabbedPane tabbedPane;
 	public final static int FRAME_WIDTH = 550;
 	public final static int FRAME_HEIGHT = 400;
+	public final static int TABBED_PANE_HEIGHT = FRAME_HEIGHT -58;
 
 	/**
 	 * Launch the application.
@@ -60,16 +65,21 @@ public class Main {
 	 */
 	private void initialize() {
 		GUIHelper.setDefaultStyle();
-
-
+		//GUIHelper.setTabLooks();
+		
 		frame = new RegisteredFrame("itoopie");
 		frame.setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 		frame.setResizable(false);
+		JRootPane root = frame.getRootPane();
+		root.setLayout(null);
+		//root.setBorder(BorderFactory.createLineBorder(GUIHelper.MEDIUM));
+		
 		WindowHandler.registerMain(frame);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
-		
+		root.add(tabbedPane);
+		tabbedPane.setBounds(0, 0, FRAME_WIDTH-9, TABBED_PANE_HEIGHT);
+
 		TabLogoPanel overviewTab = new OverviewTab("itoopie-opaque12");
 		tabbedPane.addTab(Transl._("Overview"), null, overviewTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(overviewTab));
@@ -85,8 +95,8 @@ public class Main {
 
 		
 		JPanel statusPanel = new JPanel();
-		frame.getContentPane().add(statusPanel, BorderLayout.SOUTH);
-		statusPanel.setBounds(100, 15, 100, 100);
+		root.add(statusPanel);
+		statusPanel.setBounds(5, TABBED_PANE_HEIGHT + 3, FRAME_WIDTH-5, 28);
 		statusPanel.setLayout(new BorderLayout(0, 0));
 		
 		JLabel statusLbl = StatusHandler.getStatusLbl();

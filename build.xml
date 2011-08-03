@@ -112,8 +112,7 @@
 
         <ant target="installerexe" />
     </target>
-    <target name="installerexe" unless="noExe" >
-	    <checksum file="itoopieinstall.exe" algorithm="SHA-512" fileext=".sha512"/>
+    <target name="installerexe" unless="noExe">
         <!--<condition property="noExe">
 	    	<os arch="x86_64" />
 		</condition>
@@ -138,6 +137,8 @@
                  classname="net.sf.launch4j.ant.Launch4jTask"
                  classpath="${basedir}/installer/lib/launch4j/launch4j.jar:${basedir}/installer/lib/launch4j/lib/xstream.jar" />
         <launch4j configFile="installer/itoopieinstaller.xml" />
+	<checksum file="itoopieinstall.exe" algorithm="SHA-512" fileext=".sha512"/>
+
 	</target>
 	<!-- thazzit -->
 

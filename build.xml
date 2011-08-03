@@ -26,6 +26,9 @@
 	<target name="clean">
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
+		<delete file="install.jar" failonerror="false" />
+		<delete file="itoopieinstall.exe" failonerror="false" />
+		<delete file="itoopieinstall.exe.sha512" failonerror="false" />
 	</target>
 
 	<target name="compile" depends="clean,init">

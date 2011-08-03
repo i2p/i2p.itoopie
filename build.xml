@@ -97,8 +97,9 @@
 
     <target name="installer" depends="jar" >
         <copy file="${resources}/images/itoopie-256.png" tofile="${dist}/logo.png"/>
-		<copy file="LICENSE" tofile="${dist}/license.txt"/>
-		<copy file="history.txt" tofile="${dist}/history.txt"/>
+	<copy file="LICENSE" tofile="${dist}/license.txt"/>
+	<copy file="history.txt" tofile="${dist}/history.txt"/>
+
         <ant target="doAppEXE" />
 
         <taskdef name="izpack" classpath="${basedir}/installer/lib/izpack/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
@@ -110,9 +111,9 @@
             compressionlevel="9" />
 
         <ant target="installerexe" />
-		<checksum file="itoopieinstall.exe" algorithm="SHA-512" fileext=".sha512"/>
     </target>
-    <target name="installerexe">
+    <target name="installerexe" unless="noExe" >
+	    <checksum file="itoopieinstall.exe" algorithm="SHA-512" fileext=".sha512"/>
         <!--<condition property="noExe">
 	    	<os arch="x86_64" />
 		</condition>

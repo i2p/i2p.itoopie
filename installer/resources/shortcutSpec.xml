@@ -5,10 +5,22 @@
 			target="$INSTALL_PATH\itoopie.exe" 
 			commandLine=""
 			workingDirectory="$INSTALL_PATH"
-			iconFile="$INSTALL_PATH\logo.png"
+			iconFile="$INSTALL_PATH\icons\itoopie.ico"
 			initialState="noShow"
 			programGroup="yes"
 			startMenu="yes"
 			desktop="yes"
 			startup="no" />
+
+<shortcut
+                        name="Uninstaller"
+                        programGroup="yes"
+                        startup="no"
+                        target="java"
+                        commandLine="-jar &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
+                        Categories="Java;Application;Network;"
+                        initialState="noShow"
+                        workingDirectory=""
+                        description="IzPack uninstaller" />
+
 </shortcuts>

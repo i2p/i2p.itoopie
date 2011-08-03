@@ -2,7 +2,7 @@
 ***
  * Support for monitoring netdb status and initiating a reseed if needed.
  * Added support for changing which IP addresses I2PControl accepts. 127.0.0.1 is default, 0.0.0.0 is an option.
- 
+ * Improved looks by realigning components and adding gradient to panels. 
 
 0.0.1
 ***

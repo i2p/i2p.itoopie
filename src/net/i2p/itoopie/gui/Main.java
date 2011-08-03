@@ -99,7 +99,7 @@ public class Main {
 		root.add(statusPanel);
 		statusPanel.setBounds(5, TABBED_PANE_HEIGHT + 3, FRAME_WIDTH-5, 28);
 		statusPanel.setLayout(new BorderLayout(0, 0));
-		statusPanel.setBackground(GUIHelper.VERY_LIGHT);
+		statusPanel.setOpaque(false);
 		
 		JLabel statusLbl = StatusHandler.getStatusLbl();
 		statusLbl.setHorizontalAlignment(SwingConstants.LEFT);
@@ -110,7 +110,7 @@ public class Main {
 		flowLayout.setHgap(10);
 		flowLayout.setVgap(0);
 		statusPanel.add(buttonWrapper, BorderLayout.EAST);
-		buttonWrapper.setBackground(GUIHelper.VERY_LIGHT);
+		buttonWrapper.setOpaque(false);
 		
 		JButton settingsBtn = new JButton(Transl._("Settings"));
 		buttonWrapper.add(settingsBtn);

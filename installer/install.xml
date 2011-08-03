@@ -16,6 +16,8 @@
 
     <native type="izpack" name="ShellLink.dll" />
     <native type="izpack" name="ShellLink_x64.dll" />
+    <!--    <native type="3rdparty" name="COIOSHelper.dll" />
+	    <native type="3rdparty" name="COIOSHelper_x64.dll" /> -->
    
     <locale>
         <langpack iso3="eng"/>
@@ -54,6 +56,7 @@
         <res id="Installer.image" src="installer/resources/itoopielogo.png" />
 		<res id="shortcutSpec.xml" src="installer/resources/shortcutSpec.xml" />
 		<res src="installer/resources/Unix_shortcutSpec.xml" id="Unix_shortcutSpec.xml"/>
+		<!--<res id="RegistrySpec.xml" src="installer/resources/registry.xml" /> -->
 
     </resources>
    
@@ -68,7 +71,12 @@
     <packs>
         <pack name="itoopie" required="yes">
             <description>The easy I2P UI</description>
-            <fileset dir="dist/" includes="**/*" targetdir="$INSTALL_PATH"/>
+            <fileset dir="dist/" includes="*.txt" targetdir="$INSTALL_PATH"/>
+	    <fileset dir="dist/lib" includes="**/*" targetdir="$INSTALL_PATH/lib" />
+	    <fileset dir="dist/" includes="*.exe" targetdir="$INSTALL_PATH" os="windows" />
+	    <fileset dir="dist/" includes="*.jar" targetdir="$INSTALL_PATH" os="unix" />
+	    <file src="installer/resources//itoopie.ico" targetdir="$INSTALL_PATH/icons" os="windows" />
+	    <file src="dist/logo.png" targetdir="$INSTALL_PATH/icons" os="unix" />
            
             <!--
 			<executable targetfile="$INSTALL_PATH/bin/startup.sh" />

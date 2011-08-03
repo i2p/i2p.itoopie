@@ -209,6 +209,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblUPNP.setText(Transl._("UPNP:"));
 		
 		chkbxUPNP = new JCheckBox(Transl._("Enable UPNP"));
+		chkbxUPNP.setOpaque(false);
 		networkPanel.add(chkbxUPNP);
 		chkbxUPNP.setBounds(127, 85, 120, 15);
 	}

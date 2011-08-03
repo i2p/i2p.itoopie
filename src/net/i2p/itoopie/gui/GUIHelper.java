@@ -10,6 +10,7 @@ import javax.swing.plaf.InsetsUIResource;
 public class GUIHelper {
 	public final static Color VERY_LIGHT = new Color(230,230,230);
 	public final static Color LIGHT = new Color(215,215,215);
+	public final static Color MEDIUM_LIGHT = new Color(195,195,195);
 	public final static Color MEDIUM = new Color (175,175,175);
 	public final static Color DARK = new Color(145,145,145);
 	public final static FontUIResource DEFAULT_FONT = new FontUIResource(Font.SANS_SERIF,Font.PLAIN,12);

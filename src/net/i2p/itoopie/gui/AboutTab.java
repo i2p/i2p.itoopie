@@ -1,5 +1,7 @@
 package net.i2p.itoopie.gui;
 
+import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;

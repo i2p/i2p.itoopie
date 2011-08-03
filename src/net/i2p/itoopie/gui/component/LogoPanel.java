@@ -8,7 +8,7 @@ import javax.swing.SwingUtilities;
 
 import net.i2p.itoopie.util.IconLoader;
 
-public class LogoPanel extends JPanel {
+public class LogoPanel extends GradientPanel {
 	private final static int IMAGE_SIZE = 128;
 	private Image bg;
 
@@ -31,6 +31,7 @@ public class LogoPanel extends JPanel {
 
 	@Override
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		g.drawImage(bg, Math.abs(this.getWidth() - IMAGE_SIZE),
 				Math.abs(this.getHeight() - IMAGE_SIZE), null);
 	}

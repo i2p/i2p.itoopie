@@ -30,6 +30,7 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.StatusHandler.DEFAULT_STATUS;
+import net.i2p.itoopie.gui.component.GradientPanel;
 import net.i2p.itoopie.gui.component.RegisteredFrame;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
@@ -135,31 +136,35 @@ public class SettingsFrame extends RegisteredFrame{
 		setBounds(0, 0, 450, 310);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
-		getContentPane().setLayout(null);
-		
+		//getContentPane().setLayout(null);
+		GradientPanel gPanel = new GradientPanel(null);
+		getContentPane().add(gPanel);
 		
 		JPanel connectPanel = new JPanel();
+		connectPanel.setOpaque(false);
 		connectPanel.setLayout(null);
 		connectPanel.setBounds(0, 0, 426, 99);
-		getContentPane().add(connectPanel);
+		gPanel.add(connectPanel);
 		setupConnectPanel(connectPanel);
 		
 
 		JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
 		separator.setBounds((96)/2, 108, (getWidth()-96), 2);
-		getContentPane().add(separator);
+		gPanel.add(separator);
 		
 		JPanel newChangePanel = new JPanel();
 		newChangePanel.setLayout(null);
+		newChangePanel.setOpaque(false);
 		newChangePanel.setBounds(0, 110, 426, 135);
-		getContentPane().add(newChangePanel);
+		gPanel.add(newChangePanel);
 		setupChangePanel(newChangePanel);
 		
 		
 		
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.setBounds(0, getHeight()-60, getWidth()-10, 35);
-		getContentPane().add(buttonPanel);
+		buttonPanel.setOpaque(false);
+		gPanel.add(buttonPanel);
 		
 		
 		JButton btnDone = new JButton(Transl._(" Apply "));

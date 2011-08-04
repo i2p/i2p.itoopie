@@ -18,9 +18,11 @@
                     <ul>
 						<li><a href="#news">News</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#changelog">Changelog</a></li>
                         <li><a href="#download">Download</a></li>
                         <li><a href="#installation">Installation</a></li>
-                        <li><a href="#changlog">Changelog</a></li>
+						<li><a href="#technical">Technical</a></li>
+						<li><a href="#troubleshoot">Troubleshoot</a></li>
                     </ul>
                 </nav>
             </header>
@@ -67,6 +69,29 @@ I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy an
                 </article>
 
                 <div class="line"></div>
+
+                <article id="changelog">
+                    <h2>Changelog</h2>
+                    
+                    <div class="line"></div>
+                    
+                    <div class="articleBody clear">
+                    	<figure style="width:450px; height:260px;">
+	                    	<img src="images/itoopie-settings.png">
+                        </figure>
+						<!--
+						<p>Version 0.0.2</p>
+						<tt> * Support for monitoring netdb status and initiating a reseed if needed.</tt><br>
+ 						<tt> * Added support for changing which IP addresses I2PControl accepts. 127.0.0.1 is default, 0.0.0.0 is an option.</tt><br>
+						<tt> * Improved looks by realigning components and adding gradients to panels.</tt><br>
+						-->
+                        <p>Version 0.0.1</p>
+						<tt> * Added graphs.</tt><br>
+						<tt> * Added support for changing the port of I2PControl</tt>
+                    </div>
+                </article>
+
+                <div class="line"></div>
                 
                 <article id="download">
                     <h2>Download</h2>
@@ -79,14 +104,8 @@ I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy an
                         <p>Before running itoopie, <b>I2PControl needs to be installed</b>. Instruction can be found <a href="#installation">below</a>.</p>
                         <p>itoopie can be downloaded from here, <a href="files/itoopieinstall.exe">itoopieinstall.exe</a>, <a href="files/itoopieinstall.exe.sha512">checksum</a>.</p>
 						<p>The installer can be run by opening <tt>itoopieinstall.exe</tt> or running <tt>java -jar itoopieinstall.exe</tt> (yes, really).</p>
-						<p>The default port for I2PControl is <tt>7650</tt>, the default password is <tt>itoopie</tt>. 
-These settings can easily be restored by shutting down <a href="http://i2p2.de">I2P</a> and deleting a file called I2PControl.conf. 
-<br><br>
-On Windows the file can be found in <br><tt>C:\Users\**username**\AppData\Roaming\I2P\plugins\I2PControl\</tt>
-<br>
-On Unix (Linux, Mac OSX and *BSD) the file will be found in <br><tt>~/.i2p/plugins/I2PControl/</tt>
-<br>
-After <a href="http://i2p2.de">I2P</a> has been started again settings will be restored to their defaults.</p>
+						<p>If you're having issues starting itoopie or connecting to the <a href="http://i2p2.de">I2P</a> node, have a look at the <a href="#troubleshoot">Troubleshoot</a>-section.</p>
+						
                     </div>
                 </article>
 
@@ -102,21 +121,17 @@ After <a href="http://i2p2.de">I2P</a> has been started again settings will be r
                         </figure>
                         
                         <p>itoopie requires I2PControl to be installed on the <a href="http://i2p2.de">I2P</a> node you whish to connect to. The installation steps required are as follows.</p>
-<p>Install I2PControl by visiting <a href="http://localhost:7657/configclients">http://localhost:7657/configclients</a> and 
-entering <tt>http://itoopie.i2p/files/I2PControl.xpi2p</tt> in the 'Plugin Installation' field. Click 'Install Plugin' and wait for the plugin to be downloaded, installed and started (usually less than 1 minute).</p>
+						<p>Install I2PControl by visiting <a href="http://localhost:7657/configclients">http://localhost:7657/configclients</a> and entering <tt>http://itoopie.i2p/files/I2PControl.xpi2p</tt> in the 'Plugin Installation' field. Click 'Install Plugin' and wait for the plugin to be downloaded, installed and started (usually less than 1 minute).</p>
 
                         <p>When I2PControl has been installed itoopie is ready to be installed, instructions can be found <a href="#download">above</a>.</p>
                     </div>
                 </article>
-                
-				<!-- Article 2 end -->
 
-				<!-- Article 3 start -->
 
                 <div class="line"></div>
                 
-                <article id="changlog">
-                    <h2>Changelog</h2>
+                <article id="technical">
+                    <h2>Technical</h2>
                     
                     <div class="line"></div>
                     
@@ -124,10 +139,35 @@ entering <tt>http://itoopie.i2p/files/I2PControl.xpi2p</tt> in the 'Plugin Insta
                     	<figure style="width:450px; height:260px;">
 	                    	<img src="images/itoopie-settings.png">
                         </figure>
-
+						<!--
+						<p>Version 0.0.2</p>
+						<tt> * Support for monitoring netdb status and initiating a reseed if needed.</tt><br>
+ 						<tt> * Added support for changing which IP addresses I2PControl accepts. 127.0.0.1 is default, 0.0.0.0 is an option.</tt><br>
+						<tt> * Improved looks by realigning components and adding gradients to panels.</tt><br>
+						-->
                         <p>Version 0.0.1</p>
-						<tt>Added graphs.</tt>
-						<tt>Added support for changing the port of I2PControl</tt>
+						<tt> * Added graphs.</tt><br>
+						<tt> * Added support for changing the port of I2PControl</tt>
+                    </div>
+                </article>
+                
+
+                <div class="line"></div>
+                
+                <article id="troubleshoot">
+                    <h2>Troubleshoot</h2>
+                    
+                    <div class="line"></div>
+                    
+                    <div class="articleBody clear">
+                    	<figure style="width:450px; height:260px;">
+	                    	<img src="images/itoopie-settings.png">
+                        </figure>
+						<p>If you're having issues establishing the connection between itoopie and <a hred="http://i2p2.de">I2P</a>, try restoring default settings by following the instructions below.</a>
+						<p>The default port for I2PControl is <tt>7650</tt>, the default password is <tt>itoopie</tt>. These settings can easily be restored by shutting down <a href="http://i2p2.de">I2P</a> and deleting a file called I2PControl.conf.</p>
+						<br><p>On Windows the file can be found in <br><tt>C:\Users\**username**\AppData\Roaming\I2P\plugins\I2PControl\</tt></p>
+<p>On Unix (Linux, Mac OSX and *BSD) the file will be found in <br><tt>~/.i2p/plugins/I2PControl/</tt></p>
+<p>After <a href="http://i2p2.de">I2P</a> has been started again settings will be restored to their defaults.</p>
                     </div>
                 </article>
 

@@ -15,7 +15,7 @@ public class GradientPanel extends JPanel {
 	public final static int DIAGONAL_RIGHT = 3;
 
 	private Color startColor = Color.WHITE;
-	private Color endColor = GUIHelper.MEDIUM_LIGHT;
+	private Color endColor = GUIHelper.MEDIUM_LIGHT_LIGHT;
 	private int direndColortion;
 	private boolean cyclic;
 	private int maxLength;

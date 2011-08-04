@@ -6,7 +6,7 @@
 			target="java" 
 			commandLine="-jar &quot;$INSTALL_PATH/itoopie.jar&quot;"
 			workingDirectory="$INSTALL_PATH"
-			iconFile="$INSTALL_PATH/logo.png"
+			iconFile="$INSTALL_PATH/images/logo.png"
 			initialState="noShow"
 			applications="yes"
 			type="Application"

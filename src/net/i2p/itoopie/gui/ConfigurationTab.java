@@ -95,7 +95,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		final JButton btnApply = new JButton(Transl._("Apply"));
 		add(btnApply);
-		btnApply.setBounds(442, 272, 82, 24);
+		btnApply.setBounds(442, 269, 82, 24);
 		btnApply.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

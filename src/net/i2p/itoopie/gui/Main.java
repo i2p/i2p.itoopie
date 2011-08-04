@@ -35,7 +35,7 @@ public class Main {
 	private static JTabbedPane tabbedPane;
 	public final static int FRAME_WIDTH = 550;
 	public final static int FRAME_HEIGHT = 400;
-	public final static int TABBED_PANE_HEIGHT = FRAME_HEIGHT -58;
+	public final static int TABBED_PANE_HEIGHT = FRAME_HEIGHT -61;
 
 	/**
 	 * Launch the application.
@@ -97,7 +97,7 @@ public class Main {
 		
 		JPanel statusPanel = new JPanel();
 		root.add(statusPanel);
-		statusPanel.setBounds(5, TABBED_PANE_HEIGHT + 3, FRAME_WIDTH-5, 28);
+		statusPanel.setBounds(5, TABBED_PANE_HEIGHT + 3, FRAME_WIDTH-5, 30);
 		statusPanel.setLayout(new BorderLayout(0, 0));
 		statusPanel.setOpaque(false);
 		

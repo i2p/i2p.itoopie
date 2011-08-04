@@ -19,7 +19,7 @@
 			startup="no"
 			target="java java -jar &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
 			commandLine=""
-			iconFile="trashcan_full"
+			iconFile="$INSTALL_PATH\images\thrash.ico"
 			iconIndex="0"
 			workingDirectory="$INSTALL_PATH"
 			description="IzPack uninstaller" />

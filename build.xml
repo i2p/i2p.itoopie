@@ -99,6 +99,7 @@
         <mkdir dir="${build}/images" />
         <copy file="${resources}/images/itoopie-256.png" tofile="${dist}/images/logo.png"/>
         <copy file="${resources}/images/itoopie-128.ico" tofile="${dist}/images/logo.ico"/>
+        <copy file="${resources}/images/thrash-128.ico" tofile="${dist}/images/thrash.ico"/>
 		<copy file="LICENSE" tofile="${dist}/license.txt"/>
 		<copy file="history.txt" tofile="${dist}/history.txt"/>
         <ant target="doAppEXE" />

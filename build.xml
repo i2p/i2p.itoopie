@@ -26,9 +26,9 @@
 	<target name="clean">
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
-		<delete file="install.jar" failonerror="false" />
-		<delete file="itoopieinstall.exe" failonerror="false" />
-		<delete file="itoopieinstall.exe.sha512" failonerror="false" />
+		<delete file="installer.jar" failonerror="false" />
+		<delete file="itoopie-install.exe" failonerror="false" />
+		<delete file="itoopie-install.exe.sha512" failonerror="false" />
 	</target>
 
 	<target name="compile" depends="clean,init">
@@ -135,7 +135,7 @@
 	<taskdef name="launch4j"
                  classname="net.sf.launch4j.ant.Launch4jTask"
                  classpath="${basedir}/installer/lib/launch4j/launch4j.jar:${basedir}/installer/lib/launch4j/lib/xstream.jar" />
-        <launch4j configFile="installer/installerstandalone.xml" />
+        <launch4j configFile="installer/itoopieinstaller.xml" />
 	<checksum file="itoopie-install.exe" algorithm="SHA-512" fileext=".sha512"/>
 
 	</target>

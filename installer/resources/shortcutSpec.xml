@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shortcuts>
  <programGroup defaultName="itoopie" location="startMenu" />
- <shortcut name="itoopie" 
+ <shortcut name="itoopie"
+			description="The simple I2P GUI!"
 			target="$INSTALL_PATH\itoopie.exe" 
 			commandLine=""
 			workingDirectory="$INSTALL_PATH"
-			iconFile="$INSTALL_PATH\icons\itoopie.ico"
+			iconFile="$INSTALL_PATH\images\logo.ico"
 			initialState="noShow"
 			programGroup="yes"
 			startMenu="yes"
 			desktop="yes"
 			startup="no" />
-
 <shortcut
-                        name="Uninstaller"
-                        programGroup="yes"
-                        startup="no"
-                        target="java"
-                        commandLine="-jar &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
-                        Categories="Java;Application;Network;"
-                        initialState="noShow"
-                        workingDirectory=""
-                        description="IzPack uninstaller" />
-
+			name="Uninstaller"
+			programGroup="yes"
+			startMenu="yes"
+			desktop="no"
+			startup="no"
+			target="java -jar &quot;$INSTALL_PATH/Uninstaller/uninstaller.jar&quot;"
+			commandLine=""
+			iconFile="$INSTALL_PATH\images\thrash.ico"
+			iconIndex="0"
+			workingDirectory="$INSTALL_PATH"
+			description="Uninstall itoopie" />
 </shortcuts>

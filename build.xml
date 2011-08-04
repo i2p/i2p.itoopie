@@ -102,8 +102,8 @@
         <ant target="doAppEXE" />
 
         <taskdef name="izpack" classpath="${basedir}/installer/lib/izpack/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
-        <izpack input="${basedir}/installer/install.xml" 
-            output="${basedir}/install.jar" 
+        <izpack input="${basedir}/installer/installer.xml" 
+            output="${basedir}/installer.jar" 
             installerType="standard" 
             basedir="${basedir}"
             compression="deflate"
@@ -135,8 +135,8 @@
 	<taskdef name="launch4j"
                  classname="net.sf.launch4j.ant.Launch4jTask"
                  classpath="${basedir}/installer/lib/launch4j/launch4j.jar:${basedir}/installer/lib/launch4j/lib/xstream.jar" />
-        <launch4j configFile="installer/itoopieinstaller.xml" />
-	<checksum file="itoopieinstall.exe" algorithm="SHA-512" fileext=".sha512"/>
+        <launch4j configFile="installer/installerstandalone.xml" />
+	<checksum file="itoopie-install.exe" algorithm="SHA-512" fileext=".sha512"/>
 
 	</target>
 	<!-- thazzit -->

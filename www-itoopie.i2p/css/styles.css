@@ -6,7 +6,7 @@ header, footer, article, section, hgroup, nav, figure {
     display: block;
 }
 body {
-    background-color: #E6E6E6;
+    background-color: #CCCCCC;
     color: #666666;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 0.825em;
@@ -55,7 +55,7 @@ p {
     overflow: hidden;
 }
 article .line {
-    background-color: #AAAAAA;
+    background-color: #CCCCCC;
     border-bottom-color: #CCCCCC;
     margin: 1.3em 0;
 }
@@ -63,7 +63,10 @@ footer .line {
     margin: 2em 0;
 }
 nav {
-    background: url("img/gradient_light.jpg") repeat-x scroll 50% 50% #F8F8F8;
+    background: url("img/gradient_light.jpg") repeat-x scroll 50% 50% #EEEEEE; /* Default backup */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#CCCCCC'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#CCCCCC)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #EEEEEE,  #CCCCCC); /* for firefox 3.6+ */ 
     border: 1px solid #FCFCFC;
     box-shadow: 0 1px 1px #333333;
     padding: 0 5px;

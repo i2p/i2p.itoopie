@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="all" name="itoopie">
 
-	<property name="src" value="src"/>
+    <property name="src" value="src"/>
     <property name="lib" value="lib"/>
-	<property name="build" value="build"/>
-	<property name="dist"  location="dist"/>
-	<property name="jar" value="itoopie.jar"/>
-	<property name="resources" value="resources"/>
+    <property name="build" value="build"/>
+    <property name="dist"  location="dist"/>
+    <property name="jar" value="itoopie.jar"/>
+    <property name="resources" value="resources"/>
+    <property name="temp" value="pkg-temp" />
     <property name="javadoc" value="javadoc"/>
 
-	<property name="javac.compilerargs" value=""/>
+    <property name="javac.compilerargs" value=""/>
 
 
 	<target name="init">
@@ -23,11 +24,13 @@
         </copy>
 	</target>
 
-	<target name="clean">
+	<target name="clean" description="Clean up files created during build">
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
+		<delete dir="{temp}" />
 		<delete file="installer.jar" failonerror="false" />
 		<delete file="itoopie-install.exe" failonerror="false" />
+		<delete file="itoopie.app.tar.bz2" failonerror="false" />
 		<delete file="itoopie-install.exe.sha512" failonerror="false" />
 	</target>
 
@@ -51,7 +54,7 @@
         </copy>
 	</target>
 
-	<target name="jar" depends="compile">
+	<target name="jar" depends="compile"> 
         <exec executable="sh" osfamily="unix" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
         </exec>
@@ -62,12 +65,12 @@
 		<jar basedir="${build}" destfile="${dist}/${jar}">
 			<manifest>
 				<attribute name="Main-Class" value="net.i2p.itoopie.Main"/>
-				<attribute name="Class-Path" value="${lib}/commons-logging-1.1.1.jar ${lib}/json-smart-1.0.6.4.jar ${lib}/jchart2d-3.2.1.jar ${lib}/xmlgraphics-commons-1.3.1.jar" />
+				<attribute name="Class-Path" value="/usr/share/java/commons-logging.jar /usr/share/itoopie/json-smart-1.0.6.4.jar /usr/share/itoopie/jchart2d-3.2.1.jar /usr/share/java/xmlgraphics-commons.jar" />
 			</manifest>
 		</jar>
 	</target>
 
-    <target name="javadoc">
+    <target name="javadoc" description="build javadocs">
         <mkdir dir="${build}" />
         <mkdir dir="${build}/${javadoc}" />
         <javadoc 
@@ -84,7 +87,7 @@
         </javadoc>
     </target>
 
-    <target name="poupdate" depends="init">
+    <target name="poupdate" depends="init" description="update po files">
 	
         <exec executable="sh" osfamily="unix" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
@@ -98,7 +101,7 @@
 
 
 
-    <target name="installer" depends="jar" >
+    <target name="installer" depends="jar" description="build multi-arch installer">
         <ant target="doAppEXE" />
 
         <taskdef name="izpack" classpath="${basedir}/installer/lib/izpack/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
@@ -149,7 +152,27 @@
         <launch4j configFile="installer/itoopiestandalone.xml" />
 	</target>
 
-	<target name="dist" depends="jar" />	
+	<target name="dist" depends="jar" description="create jars but don't create an installer"/>	
 	<target name="all" depends="jar" />
-</project>
 
+    <target name="osx" depends="makeOSXBundle" />
+    <target name="makeOSXBundle" depends="jar" description="build a OSX bundle">
+	    <mkdir dir="${temp}/itoopie.app" />
+	    <copy todir="${temp}/itoopie.app">
+		    <fileset dir="installer/resources/itoopie.app" />
+	    </copy>
+	    <exec executable="chmod" osfamily="unix" failonerror="true">
+		    <arg value="755" />
+		    <arg value="${temp}/itoopie.app/Contents/MacOS/JavaApplicationStub" />
+	    </exec>
+	    <mkdir dir="${temp}/itoopie.app/Contents/Resources/Java" />
+	    <copy todir="${temp}/itoopie.app/Contents/Resources/Java">
+		    <fileset dir="${dist}" />
+	    </copy>
+	    <ant target="dotarbundle" />
+    </target>
+    <target name="dotarbundle" unless="notarbundle">
+	    <tar destfile="itoopie.app.tar.bz2" basedir="${temp}" compression="bzip2" />
+    </target>
+
+</project>

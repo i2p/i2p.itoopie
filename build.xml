@@ -36,11 +36,11 @@
 
 	<target name="compile" depends="clean,init">
 		<javac 
-			debug="true" 
-			deprecation="on" 
-			source="1.5" 
-			target="1.5" 
-            srcdir="${src}" 
+			debug="true"
+			deprecation="on"
+			source="1.5"
+			target="1.5"
+            srcdir="${src}"
 			destdir="${build}">
             <classpath>
                 <pathelement location="${lib}/commons-logging-1.1.1.jar" />
@@ -54,7 +54,7 @@
         </copy>
 	</target>
 
-	<target name="jar" depends="compile"> 
+	<target name="jar" depends="compile">
         <exec executable="sh" osfamily="unix" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
         </exec>
@@ -73,11 +73,11 @@
     <target name="javadoc" description="build javadocs">
         <mkdir dir="${build}" />
         <mkdir dir="${build}/${javadoc}" />
-        <javadoc 
-            sourcepath="${src}" destdir="${build}/${javadoc}" 
-            packagenames="*" 
-            use="true" 
-            splitindex="true" 
+        <javadoc
+            sourcepath="${src}" destdir="${build}/${javadoc}"
+            packagenames="*"
+            use="true"
+            splitindex="true"
             windowtitle="itoopie">
             <classpath>
                 <path refid="classpath"/>
@@ -88,7 +88,7 @@
     </target>
 
     <target name="poupdate" depends="init" description="update po files">
-	
+
         <exec executable="sh" osfamily="unix" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
             <arg value="-p" />
@@ -99,15 +99,13 @@
         </exec>
     </target>
 
-
-
     <target name="installer" depends="jar" description="build multi-arch installer">
         <ant target="doAppEXE" />
 
         <taskdef name="izpack" classpath="${basedir}/installer/lib/izpack/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
-        <izpack input="${basedir}/installer/installer.xml" 
-            output="${basedir}/installer.jar" 
-            installerType="standard" 
+        <izpack input="${basedir}/installer/installer.xml"
+            output="${basedir}/installer.jar"
+            installerType="standard"
             basedir="${basedir}"
             compression="deflate"
             compressionlevel="9" />
@@ -152,7 +150,7 @@
         <launch4j configFile="installer/itoopiestandalone.xml" />
 	</target>
 
-	<target name="dist" depends="jar" description="create jars but don't create an installer"/>	
+	<target name="dist" depends="jar" description="create jars but don't create an installer"/>
 	<target name="all" depends="jar" />
 
     <target name="osx" depends="makeOSXBundle" />

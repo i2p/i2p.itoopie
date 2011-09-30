@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="all" name="itoopie">
 
-	<property name="src" value="src"/>
+    <property name="src" value="src"/>
     <property name="lib" value="lib"/>
-	<property name="build" value="build"/>
-	<property name="dist"  location="dist"/>
-	<property name="jar" value="itoopie.jar"/>
-	<property name="resources" value="resources"/>
+    <property name="build" value="build"/>
+    <property name="dist"  location="dist"/>
+    <property name="jar" value="itoopie.jar"/>
+    <property name="resources" value="resources"/>
+    <property name="temp" value="pkg-temp" />
     <property name="javadoc" value="javadoc"/>
 
-	<property name="javac.compilerargs" value=""/>
+    <property name="javac.compilerargs" value=""/>
 
 
 	<target name="init">
@@ -23,21 +24,23 @@
         </copy>
 	</target>
 
-	<target name="clean">
+	<target name="clean" description="Clean up files created during build">
 		<delete dir="${build}"/>
 		<delete dir="${dist}"/>
-		<delete file="install.jar" failonerror="false" />
-		<delete file="itoopieinstall.exe" failonerror="false" />
-		<delete file="itoopieinstall.exe.sha512" failonerror="false" />
+		<delete dir="{temp}" />
+		<delete file="installer.jar" failonerror="false" />
+		<delete file="itoopie-install.exe" failonerror="false" />
+		<delete file="itoopie.app.tar.bz2" failonerror="false" />
+		<delete file="itoopie-install.exe.sha512" failonerror="false" />
 	</target>
 
 	<target name="compile" depends="clean,init">
 		<javac 
-			debug="true" 
-			deprecation="on" 
-			source="1.5" 
-			target="1.5" 
-            srcdir="${src}" 
+			debug="true"
+			deprecation="on"
+			source="1.5"
+			target="1.5"
+            srcdir="${src}"
 			destdir="${build}">
             <classpath>
                 <pathelement location="${lib}/commons-logging-1.1.1.jar" />
@@ -67,14 +70,14 @@
 		</jar>
 	</target>
 
-    <target name="javadoc">
+    <target name="javadoc" description="build javadocs">
         <mkdir dir="${build}" />
         <mkdir dir="${build}/${javadoc}" />
-        <javadoc 
-            sourcepath="${src}" destdir="${build}/${javadoc}" 
-            packagenames="*" 
-            use="true" 
-            splitindex="true" 
+        <javadoc
+            sourcepath="${src}" destdir="${build}/${javadoc}"
+            packagenames="*"
+            use="true"
+            splitindex="true"
             windowtitle="itoopie">
             <classpath>
                 <path refid="classpath"/>
@@ -84,8 +87,8 @@
         </javadoc>
     </target>
 
-    <target name="poupdate" depends="init">
-	
+    <target name="poupdate" depends="init" description="update po files">
+
         <exec executable="sh" osfamily="unix" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
             <arg value="-p" />
@@ -96,15 +99,13 @@
         </exec>
     </target>
 
-
-
-    <target name="installer" depends="jar" >
+    <target name="installer" depends="jar" description="build multi-arch installer">
         <ant target="doAppEXE" />
 
         <taskdef name="izpack" classpath="${basedir}/installer/lib/izpack/standalone-compiler.jar" classname="com.izforge.izpack.ant.IzPackTask" />
-        <izpack input="${basedir}/installer/installer.xml" 
-            output="${basedir}/installer.jar" 
-            installerType="standard" 
+        <izpack input="${basedir}/installer/installer.xml"
+            output="${basedir}/installer.jar"
+            installerType="standard"
             basedir="${basedir}"
             compression="deflate"
             compressionlevel="9" />
@@ -135,7 +136,7 @@
 	<taskdef name="launch4j"
                  classname="net.sf.launch4j.ant.Launch4jTask"
                  classpath="${basedir}/installer/lib/launch4j/launch4j.jar:${basedir}/installer/lib/launch4j/lib/xstream.jar" />
-        <launch4j configFile="installer/installerstandalone.xml" />
+        <launch4j configFile="installer/itoopieinstaller.xml" />
 	<checksum file="itoopie-install.exe" algorithm="SHA-512" fileext=".sha512"/>
 
 	</target>
@@ -149,7 +150,27 @@
         <launch4j configFile="installer/itoopiestandalone.xml" />
 	</target>
 
-	<target name="dist" depends="jar" />	
+	<target name="dist" depends="jar" description="create jars but don't create an installer"/>
 	<target name="all" depends="jar" />
-</project>
 
+    <target name="osx" depends="makeOSXBundle" />
+    <target name="makeOSXBundle" depends="jar" description="build a OSX bundle">
+	    <mkdir dir="${temp}/itoopie.app" />
+	    <copy todir="${temp}/itoopie.app">
+		    <fileset dir="installer/resources/itoopie.app" />
+	    </copy>
+	    <exec executable="chmod" osfamily="unix" failonerror="true">
+		    <arg value="755" />
+		    <arg value="${temp}/itoopie.app/Contents/MacOS/JavaApplicationStub" />
+	    </exec>
+	    <mkdir dir="${temp}/itoopie.app/Contents/Resources/Java" />
+	    <copy todir="${temp}/itoopie.app/Contents/Resources/Java">
+		    <fileset dir="${dist}" />
+	    </copy>
+	    <ant target="dotarbundle" />
+    </target>
+    <target name="dotarbundle" unless="notarbundle">
+	    <tar destfile="itoopie.app.tar.bz2" basedir="${temp}" compression="bzip2" />
+    </target>
+
+</project>

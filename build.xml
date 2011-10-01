@@ -170,7 +170,15 @@
 	    <ant target="dotarbundle" />
     </target>
     <target name="dotarbundle" unless="notarbundle">
-	    <tar destfile="itoopie.app.tar.bz2" basedir="${temp}" compression="bzip2" />
+        <exec executable="tar" osfamily="unix" failonerror="true">
+                <arg value="--owner=root" />
+                <arg value="--group=root" />
+                <arg value="-cjvf" />
+                <arg value="itoopie.app.tar.bz2" />
+		<arg value="-C" />
+                <arg value="${temp}" />
+		<arg value="itoopie.app" />
+	</exec>
     </target>
 
 </project>

@@ -1,3 +1,11 @@
+0.0.4 - I2PControl
+***
+ * I2PControl has been ported to Jetty6 as I2P is no longer including Jetty5. Shouldn't affect end users.
+
+0.0.3 - I2PControl
+***
+ * Switched signature file of I2PControl. Meaning that updates have to be made from scratch.
+
 0.0.2
 ***
  * Support for monitoring netdb status and initiating a reseed if needed.

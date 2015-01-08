@@ -2,7 +2,7 @@ Current setup:
 * Build itoopie:
     * 'ant' in the i2p.itoopie directory
 * Run:
-	java -jar itoopie.jar
+	java -jar dist/itoopie.jar
 
 
 Thanks to

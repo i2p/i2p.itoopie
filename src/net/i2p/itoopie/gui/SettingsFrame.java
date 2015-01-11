@@ -167,7 +167,7 @@ public class SettingsFrame extends RegisteredFrame{
 		gPanel.add(buttonPanel);
 		
 		
-		JButton btnDone = new JButton(Transl._(" Apply "));
+		JButton btnDone = new JButton(' ' + Transl._("Apply") + ' ');
 		buttonPanel.add(btnDone);
 		
 		btnDone.addActionListener(new ActionListener(){
@@ -186,39 +186,39 @@ public class SettingsFrame extends RegisteredFrame{
 				REMOTE_SAVE_STATUS newAddressStatus = saveNewAddress();
 				switch (newAddressStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus(Transl._("New remote address: ") + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus(Transl._("New remote address: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus(Transl._("New remote address: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
 				REMOTE_SAVE_STATUS newPortStatus = saveNewPort();
 				switch (newPortStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus(Transl._("New remote port: ") + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus(Transl._("New remote port: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus(Transl._("New remote port: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
 				REMOTE_SAVE_STATUS newPasswordStatus = saveNewPassword();
 				switch (newPasswordStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus(Transl._("New remote password: ") + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus(Transl._("New remote password: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus(Transl._("New remote password: ") + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
@@ -233,7 +233,7 @@ public class SettingsFrame extends RegisteredFrame{
 		});
 		
 		
-		JButton btnClose = new JButton(Transl._(" Discard "));
+		JButton btnClose = new JButton(' ' + Transl._("Discard") + ' ');
 		buttonPanel.add(btnClose);
 		btnClose.addActionListener(new ActionListener(){
 			@Override
@@ -395,8 +395,8 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (UnknownHostException e) {
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._(ipText + " can not be interpreted as an ip address.\n" + 
-							"\nTry entering the ip address of the machine running i2p."),
+				    Transl._("\"{0}\" cannot be interpreted as an ip address.", ipText) + "\n\n" + 
+							Transl._("Try entering the ip address of the machine running i2p."),
 				    Transl._("Invalid ip address."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -411,8 +411,8 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._(portText + " can not be interpreted as a port.\n" + 
-							"\nA port has to be a number in the range 1-65535."),
+				    Transl._("\"{0}\" cannot be interpreted as a port.", portText) + "\n\n" + 
+							Transl._("Port must be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -429,7 +429,7 @@ public class SettingsFrame extends RegisteredFrame{
 			JOptionPane.showConfirmDialog(
 				    this,
 				    Transl._("The password was not accepted as valid by the specified host.\n" + 
-							"\n(by default the password is, \"itoopie\")"),
+							"\n(the default password is \"itoopie\")"),
 				    Transl._("Rejected password."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -476,7 +476,7 @@ public class SettingsFrame extends RegisteredFrame{
 		if (!pw.equals(pwRepeat)){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The new password and the repeated new password do not match.\n"),
+				    Transl._("The new password and the repeated new password do not match.") + "\n",
 				    Transl._("Mistyped password."),
 				    JOptionPane.OK_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -486,7 +486,7 @@ public class SettingsFrame extends RegisteredFrame{
 		if (pw.equals(oldPW)){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The new password is the same as the old password.\n"),
+				    Transl._("The new password is the same as the old password.") + "\n",
 				    Transl._("No new password."),
 				    JOptionPane.OK_CANCEL_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -532,8 +532,8 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._(port + " can not be interpreted as a port.\n" + 
-							"\nA port has to be a number in the range 1-65535."),
+				    Transl._("\"{0}\" cannot be interpreted as a port.", port) + "\n\n" + 
+							Transl._("Port must be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.OK_CANCEL_OPTION,
 				    JOptionPane.ERROR_MESSAGE);

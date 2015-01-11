@@ -28,8 +28,8 @@ public class AboutTab extends TabLogoPanel {
 		lblThankYou.setVerticalTextAlignment(JLabel.TOP);
 		lblThankYou.setText(Transl._("itoopie and I2PControl were sponsored by Relakks & Ipredator.\n" + 
 				"Development began during the summer of 2011 and the first alpha was launched in July.\n\n"+
-				"I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online.\n" +
-				"// hottuna"));
+				"I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online.") +
+				"\n// hottuna");
 		
 		lblitoopie = new JLabel();
 		add(lblitoopie);

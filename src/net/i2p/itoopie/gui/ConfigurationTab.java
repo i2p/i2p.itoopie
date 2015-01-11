@@ -171,7 +171,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblShareUnit = new JLabel();
 		bwPanel.add(lblShareUnit);
 		lblShareUnit.setBounds(190, 87, 35, 15);
-		lblShareUnit.setText(Transl._("%"));
+		lblShareUnit.setText("%");
 	}
 	
 	/**
@@ -282,8 +282,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+udpPort + " ' can not be interpreted as a UDP port.\n" + 
-							"\nA port has to be a number in the range 1-65535."),
+				    Transl._("\"{0}\" cannot be interpreted as a port.", tcpPort) + "\n\n" + 
+							Transl._("Port must be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -299,8 +299,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+udpPort + " ' can not be interpreted as a UDP port.\n" + 
-							"\nA port has to be a number in the range 1-65535."),
+				    Transl._("\"{0}\" cannot be interpreted as a port.", udpPort) + "\n\n" + 
+							Transl._("Port must be a number in the range 1-65535."),
 				    Transl._("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -316,8 +316,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+download + " ' can not be interpreted as an download spped.\n" + 
-							"\nA port has to be a number larger than 0."),
+				    Transl._("\"{0}\" cannot be interpreted as a spped.", download) + "\n\n" + 
+							Transl._("Speed must be a number larger than 0."),
 				    Transl._("Invalid download speed."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -333,8 +333,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+upload + " ' can not be interpreted as an upload spped.\n" + 
-							"\nA port has to be a number larger than 0."),
+				    Transl._("\"{0}\" cannot be interpreted as a speed.", upload) + "\n\n" + 
+							Transl._("Speed must be a number larger than 0."),
 				    Transl._("Invalid upload speed."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
@@ -350,8 +350,8 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("' "+share + " ' can not be interpreted as a percentage.\n" + 
-							"\nThe percentage has to be a number in the range 0-100."),
+				    Transl._("\"{0}\" cannot be interpreted as a percentage.", share) + "\n\n" + 
+							Transl._("Percentage must be a number in the range 0-100."),
 				    Transl._("Invalid share percentage."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);

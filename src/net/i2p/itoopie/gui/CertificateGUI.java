@@ -70,8 +70,8 @@ public class CertificateGUI {
 		JFrame frame = new JFrame();
 		
 		String title = Transl._("Warning, new remote host detected");
-		String hostString = Transl._("The certificate of " + hostname + " has changed! <br>" +
-				"Are you sure you like permanently trust the new certificate from the remote host?");
+		String hostString = Transl._("The certificate of {0} has changed!", hostname) + "<br>" +
+				Transl._("Are you sure you want to permanently trust the new certificate from the remote host?");
 		
 		String certName = "N/A";
 		String certAlgo = "N/A";

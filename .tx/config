@@ -1,0 +1,8 @@
+[I2P.itoopie]
+source_file = locale/messages_en.po
+source_lang = en
+trans.sv_SE = locale/messages_sv.po
+
+[main]
+host = https://www.transifex.com
+

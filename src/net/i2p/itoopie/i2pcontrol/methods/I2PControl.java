@@ -45,7 +45,7 @@ public class I2PControl{
 							public String toString(){ return Transl._("lan host (10.*.*.*)"); }},
 		*/
 		ANY {				public String getAddress(){ return "0.0.0.0";}
-							public String toString(){ return Transl._("any host (*.*.*.*)"); }}
+							public String toString(){ return Transl._("any host (0.0.0.0)"); }}
 	};
 		
 	static {

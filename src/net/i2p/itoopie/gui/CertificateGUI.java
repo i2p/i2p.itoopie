@@ -28,7 +28,7 @@ public class CertificateGUI {
 		frame.add(bt, BorderLayout.NORTH);
 		
 		String title = Transl._("New remote host detected");
-		String hostString = Transl._("Would you like permanently trust the certificate from the remote host " + hostname + "?");
+		String hostString = Transl._("Would you like permanently trust the certificate from the remote host {0}?", hostname);
 		
 		String certName = "N/A";
 		String certAlgo = "N/A";

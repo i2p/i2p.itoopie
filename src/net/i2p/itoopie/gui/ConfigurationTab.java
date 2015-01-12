@@ -316,7 +316,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a spped.", download) + "\n\n" + 
+				    Transl._("\"{0}\" cannot be interpreted as a speed.", download) + "\n\n" + 
 							Transl._("Speed must be a number larger than 0."),
 				    Transl._("Invalid download speed."),
 				    JOptionPane.DEFAULT_OPTION,

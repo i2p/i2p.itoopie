@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: itoopie\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-11 19:28+0000\n"
+"POT-Creation-Date: 2015-01-12 18:44+0000\n"
 "PO-Revision-Date: 2010-07-25 14:09+0100\n"
 "Last-Translator: hottuna <dev@robertfoss.se>\n"
 "Language-Team: hottuna <dev@robertfoss.se>\n"
@@ -38,7 +38,9 @@ msgid "New remote host detected"
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:31
-msgid "Would you like permanently trust the certificate from the remote host "
+#, java-format
+msgid ""
+"Would you like permanently trust the certificate from the remote host {0}?"
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:44
@@ -186,8 +188,9 @@ msgid "Invalid port."
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:319
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:336
 #, java-format
-msgid "\"{0}\" cannot be interpreted as a spped."
+msgid "\"{0}\" cannot be interpreted as a speed."
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:320
@@ -197,11 +200,6 @@ msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:321
 msgid "Invalid download speed."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:336
-#, java-format
-msgid "\"{0}\" cannot be interpreted as a speed."
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:338
@@ -267,7 +265,7 @@ msgid "Status:"
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:113
-msgid "Netstatus:"
+msgid "Net Status:"
 msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:64

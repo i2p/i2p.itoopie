@@ -110,7 +110,7 @@ public class OverviewTab extends TabLogoPanel {
 		add(lblNetworkStatus);
 		lblNetworkStatus.setBounds(290, 110, 100, 15);
 		lblNetworkStatus.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNetworkStatus.setText(Transl._("Netstatus:"));
+		lblNetworkStatus.setText(Transl._("Net Status:"));
 
 		lblNetworkStatusSpecified = new MultiLineLabel();
 		add(lblNetworkStatusSpecified);

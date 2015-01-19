@@ -103,7 +103,7 @@ public class CertificateGUI {
 			n = JOptionPane.showConfirmDialog(
 				    frame,
 				    Transl._("Are you sure that you trust the new certificate?"),
-				    Transl._("Is that you final answer?"),
+				    Transl._("Is that your final answer?"),
 				    JOptionPane.YES_NO_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			if (n == JOptionPane.YES_OPTION){

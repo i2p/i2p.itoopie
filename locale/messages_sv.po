@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: itoopie\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-12 18:44+0000\n"
+"POT-Creation-Date: 2015-01-19 12:53+0000\n"
 "PO-Revision-Date: 2010-07-25 14:09+0100\n"
 "Last-Translator: hottuna <dev@robertfoss.se>\n"
 "Language-Team: hottuna <dev@robertfoss.se>\n"
@@ -38,6 +38,7 @@ msgid "New remote host detected"
 msgstr "Ny fjärrvärd upptäckt"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:31
+#, fuzzy, java-format
 msgid ""
 "Would you like permanently trust the certificate from the remote host {0}?"
 msgstr "Vill du permanent lite på certifikatet från fjärrvärden "
@@ -87,7 +88,7 @@ msgid "Are you sure that you trust the new certificate?"
 msgstr "Är du säker på att du vill lite på det nya certifkatet?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:106
-msgid "Is that you final answer?"
+msgid "Is that your final answer?"
 msgstr "Är det ditt slutgiltiga svar?"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
@@ -243,13 +244,13 @@ msgid "Restart needed for new settings."
 msgstr "Omstart krävs för nya inställningar."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:408
-msgid "Restarting I2P node.. "
-msgstr "Startar om I2P nod.."
+msgid "Restarting I2P node"
+msgstr "Startar om I2P nod"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:410
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:412
-msgid "Restart failed: "
-msgstr "Omstart misslyckades: "
+msgid "Restart failed"
+msgstr "Omstart misslyckades"
 
 #: src/net/i2p/itoopie/gui/Main.java:85
 msgid "Overview"

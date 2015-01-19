@@ -405,11 +405,11 @@ public class ConfigurationTab extends TabLogoPanel {
 						HashMap<ROUTER_MANAGER, String> hm = new HashMap<ROUTER_MANAGER,String>();
 						hm.put(ROUTER_MANAGER.RESTART, null);
 						SetRouterManager.execute(hm);
-						StatusHandler.setStatus(Transl._("Restarting I2P node.. "));
+						StatusHandler.setStatus(Transl._("Restarting I2P node"));
 					} catch (InvalidPasswordException e) {
-						StatusHandler.setStatus(Transl._("Restart failed: ") + DEFAULT_STATUS.INVALID_PASSWORD);
+						StatusHandler.setStatus(Transl._("Restart failed") + ": " + DEFAULT_STATUS.INVALID_PASSWORD);
 					} catch (JSONRPC2SessionException e) {
-						StatusHandler.setStatus(Transl._("Restart failed: ") + DEFAULT_STATUS.NOT_CONNECTED);
+						StatusHandler.setStatus(Transl._("Restart failed") + ": " + DEFAULT_STATUS.NOT_CONNECTED);
 					}
 				}
 				break;

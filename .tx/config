@@ -1,7 +1,14 @@
 [I2P.itoopie]
 source_file = locale/messages_en.po
 source_lang = en
+trans.de = locale/messages_de.po
+trans.es = locale/messages_es.po
+trans.fr = locale/messages_fr.po
+trans.nl = locale/messages_nl.po
+trans.ru_RU = locale/messages_ru.po
 trans.sv_SE = locale/messages_sv.po
+trans.uk_UA = locale/messages_uk.po
+trans.zh_CN = locale/messages_zh.po
 
 [main]
 host = https://www.transifex.com

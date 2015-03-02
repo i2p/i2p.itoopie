@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2015-01-23 17:14+0000\n"
+"PO-Revision-Date: 2015-02-02 10:50+0000\n"
 "Last-Translator: Nathan Follens\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/I2P/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -228,7 +228,7 @@ msgstr "De nieuwe instellingen zijn toegepast,\nmaar de I2P-router moet herstart
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:400
 msgid "Restart needed for new settings."
-msgstr "Herstart nodig voor nieuwe instellingen?"
+msgstr "Herstart nodig voor nieuwe instellingen."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:408
 msgid "Restarting I2P node"
@@ -355,7 +355,7 @@ msgid ""
 "The password was not accepted as valid by the specified host.\n"
 "\n"
 "(the default password is \"itoopie\")"
-msgstr ""
+msgstr "Het wachtwoord werd niet aanvaard door de opgegeven host.\n\n(het standaardwachtwoord is \"itoopie\")"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:433
 msgid "Rejected password."
@@ -367,7 +367,7 @@ msgid ""
 "\n"
 "Maybe I2PControl is not running on the remote I2P router, \n"
 "maybe the I2P router is not started."
-msgstr ""
+msgstr "De externe host op het opgegeven IP-adres en poort gaf geen reactie.\n\nMisschien draait I2PControl niet op de externe I2P-router, \nmisschien is de I2P-router niet gestart."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:446
 msgid "Connection failed."
@@ -379,7 +379,7 @@ msgstr "Het nieuwe wachtwoord en het herhaalde wachtwoord komen niet overeen."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:480
 msgid "Mistyped password."
-msgstr ""
+msgstr "Verkeerd wachtwoord."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:489
 msgid "The new password is the same as the old password."
@@ -420,7 +420,7 @@ msgstr "Tijd"
 
 #: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:48
 msgid "Number of tunnels we are participating in."
-msgstr ""
+msgstr "Aantal tunnels waarin we deelnemen."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
 msgid "Ok."
@@ -432,7 +432,7 @@ msgstr "Testen."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
 msgid "Firewalled."
-msgstr ""
+msgstr "Gefirewalld."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:33
 msgid "Hidden."
@@ -440,59 +440,59 @@ msgstr "Verborgen."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:34
 msgid "Warning, firewalled and fast."
-msgstr ""
+msgstr "Waarschuwing, gefirewalld en snel."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
 msgid "Warning, firewalled and floodfill."
-msgstr ""
+msgstr "Waarschuwing, gefirewalld en vlakvulling."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
 msgid "Warning, firewalled with inbound TCP enabled."
-msgstr ""
+msgstr "Waarschuwing, gefirewalld met inkomende TCP aangezet."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
 msgid "Warning, firewalled with UDP disabled."
-msgstr ""
+msgstr "Waarschuwing, gefirewalld met UDP uitgezet."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
 msgid "Error, I2CP issue. Check logs."
-msgstr ""
+msgstr "Fout, I2CP-probleem. Controleer de logs."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
 msgid "Error, clock skew. Try setting system clock."
-msgstr ""
+msgstr "Fout, scheve klok. Probeer de systeemklok in te stellen."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:40
 msgid "Error, private TCP address."
-msgstr ""
+msgstr "Fout, privaat TCP-adres."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:41
 msgid "Error, behind symmetric NAT. Can't recieve connections."
-msgstr ""
+msgstr "Fout, achter symmetrisch NAT. Kan geen verbindingen ontvangen."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
 msgid "Error, UDP port already in use."
-msgstr ""
+msgstr "Fout, UDP-poort al in gebruik."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
 msgid "Error, no active peers. Check connection and firewall."
-msgstr ""
+msgstr "Fout, geen actieve peers. Controleer de verbinding en firewall."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:44
 msgid "Error, UDP disabled and TCP unset."
-msgstr ""
+msgstr "Fout, UDP uitgezet en TCP niet ingesteld."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
 msgid "local host (127.0.0.1)"
-msgstr ""
+msgstr "lokale host (127.0.0.1)"
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:48
 msgid "any host (0.0.0.0)"
-msgstr ""
+msgstr "eender welke host (0.0.0.0)"
 
 #: src/net/i2p/itoopie/security/CertificateHelper.java:78
 msgid "Unable to create hash of the given cert, "
-msgstr ""
+msgstr "Kan geen hash van het gegeven certificaat maken,"
 
 #. milliseconds
 #. Note to translators, may be negative or zero, 2999 maximum.

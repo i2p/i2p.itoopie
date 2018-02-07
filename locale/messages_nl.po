@@ -4,15 +4,15 @@
 # To contribute translations, see http://www.i2p2.de/newdevelopers
 # 
 # Translators:
-# Nathan Follens, 2015
+# Nathan Follens, 2015,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2015-02-02 10:50+0000\n"
+"PO-Revision-Date: 2018-02-05 12:40+0000\n"
 "Last-Translator: Nathan Follens\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/I2P/language/nl/)\n"
+"Language-Team: Dutch (http://www.transifex.com/otf/I2P/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgid ""
 "Development began during the summer of 2011 and the first alpha was launched in July.\n"
 "\n"
 "I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online."
-msgstr "itoopie en I2PControl zijn gesponsord door Relakks & Ipredator.\nOntwikkeling ervan begon in de zomer van 2011 en de eerste alpha werd gelanceerd in juli.\n\nIk wil graag Jan-Erik Fiske en Peter Sunde bedanken voor hun actieve bijdrage in privacy en anonimiteit online."
+msgstr "itoopie en I2PControl zijn gesponsord door Relakks & Ipredator.\nOntwikkeling ervan begon in de zomer van 2011 en de eerste alfaversie werd gelanceerd in juli.\n\nIk wil graag Jan-Erik Fiske en Peter Sunde bedanken voor hun actieve bijdrage in privacy en anonimiteit online."
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:43
 #: src/net/i2p/itoopie/gui/OverviewTab.java:74
@@ -45,7 +45,7 @@ msgstr "Wil je het certificaat van de externe host {0} permanent vertrouwen?"
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:44
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:87
 msgid "Certificate info"
-msgstr "Certificaat-info"
+msgstr "Certificaatinfo"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:45
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:88
@@ -80,11 +80,11 @@ msgstr "Het certificaat van {0} is gewijzigd!"
 msgid ""
 "Are you sure you want to permanently trust the new certificate from the "
 "remote host?"
-msgstr "Ben je zeker dat je het nieuwe certificaat van de externe host permanent vertrouwt?"
+msgstr "Weet je zeker dat je het nieuwe certificaat van de externe host permanent vertrouwt?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:105
 msgid "Are you sure that you trust the new certificate?"
-msgstr "Ben je zeker dat je het nieuwe certificaat vertrouwt?"
+msgstr "Weet je zeker dat je het nieuwe certificaat vertrouwt?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:106
 msgid "Is that your final answer?"
@@ -162,7 +162,7 @@ msgstr "UPNP:"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:211
 msgid "Enable UPNP"
-msgstr "UPNP aanzetten"
+msgstr "UPNP inschakelen"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:285
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:302
@@ -265,7 +265,7 @@ msgstr "Status:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:113
 msgid "Net Status:"
-msgstr "Net-status:"
+msgstr "Netwerkstatus:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:64
 msgid "No changes found, settings not saved."
@@ -283,7 +283,7 @@ msgstr "Instellingen niet opgeslagen, geen wijzigingen gevonden."
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:192
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:195
 msgid "New remote address"
-msgstr "Nieuwe extern adres"
+msgstr "Nieuw extern adres"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:202
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:205
@@ -355,7 +355,7 @@ msgid ""
 "The password was not accepted as valid by the specified host.\n"
 "\n"
 "(the default password is \"itoopie\")"
-msgstr "Het wachtwoord werd niet aanvaard door de opgegeven host.\n\n(het standaardwachtwoord is \"itoopie\")"
+msgstr "Het wachtwoord werd niet aanvaard door de opgegeven host.\n\n(het standaardwachtwoord is ‘itoopie’)"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:433
 msgid "Rejected password."

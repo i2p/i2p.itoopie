@@ -4,21 +4,21 @@
 # To contribute translations, see http://www.i2p2.de/newdevelopers
 # 
 # Translators:
-# Kaya Zeren <kayazeren@gmail.com>, 2015-2017
+# Kaya Zeren <kayazeren@gmail.com>, 2015-2017,2019-2021
 # Ozancan Karataş <ozancankaratas96@outlook.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2017-11-05 14:24+0000\n"
+"PO-Revision-Date: 2021-12-19 07:09+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/otf/I2P/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr_TR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:29
 msgid ""
@@ -151,11 +151,11 @@ msgstr "Ağ:"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:189
 msgid "TCP port:"
-msgstr "TCP kapısı:"
+msgstr "TCP kapı numarası:"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:199
 msgid "UDP port:"
-msgstr "UDP kapısı:"
+msgstr "UDP kapı numarası:"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:209
 msgid "UPNP:"
@@ -171,21 +171,21 @@ msgstr "UPNP kullanılsın"
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:535
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a port."
-msgstr "\"{0}\" bir kapı değil."
+msgstr "\"{0}\" bir kapı numarası değil."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:286
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:303
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:415
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:536
 msgid "Port must be a number in the range 1-65535."
-msgstr "Kapı 1-65535 arasında bir sayı olmalıdır."
+msgstr "Kapı numarası 1-65535 arasında bir sayı olmalıdır."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:287
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:304
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:416
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:537
 msgid "Invalid port."
-msgstr "Kapı geçersiz."
+msgstr "Kapı numarası geçersiz."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:319
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:336
@@ -246,7 +246,7 @@ msgstr "Özet"
 
 #: src/net/i2p/itoopie/gui/Main.java:90
 msgid "Configuration"
-msgstr "Ayarlar"
+msgstr "Yapılandırma"
 
 #: src/net/i2p/itoopie/gui/Main.java:95
 msgid "About"
@@ -266,7 +266,7 @@ msgstr "Durum:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:113
 msgid "Net Status:"
-msgstr "Ağ Durumu:"
+msgstr "Ağ durumu:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:64
 msgid "No changes found, settings not saved."
@@ -290,7 +290,7 @@ msgstr "Yeni uzak adres"
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:205
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:208
 msgid "New remote port"
-msgstr "Yeni uzak kapı"
+msgstr "Yeni uzak kapı numarası"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:215
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:218
@@ -312,7 +312,7 @@ msgstr "IP adresi:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:269
 msgid "Port:"
-msgstr "Kapı:"
+msgstr "Kapı numarası:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:279
 msgid "Password:"
@@ -328,7 +328,7 @@ msgstr "Adresi değiştir:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:307
 msgid "Change port:"
-msgstr "Kapıyı değiştir:"
+msgstr "Kapı numarasını değiştir:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:317
 msgid "New password:"
@@ -368,7 +368,7 @@ msgid ""
 "\n"
 "Maybe I2PControl is not running on the remote I2P router, \n"
 "maybe the I2P router is not started."
-msgstr "Belirtilen ip ve kapı değerlerindeki uzak sunucu yanıt vermedi.\n\nuzak I2P yönelticisinde I2PControl çalışmıyor, \nya da I2P yönelticisi başlatılmamış  olabilir."
+msgstr "Belirtilen IP adresi ve kapı numarası değerlerindeki uzak sunucu yanıt vermedi.\n\nuzak I2P yönelticisinde I2PControl çalışmıyor, \nya da I2P yönelticisi başlatılmamış  olabilir."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:446
 msgid "Connection failed."
@@ -392,7 +392,7 @@ msgstr "Yeni parola yok."
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:13
 msgid "Connected to I2P router."
-msgstr "I2P yönelticisine bağlanıldı."
+msgstr "I2P yönelticisi ile bağlantı kuruldu."
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:14
 msgid "Unable to connect to I2P router."
@@ -408,11 +408,11 @@ msgstr "itoopie'den çık"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:52
 msgid "Bandwidth In [KB/s]"
-msgstr "Gelen Bant Genişliği [KB/s]"
+msgstr "Gelen bant genişliği [KB/s]"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:61
 msgid "Bandwidth Out [KB/s]"
-msgstr "Giden Bant Genişliği [KB/s]"
+msgstr "Giden bant genişliği [KB/s]"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:70
 #: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:58
@@ -449,7 +449,7 @@ msgstr "Uyarı, güvenlik duvarlı ve sel akışı."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
 msgid "Warning, firewalled with inbound TCP enabled."
-msgstr "Uyarı, gelen TCP etkin olarak güvenlik duvarlı."
+msgstr "Uyarı, geliş TCP bağlantısı etkin olarak güvenlik duvarlı."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
 msgid "Warning, firewalled with UDP disabled."
@@ -473,11 +473,11 @@ msgstr "Hata, simetrik NAT arkasında. Bağlantılar alınamıyor."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
 msgid "Error, UDP port already in use."
-msgstr "Hata, UPD kapısı zaten kullanılmış."
+msgstr "Hata, UPD kapı numarası zaten kullanılıyor."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
 msgid "Error, no active peers. Check connection and firewall."
-msgstr "Hata, etkin çift yok. Bağlantı ve güvenlik duvarını denetleyin."
+msgstr "Hata, etkin bir eş yok. Bağlantı ve güvenlik duvarını denetleyin."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:44
 msgid "Error, UDP disabled and TCP unset."
@@ -485,11 +485,11 @@ msgstr "Hata, UDP devre dışı ve TCP ayarlanmamış."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
 msgid "local host (127.0.0.1)"
-msgstr "yerel sunucu (127.0.0.1)"
+msgstr "Yerel sunucu (127.0.0.1)"
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:48
 msgid "any host (0.0.0.0)"
-msgstr "tüm sunucular (0.0.0.0)"
+msgstr "Tüm sunucular (0.0.0.0)"
 
 #: src/net/i2p/itoopie/security/CertificateHelper.java:78
 msgid "Unable to create hash of the given cert, "
@@ -505,6 +505,7 @@ msgstr "Belirtilen sertifika için karma oluşturulamadı,"
 msgid "1 ms"
 msgid_plural "{0,number,####} ms"
 msgstr[0] "{0,number,####} ms"
+msgstr[1] "{0,number,####} ms"
 
 #. seconds
 #: src/net/i2p/itoopie/util/DataHelper.java:28
@@ -512,6 +513,7 @@ msgstr[0] "{0,number,####} ms"
 msgid "1 second"
 msgid_plural "{0} seconds"
 msgstr[0] "{0} saniye"
+msgstr[1] "{0} saniye"
 
 #. minutes
 #: src/net/i2p/itoopie/util/DataHelper.java:31
@@ -519,6 +521,7 @@ msgstr[0] "{0} saniye"
 msgid "1 minute"
 msgid_plural "{0} minutes"
 msgstr[0] "{0} dakika"
+msgstr[1] "{0} dakika"
 
 #. hours
 #: src/net/i2p/itoopie/util/DataHelper.java:34
@@ -526,6 +529,7 @@ msgstr[0] "{0} dakika"
 msgid "1 hour"
 msgid_plural "{0} hours"
 msgstr[0] "{0} saat"
+msgstr[1] "{0} saat"
 
 #. >1000 days
 #: src/net/i2p/itoopie/util/DataHelper.java:37
@@ -538,3 +542,4 @@ msgstr "kullanılamaz"
 msgid "1 day"
 msgid_plural "{0} days"
 msgstr[0] "{0} gün"
+msgstr[1] "{0} gün"

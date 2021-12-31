@@ -4,23 +4,18 @@
 # To contribute translations, see http://www.i2p2.de/newdevelopers
 # 
 # Translators:
-# Anders Nilsson <anders@devode.se>, 2015
-# cacapo <handelsehorisont@gmail.com>, 2015
-# hottuna <dev@robertfoss.se>, 2011
-# Jonatan Nyberg <jonatan@autistici.org>, 2017,2021
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2021-11-29 20:18+0000\n"
-"Last-Translator: Jonatan Nyberg <jonatan@autistici.org>\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/otf/I2P/language/sv_SE/)\n"
+"PO-Revision-Date: 2019-10-02 09:00+0000\n"
+"Last-Translator: Ove Lynge Larsen <ovelarsen@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/otf/I2P/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:29
@@ -29,7 +24,7 @@ msgid ""
 "Development began during the summer of 2011 and the first alpha was launched in July.\n"
 "\n"
 "I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online."
-msgstr "itoopie och I2PControl sponsrades av Relakks & Ipredator.\nUtveckling påbörjades under sommaren 2011 och den första alfan lanserades i Juli.\n\nJag skulle vilja tacka Jan-Erik Fiske och Peter Sunde för att dom aktivt hjälper och stödjer integritet och anonymitet online."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:43
 #: src/net/i2p/itoopie/gui/OverviewTab.java:74
@@ -38,102 +33,102 @@ msgstr "Version:"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:30
 msgid "New remote host detected"
-msgstr "Ny fjärrvärd upptäckt"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:31
 #, java-format
 msgid ""
 "Would you like permanently trust the certificate from the remote host {0}?"
-msgstr "Vill du permanent lita på certifikatet från fjärrvärden {0}?"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:44
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:87
 msgid "Certificate info"
-msgstr "Certifikat info"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:45
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:88
 msgid "Name: "
-msgstr "Namn: "
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:46
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:89
 msgid "Algorithm: "
-msgstr "Algoritm: "
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:47
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:90
 msgid "Serial: "
-msgstr "Serienummer: "
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:48
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:91
 msgid "SHA-1 ID-hash: "
-msgstr "SHA-1 hash:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:72
 msgid "Warning, new remote host detected"
-msgstr "Varning, ny fjärrvärd funnen"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:73
 #, java-format
 msgid "The certificate of {0} has changed!"
-msgstr "Certifikatet från {0} har ändrats!"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:74
 msgid ""
 "Are you sure you want to permanently trust the new certificate from the "
 "remote host?"
-msgstr "Vill du permanent lite på certifikatet från fjärrvärden "
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:105
 msgid "Are you sure that you trust the new certificate?"
-msgstr "Är du säker på att du vill lite på det nya certifkatet?"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:106
 msgid "Is that your final answer?"
-msgstr "Är detta ditt slutgiltiga svar?"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
 msgid "Settings read from I2P router."
-msgstr "Inställningar lästa från I2P routern."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:48
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:60
 msgid "Settings aren't valid, not saving."
-msgstr "Inställningarna är inte giltiga, sparar inte."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:61
 msgid "I2P router rejected settings."
-msgstr "I2P routern avvisade inställningar."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:50
 msgid "Not connected, unable to save."
-msgstr "Inte ansluten, kan inte spara."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:62
 msgid "Saved settings on I2P router."
-msgstr "Inställningar sparades till I2P router."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:63
 msgid "Saved settings on I2P router. I2P router needs to be restarted."
-msgstr "Sparade inställningar på I2P routern. I2P routern behöver startas om."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:96
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:170
 msgid "Apply"
-msgstr "Verkställ"
+msgstr "Ansøge"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:132
 msgid "Bandwidth:"
-msgstr "Bandbredd:"
+msgstr "Båndbredde:"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:137
 msgid "Download:"
-msgstr "Nerladdning:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:146
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:160
@@ -142,31 +137,31 @@ msgstr "KB/s"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:151
 msgid "Upload:"
-msgstr "Uppladdning:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:165
 msgid "Share:"
-msgstr "Utdelning:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:184
 msgid "Network:"
-msgstr "Nätverk:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:189
 msgid "TCP port:"
-msgstr "TCP-port:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:199
 msgid "UDP port:"
-msgstr "UDP-port:"
+msgstr "UDP port:"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:209
 msgid "UPNP:"
-msgstr "UPNP:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:211
 msgid "Enable UPNP"
-msgstr "Slå på UPNP"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:285
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:302
@@ -174,53 +169,53 @@ msgstr "Slå på UPNP"
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:535
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a port."
-msgstr "\"{0}\" kan inte tolkas som en port."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:286
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:303
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:415
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:536
 msgid "Port must be a number in the range 1-65535."
-msgstr "Port måste vara ett nummer i intervallet 1-65535."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:287
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:304
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:416
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:537
 msgid "Invalid port."
-msgstr "Ogiltig port."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:319
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:336
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a speed."
-msgstr "\"{0}\" kan inte tolkas som en hastighet."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:320
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:337
 msgid "Speed must be a number larger than 0."
-msgstr "Hastighet måste vara ett nummer stärre än 0."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:321
 msgid "Invalid download speed."
-msgstr "Ogiltig nerladdningshastighet."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:338
 msgid "Invalid upload speed."
-msgstr "Ogiltig uppladdningshastighet."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:353
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a percentage."
-msgstr "\"{0}\" kan inte tolkas som ett procenttal."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:354
 msgid "Percentage must be a number in the range 0-100."
-msgstr "Procenttalet måste vara ett nummer i intervallet 0-100."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:355
 msgid "Invalid share percentage."
-msgstr "Ogiltig utdelningsprocent."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:397
 msgid ""
@@ -228,24 +223,24 @@ msgid ""
 "but the I2P router needs to be restarted for some to take effect.\n"
 "\n"
 "Would you like to restart the I2P router now?"
-msgstr "De nya inställningarna har sparats,\nmen I2P routern måste startas om för att verkställa.\n\nVill du starta om I2P routern nu?"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:400
 msgid "Restart needed for new settings."
-msgstr "Omstart krävs för nya inställningar."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:408
 msgid "Restarting I2P node"
-msgstr "Startar om I2P nod"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:410
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:412
 msgid "Restart failed"
-msgstr "Omstart misslyckades"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/Main.java:85
 msgid "Overview"
-msgstr "Översikt"
+msgstr "Oversigt"
 
 #: src/net/i2p/itoopie/gui/Main.java:90
 msgid "Configuration"
@@ -257,11 +252,11 @@ msgstr "Om"
 
 #: src/net/i2p/itoopie/gui/Main.java:115
 msgid "Settings"
-msgstr "Inställningar."
+msgstr "Indstillinger"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:88
 msgid "Uptime:"
-msgstr "Uptid:"
+msgstr "Oppetid:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:101
 msgid "Status:"
@@ -269,49 +264,49 @@ msgstr "Status:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:113
 msgid "Net Status:"
-msgstr "Nätstatus:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:64
 msgid "No changes found, settings not saved."
-msgstr "Inga ändringar hittades, inställningarna sparas inte."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:179
 msgid "Settings saved."
-msgstr "Inställningar sparade."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:183
 msgid "Settings not saved, no changes found."
-msgstr "Inställningar sparas inte, inga ändringar hittades."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:189
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:192
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:195
 msgid "New remote address"
-msgstr "Nytt fjärrlösen"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:202
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:205
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:208
 msgid "New remote port"
-msgstr "Ny fjärrport"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:215
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:218
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:221
 msgid "New remote password"
-msgstr "Nytt fjärrlösen"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:236
 msgid "Discard"
-msgstr "Avbryt"
+msgstr "Kassér"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:253
 msgid "Connect to I2P node"
-msgstr "Ansluten till I2P router."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:259
 msgid "IP address:"
-msgstr "Ipadress."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:269
 msgid "Port:"
@@ -319,51 +314,51 @@ msgstr "Port:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:279
 msgid "Password:"
-msgstr "Lösen:"
+msgstr "Adgangskode:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:291
 msgid "Change I2PControl"
-msgstr "Ändra I2PControl"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:297
 msgid "Change address:"
-msgstr "Ipadress."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:307
 msgid "Change port:"
-msgstr "Ändra port:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:317
 msgid "New password:"
-msgstr "Nytt lösen:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:328
 msgid "Repeat password:"
-msgstr "Lösen avvisat."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:398
 #, java-format
 msgid "\"{0}\" cannot be interpreted as an ip address."
-msgstr "\"{0}\" kan inte tolkas som en ip adress."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:399
 msgid "Try entering the ip address of the machine running i2p."
-msgstr " kan inte tolkas som en ipadress.\n\nFörsök använda maskinen som kör I2Ps ipadress."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:400
 msgid "Invalid ip address."
-msgstr "Ogiltig ipadress."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:431
 msgid ""
 "The password was not accepted as valid by the specified host.\n"
 "\n"
 "(the default password is \"itoopie\")"
-msgstr "Lösenordet accepterades inte av den angivna värden.\n\n(standarlösenordet är \"itoopie\")"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:433
 msgid "Rejected password."
-msgstr "Lösen avvisat."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:443
 msgid ""
@@ -371,51 +366,51 @@ msgid ""
 "\n"
 "Maybe I2PControl is not running on the remote I2P router, \n"
 "maybe the I2P router is not started."
-msgstr "Fjärrvärden vid angiven ip och port svarade inte.\nI2PControl kanske inte körs på I2P routern, \nI2P routern kanske inte är startad."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:446
 msgid "Connection failed."
-msgstr "Anslutning misslyckades."
+msgstr "Forbindelse fejlede."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:479
 msgid "The new password and the repeated new password do not match."
-msgstr "Det nya lösenordet och det upprepade lösenordert överensstämmer inte."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:480
 msgid "Mistyped password."
-msgstr "Felskrivet lösenord."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:489
 msgid "The new password is the same as the old password."
-msgstr "Det nya lösenordet är samma som det gamla lösenorder."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:490
 msgid "No new password."
-msgstr "Inget nytt lösenord."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:13
 msgid "Connected to I2P router."
-msgstr "Ansluten till I2P router."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:14
 msgid "Unable to connect to I2P router."
-msgstr "Det går inte att ansluta till I2P-routern."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:15
 msgid "I2P router rejected password."
-msgstr "I2P routern avvisade lösenord."
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/TrayManager.java:87
 msgid "Exit itoopie"
-msgstr "Avsluta itoopie"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:52
 msgid "Bandwidth In [KB/s]"
-msgstr "Bandbredd in [KB/s]:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:61
 msgid "Bandwidth Out [KB/s]"
-msgstr "Bandbredd ut [KB/s]:"
+msgstr ""
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:70
 #: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:58
@@ -424,79 +419,79 @@ msgstr "Tid"
 
 #: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:48
 msgid "Number of tunnels we are participating in."
-msgstr "Antalet I2P tunnlar vi deltar i."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
 msgid "Ok."
-msgstr "Ok."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
 msgid "Testing."
-msgstr "Testar."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
 msgid "Firewalled."
-msgstr "Bakom brandvägg."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:33
 msgid "Hidden."
-msgstr "Gömd."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:34
 msgid "Warning, firewalled and fast."
-msgstr "Varning, bakom brandvägg och snabb."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
 msgid "Warning, firewalled and floodfill."
-msgstr "Varning, bakom brandvägg och 'floodfill'."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
 msgid "Warning, firewalled with inbound TCP enabled."
-msgstr "Varning, bakom brandvägg med TCP påslaget."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
 msgid "Warning, firewalled with UDP disabled."
-msgstr "Varning, bakom brandvägg med UDP avslaget."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
 msgid "Error, I2CP issue. Check logs."
-msgstr "Fel, I2CP problem. Kontrollera loggar."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
 msgid "Error, clock skew. Try setting system clock."
-msgstr "Fel, klockvridning. Testa ställa systemklockan."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:40
 msgid "Error, private TCP address."
-msgstr "Fel, private TCP adress."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:41
 msgid "Error, behind symmetric NAT. Can't recieve connections."
-msgstr "Fel, bakom symmetrisk NAT. Kan inte ta emot anslutningar."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
 msgid "Error, UDP port already in use."
-msgstr "Fel, UDP-porten används redan."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
 msgid "Error, no active peers. Check connection and firewall."
-msgstr "Fel, inga aktiva jämlikar. Kontrollera anslutning och brandvägg."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:44
 msgid "Error, UDP disabled and TCP unset."
-msgstr "Fel, UDP inaktiverad och TCP är inte inställd."
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
 msgid "local host (127.0.0.1)"
-msgstr "local host (127.0.0.1)"
+msgstr ""
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:48
 msgid "any host (0.0.0.0)"
-msgstr "vilken värddator som helst (0.0.0.0)"
+msgstr ""
 
 #: src/net/i2p/itoopie/security/CertificateHelper.java:78
 msgid "Unable to create hash of the given cert, "
-msgstr "Det går inte att skapa hash av den givna cert, "
+msgstr ""
 
 #. milliseconds
 #. Note to translators, may be negative or zero, 2999 maximum.
@@ -507,42 +502,42 @@ msgstr "Det går inte att skapa hash av den givna cert, "
 #, java-format
 msgid "1 ms"
 msgid_plural "{0,number,####} ms"
-msgstr[0] "1 ms"
-msgstr[1] "{0,number,####} ms"
+msgstr[0] ""
+msgstr[1] ""
 
 #. seconds
 #: src/net/i2p/itoopie/util/DataHelper.java:28
 #, java-format
 msgid "1 second"
 msgid_plural "{0} seconds"
-msgstr[0] "1 sekund"
-msgstr[1] "{0} sekunder"
+msgstr[0] ""
+msgstr[1] ""
 
 #. minutes
 #: src/net/i2p/itoopie/util/DataHelper.java:31
 #, java-format
 msgid "1 minute"
 msgid_plural "{0} minutes"
-msgstr[0] "1 minut"
-msgstr[1] "{0} minuter"
+msgstr[0] ""
+msgstr[1] ""
 
 #. hours
 #: src/net/i2p/itoopie/util/DataHelper.java:34
 #, java-format
 msgid "1 hour"
 msgid_plural "{0} hours"
-msgstr[0] "1 timme"
-msgstr[1] "{0} timmar"
+msgstr[0] ""
+msgstr[1] ""
 
 #. >1000 days
 #: src/net/i2p/itoopie/util/DataHelper.java:37
 msgid "n/a"
-msgstr "n/a"
+msgstr "Ikke tingængelig "
 
 #. days
 #: src/net/i2p/itoopie/util/DataHelper.java:40
 #, java-format
 msgid "1 day"
 msgid_plural "{0} days"
-msgstr[0] "1 dag"
-msgstr[1] "{0} dagar"
+msgstr[0] ""
+msgstr[1] ""

@@ -5,13 +5,14 @@
 # 
 # Translators:
 # polacco <polacco@i2pmail.org>, 2015
+# Przemyslaw Ka. <przemyslaw.karpeta@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2017-10-30 22:05+0000\n"
-"Last-Translator: polacco <polacco@i2pmail.org>\n"
+"PO-Revision-Date: 2021-03-12 13:25+0000\n"
+"Last-Translator: Przemyslaw Ka. <przemyslaw.karpeta@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/otf/I2P/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,7 +85,7 @@ msgstr "Czy na pewno chcesz dodać nowy certyfikat do zaufanych?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:105
 msgid "Are you sure that you trust the new certificate?"
-msgstr ""
+msgstr "Czy na pewno ufasz nowemu certyfikatowi?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:106
 msgid "Is that your final answer?"
@@ -97,7 +98,7 @@ msgstr "Ustawienia odczytane z węzła I2P."
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:48
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:60
 msgid "Settings aren't valid, not saving."
-msgstr ""
+msgstr "Ustawienia nie są poprawne, nie zapisano."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:61
@@ -125,7 +126,7 @@ msgstr "Zastosuj"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:132
 msgid "Bandwidth:"
-msgstr ""
+msgstr "Przepustowość:"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:137
 msgid "Download:"
@@ -228,7 +229,7 @@ msgstr ""
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:400
 msgid "Restart needed for new settings."
-msgstr ""
+msgstr "Aby skorzystać z nowych ustawień, potrzebny jest restart."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:408
 msgid "Restarting I2P node"

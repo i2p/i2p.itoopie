@@ -82,17 +82,17 @@ public class Main {
 		tabbedPane.setBounds(0, 0, FRAME_WIDTH-9, TABBED_PANE_HEIGHT);
 
 		TabLogoPanel overviewTab = new OverviewTab("itoopie-opaque12");
-		tabbedPane.addTab(Transl._("Overview"), null, overviewTab, null);
+		tabbedPane.addTab(Transl._t("Overview"), null, overviewTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(overviewTab));
 		
 		
 		TabLogoPanel configTab = new ConfigurationTab("itoopie-opaque12");
-		tabbedPane.addTab(Transl._("Configuration"), null, configTab, null);
+		tabbedPane.addTab(Transl._t("Configuration"), null, configTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(configTab));
 		
 		
 		TabLogoPanel aboutTab = new AboutTab("itoopie-opaque12");
-		tabbedPane.addTab(Transl._("About"), null, aboutTab, null);
+		tabbedPane.addTab(Transl._t("About"), null, aboutTab, null);
 
 		
 		JPanel statusPanel = new JPanel();
@@ -112,7 +112,7 @@ public class Main {
 		statusPanel.add(buttonWrapper, BorderLayout.EAST);
 		buttonWrapper.setOpaque(false);
 		
-		JButton settingsBtn = new JButton(Transl._("Settings"));
+		JButton settingsBtn = new JButton(Transl._t("Settings"));
 		buttonWrapper.add(settingsBtn);
 		settingsBtn.setIcon(new ImageIcon(IconLoader.getIcon("cogwheel", 16)));
 		settingsBtn.addActionListener(new ActionListener(){

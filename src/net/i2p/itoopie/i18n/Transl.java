@@ -5,7 +5,7 @@ public class Transl {
     public static final String BUNDLE_NAME = "net.i2p.itoopie.messages";
      
     
-    public static String _(String s) {
+    public static String _t(String s) {
         return Translate.getString(s, BUNDLE_NAME);
     }
 
@@ -18,16 +18,16 @@ public class Transl {
      *    The {0} will be replaced by the parameter.
      *    Single quotes must be doubled, i.e. ' -> '' in the string.
      *  @param o parameter, not translated.
-     *    To tranlslate parameter also, use _("foo {0} bar", _("baz"))
+     *    To tranlslate parameter also, use _t("foo {0} bar", _t("baz"))
      *    Do not double the single quotes in the parameter.
      *    Use autoboxing to call with ints, longs, floats, etc.
      */
-    public static String _(String s, Object o) {
+    public static String _t(String s, Object o) {
         return Translate.getString(s, o, BUNDLE_NAME);
     }
     
     /** for {0} and {1} */
-    public static String _(String s, Object o, Object o2){
+    public static String _t(String s, Object o, Object o2){
     	return Translate.getString(s, o, o2, BUNDLE_NAME);
     }
     
@@ -39,7 +39,7 @@ public class Transl {
      *  @param s singluar string, optionally with {0} e.g. "one tunnel"
      *  @param p plural string optionally with {0} e.g. "{0} tunnels"
      */
-    public static String _(int n, String s, String p) {
+    public static String _t(int n, String s, String p) {
     	return Translate.getString( n, s, p, BUNDLE_NAME);
     }
 	

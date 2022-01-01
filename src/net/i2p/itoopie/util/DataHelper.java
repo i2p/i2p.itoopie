@@ -34,7 +34,7 @@ public class DataHelper {
             return ngettext("1 hour", "{0} hours", (int) (ms / (60 * 60 * 1000)));
         } else if (ms > 1000l * 24l * 60l * 60l * 1000l) {
         	// >1000 days
-            return Transl._("n/a");
+            return Transl._t("n/a");
         } else {
             // days
             return ngettext("1 day", "{0} days", (int) (ms / (24 * 60 * 60 * 1000)));

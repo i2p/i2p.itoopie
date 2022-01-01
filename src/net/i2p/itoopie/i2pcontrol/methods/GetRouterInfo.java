@@ -27,21 +27,21 @@ public class GetRouterInfo {
 	private static HashMap<Integer, NETWORK_STATUS> enumMap;
 	
 	public static enum NETWORK_STATUS{
-		OK													{	public String toString(){ return Transl._("Ok."); }},
-		TESTING												{	public String toString(){ return Transl._("Testing."); }},
-		FIREWALLED											{	public String toString(){ return Transl._("Firewalled."); }},
-		HIDDEN												{	public String toString(){ return Transl._("Hidden."); }},
-		WARN_FIREWALLED_AND_FAST							{	public String toString(){ return Transl._("Warning, firewalled and fast."); }},
-		WARN_FIREWALLED_AND_FLOODFILL						{	public String toString(){ return Transl._("Warning, firewalled and floodfill."); }},
-		WARN_FIREWALLED_WITH_INBOUND_TCP					{	public String toString(){ return Transl._("Warning, firewalled with inbound TCP enabled."); }},
-		WARN_FIREWALLED_WITH_UDP_DISABLED					{	public String toString(){ return Transl._("Warning, firewalled with UDP disabled."); }},
-		ERROR_I2CP											{	public String toString(){ return Transl._("Error, I2CP issue. Check logs."); }},
-		ERROR_CLOCK_SKEW									{	public String toString(){ return Transl._("Error, clock skew. Try setting system clock."); }},
-		ERROR_PRIVATE_TCP_ADDRESS							{	public String toString(){ return Transl._("Error, private TCP address."); }},
-		ERROR_SYMMETRIC_NAT									{	public String toString(){ return Transl._("Error, behind symmetric NAT. Can't recieve connections."); }},
-		ERROR_UDP_PORT_IN_USE								{	public String toString(){ return Transl._("Error, UDP port already in use."); }},
-		ERROR_NO_ACTIVE_PEERS_CHECK_CONNECTION_AND_FIREWALL	{	public String toString(){ return Transl._("Error, no active peers. Check connection and firewall."); }},
-		ERROR_UDP_DISABLED_AND_TCP_UNSET					{	public String toString(){ return Transl._("Error, UDP disabled and TCP unset."); }}
+		OK													{	public String toString(){ return Transl._t("Ok."); }},
+		TESTING												{	public String toString(){ return Transl._t("Testing."); }},
+		FIREWALLED											{	public String toString(){ return Transl._t("Firewalled."); }},
+		HIDDEN												{	public String toString(){ return Transl._t("Hidden."); }},
+		WARN_FIREWALLED_AND_FAST							{	public String toString(){ return Transl._t("Warning, firewalled and fast."); }},
+		WARN_FIREWALLED_AND_FLOODFILL						{	public String toString(){ return Transl._t("Warning, firewalled and floodfill."); }},
+		WARN_FIREWALLED_WITH_INBOUND_TCP					{	public String toString(){ return Transl._t("Warning, firewalled with inbound TCP enabled."); }},
+		WARN_FIREWALLED_WITH_UDP_DISABLED					{	public String toString(){ return Transl._t("Warning, firewalled with UDP disabled."); }},
+		ERROR_I2CP											{	public String toString(){ return Transl._t("Error, I2CP issue. Check logs."); }},
+		ERROR_CLOCK_SKEW									{	public String toString(){ return Transl._t("Error, clock skew. Try setting system clock."); }},
+		ERROR_PRIVATE_TCP_ADDRESS							{	public String toString(){ return Transl._t("Error, private TCP address."); }},
+		ERROR_SYMMETRIC_NAT									{	public String toString(){ return Transl._t("Error, behind symmetric NAT. Can't recieve connections."); }},
+		ERROR_UDP_PORT_IN_USE								{	public String toString(){ return Transl._t("Error, UDP port already in use."); }},
+		ERROR_NO_ACTIVE_PEERS_CHECK_CONNECTION_AND_FIREWALL	{	public String toString(){ return Transl._t("Error, no active peers. Check connection and firewall."); }},
+		ERROR_UDP_DISABLED_AND_TCP_UNSET					{	public String toString(){ return Transl._t("Error, UDP disabled and TCP unset."); }}
 	};
 	
 	

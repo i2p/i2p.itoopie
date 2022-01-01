@@ -49,7 +49,7 @@ public class BandwidthChart extends Chart2D{
 	    ITrace2D dataBWIn = new Trace2DLtd( graphInterval/updateInterval );
 	    dataBWIn.setStroke(new BasicStroke(1));
 	    dataBWIn.setColor(new Color(255, 0, 0, 255));
-	    dataBWIn.setName(Transl._("Bandwidth In [KB/s]"));
+	    dataBWIn.setName(Transl._t("Bandwidth In [KB/s]"));
 	
 	    ITracePainter<?> dotPainter = new TracePainterPolyline();
 	    dataBWIn.setTracePainter(dotPainter);
@@ -58,7 +58,7 @@ public class BandwidthChart extends Chart2D{
 	    ITrace2D dataBWOut = new Trace2DLtd( graphInterval/updateInterval );
 	    dataBWOut.setStroke(new BasicStroke(1));
 	    dataBWOut.setColor(new Color(0, 0, 255, 255));
-	    dataBWOut.setName(Transl._("Bandwidth Out [KB/s]"));
+	    dataBWOut.setName(Transl._t("Bandwidth Out [KB/s]"));
 	
 	    dataBWOut.setTracePainter(dotPainter);
 	    addTrace(dataBWOut);
@@ -67,7 +67,7 @@ public class BandwidthChart extends Chart2D{
 	    
 	    getAxisX().setFormatter(new LabelFormatterDate(sdf));
 	    getAxisX().setPaintGrid(true);
-	    getAxisX().setAxisTitle(new AxisTitle(Transl._("Time")));
+	    getAxisX().setAxisTitle(new AxisTitle(Transl._t("Time")));
 	
 	    DecimalFormat df = new DecimalFormat("0 ; 0");
 	    getAxisY().setFormatter(new LabelFormatterNumber(df));

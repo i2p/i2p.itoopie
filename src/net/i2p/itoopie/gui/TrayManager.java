@@ -84,7 +84,7 @@ public class TrayManager {
      */
     public PopupMenu getMainMenu() {
         PopupMenu popup = new PopupMenu();
-        MenuItem stopItem = new MenuItem(Transl._("Exit itoopie"));
+        MenuItem stopItem = new MenuItem(Transl._t("Exit itoopie"));
         stopItem.addActionListener(new ActionListener() {
 
             @Override

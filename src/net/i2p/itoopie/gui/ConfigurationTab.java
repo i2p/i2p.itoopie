@@ -43,13 +43,13 @@ import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 
 // The width of this panel (on ubuntu) will be the width of the main menu -24px.
 public class ConfigurationTab extends TabLogoPanel {
-	private final static String SETTINGS_READ = Transl._("Settings read from I2P router.");
+	private final static String SETTINGS_READ = Transl._t("Settings read from I2P router.");
 	private static enum SAVE_STATUS{
-		SAVE_FAILED_LOCALLY		{ public String toString(){return Transl._("Settings aren't valid, not saving.");} },
-		SAVE_FAILED_REMOTELY	{ public String toString(){return Transl._("I2P router rejected settings.");} },
-		SAVE_FAILED_NO_CONN		{ public String toString(){return Transl._("Not connected, unable to save.");} },
-		SAVED_OK 				{ public String toString(){return Transl._("Saved settings on I2P router.");} },
-		SAVED_RESTART_NEEDED	{ public String toString(){return Transl._("Saved settings on I2P router. I2P router needs to be restarted.");} }
+		SAVE_FAILED_LOCALLY		{ public String toString(){return Transl._t("Settings aren't valid, not saving.");} },
+		SAVE_FAILED_REMOTELY	{ public String toString(){return Transl._t("I2P router rejected settings.");} },
+		SAVE_FAILED_NO_CONN		{ public String toString(){return Transl._t("Not connected, unable to save.");} },
+		SAVED_OK 				{ public String toString(){return Transl._t("Saved settings on I2P router.");} },
+		SAVED_RESTART_NEEDED	{ public String toString(){return Transl._t("Saved settings on I2P router. I2P router needs to be restarted.");} }
 	};
 	
 	// Components for the network panel
@@ -93,7 +93,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		setupBandwidthPanel(bwPanel);
 
 		
-		final JButton btnApply = new JButton(Transl._("Apply"));
+		final JButton btnApply = new JButton(Transl._t("Apply"));
 		add(btnApply);
 		btnApply.setBounds(442, 269, 82, 24);
 		btnApply.addActionListener(new ActionListener(){
@@ -129,12 +129,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblBW = new JLabel();
 		bwPanel.add(lblBW);
 		lblBW.setBounds(10, 10, 120, 15);
-		lblBW.setText(Transl._("Bandwidth:"));
+		lblBW.setText(Transl._t("Bandwidth:"));
 		
 		lblDownload = new JLabel();
 		bwPanel.add(lblDownload);
 		lblDownload.setBounds(40, 35, 100, 15);
-		lblDownload.setText(Transl._("Download:"));
+		lblDownload.setText(Transl._t("Download:"));
 		
 		txtDownload = new JTextField();
 		bwPanel.add(txtDownload);
@@ -143,12 +143,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblDownloadUnit = new JLabel();
 		bwPanel.add(lblDownloadUnit);
 		lblDownloadUnit.setBounds(190, 37, 35, 15);
-		lblDownloadUnit.setText(Transl._("KB/s"));
+		lblDownloadUnit.setText(Transl._t("KB/s"));
 		
 		lblUpload = new JLabel();
 		bwPanel.add(lblUpload);
 		lblUpload.setBounds(40, 60, 100, 15);
-		lblUpload.setText(Transl._("Upload:"));
+		lblUpload.setText(Transl._t("Upload:"));
 		
 		txtUpload = new JTextField();
 		bwPanel.add(txtUpload);
@@ -157,12 +157,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblUploadUnit = new JLabel();
 		bwPanel.add(lblUploadUnit);
 		lblUploadUnit.setBounds(190, 62, 35, 15);
-		lblUploadUnit.setText(Transl._("KB/s"));
+		lblUploadUnit.setText(Transl._t("KB/s"));
 		
 		lblShare = new JLabel();
 		bwPanel.add(lblShare);
 		lblShare.setBounds(40, 85, 100, 15);
-		lblShare.setText(Transl._("Share:"));
+		lblShare.setText(Transl._t("Share:"));
 		
 		txtShare = new JTextField();
 		bwPanel.add(txtShare);
@@ -181,12 +181,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblNetwork = new JLabel();
 		networkPanel.add(lblNetwork);
 		lblNetwork.setBounds(10, 10, 75, 15);
-		lblNetwork.setText(Transl._("Network:"));
+		lblNetwork.setText(Transl._t("Network:"));
 
 		lblTCPPort = new JLabel();
 		networkPanel.add(lblTCPPort);
 		lblTCPPort.setBounds(40, 35, 75, 15);
-		lblTCPPort.setText(Transl._("TCP port:"));
+		lblTCPPort.setText(Transl._t("TCP port:"));
 
 		txtTCPPort = new JTextField();
 		networkPanel.add(txtTCPPort);
@@ -196,7 +196,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblUDPPort = new JLabel();
 		networkPanel.add(lblUDPPort);
 		lblUDPPort.setBounds(40, 60, 75, 15);
-		lblUDPPort.setText(Transl._("UDP port:"));
+		lblUDPPort.setText(Transl._t("UDP port:"));
 
 		txtUDPPort = new JTextField();
 		networkPanel.add(txtUDPPort);
@@ -206,9 +206,9 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblUPNP = new JLabel();
 		networkPanel.add(lblUPNP);
 		lblUPNP.setBounds(40, 85, 75, 15);
-		lblUPNP.setText(Transl._("UPNP:"));
+		lblUPNP.setText(Transl._t("UPNP:"));
 		
-		chkbxUPNP = new JCheckBox(Transl._("Enable UPNP"));
+		chkbxUPNP = new JCheckBox(Transl._t("Enable UPNP"));
 		chkbxUPNP.setOpaque(false);
 		networkPanel.add(chkbxUPNP);
 		chkbxUPNP.setBounds(127, 85, 120, 15);
@@ -282,9 +282,9 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a port.", tcpPort) + "\n\n" + 
-							Transl._("Port must be a number in the range 1-65535."),
-				    Transl._("Invalid port."),
+				    Transl._t("\"{0}\" cannot be interpreted as a port.", tcpPort) + "\n\n" + 
+							Transl._t("Port must be a number in the range 1-65535."),
+				    Transl._t("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return SAVE_STATUS.SAVE_FAILED_LOCALLY;
@@ -299,9 +299,9 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a port.", udpPort) + "\n\n" + 
-							Transl._("Port must be a number in the range 1-65535."),
-				    Transl._("Invalid port."),
+				    Transl._t("\"{0}\" cannot be interpreted as a port.", udpPort) + "\n\n" + 
+							Transl._t("Port must be a number in the range 1-65535."),
+				    Transl._t("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return SAVE_STATUS.SAVE_FAILED_LOCALLY;
@@ -316,9 +316,9 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a speed.", download) + "\n\n" + 
-							Transl._("Speed must be a number larger than 0."),
-				    Transl._("Invalid download speed."),
+				    Transl._t("\"{0}\" cannot be interpreted as a speed.", download) + "\n\n" + 
+							Transl._t("Speed must be a number larger than 0."),
+				    Transl._t("Invalid download speed."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return SAVE_STATUS.SAVE_FAILED_LOCALLY;
@@ -333,9 +333,9 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a speed.", upload) + "\n\n" + 
-							Transl._("Speed must be a number larger than 0."),
-				    Transl._("Invalid upload speed."),
+				    Transl._t("\"{0}\" cannot be interpreted as a speed.", upload) + "\n\n" + 
+							Transl._t("Speed must be a number larger than 0."),
+				    Transl._t("Invalid upload speed."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return SAVE_STATUS.SAVE_FAILED_LOCALLY;
@@ -350,9 +350,9 @@ public class ConfigurationTab extends TabLogoPanel {
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a percentage.", share) + "\n\n" + 
-							Transl._("Percentage must be a number in the range 0-100."),
-				    Transl._("Invalid share percentage."),
+				    Transl._t("\"{0}\" cannot be interpreted as a percentage.", share) + "\n\n" + 
+							Transl._t("Percentage must be a number in the range 0-100."),
+				    Transl._t("Invalid share percentage."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 		}
@@ -394,10 +394,10 @@ public class ConfigurationTab extends TabLogoPanel {
 				StatusHandler.setStatus(SAVE_STATUS.SAVED_RESTART_NEEDED.toString());
 				int n = JOptionPane.showConfirmDialog(
 					    this,
-					    Transl._("The new settings have been applied,\n" + "" +
+					    Transl._t("The new settings have been applied,\n" + "" +
 					    		"but the I2P router needs to be restarted for some to take effect.\n" + 
 								"\nWould you like to restart the I2P router now?"),
-					    Transl._("Restart needed for new settings."),
+					    Transl._t("Restart needed for new settings."),
 					    JOptionPane.YES_NO_OPTION,
 					    JOptionPane.INFORMATION_MESSAGE);
 				if (n == JOptionPane.YES_OPTION){
@@ -405,11 +405,11 @@ public class ConfigurationTab extends TabLogoPanel {
 						HashMap<ROUTER_MANAGER, String> hm = new HashMap<ROUTER_MANAGER,String>();
 						hm.put(ROUTER_MANAGER.RESTART, null);
 						SetRouterManager.execute(hm);
-						StatusHandler.setStatus(Transl._("Restarting I2P node"));
+						StatusHandler.setStatus(Transl._t("Restarting I2P node"));
 					} catch (InvalidPasswordException e) {
-						StatusHandler.setStatus(Transl._("Restart failed") + ": " + DEFAULT_STATUS.INVALID_PASSWORD);
+						StatusHandler.setStatus(Transl._t("Restart failed") + ": " + DEFAULT_STATUS.INVALID_PASSWORD);
 					} catch (JSONRPC2SessionException e) {
-						StatusHandler.setStatus(Transl._("Restart failed") + ": " + DEFAULT_STATUS.NOT_CONNECTED);
+						StatusHandler.setStatus(Transl._t("Restart failed") + ": " + DEFAULT_STATUS.NOT_CONNECTED);
 					}
 				}
 				break;

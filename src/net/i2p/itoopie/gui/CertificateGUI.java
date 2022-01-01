@@ -27,8 +27,8 @@ public class CertificateGUI {
 		bt.setText("text");
 		frame.add(bt, BorderLayout.NORTH);
 		
-		String title = Transl._("New remote host detected");
-		String hostString = Transl._("Would you like permanently trust the certificate from the remote host {0}?", hostname);
+		String title = Transl._t("New remote host detected");
+		String hostString = Transl._t("Would you like permanently trust the certificate from the remote host {0}?", hostname);
 		
 		String certName = "N/A";
 		String certAlgo = "N/A";
@@ -41,11 +41,11 @@ public class CertificateGUI {
 			certSerial = String.valueOf(cert.getPublicKey().serialVersionUID);
 			certThumb = CertificateHelper.getThumbPrint(cert);
 		}
-		String certInfo = "<html>"+Transl._("Certificate info") + "<br><br>" +
-				Transl._("Name: ") + certName + "<br>" +
-				Transl._("Algorithm: ") + certAlgo + "<br>" +
-				Transl._("Serial: ") + certSerial + "<br>" +
-				Transl._("SHA-1 ID-hash: ") + certThumb;
+		String certInfo = "<html>"+Transl._t("Certificate info") + "<br><br>" +
+				Transl._t("Name: ") + certName + "<br>" +
+				Transl._t("Algorithm: ") + certAlgo + "<br>" +
+				Transl._t("Serial: ") + certSerial + "<br>" +
+				Transl._t("SHA-1 ID-hash: ") + certThumb;
 		
 		String textContent = certInfo + "<br><br>" + hostString;
 		 
@@ -69,9 +69,9 @@ public class CertificateGUI {
 	public static boolean overwriteCert(String hostname, X509Certificate cert){
 		JFrame frame = new JFrame();
 		
-		String title = Transl._("Warning, new remote host detected");
-		String hostString = Transl._("The certificate of {0} has changed!", hostname) + "<br>" +
-				Transl._("Are you sure you want to permanently trust the new certificate from the remote host?");
+		String title = Transl._t("Warning, new remote host detected");
+		String hostString = Transl._t("The certificate of {0} has changed!", hostname) + "<br>" +
+				Transl._t("Are you sure you want to permanently trust the new certificate from the remote host?");
 		
 		String certName = "N/A";
 		String certAlgo = "N/A";
@@ -84,11 +84,11 @@ public class CertificateGUI {
 			certSerial = String.valueOf(cert.getPublicKey().serialVersionUID);
 			certThumb = CertificateHelper.getThumbPrint(cert);
 		}
-		String certInfo = "<html>"+Transl._("Certificate info") + "<br><br>" +
-				Transl._("Name: ") + certName + "<br>" +
-				Transl._("Algorithm: ") + certAlgo + "<br>" +
-				Transl._("Serial: ") + certSerial + "<br>" +
-				Transl._("SHA-1 ID-hash: ") + certThumb;
+		String certInfo = "<html>"+Transl._t("Certificate info") + "<br><br>" +
+				Transl._t("Name: ") + certName + "<br>" +
+				Transl._t("Algorithm: ") + certAlgo + "<br>" +
+				Transl._t("Serial: ") + certSerial + "<br>" +
+				Transl._t("SHA-1 ID-hash: ") + certThumb;
 		
 		String textContent = certInfo + "<br><br>" + hostString;
 		 
@@ -102,8 +102,8 @@ public class CertificateGUI {
 		if (n == JOptionPane.YES_OPTION){
 			n = JOptionPane.showConfirmDialog(
 				    frame,
-				    Transl._("Are you sure that you trust the new certificate?"),
-				    Transl._("Is that your final answer?"),
+				    Transl._t("Are you sure that you trust the new certificate?"),
+				    Transl._t("Is that your final answer?"),
 				    JOptionPane.YES_NO_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			if (n == JOptionPane.YES_OPTION){

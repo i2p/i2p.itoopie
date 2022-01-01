@@ -10,9 +10,9 @@ public class StatusHandler {
 	
 	private interface StatusMessage{ public String getStatusMessage(); };
 	public static enum DEFAULT_STATUS implements StatusMessage {
-		CONNECTED 			{ public String getStatusMessage(){ return Transl._("Connected to I2P router."); }},
-		NOT_CONNECTED	 	{ public String getStatusMessage(){ return Transl._("Unable to connect to I2P router."); }},
-		INVALID_PASSWORD	{ public String getStatusMessage(){ return Transl._("I2P router rejected password."); }}
+		CONNECTED 			{ public String getStatusMessage(){ return Transl._t("Connected to I2P router."); }},
+		NOT_CONNECTED	 	{ public String getStatusMessage(){ return Transl._t("Unable to connect to I2P router."); }},
+		INVALID_PASSWORD	{ public String getStatusMessage(){ return Transl._t("I2P router rejected password."); }}
 	}
 	
 	static{

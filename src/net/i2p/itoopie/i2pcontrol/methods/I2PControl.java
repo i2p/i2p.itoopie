@@ -36,16 +36,16 @@ public class I2PControl{
 	public enum ADDRESSES implements Address {
 		
 		LOCAL { 			public String getAddress(){ return "127.0.0.1";}
-							public String toString(){ return Transl._("local host (127.0.0.1)"); }},
+							public String toString(){ return Transl._t("local host (127.0.0.1)"); }},
 		
 		/*LAN_192_168 {		public String getAddress(){ return "192.168.0.0";}
-							public String toString(){ return Transl._("lan host (192.168.*.*)"); }},
+							public String toString(){ return Transl._t("lan host (192.168.*.*)"); }},
 		
 		LAN_10 {			public String getAddress(){ return "10.0.0.0";}
-							public String toString(){ return Transl._("lan host (10.*.*.*)"); }},
+							public String toString(){ return Transl._t("lan host (10.*.*.*)"); }},
 		*/
 		ANY {				public String getAddress(){ return "0.0.0.0";}
-							public String toString(){ return Transl._("any host (0.0.0.0)"); }}
+							public String toString(){ return Transl._t("any host (0.0.0.0)"); }}
 	};
 		
 	static {

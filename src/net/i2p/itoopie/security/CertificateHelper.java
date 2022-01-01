@@ -75,7 +75,7 @@ public class CertificateHelper {
 		try {
 			return getThumbPrint(convert(cert));
 		} catch (Exception e){
-			return Transl._("Unable to create hash of the given cert, ") + cert;
+			return Transl._t("Unable to create hash of the given cert, ") + cert;
 		}
 	}
 	

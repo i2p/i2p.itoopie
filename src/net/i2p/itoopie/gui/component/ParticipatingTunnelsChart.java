@@ -45,7 +45,7 @@ public class ParticipatingTunnelsChart extends Chart2D {
 	    ITrace2D dataPartTunnels = new Trace2DLtd(  graphInterval/updateInterval  );
 	    dataPartTunnels.setStroke(new BasicStroke(1));
 	    dataPartTunnels.setColor(new Color(255, 0, 0, 255));
-	    dataPartTunnels.setName(Transl._("Number of tunnels we are participating in."));
+	    dataPartTunnels.setName(Transl._t("Number of tunnels we are participating in."));
 	
 	    ITracePainter<?> dotPainter = new TracePainterPolyline();
 	    dataPartTunnels.setTracePainter(dotPainter);
@@ -55,7 +55,7 @@ public class ParticipatingTunnelsChart extends Chart2D {
 	    
 	    getAxisX().setFormatter(new LabelFormatterDate(sdf));
 	    getAxisX().setPaintGrid(true);
-	    getAxisX().setAxisTitle(new AxisTitle(Transl._("Time")));
+	    getAxisX().setAxisTitle(new AxisTitle(Transl._t("Time")));
 	
 	    DecimalFormat df = new DecimalFormat("0 ; 0");
 	    getAxisY().setFormatter(new LabelFormatterNumber(df));

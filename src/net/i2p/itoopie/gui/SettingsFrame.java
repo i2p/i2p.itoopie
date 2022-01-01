@@ -57,11 +57,11 @@ public class SettingsFrame extends RegisteredFrame{
 	};
 	
 	private static enum REMOTE_SAVE_STATUS{
-		SAVE_FAILED_LOCALLY		{ public String toString(){return Transl._("Settings aren't valid, not saving.");} },
-		SAVE_FAILED_REMOTELY	{ public String toString(){return Transl._("I2P router rejected settings.");} },
-		SAVED_OK 				{ public String toString(){return Transl._("Saved settings on I2P router.");} },
-		SAVED_RESTART_NEEDED	{ public String toString(){return Transl._("Saved settings on I2P router. I2P router needs to be restarted.");} },
-		NO_CHANGES				{ public String toString(){return Transl._("No changes found, settings not saved.");} }
+		SAVE_FAILED_LOCALLY		{ public String toString(){return Transl._t("Settings aren't valid, not saving.");} },
+		SAVE_FAILED_REMOTELY	{ public String toString(){return Transl._t("I2P router rejected settings.");} },
+		SAVED_OK 				{ public String toString(){return Transl._t("Saved settings on I2P router.");} },
+		SAVED_RESTART_NEEDED	{ public String toString(){return Transl._t("Saved settings on I2P router. I2P router needs to be restarted.");} },
+		NO_CHANGES				{ public String toString(){return Transl._t("No changes found, settings not saved.");} }
 	};
 	
 
@@ -167,7 +167,7 @@ public class SettingsFrame extends RegisteredFrame{
 		gPanel.add(buttonPanel);
 		
 		
-		JButton btnDone = new JButton(' ' + Transl._("Apply") + ' ');
+		JButton btnDone = new JButton(' ' + Transl._t("Apply") + ' ');
 		buttonPanel.add(btnDone);
 		
 		btnDone.addActionListener(new ActionListener(){
@@ -176,49 +176,49 @@ public class SettingsFrame extends RegisteredFrame{
 				LOCAL_SAVE_STATUS localSettingStatus = saveRemoteHostSettings();
 				if (LOCAL_SAVE_STATUS.SAVE_OK == localSettingStatus){
 
-					StatusHandler.setStatus(Transl._("Settings saved."));
+					StatusHandler.setStatus(Transl._t("Settings saved."));
 				} else if (LOCAL_SAVE_STATUS.SAVE_ERROR == localSettingStatus){
 					populateSettings();
 				} else if (LOCAL_SAVE_STATUS.NO_CHANGES == localSettingStatus){
-					StatusHandler.setStatus(Transl._("Settings not saved, no changes found."));
+					StatusHandler.setStatus(Transl._t("Settings not saved, no changes found."));
 				}
 				
 				REMOTE_SAVE_STATUS newAddressStatus = saveNewAddress();
 				switch (newAddressStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus(Transl._("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._t("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus(Transl._("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._t("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus(Transl._("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._t("New remote address") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
 				REMOTE_SAVE_STATUS newPortStatus = saveNewPort();
 				switch (newPortStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus(Transl._("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._t("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus(Transl._("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._t("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus(Transl._("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._t("New remote port") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
 				REMOTE_SAVE_STATUS newPasswordStatus = saveNewPassword();
 				switch (newPasswordStatus){
 				case SAVED_OK:
-					StatusHandler.setStatus(Transl._("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
+					StatusHandler.setStatus(Transl._t("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVED_OK);
 					break;
 				case SAVE_FAILED_LOCALLY:
-					StatusHandler.setStatus(Transl._("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
+					StatusHandler.setStatus(Transl._t("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY);
 					break;
 				case SAVE_FAILED_REMOTELY:
-					StatusHandler.setStatus(Transl._("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
+					StatusHandler.setStatus(Transl._t("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
 				
@@ -233,7 +233,7 @@ public class SettingsFrame extends RegisteredFrame{
 		});
 		
 		
-		JButton btnClose = new JButton(' ' + Transl._("Discard") + ' ');
+		JButton btnClose = new JButton(' ' + Transl._t("Discard") + ' ');
 		buttonPanel.add(btnClose);
 		btnClose.addActionListener(new ActionListener(){
 			@Override
@@ -250,13 +250,13 @@ public class SettingsFrame extends RegisteredFrame{
 	}
 	
 	private void setupConnectPanel(JPanel networkPanel){
-		JLabel lblI2PControl = new JLabel(Transl._("Connect to I2P node"));
+		JLabel lblI2PControl = new JLabel(Transl._t("Connect to I2P node"));
 		lblI2PControl.setBounds(10, 10, 228, 15);
 		networkPanel.add(lblI2PControl);
 		lblI2PControl.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		
-		JLabel lblRouterIP = new JLabel(Transl._("IP address:"));
+		JLabel lblRouterIP = new JLabel(Transl._t("IP address:"));
 		lblRouterIP.setBounds(138, 30, 100, 15);
 		networkPanel.add(lblRouterIP);
 		lblRouterIP.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -266,7 +266,7 @@ public class SettingsFrame extends RegisteredFrame{
 		networkPanel.add(txtRouterIP);
 		
 		
-		JLabel lblRouterPort = new JLabel(Transl._("Port:"));
+		JLabel lblRouterPort = new JLabel(Transl._t("Port:"));
 		lblRouterPort.setBounds(10, 55, 228, 15);
 		networkPanel.add(lblRouterPort);
 		lblRouterPort.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -276,7 +276,7 @@ public class SettingsFrame extends RegisteredFrame{
 		networkPanel.add(txtRouterPort);
 		
 		
-		JLabel lblRouterPassword = new JLabel(Transl._("Password:"));
+		JLabel lblRouterPassword = new JLabel(Transl._t("Password:"));
 		lblRouterPassword.setBounds(10, 80, 228, 15);
 		networkPanel.add(lblRouterPassword);
 		lblRouterPassword.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -288,13 +288,13 @@ public class SettingsFrame extends RegisteredFrame{
 
 	
 	private void setupChangePanel(JPanel changePanel){
-		JLabel lblChange = new JLabel(Transl._("Change I2PControl"));
+		JLabel lblChange = new JLabel(Transl._t("Change I2PControl"));
 		lblChange.setBounds(10, 10, 228, 15);
 		changePanel.add(lblChange);
 		lblChange.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		
-		JLabel lblAddress = new JLabel(Transl._("Change address:"));
+		JLabel lblAddress = new JLabel(Transl._t("Change address:"));
 		lblAddress.setBounds(10, 30, 228, 15);
 		changePanel.add(lblAddress);
 		lblAddress.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -304,7 +304,7 @@ public class SettingsFrame extends RegisteredFrame{
 		comboAddress.setBounds(240, 30, 170, 19);
 		changePanel.add(comboAddress);
 		
-		JLabel lblPort = new JLabel(Transl._("Change port:"));
+		JLabel lblPort = new JLabel(Transl._t("Change port:"));
 		lblPort.setBounds(10, 60, 228, 15);
 		changePanel.add(lblPort);
 		lblPort.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -314,7 +314,7 @@ public class SettingsFrame extends RegisteredFrame{
 		changePanel.add(txtNewPort);
 		
 		
-		JLabel lblNewPassword = new JLabel(Transl._("New password:"));
+		JLabel lblNewPassword = new JLabel(Transl._t("New password:"));
 		lblNewPassword.setBounds(10, 90, 228, 15);
 		changePanel.add(lblNewPassword);
 		lblNewPassword.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -325,7 +325,7 @@ public class SettingsFrame extends RegisteredFrame{
 		changePanel.add(txtNewPassword);
 		
 		
-		JLabel lblRetypeNewPassword = new JLabel(Transl._("Repeat password:"));
+		JLabel lblRetypeNewPassword = new JLabel(Transl._t("Repeat password:"));
 		lblRetypeNewPassword.setBounds(10, 115, 228, 15);
 		changePanel.add(lblRetypeNewPassword);
 		lblRetypeNewPassword.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -395,9 +395,9 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (UnknownHostException e) {
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as an ip address.", ipText) + "\n\n" + 
-							Transl._("Try entering the ip address of the machine running i2p."),
-				    Transl._("Invalid ip address."),
+				    Transl._t("\"{0}\" cannot be interpreted as an ip address.", ipText) + "\n\n" + 
+							Transl._t("Try entering the ip address of the machine running i2p."),
+				    Transl._t("Invalid ip address."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return LOCAL_SAVE_STATUS.SAVE_ERROR;
@@ -411,9 +411,9 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a port.", portText) + "\n\n" + 
-							Transl._("Port must be a number in the range 1-65535."),
-				    Transl._("Invalid port."),
+				    Transl._t("\"{0}\" cannot be interpreted as a port.", portText) + "\n\n" + 
+							Transl._t("Port must be a number in the range 1-65535."),
+				    Transl._t("Invalid port."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return LOCAL_SAVE_STATUS.SAVE_ERROR;
@@ -428,9 +428,9 @@ public class SettingsFrame extends RegisteredFrame{
 			_conf.setConf("server.password", oldPW);
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The password was not accepted as valid by the specified host.\n" + 
+				    Transl._t("The password was not accepted as valid by the specified host.\n" + 
 							"\n(the default password is \"itoopie\")"),
-				    Transl._("Rejected password."),
+				    Transl._t("Rejected password."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return LOCAL_SAVE_STATUS.SAVE_ERROR;
@@ -440,10 +440,10 @@ public class SettingsFrame extends RegisteredFrame{
 			_conf.setConf("server.password", oldPW);
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The remote host at the ip and port did not respond.\n" + 
+				    Transl._t("The remote host at the ip and port did not respond.\n" + 
 							"\nMaybe I2PControl is not running on the remote I2P router, \n" + 
 				    		"maybe the I2P router is not started."),
-				    Transl._("Connection failed."),
+				    Transl._t("Connection failed."),
 				    JOptionPane.DEFAULT_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return LOCAL_SAVE_STATUS.SAVE_ERROR;
@@ -476,8 +476,8 @@ public class SettingsFrame extends RegisteredFrame{
 		if (!pw.equals(pwRepeat)){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The new password and the repeated new password do not match.") + "\n",
-				    Transl._("Mistyped password."),
+				    Transl._t("The new password and the repeated new password do not match.") + "\n",
+				    Transl._t("Mistyped password."),
 				    JOptionPane.OK_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY;
@@ -486,8 +486,8 @@ public class SettingsFrame extends RegisteredFrame{
 		if (pw.equals(oldPW)){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("The new password is the same as the old password.") + "\n",
-				    Transl._("No new password."),
+				    Transl._t("The new password is the same as the old password.") + "\n",
+				    Transl._t("No new password."),
 				    JOptionPane.OK_CANCEL_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return REMOTE_SAVE_STATUS.NO_CHANGES;
@@ -532,9 +532,9 @@ public class SettingsFrame extends RegisteredFrame{
 		} catch (NumberFormatException e){
 			JOptionPane.showConfirmDialog(
 				    this,
-				    Transl._("\"{0}\" cannot be interpreted as a port.", port) + "\n\n" + 
-							Transl._("Port must be a number in the range 1-65535."),
-				    Transl._("Invalid port."),
+				    Transl._t("\"{0}\" cannot be interpreted as a port.", port) + "\n\n" + 
+							Transl._t("Port must be a number in the range 1-65535."),
+				    Transl._t("Invalid port."),
 				    JOptionPane.OK_CANCEL_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			return REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY;

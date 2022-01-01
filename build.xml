@@ -34,12 +34,14 @@
 		<delete file="itoopie-install.exe.sha512" failonerror="false" />
 	</target>
 
-	<target name="compile" depends="clean,init">
+    <target name="compile" depends="clean,init">
 		<javac 
 			debug="true"
 			deprecation="on"
-			source="1.5"
-			target="1.5"
+               includeAntRuntime="false"
+               encoding="UTF-8"
+			source="1.8"
+			target="1.8"
             srcdir="${src}"
 			destdir="${build}">
             <classpath>
@@ -52,23 +54,29 @@
         <copy todir="${build}/${resources}">
             <fileset dir="${resources}" />
         </copy>
-	</target>
+    </target>
 
-	<target name="jar" depends="compile">
+    <target name="jar" depends="compile">
         <exec executable="sh" osfamily="unix" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
         </exec>
         <exec executable="sh" osfamily="mac" failifexecutionfails="true" >
             <arg value="./bundle-messages.sh" />
         </exec>
+        <javac source="1.8" target="1.8" 
+               includeAntRuntime="false"
+               encoding="UTF-8"
+               srcdir="build/messages-src" destdir="${build}">
+            <compilerarg line="${javac.compilerargs}" />
+        </javac>
 
-		<jar basedir="${build}" destfile="${dist}/${jar}">
+		<jar basedir="${build}" destfile="${dist}/${jar}" excludes="messages-src/**/*">
 			<manifest>
 				<attribute name="Main-Class" value="net.i2p.itoopie.Main"/>
 				<attribute name="Class-Path" value="${lib}/commons-logging-1.1.1.jar ${lib}/json-smart-1.0.6.4.jar ${lib}/jchart2d-3.2.1.jar ${lib}/xmlgraphics-commons-1.3.1.jar" />
 			</manifest>
 		</jar>
-	</target>
+    </target>
 
     <target name="javadoc" description="build javadocs">
         <mkdir dir="${build}" />

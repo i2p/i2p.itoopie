@@ -1,15 +1,38 @@
+This is a simple standalone application that talks to the
+"i2pcontrol" jsonrpc interface on I2P routers.
+
 Current setup:
 * Build itoopie:
+    Dependencies: ant, Java SDK
     'ant' in the i2p.itoopie directory
 * Run:
+    Dependencies: Java runtime and an I2P router that supports the jsonrpc interface
     java -jar dist/itoopie.jar
+
+The router jsonrpc interface is configured by default for https at localhost:7650.
+7650 is the default port for i2pd and the old Java router console "i2pcontrol" plugin.
+
+For i2pd, the jsonrpc interface is off by default.
+You must set i2pcontrol.enabled=true in i2pd.conf.
+See https://i2pd.readthedocs.io/en/latest/user-guide/configuration/#i2pcontrol-interface
+for more information and other options.
+
+The Java router console now bundles the jsonrpc interface by default
+as a webapp on port 7657, and the i2pcontrol plugin is no longer necessary.
+You may disable or remove the plugin at http://localhost:7657/configplugins
+The jsonrpc webapp is off by default.
+To start it, go to http://localhost:7657/configwebapps and start the
+"jsonrpc" webapp. To always run it, click the "Run at Startup" setting
+and click "Save WebApp Configuration".
+You MUST change itoopie's "I2P Node port" to 7657 to connect to the jsonrpc webapp.
+itoopie will automatically use http for port 7657.
 
 
 Version 1 API specification:
 http://i2p-projekt.i2p/en/docs/api/i2pcontrol
 https://geti2p.net/en/docs/api/i2pcontrol
 
-Version 2 API proposal:
+Version 2 API proposal (abandoned):
 http://i2p-projekt.i2p/spec/proposals/118-i2pcontrol-api-2
 https://geti2p.net/spec/proposals/118-i2pcontrol-api-2
 
@@ -19,11 +42,11 @@ Clearnet installer: https://github.com/robertfoss/itoopie.net/raw/master/files/i
 Clearnet SHA512: https://raw.githubusercontent.com/robertfoss/itoopie.net/master/files/itoopie-install.exe.sha512
 I2P installer: http://stats.i2p/i2p/plugins/others/itoopie-install.exe
 I2P SHA512: http://stats.i2p/i2p/plugins/others/itoopie-install.exe.sha512
-Source: i2p.itoopie branch in monotone, or https://github.com/i2p/i2p.itoopie
+Source: i2p.itoopie branch in git: https://github.com/i2p/i2p.itoopie
 java -jar itoopie-install.exe to install on non-Windows.
 
 
-Server source: i2p.itoopie branch in monotone, or https://github.com/i2p/i2p.plugins.i2pcontrol
+Server source: i2p.itoopie branch in git, or https://github.com/i2p/i2p.plugins.i2pcontrol
 
 
 Command line test client:
@@ -40,7 +63,8 @@ Report on above forum, or http://trac.i2p2.i2p/ or https://trac.i2p2.de/
 License: Apache 2
 
 Thanks to
-- KillYourTV for debugging and helping out with platform testing as well as fixing the shortcuts of the installer.
+- KillYourTV for debugging and helping out with platform testing
+  as well as fixing the shortcuts of the installer.
 - User for tons of testing and a lot of good ideas and requests.
 - ReturningNovice for testing and finding bugs.
 - zzz for helping out with broad knowledge of I2P, build process and Jetty.

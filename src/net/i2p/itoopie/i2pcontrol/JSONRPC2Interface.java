@@ -47,11 +47,13 @@ public class JSONRPC2Interface {
 		String srvHost = _conf.getConf("server.hostname", "localhost");
 		int srvPort = _conf.getConf("server.port", 7650);
 		String srvTarget = _conf.getConf("server.target", "jsonrpc");
+                // Use HTTP for the xmlrpc webapp in the HTTP router console
+		String method = srvPort == 7657 ? "http" : "https";
 		try {
-			srvURL = new URL("https://" + srvHost + ":" + srvPort + "/"
+			srvURL = new URL(method + "://" + srvHost + ":" + srvPort + "/"
 					+ srvTarget);
 		} catch (MalformedURLException e) {
-			_log.error("Bad URL: https://" + srvHost + ":" + srvPort + "/"
+			_log.error("Bad URL: " + method + "://" + srvHost + ":" + srvPort + "/"
 					+ srvTarget, e);
 		}
 		session = new JSONRPC2Session(srvURL);
@@ -83,8 +85,8 @@ public class JSONRPC2Interface {
 		JSONRPC2Response resp = null;
 		try {
 			resp = session.send(req);
-			System.out.println("Request: " + req.toString());
-			System.out.println("Response: " + resp.toString());
+			//System.out.println("Request: " + req.toString());
+			//System.out.println("Response: " + resp.toString());
 			JSONRPC2Error err = resp.getError();
 			if (err != null) {
 				switch (err.getCode()) {

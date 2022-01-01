@@ -47,8 +47,18 @@ public class JSONRPC2Interface {
 		String srvHost = _conf.getConf("server.hostname", "localhost");
 		int srvPort = _conf.getConf("server.port", 7650);
 		String srvTarget = _conf.getConf("server.target", "jsonrpc");
-                // Use HTTP for the xmlrpc webapp in the HTTP router console
-		String method = srvPort == 7657 ? "http" : "https";
+		String method;
+		if (srvPort == 7657) {
+			// Use HTTP for the xmlrpc webapp in the HTTP router console
+			method = "http";
+			// target MUST contain a /, or else console will redirect
+			// jsonrpc to jsonrpc/ which will be fetched as a GET
+			// and will return the HTML password form.
+			if (!srvTarget.contains("/"))
+				srvTarget += "/";
+		} else {
+			method = "https";
+		}
 		try {
 			srvURL = new URL(method + "://" + srvHost + ":" + srvPort + "/"
 					+ srvTarget);

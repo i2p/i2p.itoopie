@@ -26,6 +26,8 @@ To start it, go to http://localhost:7657/configwebapps and start the
 and click "Save WebApp Configuration".
 You MUST change itoopie's "I2P Node port" to 7657 to connect to the jsonrpc webapp.
 itoopie will automatically use http for port 7657.
+If the console is on another port, it is assumed to be HTTPS, and you
+must add "server.target=jsonrpc/" to the config file ~/.itoopie/itoopie.conf
 
 
 Version 1 API specification:

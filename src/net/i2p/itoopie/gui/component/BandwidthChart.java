@@ -31,8 +31,8 @@ import net.i2p.itoopie.i18n.Transl;
 public class BandwidthChart extends Chart2D{
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
 	private final static int DEFAULT_UPDATE_INTERVAL = 10000; // Update every 2500th ms
-	private final static int DEFAULT_GRAPH_INTERVAL = 2*3600*1000; // The graph will cover a maximum of 2hrs
-	private final static String DATE_FORMAT = "HH:mm:ss";
+	private final static int DEFAULT_GRAPH_INTERVAL = 3600*1000; // The graph will cover a maximum of this time
+	private final static String DATE_FORMAT = "HH:mm";
 	private ObjRecorder2Trace2DAdapter bwInAdapter;
 	private ObjRecorder2Trace2DAdapter bwOutAdapter;
 	private InboundBandwidthTracker bwInTracker;

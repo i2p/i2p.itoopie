@@ -138,11 +138,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		txtDownload = new JTextField();
 		bwPanel.add(txtDownload);
-		txtDownload.setBounds(130, 35, 55, 20);
+		txtDownload.setBounds(130, 35, 80, 20);
+		txtDownload.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		lblDownloadUnit = new JLabel();
 		bwPanel.add(lblDownloadUnit);
-		lblDownloadUnit.setBounds(190, 37, 35, 15);
+		lblDownloadUnit.setBounds(215, 37, 35, 15);
 		lblDownloadUnit.setText(Transl._t("KB/s"));
 		
 		lblUpload = new JLabel();
@@ -152,11 +153,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		txtUpload = new JTextField();
 		bwPanel.add(txtUpload);
-		txtUpload.setBounds(130, 60, 55, 20);
+		txtUpload.setBounds(130, 60, 80, 20);
+		txtUpload.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		lblUploadUnit = new JLabel();
 		bwPanel.add(lblUploadUnit);
-		lblUploadUnit.setBounds(190, 62, 35, 15);
+		lblUploadUnit.setBounds(215, 62, 35, 15);
 		lblUploadUnit.setText(Transl._t("KB/s"));
 		
 		lblShare = new JLabel();
@@ -166,11 +168,12 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		txtShare = new JTextField();
 		bwPanel.add(txtShare);
-		txtShare.setBounds(130, 85, 55, 20);
+		txtShare.setBounds(130, 85, 80, 20);
+		txtShare.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		lblShareUnit = new JLabel();
 		bwPanel.add(lblShareUnit);
-		lblShareUnit.setBounds(190, 87, 35, 15);
+		lblShareUnit.setBounds(215, 87, 35, 15);
 		lblShareUnit.setText("%");
 	}
 	
@@ -190,8 +193,9 @@ public class ConfigurationTab extends TabLogoPanel {
 
 		txtTCPPort = new JTextField();
 		networkPanel.add(txtTCPPort);
-		txtTCPPort.setBounds(130, 35, 55, 20);
+		txtTCPPort.setBounds(130, 35, 80, 20);
 		txtTCPPort.setColumns(5);
+		txtTCPPort.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		lblUDPPort = new JLabel();
 		networkPanel.add(lblUDPPort);
@@ -200,7 +204,8 @@ public class ConfigurationTab extends TabLogoPanel {
 
 		txtUDPPort = new JTextField();
 		networkPanel.add(txtUDPPort);
-		txtUDPPort.setBounds(130, 60, 55, 20);
+		txtUDPPort.setBounds(130, 60, 80, 20);
+		txtUDPPort.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		
 		lblUPNP = new JLabel();

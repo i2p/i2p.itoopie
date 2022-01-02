@@ -272,7 +272,7 @@ public class SettingsFrame extends RegisteredFrame{
 		lblRouterPort.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtRouterPort = new JTextField();
-		txtRouterPort.setBounds(240, 55, 45, 19);
+		txtRouterPort.setBounds(240, 55, 90, 19);
 		networkPanel.add(txtRouterPort);
 		
 		
@@ -310,7 +310,8 @@ public class SettingsFrame extends RegisteredFrame{
 		lblPort.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtNewPort = new JTextField();
-		txtNewPort.setBounds(240, 60, 45, 19);
+		txtNewPort.setBounds(240, 60, 90, 19);
+		txtNewPort.setHorizontalAlignment(SwingConstants.RIGHT);
 		changePanel.add(txtNewPort);
 		
 		

@@ -48,7 +48,10 @@ Source: i2p.itoopie branch in git: https://github.com/i2p/i2p.itoopie
 java -jar itoopie-install.exe to install on non-Windows.
 
 
-Server source: i2p.itoopie branch in git, or https://github.com/i2p/i2p.plugins.i2pcontrol
+Server source:
+Plugin (obsolete) https://github.com/i2p/i2p.plugins.i2pcontrol
+Console bundled webapp: https://github.com/i2p/i2p.i2p/tree/master/apps/i2pcontrol
+i2pd: https://github.com/PurpleI2P/i2pd/tree/openssl/daemon
 
 
 Command line test client:

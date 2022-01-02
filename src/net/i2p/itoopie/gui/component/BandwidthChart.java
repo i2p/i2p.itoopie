@@ -16,6 +16,7 @@ import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
@@ -32,7 +33,6 @@ public class BandwidthChart extends Chart2D{
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
 	private final static int DEFAULT_UPDATE_INTERVAL = 10000; // Update every 2500th ms
 	private final static int DEFAULT_GRAPH_INTERVAL = 3600*1000; // The graph will cover a maximum of this time
-	private final static String DATE_FORMAT = "HH:mm";
 	private ObjRecorder2Trace2DAdapter bwInAdapter;
 	private ObjRecorder2Trace2DAdapter bwOutAdapter;
 	private InboundBandwidthTracker bwInTracker;
@@ -63,11 +63,17 @@ public class BandwidthChart extends Chart2D{
 	    dataBWOut.setTracePainter(dotPainter);
 	    addTrace(dataBWOut);
 	    
-	    final SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+	    final SimpleDateFormat sdf = (SimpleDateFormat) DateFormat.getTimeInstance(DateFormat.SHORT);
+	    String pattern = sdf.toLocalizedPattern();
+	    if (pattern.endsWith(" a")) {
+		// no room for AM/PM
+		sdf.applyLocalizedPattern(pattern.substring(0, pattern.length() - 2));
+	    }
 	    
 	    getAxisX().setFormatter(new LabelFormatterDate(sdf));
 	    getAxisX().setPaintGrid(true);
-	    getAxisX().setAxisTitle(new AxisTitle(Transl._t("Time")));
+	    //getAxisX().setAxisTitle(new AxisTitle(Transl._t("Time")));
+	    getAxisX().setAxisTitle(new AxisTitle(""));
 	
 	    DecimalFormat df = new DecimalFormat("0 ; 0");
 	    getAxisY().setFormatter(new LabelFormatterNumber(df));

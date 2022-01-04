@@ -80,11 +80,13 @@ public class SettingsFrame extends TabLogoPanel {
 	private JTextField txtRouterPort;
 	private JPasswordField passwordField;
 	// ChangePanel
+/*
 	private JComboBox comboAddress;
 	private int currentComboAddressOption = 0;
 	private JTextField txtNewPort;
 	private JPasswordField txtNewPassword;
 	private JPasswordField txtRetypeNewPassword;
+*/
 	
 	private ConfigurationManager _conf;
 
@@ -147,6 +149,7 @@ public class SettingsFrame extends TabLogoPanel {
 					StatusHandler.setStatus(Transl._t("Settings not saved, no changes found."));
 				}
 				
+/*
 				REMOTE_SAVE_STATUS newAddressStatus = saveNewAddress();
 				switch (newAddressStatus){
 				case SAVED_OK:
@@ -185,11 +188,16 @@ public class SettingsFrame extends TabLogoPanel {
 					StatusHandler.setStatus(Transl._t("New remote password") + ": " + REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY);
 					break;
 				}
+*/
 				
-				if (localSettingStatus != LOCAL_SAVE_STATUS.SAVE_ERROR &&
+				if (localSettingStatus != LOCAL_SAVE_STATUS.SAVE_ERROR
+/*
+				    &&
 						newPortStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newPortStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY &&
 						newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY &&
-						newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY){
+						newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY
+*/
+				    ) {
 					Main.fireNewChange();
 				}
 			}
@@ -304,6 +312,7 @@ public class SettingsFrame extends TabLogoPanel {
 
 		this.getRootPane().repaint(); // Repainting jlabel or jpanel is not enough.
 		
+/*
 		(new Thread(){
 			@Override
 			public void run(){
@@ -329,6 +338,7 @@ public class SettingsFrame extends TabLogoPanel {
 				
 			}
 		}).start();
+*/
 	}
 	
 	@SuppressWarnings("static-access")
@@ -420,6 +430,7 @@ public class SettingsFrame extends TabLogoPanel {
 		return LOCAL_SAVE_STATUS.SAVE_OK;
 	}
 	
+/*
 	private REMOTE_SAVE_STATUS saveNewPassword(){
 		String oldPW = _conf.getConf("server.password", "itoopie");
 		String pw = new String(txtNewPassword.getPassword());
@@ -536,4 +547,5 @@ public class SettingsFrame extends TabLogoPanel {
 			return REMOTE_SAVE_STATUS.NO_CHANGES;
 		}
 	}
+*/
 }

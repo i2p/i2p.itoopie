@@ -5,6 +5,10 @@
  * Layout fixes and adjustments
  * Graph adjustments
  * Localize time format on graphs
+ * Move Settings from a popup frame to a new tab
+ * Remove "Change I2PControl" part of Settings
+ * Rename Configuration tab to "I2P Control"
+ * Remove "Settings read from I2P router" message
  * Update to jchart2d 3.2.2 2011-09-25
  * Remove debug output
  * README updates

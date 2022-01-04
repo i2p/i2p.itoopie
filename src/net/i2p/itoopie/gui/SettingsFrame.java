@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
@@ -25,13 +24,14 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
 
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.StatusHandler.DEFAULT_STATUS;
 import net.i2p.itoopie.gui.component.GradientPanel;
-import net.i2p.itoopie.gui.component.RegisteredFrame;
+import net.i2p.itoopie.gui.component.TabLogoPanel;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
@@ -48,7 +48,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 
-public class SettingsFrame extends RegisteredFrame{
+/**
+ *
+ * As of 0.0.4, this is a tab, not a popup frame.
+ *
+ */
+public class SettingsFrame extends TabLogoPanel {
 	
 	private enum LOCAL_SAVE_STATUS {
 		SAVE_OK,
@@ -83,93 +88,52 @@ public class SettingsFrame extends RegisteredFrame{
 	
 	private ConfigurationManager _conf;
 
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SettingsFrame window = new SettingsFrame();
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the application.
 	 */
-	private SettingsFrame() {
+	public SettingsFrame(String imageName) {
+		super(imageName);
+		setLayout(null);
 		_conf = ConfigurationManager.getInstance();
-		GUIHelper.setDefaultStyle();
 		initialize();
 	}
 	
-	/**
-	 * Dispose the JFrame and mark it as startable
-	 */
 	@Override
-	public void dispose(){
-		super.dispose();
-		instanceShown = false;
+	public void onTabFocus(ChangeEvent e) {
+		populateSettings();
 	}
-	
-	/**
-	 * Start settings windows if not already started.
-	 */
-	public static void start(){
-		if (!instanceShown)
-			(new SettingsFrame()).setVisible(true);
-	}
-	
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		GUIHelper.setDefaultStyle();
-		
-		setTitle("itoopie Settings");
-		setBounds(0, 0, 450, 310);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setResizable(false);
-		//getContentPane().setLayout(null);
-		GradientPanel gPanel = new GradientPanel(null);
-		getContentPane().add(gPanel);
-		
 		JPanel connectPanel = new JPanel();
 		connectPanel.setOpaque(false);
 		connectPanel.setLayout(null);
 		connectPanel.setBounds(0, 0, 426, 99);
-		gPanel.add(connectPanel);
+		add(connectPanel);
 		setupConnectPanel(connectPanel);
 		
 
+/*
+  This is confusing and probably isn't supported on the i2pcontrol side,
+  certainly not with the webapp.
+
 		JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
 		separator.setBounds((96)/2, 108, (getWidth()-96), 2);
-		gPanel.add(separator);
+		add(separator);
 		
 		JPanel newChangePanel = new JPanel();
 		newChangePanel.setLayout(null);
 		newChangePanel.setOpaque(false);
 		newChangePanel.setBounds(0, 110, 426, 135);
-		gPanel.add(newChangePanel);
+		add(newChangePanel);
 		setupChangePanel(newChangePanel);
+*/
 		
-		
-		
-		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		buttonPanel.setBounds(0, getHeight()-60, getWidth()-10, 35);
-		buttonPanel.setOpaque(false);
-		gPanel.add(buttonPanel);
-		
-		
-		JButton btnDone = new JButton(' ' + Transl._t("Apply") + ' ');
-		buttonPanel.add(btnDone);
-		
+		JButton btnDone = new JButton(Transl._t("Apply"));
+		add(btnDone);
+		btnDone.setBounds(442, 269, 82, 24);
 		btnDone.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -227,24 +191,9 @@ public class SettingsFrame extends RegisteredFrame{
 						newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newPasswordStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY &&
 						newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY){
 					Main.fireNewChange();
-					dispose();
 				}
 			}
 		});
-		
-		
-		JButton btnClose = new JButton(' ' + Transl._t("Discard") + ' ');
-		buttonPanel.add(btnClose);
-		btnClose.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-			}
-		});
-		
-		
-		// Run on init.
-		populateSettings();
 		
 		validate();
 	}
@@ -287,6 +236,9 @@ public class SettingsFrame extends RegisteredFrame{
 	}
 
 	
+/*
+  See comments above
+
 	private void setupChangePanel(JPanel changePanel){
 		JLabel lblChange = new JLabel(Transl._t("Change I2PControl"));
 		lblChange.setBounds(10, 10, 228, 15);
@@ -343,11 +295,14 @@ public class SettingsFrame extends RegisteredFrame{
 		}
 		comboBox.setSelectedIndex(0);
 	}
+*/
 
 	private void populateSettings(){
 		txtRouterIP.setText(_conf.getConf("server.hostname", "127.0.0.1"));
 		txtRouterPort.setText(_conf.getConf("server.port", 7650)+"");
 		passwordField.setText(_conf.getConf("server.password", "itoopie"));
+
+		this.getRootPane().repaint(); // Repainting jlabel or jpanel is not enough.
 		
 		(new Thread(){
 			@Override

@@ -87,8 +87,13 @@ public class Main {
 		
 		
 		TabLogoPanel configTab = new ConfigurationTab("itoopie-opaque12");
-		tabbedPane.addTab(Transl._t("Configuration"), null, configTab, null);
+		tabbedPane.addTab(Transl._t("I2P Control"), null, configTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(configTab));
+		
+
+		TabLogoPanel settingsTab = new SettingsFrame("itoopie-opaque12");
+		tabbedPane.addTab(Transl._t("Settings"), null, settingsTab, null);
+		tabbedPane.addChangeListener(new TabChangeListener(settingsTab));
 		
 		
 		TabLogoPanel aboutTab = new AboutTab("itoopie-opaque12");
@@ -111,16 +116,6 @@ public class Main {
 		flowLayout.setVgap(0);
 		statusPanel.add(buttonWrapper, BorderLayout.EAST);
 		buttonWrapper.setOpaque(false);
-		
-		JButton settingsBtn = new JButton(Transl._t("Settings"));
-		buttonWrapper.add(settingsBtn);
-		settingsBtn.setIcon(new ImageIcon(IconLoader.getIcon("cogwheel", 16)));
-		settingsBtn.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				SettingsFrame.start();
-			}
-		});
 		
 		frame.validate();
 		frame.repaint(); // Force repaint to make sure that Logo is loaded.

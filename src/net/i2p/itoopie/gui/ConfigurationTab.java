@@ -43,7 +43,7 @@ import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 
 // The width of this panel (on ubuntu) will be the width of the main menu -24px.
 public class ConfigurationTab extends TabLogoPanel {
-	private final static String SETTINGS_READ = Transl._t("Settings read from I2P router.");
+	//private final static String SETTINGS_READ = Transl._t("Settings read from I2P router.");
 	private static enum SAVE_STATUS{
 		SAVE_FAILED_LOCALLY		{ public String toString(){return Transl._t("Settings aren't valid, not saving.");} },
 		SAVE_FAILED_REMOTELY	{ public String toString(){return Transl._t("I2P router rejected settings.");} },
@@ -234,7 +234,7 @@ public class ConfigurationTab extends TabLogoPanel {
 					txtDownload.setText((String) em.get(NETWORK_SETTING.BW_IN));
 					txtUpload.setText((String) em.get(NETWORK_SETTING.BW_OUT));
 					txtShare.setText((String) em.get(NETWORK_SETTING.BW_SHARE));
-					StatusHandler.setStatus(SETTINGS_READ);
+					//StatusHandler.setStatus(SETTINGS_READ);
 					
 				} catch (InvalidPasswordException e) {
 					StatusHandler.setDefaultStatus(DEFAULT_STATUS.INVALID_PASSWORD);

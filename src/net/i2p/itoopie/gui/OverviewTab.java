@@ -38,7 +38,7 @@ public class OverviewTab extends TabLogoPanel {
 	JLabel lblVersion;
 	JLabel lblVersionSpecified;
 	JLabel lblStatus;
-	JLabel lblStatusSpecified;
+	MultiLineLabel lblStatusSpecified;
 	JLabel lblUptime;
 	JLabel lblUptimeSpecified;
 	JLabel lblNetworkStatus;
@@ -96,25 +96,26 @@ public class OverviewTab extends TabLogoPanel {
 		
 		lblStatus = new JLabel();
 		add(lblStatus);
-		lblStatus.setBounds(290, 90, 100, 15);
+		lblStatus.setBounds(290, 140, 100, 15);
 		lblStatus.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblStatus.setText(Transl._t("Status:"));
 
-		lblStatusSpecified = new JLabel();
+		lblStatusSpecified = new MultiLineLabel();
 		add(lblStatusSpecified);
-		lblStatusSpecified.setBounds(400, 90, 140, 15);
+		lblStatusSpecified.setBounds(400, 140, 140, 30);
 		lblStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
+		lblStatusSpecified.setVerticalTextAlignment(JLabel.TOP);
 //		lblStatusSpecified.setText("Rejecting Tunnels"); // Delete Me
 
 		lblNetworkStatus = new JLabel();
 		add(lblNetworkStatus);
-		lblNetworkStatus.setBounds(290, 110, 100, 15);
+		lblNetworkStatus.setBounds(290, 105, 100, 15);
 		lblNetworkStatus.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNetworkStatus.setText(Transl._t("Net Status:"));
 
 		lblNetworkStatusSpecified = new MultiLineLabel();
 		add(lblNetworkStatusSpecified);
-		lblNetworkStatusSpecified.setBounds(400, 110, 130, 60);
+		lblNetworkStatusSpecified.setBounds(400, 105, 130, 30);
 		lblNetworkStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNetworkStatusSpecified.setVerticalTextAlignment(JLabel.TOP);
 //		lblNetworkStatusSpecified.setText("WARN-Firewalled with Inbound TCP Enabled".replace('-', ' ')); // Delete Me

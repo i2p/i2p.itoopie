@@ -87,17 +87,19 @@ public class Main {
 		
 		
 		TabLogoPanel configTab = new ConfigurationTab("itoopie-opaque12");
-		tabbedPane.addTab(Transl._t("I2P Control"), null, configTab, null);
+                ImageIcon icon = new ImageIcon(IconLoader.getIcon("cogwheel", 16));
+		tabbedPane.addTab(Transl._t("I2P Control") + ' ', icon, configTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(configTab));
 		
 
 		TabLogoPanel settingsTab = new SettingsFrame("itoopie-opaque12");
-		tabbedPane.addTab(Transl._t("Settings"), null, settingsTab, null);
+		tabbedPane.addTab(Transl._t("Settings") + ' ', icon, settingsTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(settingsTab));
 		
 		
 		TabLogoPanel aboutTab = new AboutTab("itoopie-opaque12");
-		tabbedPane.addTab(Transl._t("About"), null, aboutTab, null);
+                icon = new ImageIcon(IconLoader.getIcon("itoopie-gray-opaque", 16));
+		tabbedPane.addTab(Transl._t("About") + ' ', icon, aboutTab, null);
 
 		
 		JPanel statusPanel = new JPanel();

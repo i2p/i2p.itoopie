@@ -54,7 +54,9 @@ public class ParticipatingTunnelsTracker extends Thread {
 			Long nbr = (Long) em.get(ROUTER_INFO.TUNNELS_PARTICIPATING);
 			m_value = nbr.doubleValue();
 		} catch (InvalidPasswordException e) {
+			m_value = 0;
 		} catch (JSONRPC2SessionException e) {
+			m_value = 0;
 		}
 	}
 }

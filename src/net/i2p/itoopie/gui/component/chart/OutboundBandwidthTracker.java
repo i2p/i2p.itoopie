@@ -55,7 +55,9 @@ public class OutboundBandwidthTracker extends Thread {
 			double dbl = (Double) em.get(ROUTER_INFO.BW_OUTBOUND_1S);
 			m_value = dbl / 1024; //Bytes -> KBytes
 		} catch (InvalidPasswordException e) {
+			m_value = 0;
 		} catch (JSONRPC2SessionException e) {
+			m_value = 0;
 		}
 	}
 }

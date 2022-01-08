@@ -227,13 +227,14 @@ public class ConfigurationTab extends TabLogoPanel {
 					EnumMap<NETWORK_SETTING, Object> em = GetNetworkSetting.execute(NETWORK_SETTING.TCP_PORT, NETWORK_SETTING.UDP_PORT, 
 							NETWORK_SETTING.UPNP, NETWORK_SETTING.BW_IN, NETWORK_SETTING.BW_OUT, NETWORK_SETTING.BW_SHARE);
 					
-					txtTCPPort.setText((String) em.get(NETWORK_SETTING.TCP_PORT));
-					txtUDPPort.setText((String) em.get(NETWORK_SETTING.UDP_PORT));
+					// i2pd may send these as numbers
+					txtTCPPort.setText(ConfigurationTab.toString(em.get(NETWORK_SETTING.TCP_PORT)));
+					txtUDPPort.setText(ConfigurationTab.toString(em.get(NETWORK_SETTING.UDP_PORT)));
 					boolean upnpValue = Boolean.parseBoolean((String) em.get(NETWORK_SETTING.UPNP));
 					chkbxUPNP.setSelected(upnpValue);
-					txtDownload.setText((String) em.get(NETWORK_SETTING.BW_IN));
-					txtUpload.setText((String) em.get(NETWORK_SETTING.BW_OUT));
-					txtShare.setText((String) em.get(NETWORK_SETTING.BW_SHARE));
+					txtDownload.setText(ConfigurationTab.toString(em.get(NETWORK_SETTING.BW_IN)));
+					txtUpload.setText(ConfigurationTab.toString(em.get(NETWORK_SETTING.BW_OUT)));
+					txtShare.setText(ConfigurationTab.toString(em.get(NETWORK_SETTING.BW_SHARE)));
 					//StatusHandler.setStatus(SETTINGS_READ);
 					
 				} catch (InvalidPasswordException e) {
@@ -243,6 +244,16 @@ public class ConfigurationTab extends TabLogoPanel {
 				}
 			}
 		});
+	}
+
+	/**
+	 * Convert numbers to Strings for i2pd
+	 * @since 0.0.4
+	 */
+	private static String toString(Object o) {
+		if (o == null)
+			return null;
+		return o.toString();
 	}
 
 	/**

@@ -145,7 +145,8 @@ public class OverviewTab extends TabLogoPanel {
 			
 			
 			lblVersionSpecified.setText((String) em.get(ROUTER_INFO.VERSION));
-			lblUptimeSpecified.setText(DataHelper.formatDuration((Long) em.get(ROUTER_INFO.UPTIME)));
+			// i2pd sends as String
+			lblUptimeSpecified.setText(DataHelper.formatDuration(toLong(em.get(ROUTER_INFO.UPTIME))));
 			lblStatusSpecified.setText((String) em.get(ROUTER_INFO.STATUS));
 			Long netStatus = (Long) em.get(ROUTER_INFO.NETWORK_STATUS);
 			Integer intNetStatus = netStatus.intValue();
@@ -165,6 +166,22 @@ public class OverviewTab extends TabLogoPanel {
 		}
 	}
 	
+	/**
+	 * Convert String to long for i2pd
+	 * @since 0.0.4
+	 */
+	private static long toLong(Object o) {
+		if (o == null)
+			return 0;
+		if (o instanceof Number)
+			return ((Number) o).longValue();
+		if (o instanceof String) {
+			try {
+				return Long.parseLong((String) o);
+			} catch (NumberFormatException nfe) {}
+		}
+		return 0;
+	}
 
 	@Override
 	public void onTabFocus(ChangeEvent e) {

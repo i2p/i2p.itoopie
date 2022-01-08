@@ -135,7 +135,7 @@ public class SettingsFrame extends TabLogoPanel {
 		
 		JButton btnDone = new JButton(Transl._t("Apply"));
 		add(btnDone);
-		btnDone.setBounds(442, 269, 82, 24);
+		btnDone.setBounds(412, 269, 122, 24);
 		btnDone.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

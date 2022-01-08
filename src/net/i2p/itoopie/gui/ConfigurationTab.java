@@ -31,6 +31,7 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 import net.i2p.itoopie.gui.StatusHandler.DEFAULT_STATUS;
 import net.i2p.itoopie.gui.component.LogoPanel;
+import net.i2p.itoopie.gui.component.MultiLineLabel;
 import net.i2p.itoopie.gui.component.TabLogoPanel;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
@@ -68,7 +69,7 @@ public class ConfigurationTab extends TabLogoPanel {
 	private JLabel lblUpload;
 	private JTextField txtUpload;
 	private JLabel lblUploadUnit;
-	private JLabel lblShare;
+	private MultiLineLabel lblShare;
 	private JTextField txtShare;
 	private JLabel lblShareUnit;
 	
@@ -82,20 +83,20 @@ public class ConfigurationTab extends TabLogoPanel {
 		add(networkPanel);
 		networkPanel.setLayout(null);
 		networkPanel.setOpaque(false);
-		networkPanel.setBounds(0, 110, 262, 115);
+		networkPanel.setBounds(0, 140, 262, 115);
 		setupNetworkPanel(networkPanel);
 		
 		JPanel bwPanel = new JPanel();
 		add(bwPanel);
 		bwPanel.setLayout(null);
 		bwPanel.setOpaque(false);
-		bwPanel.setBounds(0, 5, 262, 105);
+		bwPanel.setBounds(0, 5, 262, 135);
 		setupBandwidthPanel(bwPanel);
 
 		
 		final JButton btnApply = new JButton(Transl._t("Apply"));
 		add(btnApply);
-		btnApply.setBounds(442, 269, 82, 24);
+		btnApply.setBounds(412, 269, 122, 24);
 		btnApply.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -133,7 +134,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		lblDownload = new JLabel();
 		bwPanel.add(lblDownload);
-		lblDownload.setBounds(40, 35, 100, 15);
+		lblDownload.setBounds(20, 35, 100, 15);
 		lblDownload.setText(Transl._t("Download:"));
 		
 		txtDownload = new JTextField();
@@ -148,7 +149,7 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		lblUpload = new JLabel();
 		bwPanel.add(lblUpload);
-		lblUpload.setBounds(40, 60, 100, 15);
+		lblUpload.setBounds(20, 60, 100, 15);
 		lblUpload.setText(Transl._t("Upload:"));
 		
 		txtUpload = new JTextField();
@@ -161,9 +162,11 @@ public class ConfigurationTab extends TabLogoPanel {
 		lblUploadUnit.setBounds(215, 62, 35, 15);
 		lblUploadUnit.setText(Transl._t("KB/s"));
 		
-		lblShare = new JLabel();
+		lblShare = new MultiLineLabel();
 		bwPanel.add(lblShare);
-		lblShare.setBounds(40, 85, 100, 15);
+		lblShare.setBounds(20, 85, 100, 50);
+		lblShare.setVerticalAlignment(SwingConstants.TOP);
+		lblShare.setVerticalTextAlignment(JLabel.TOP);
 		lblShare.setText(Transl._t("Share:"));
 		
 		txtShare = new JTextField();
@@ -183,12 +186,12 @@ public class ConfigurationTab extends TabLogoPanel {
 	private void setupNetworkPanel(JPanel networkPanel){
 		lblNetwork = new JLabel();
 		networkPanel.add(lblNetwork);
-		lblNetwork.setBounds(10, 10, 75, 15);
+		lblNetwork.setBounds(10, 10, 90, 15);
 		lblNetwork.setText(Transl._t("Network:"));
 
 		lblTCPPort = new JLabel();
 		networkPanel.add(lblTCPPort);
-		lblTCPPort.setBounds(40, 35, 75, 15);
+		lblTCPPort.setBounds(20, 35, 90, 15);
 		lblTCPPort.setText(Transl._t("TCP port:"));
 
 		txtTCPPort = new JTextField();
@@ -199,7 +202,7 @@ public class ConfigurationTab extends TabLogoPanel {
 
 		lblUDPPort = new JLabel();
 		networkPanel.add(lblUDPPort);
-		lblUDPPort.setBounds(40, 60, 75, 15);
+		lblUDPPort.setBounds(20, 60, 90, 15);
 		lblUDPPort.setText(Transl._t("UDP port:"));
 
 		txtUDPPort = new JTextField();
@@ -210,13 +213,13 @@ public class ConfigurationTab extends TabLogoPanel {
 		
 		lblUPNP = new JLabel();
 		networkPanel.add(lblUPNP);
-		lblUPNP.setBounds(40, 85, 75, 15);
+		lblUPNP.setBounds(20, 85, 90, 15);
 		lblUPNP.setText(Transl._t("UPNP:"));
 		
 		chkbxUPNP = new JCheckBox(Transl._t("Enable UPNP"));
 		chkbxUPNP.setOpaque(false);
 		networkPanel.add(chkbxUPNP);
-		chkbxUPNP.setBounds(127, 85, 120, 15);
+		chkbxUPNP.setBounds(127, 85, 180, 15);
 	}
 	
 	private void populateSettings(){

@@ -78,7 +78,6 @@ public class OverviewTab extends TabLogoPanel {
 		add(lblVersionSpecified);
 		lblVersionSpecified.setBounds(400, 50, 140, 15);
 		lblVersionSpecified.setHorizontalAlignment(SwingConstants.LEFT);
-//		lblVersionSpecified.setText("0.8.7-48rc"); // Delete Me
 		
 		
 		lblUptime = new MultiLineLabel();
@@ -92,7 +91,6 @@ public class OverviewTab extends TabLogoPanel {
 		add(lblUptimeSpecified);
 		lblUptimeSpecified.setBounds(400, 70, 140, 15);
 		lblUptimeSpecified.setHorizontalAlignment(SwingConstants.LEFT);
-//		lblUptimeSpecified.setText("93 min"); // Delete Me
 
 		
 		lblStatus = new MultiLineLabel();
@@ -107,7 +105,6 @@ public class OverviewTab extends TabLogoPanel {
 		lblStatusSpecified.setBounds(400, 140, 140, 30);
 		lblStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 		lblStatusSpecified.setVerticalTextAlignment(JLabel.TOP);
-//		lblStatusSpecified.setText("Rejecting Tunnels"); // Delete Me
 
 		lblNetworkStatus = new MultiLineLabel();
 		add(lblNetworkStatus);
@@ -121,7 +118,6 @@ public class OverviewTab extends TabLogoPanel {
 		lblNetworkStatusSpecified.setBounds(400, 105, 130, 30);
 		lblNetworkStatusSpecified.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNetworkStatusSpecified.setVerticalTextAlignment(JLabel.TOP);
-//		lblNetworkStatusSpecified.setText("WARN-Firewalled with Inbound TCP Enabled".replace('-', ' ')); // Delete Me
 
 		validate();
 		

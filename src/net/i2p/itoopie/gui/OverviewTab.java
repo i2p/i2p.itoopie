@@ -52,11 +52,11 @@ public class OverviewTab extends TabLogoPanel {
 		Chart2D partTunnelChart = new ParticipatingTunnelsChart();
 		ChartPanel pt = new ChartPanel(partTunnelChart);
 		pt.setSize(300, 135);
-		pt.setLocation(15, 10);
+		pt.setLocation(5, 10);
 		pt.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		ChartPanel cp = new ChartPanel(bwChart);
 		cp.setSize(300, 135);
-		cp.setLocation(15, 155);
+		cp.setLocation(5, 155);
 		cp.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
 		add(pt);
@@ -64,13 +64,13 @@ public class OverviewTab extends TabLogoPanel {
 
 		lblI2P = new JLabel();
 		add(lblI2P);
-		lblI2P.setBounds(290, 30, 100, 15);
+		lblI2P.setBounds(310, 30, 80, 15);
 		lblI2P.setText("I2P");
 		lblI2P.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		lblVersion = new JLabel();
 		add(lblVersion);
-		lblVersion.setBounds(290, 50, 100, 15);
+		lblVersion.setBounds(310, 50, 80, 15);
 		lblVersion.setText(Transl._t("Version:"));
 		lblVersion.setHorizontalAlignment(SwingConstants.RIGHT);
 
@@ -83,7 +83,7 @@ public class OverviewTab extends TabLogoPanel {
 		
 		lblUptime = new MultiLineLabel();
 		add(lblUptime);
-		lblUptime.setBounds(290, 70, 100, 30);
+		lblUptime.setBounds(310, 70, 80, 30);
 		lblUptime.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblUptime.setVerticalTextAlignment(SwingConstants.TOP);
 		lblUptime.setText(Transl._t("Uptime:"));
@@ -97,7 +97,7 @@ public class OverviewTab extends TabLogoPanel {
 		
 		lblStatus = new MultiLineLabel();
 		add(lblStatus);
-		lblStatus.setBounds(290, 140, 100, 30);
+		lblStatus.setBounds(310, 140, 80, 30);
 		lblStatus.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblStatus.setVerticalTextAlignment(SwingConstants.TOP);
 		lblStatus.setText(Transl._t("Status:"));
@@ -111,7 +111,7 @@ public class OverviewTab extends TabLogoPanel {
 
 		lblNetworkStatus = new MultiLineLabel();
 		add(lblNetworkStatus);
-		lblNetworkStatus.setBounds(290, 105, 100, 30);
+		lblNetworkStatus.setBounds(310, 105, 80, 30);
 		lblNetworkStatus.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNetworkStatus.setVerticalTextAlignment(SwingConstants.TOP);
 		lblNetworkStatus.setText(Transl._t("Net Status:"));

@@ -37,11 +37,11 @@ public class OverviewTab extends TabLogoPanel {
 	JLabel lblI2P;
 	JLabel lblVersion;
 	JLabel lblVersionSpecified;
-	JLabel lblStatus;
+	MultiLineLabel lblStatus;
 	MultiLineLabel lblStatusSpecified;
-	JLabel lblUptime;
+	MultiLineLabel lblUptime;
 	JLabel lblUptimeSpecified;
-	JLabel lblNetworkStatus;
+	MultiLineLabel lblNetworkStatus;
 	MultiLineLabel lblNetworkStatusSpecified;
 
 	public OverviewTab(String imageName) {
@@ -81,10 +81,11 @@ public class OverviewTab extends TabLogoPanel {
 //		lblVersionSpecified.setText("0.8.7-48rc"); // Delete Me
 		
 		
-		lblUptime = new JLabel();
+		lblUptime = new MultiLineLabel();
 		add(lblUptime);
-		lblUptime.setBounds(290, 70, 100, 15);
+		lblUptime.setBounds(290, 70, 100, 30);
 		lblUptime.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUptime.setVerticalTextAlignment(SwingConstants.TOP);
 		lblUptime.setText(Transl._t("Uptime:"));
 		
 		lblUptimeSpecified = new JLabel();
@@ -94,10 +95,11 @@ public class OverviewTab extends TabLogoPanel {
 //		lblUptimeSpecified.setText("93 min"); // Delete Me
 
 		
-		lblStatus = new JLabel();
+		lblStatus = new MultiLineLabel();
 		add(lblStatus);
-		lblStatus.setBounds(290, 140, 100, 15);
+		lblStatus.setBounds(290, 140, 100, 30);
 		lblStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblStatus.setVerticalTextAlignment(SwingConstants.TOP);
 		lblStatus.setText(Transl._t("Status:"));
 
 		lblStatusSpecified = new MultiLineLabel();
@@ -107,10 +109,11 @@ public class OverviewTab extends TabLogoPanel {
 		lblStatusSpecified.setVerticalTextAlignment(JLabel.TOP);
 //		lblStatusSpecified.setText("Rejecting Tunnels"); // Delete Me
 
-		lblNetworkStatus = new JLabel();
+		lblNetworkStatus = new MultiLineLabel();
 		add(lblNetworkStatus);
-		lblNetworkStatus.setBounds(290, 105, 100, 15);
+		lblNetworkStatus.setBounds(290, 105, 100, 30);
 		lblNetworkStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNetworkStatus.setVerticalTextAlignment(SwingConstants.TOP);
 		lblNetworkStatus.setText(Transl._t("Net Status:"));
 
 		lblNetworkStatusSpecified = new MultiLineLabel();

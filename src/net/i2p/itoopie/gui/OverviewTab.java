@@ -83,7 +83,9 @@ public class OverviewTab extends TabLogoPanel {
 		lblUptime = new MultiLineLabel();
 		add(lblUptime);
 		lblUptime.setBounds(310, 70, 80, 30);
-		lblUptime.setHorizontalAlignment(SwingConstants.RIGHT);
+		// Don't set both! It doesn't work!
+		//lblUptime.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUptime.setHorizontalTextAlignment(JLabel.RIGHT);
 		lblUptime.setVerticalTextAlignment(JLabel.TOP);
 		lblUptime.setText(Transl._t("Uptime:"));
 		
@@ -96,7 +98,9 @@ public class OverviewTab extends TabLogoPanel {
 		lblStatus = new MultiLineLabel();
 		add(lblStatus);
 		lblStatus.setBounds(310, 140, 80, 30);
-		lblStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		// Don't set both! It doesn't work!
+		//lblStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblStatus.setHorizontalTextAlignment(JLabel.RIGHT);
 		lblStatus.setVerticalTextAlignment(JLabel.TOP);
 		lblStatus.setText(Transl._t("Status:"));
 
@@ -109,7 +113,9 @@ public class OverviewTab extends TabLogoPanel {
 		lblNetworkStatus = new MultiLineLabel();
 		add(lblNetworkStatus);
 		lblNetworkStatus.setBounds(310, 105, 80, 30);
-		lblNetworkStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		// Don't set both! It doesn't work!
+		//lblNetworkStatus.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNetworkStatus.setHorizontalTextAlignment(JLabel.RIGHT);
 		lblNetworkStatus.setVerticalTextAlignment(JLabel.TOP);
 		lblNetworkStatus.setText(Transl._t("Net Status:"));
 

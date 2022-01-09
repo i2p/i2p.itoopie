@@ -7,7 +7,7 @@ import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;
 
-public class RateStatTracker extends Thread {
+public class RateStatTracker extends Thread implements Tracker {
 	
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
 	/** Last read bw */
@@ -56,4 +56,9 @@ public class RateStatTracker extends Thread {
 
 		}
 	}
+
+	/**
+	 * @since 0.0.4
+	 */
+	public double getData() { return m_value; }
 }

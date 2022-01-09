@@ -12,7 +12,7 @@ import net.i2p.itoopie.i2pcontrol.methods.GetRateStat;
 import net.i2p.itoopie.i2pcontrol.methods.GetRouterInfo;
 import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
 
-public class InboundBandwidthTracker extends Thread {
+public class InboundBandwidthTracker extends Thread implements Tracker {
 	
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
 	/** Last read bw */
@@ -60,4 +60,9 @@ public class InboundBandwidthTracker extends Thread {
 			m_value = 0;
 		}
 	}
+
+	/**
+	 * @since 0.0.4
+	 */
+	public double getData() { return m_value; }
 }

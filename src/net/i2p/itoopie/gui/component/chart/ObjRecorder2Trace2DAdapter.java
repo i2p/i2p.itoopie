@@ -69,7 +69,7 @@ public class ObjRecorder2Trace2DAdapter implements ChangeListener {
    * @param interval
    *          the interval of inspections in ms.
    */
-  public ObjRecorder2Trace2DAdapter(final ITrace2D view, final Object toinspect,
+  public ObjRecorder2Trace2DAdapter(final ITrace2D view, final Tracker toinspect,
       final String fieldname, final long interval) {
     this.m_view = view;
     this.m_fieldname = fieldname;

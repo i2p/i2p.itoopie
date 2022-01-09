@@ -1,8 +1,11 @@
 package net.i2p.itoopie.gui.component.chart;
 
-public class DummyDataCollector extends Thread {
+/**
+ *  Unused, for testing only
+ */
+public class DummyDataCollector extends Thread implements Tracker {
 	/** Streches or compresses the grade of jumping of the internal number. */
-	protected double m_factor;
+	protected final double m_factor;
 
 	/** The bumping number. */
 	protected double m_number = 0;
@@ -11,7 +14,7 @@ public class DummyDataCollector extends Thread {
 	protected double m_plusminus = 0.5;
 
 	/** Needed for randomization of bumping the number. */
-	protected java.util.Random m_randomizer = new java.util.Random();
+	protected final java.util.Random m_randomizer = new java.util.Random();
 
 	/**
 	 * Creates an instance.
@@ -58,4 +61,9 @@ public class DummyDataCollector extends Thread {
 
 		}
 	}
+
+	/**
+	 * @since 0.0.4
+	 */
+	public double getData() { return m_number; }
 }

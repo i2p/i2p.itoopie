@@ -19,7 +19,13 @@ public class WindowHandler {
 	}
 	
 	public static void deRegister(JFrame frame){
-		_frames.remove(frame);
+		// don't remove the main frame when
+		// the user clicks on the X, so we have the updated
+		// graph when the user clicks on the icon again
+		if (frame == mainFrame)
+			hideFrames();
+		else
+			_frames.remove(frame);
 	}
 	
 	public static void hideFrames(){

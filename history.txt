@@ -13,6 +13,7 @@
  * Remove "Settings read from I2P router" message
  * Set graph values to 0 when router is gone
  * Clear graph after changing router host/port
+ * Don't clear graph when user closes the window
  * Update to jchart2d 3.2.2 2011-09-25
  * Remove debug output
  * README updates

@@ -50,7 +50,7 @@ public class TrayManager {
     /**
      * Add the tray icon to the system tray and start everything up.
      */
-    public void startManager() {
+    public synchronized void startManager() {
     	SwingUtilities.invokeLater(new Runnable(){
     		public void run(){
 		        if(SystemTray.isSupported()) {
@@ -71,7 +71,20 @@ public class TrayManager {
     		}
     	});
     }
-    
+
+    /**
+     *  @since 0.0.5 for plugin only
+     */
+    public synchronized void stopManager() {
+        try {
+            if (trayIcon != null && SystemTray.isSupported()) {
+                SystemTray.getSystemTray().remove(trayIcon);
+                // TODO stop it
+                trayIcon = null;
+            }
+        } catch (Exception e) {}
+    }
+
     protected void languageChanged() {
         trayIcon.setPopupMenu(getMainMenu());
     }

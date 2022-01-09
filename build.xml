@@ -32,6 +32,15 @@
 		<delete file="itoopie-install.exe" failonerror="false" />
 		<delete file="itoopie.app.tar.bz2" failonerror="false" />
 		<delete file="itoopie-install.exe.sha512" failonerror="false" />
+		<delete dir="plugin/lib" />
+		<delete dir="plugin/lib" />
+	        <delete>
+			<fileset dir="plugin/" excludes="clients.config" />
+		</delete>
+		<delete file="itoopie.su3" failonerror="false" />
+		<delete file="itoopie-update.su3" failonerror="false" />
+		<delete file="itoopie.xpi2p" failonerror="false" />
+		<ant dir="plugin-src" target="clean" />
 	</target>
 
     <target name="compile" depends="clean,init">
@@ -188,6 +197,62 @@
                 <arg value="${temp}" />
 		<arg value="itoopie.app" />
 	</exec>
+    </target>
+
+    <target name="plugin" depends="jar">
+        <ant dir="plugin-src" target="build" />
+        <delete>
+           <!-- in installer but not update -->
+           <fileset dir="plugin/" includes="itoopie.conf" />
+        </delete>
+        <!-- get version number -->
+        <buildnumber file="scripts/build.number" />
+        <property name="release.number" value="0.0.5" />
+
+        <!-- make the update xpi2p -->
+        <!-- this contains everything except i2ptunnel.config -->
+        <copy file="license.txt" tofile="plugin/LICENSE.txt" overwrite="true" />
+        <copy file="README" tofile="plugin/README.txt" overwrite="true" />
+        <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
+        <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
+            <arg value="update-only=true" />
+        </exec>
+        <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
+            <arg value="version=${release.number}-b${build.number}" />
+        </exec>
+        <mkdir dir="plugin/lib" />
+        <copy file="plugin-src/build/itoopie-plugin.jar" todir="plugin/lib" overwrite="true" />
+        <copy file="lib/commons-logging-1.1.1.jar" tofile="plugin/lib/commons-logging.jar" overwrite="true" />
+        <copy file="lib/jchart2d-3.2.2.jar" tofile="plugin/lib/jchart2d.jar" overwrite="true" />
+        <copy file="lib/json-smart-1.0.6.4.jar" tofile="plugin/lib/json-smart.jar" overwrite="true" />
+        <copy file="lib/xmlgraphics-commons-1.3.1.jar" tofile="plugin/lib/xmlgraphics-commons.jar" overwrite="true" />
+        <copy file="lib/NOTICE-apache-xmlgraphics-commons" tofile="plugin/NOTICE-apache-xmlgraphics-commons.txt" overwrite="true" />
+        <copy todir="plugin">
+            <fileset dir="lib" includes="*.txt" />
+        </copy>
+	<copy file="${dist}/${jar}" todir="plugin/lib" />
+        <input message="Enter su3 signing key password:" addproperty="release.password.su3" />
+        <fail message="You must enter a password." >
+            <condition>
+                <equals arg1="${release.password.su3}" arg2=""/>
+            </condition>
+        </fail>
+        <!-- this will fail if no su3 keys exist, as it needs the password twice -->
+        <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
+            <arg value="plugin" />
+        </exec>
+        <move file="itoopie.su3" tofile="itoopie-update.su3" overwrite="true" />
+
+        <!-- make the install xpi2p -->
+        <copy file="scripts/plugin.config" todir="plugin/" overwrite="true" />
+        <!-- Files in installer but not update. Be sure to Add to delete fileset above and clean target below -->
+        <copy file="scripts/itoopie.conf" todir="plugin/" overwrite="true" />
+        <exec executable="echo" osfamily="unix" failonerror="true" output="plugin/plugin.config" append="true">
+            <arg value="version=${release.number}-b${build.number}" />
+        </exec>
+        <exec executable="scripts/makeplugin.sh" inputstring="${release.password.su3}" failonerror="true" >
+            <arg value="plugin" />
+        </exec>
     </target>
 
 </project>

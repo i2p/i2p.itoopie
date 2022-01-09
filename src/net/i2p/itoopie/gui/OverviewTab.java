@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.util.EnumMap;
 
 import info.monitorenter.gui.chart.Chart2D;
+import info.monitorenter.gui.chart.ITrace2D;
 import info.monitorenter.gui.chart.views.ChartPanel;
 
 import javax.swing.BorderFactory;
@@ -34,22 +35,24 @@ public class OverviewTab extends TabLogoPanel {
 	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
 	private final static int DEFAULT_INFO_UPDATE_INTERVAL = 30*1000; // Milliseconds.
 	
-	JLabel lblI2P;
-	JLabel lblVersion;
-	JLabel lblVersionSpecified;
-	MultiLineLabel lblStatus;
-	MultiLineLabel lblStatusSpecified;
-	MultiLineLabel lblUptime;
-	JLabel lblUptimeSpecified;
-	MultiLineLabel lblNetworkStatus;
-	MultiLineLabel lblNetworkStatusSpecified;
+	private final JLabel lblI2P;
+	private final JLabel lblVersion;
+	private final JLabel lblVersionSpecified;
+	private final MultiLineLabel lblStatus;
+	private final MultiLineLabel lblStatusSpecified;
+	private final MultiLineLabel lblUptime;
+	private final JLabel lblUptimeSpecified;
+	private final MultiLineLabel lblNetworkStatus;
+	private final MultiLineLabel lblNetworkStatusSpecified;
+	private final BandwidthChart bwChart;
+	private final ParticipatingTunnelsChart partTunnelChart;
 
 	public OverviewTab(String imageName) {
 		super(imageName);
 		super.setLayout(null);
 
-		final BandwidthChart bwChart = new BandwidthChart();
-		Chart2D partTunnelChart = new ParticipatingTunnelsChart();
+		bwChart = new BandwidthChart();
+		partTunnelChart = new ParticipatingTunnelsChart();
 		ChartPanel pt = new ChartPanel(partTunnelChart);
 		pt.setSize(300, 135);
 		pt.setLocation(5, 10);
@@ -143,6 +146,18 @@ public class OverviewTab extends TabLogoPanel {
 		}).start();
 	}
 	
+	/**
+	 * @since 0.0.4
+	 */
+	public void clearGraphs() {
+		for (ITrace2D trace : bwChart.getTraces()) {
+			trace.removeAllPoints();
+		}
+		for (ITrace2D trace : partTunnelChart.getTraces()) {
+			trace.removeAllPoints();
+		}
+	}
+
 	private void populateInfo(){
 		try {
 			EnumMap<ROUTER_INFO, Object> em = GetRouterInfo.execute(ROUTER_INFO.VERSION,

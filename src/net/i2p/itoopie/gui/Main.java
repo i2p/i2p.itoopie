@@ -81,7 +81,7 @@ public class Main {
 		root.add(tabbedPane);
 		tabbedPane.setBounds(0, 0, FRAME_WIDTH-9, TABBED_PANE_HEIGHT);
 
-		TabLogoPanel overviewTab = new OverviewTab("itoopie-opaque12");
+		OverviewTab overviewTab = new OverviewTab("itoopie-opaque12");
 		tabbedPane.addTab(' ' + Transl._t("Overview") + ' ', null, overviewTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(overviewTab));
 		
@@ -92,7 +92,8 @@ public class Main {
 		tabbedPane.addChangeListener(new TabChangeListener(configTab));
 		
 
-		TabLogoPanel settingsTab = new SettingsFrame("itoopie-opaque12");
+		// pass overview tab to settingsframe to reset the charts on change
+		TabLogoPanel settingsTab = new SettingsFrame("itoopie-opaque12", overviewTab);
 		tabbedPane.addTab(' ' + Transl._t("Settings") + ' ', icon, settingsTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(settingsTab));
 		

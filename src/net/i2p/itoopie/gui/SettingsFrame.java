@@ -88,15 +88,17 @@ public class SettingsFrame extends TabLogoPanel {
 	private JPasswordField txtRetypeNewPassword;
 */
 	
-	private ConfigurationManager _conf;
+	private final ConfigurationManager _conf;
+	private final OverviewTab _otab;
 
 	/**
 	 * Create the application.
 	 */
-	public SettingsFrame(String imageName) {
+	public SettingsFrame(String imageName, OverviewTab otab) {
 		super(imageName);
 		setLayout(null);
 		_conf = ConfigurationManager.getInstance();
+		_otab = otab;
 		initialize();
 	}
 	
@@ -390,6 +392,8 @@ public class SettingsFrame extends TabLogoPanel {
 			_conf.setConf("server.port", port);
 			_conf.setConf("server.password", pwText);
 			JSONRPC2Interface.testSettings();
+			if (!oldIP.equals(ipText) || oldPort != port)
+				_otab.clearGraphs();
 		} catch (InvalidPasswordException e) {
 			_conf.setConf("server.password", oldPW);
 			JOptionPane.showConfirmDialog(

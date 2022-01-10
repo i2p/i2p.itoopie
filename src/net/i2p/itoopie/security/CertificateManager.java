@@ -162,12 +162,13 @@ public class CertificateManager {
 		if (_ks == null){
 			try {
 				_ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
-				if ((new File(ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION)).exists()){
-					InputStream is = new FileInputStream(ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION);
+				File f = new File(ConfigurationManager.getAppConfDir(), DEFAULT_KEYSTORE_LOCATION);
+				if (f.exists()) {
+					InputStream is = new FileInputStream(f);
 					_ks.load(is, DEFAULT_KEYSTORE_PASSWORD.toCharArray());
 					return _ks;
 				} else {
-					throw new IOException("KeyStore file " + ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION + "wasn't readable");
+					throw new IOException("KeyStore file " + f + " wasn't readable");
 				}
 			} catch (Exception e) {
 				// Ignore. Not an issue. Let's just create a new keystore instead.
@@ -188,7 +189,7 @@ public class CertificateManager {
 	
 	private static void saveKeyStore(KeyStore ks){
 		try {
-			ks.store(new FileOutputStream(ConfigurationManager.getAppConfDir() + DEFAULT_KEYSTORE_LOCATION), DEFAULT_KEYSTORE_PASSWORD.toCharArray());
+			ks.store(new FileOutputStream(new File(ConfigurationManager.getAppConfDir(), DEFAULT_KEYSTORE_LOCATION)), DEFAULT_KEYSTORE_PASSWORD.toCharArray());
 		} catch (KeyStoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

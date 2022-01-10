@@ -14,6 +14,7 @@ package net.i2p.itoopie.plugin;
  *
  */
 
+import java.io.File;
 import javax.swing.UIManager;
 
 import net.i2p.I2PAppContext;
@@ -21,6 +22,7 @@ import net.i2p.app.*;
 import static net.i2p.app.ClientAppState.*;
 import net.i2p.util.Log;
 
+import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.GUIHelper;
 import net.i2p.itoopie.gui.TrayManager;
 import net.i2p.itoopie.gui.WindowHandler;
@@ -41,6 +43,10 @@ public class Itoopie implements ClientApp {
         _log = ctx.logManager().getLog(Itoopie.class);
         _mgr = mgr;
         _state = INITIALIZED;
+        // Set the conf dir so ConfigurationManager can find it
+        File d = new File(ctx.getConfigDir(), "plugins");
+        d = new File(d, "itoopie");
+        System.setProperty(ConfigurationManager.PROP_CONF_DIR, d.getAbsolutePath());
     }
 
     /**

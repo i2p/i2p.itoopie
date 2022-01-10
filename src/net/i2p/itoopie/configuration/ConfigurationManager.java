@@ -26,6 +26,10 @@ public class ConfigurationManager {
 	private static final String DEFAULT_CONFIG_NAME = "itoopie.conf";
 	private static final Log _log = LogFactory.getLog(ConfigurationManager.class);
 	private static final String APP_DIR_NAME = "itoopie";
+	/**
+	 * For plugin
+	 */
+	public static final String PROP_CONF_DIR = "itoopie.confdir";
 
 	
 	private static ConfigurationManager instance;
@@ -65,17 +69,18 @@ public class ConfigurationManager {
 	 * Reads configuration from file itoopie.conf, every line is parsed as key=value.
 	 */
 	public static void readConfFile(){
+		File f = new File(getAppConfDir(), DEFAULT_CONFIG_NAME);
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(getAppConfDir() + DEFAULT_CONFIG_NAME));
+			BufferedReader br = new BufferedReader(new FileReader(f));
 			String input;
 			while ((input = br.readLine()) != null){
 				parseConfigStr(input);
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
-			_log.info("Unable to find config file, " + getAppConfDir() + DEFAULT_CONFIG_NAME);
+			_log.info("Unable to find config file " + f);
 		} catch (IOException e) {
-			_log.error("Unable to read from config file, " + getAppConfDir() + DEFAULT_CONFIG_NAME);
+			_log.error("Unable to read from config file " + f);
 		}
 	}
 	
@@ -93,14 +98,15 @@ public class ConfigurationManager {
 		for (Entry<String,Boolean> e : booleanConfigurations.entrySet()){
 			tree.put(e.getKey(), e.getValue().toString());
 		}
+		File f = new File(getAppConfDir(), DEFAULT_CONFIG_NAME);
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(getAppConfDir() + DEFAULT_CONFIG_NAME));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f));
 			for (Entry<String,String> e : tree.entrySet()){
 				bw.write(e.getKey() + "=" + e.getValue() + "\r\n");
 			}
 			bw.close();
 		} catch (IOException e1) {
-			_log.error("Couldn't open file, " + getAppConfDir() + DEFAULT_CONFIG_NAME + " for writing config.");
+			_log.error("Couldn't open file " + f + " for writing config.");
 		}
 	}
 	
@@ -213,17 +219,21 @@ public class ConfigurationManager {
 	 * Get the file path to the configuration directory. If the directory does not yet exist, creates it.
 	 * @return Application configuration directory.
 	 */
-	public static String getAppConfDir(){
+	public static File getAppConfDir() {
 		String dir;
-		if (System.getenv("APPDATA") != null && !System.getenv("APPDATA").equals("")){
-			dir = System.getenv("APPDATA")+ File.separator + APP_DIR_NAME + File.separator;   // Windows path
+		// for plugin
+		String override = System.getProperty(PROP_CONF_DIR);
+		if (override != null) {
+			dir = override;
+		} else if (System.getenv("APPDATA") != null && !System.getenv("APPDATA").equals("")) {
+			dir = System.getenv("APPDATA")+ File.separator + APP_DIR_NAME;   // Windows path
 		} else {
-			dir = System.getProperties().getProperty("user.home") + File.separator + "." + APP_DIR_NAME + File.separator; // Linux/mac path
+			dir = System.getProperty("user.home") + File.separator + "." + APP_DIR_NAME; // Linux/mac path
 		}
 		File dirFile = new File(dir);
 		if (!dirFile.exists()){
 			dirFile.mkdirs();
 		}
-		return dir;
+		return dirFile;
 	}
 }

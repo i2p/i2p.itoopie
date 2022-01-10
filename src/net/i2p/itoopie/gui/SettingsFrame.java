@@ -114,7 +114,7 @@ public class SettingsFrame extends TabLogoPanel {
 		JPanel connectPanel = new JPanel();
 		connectPanel.setOpaque(false);
 		connectPanel.setLayout(null);
-		connectPanel.setBounds(0, 0, 426, 99);
+		connectPanel.setBounds(0, 40, 426, 99);
 		add(connectPanel);
 		setupConnectPanel(connectPanel);
 		
@@ -216,32 +216,32 @@ public class SettingsFrame extends TabLogoPanel {
 		
 		
 		JLabel lblRouterIP = new JLabel(Transl._t("IP address:"));
-		lblRouterIP.setBounds(138, 30, 100, 15);
+		lblRouterIP.setBounds(138, 35, 100, 15);
 		networkPanel.add(lblRouterIP);
 		lblRouterIP.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtRouterIP = new JTextField();
-		txtRouterIP.setBounds(240, 30, 90, 19);
+		txtRouterIP.setBounds(243, 35, 90, 19);
 		networkPanel.add(txtRouterIP);
 		
 		
 		JLabel lblRouterPort = new JLabel(Transl._t("Port:"));
-		lblRouterPort.setBounds(10, 55, 228, 15);
+		lblRouterPort.setBounds(10, 60, 228, 15);
 		networkPanel.add(lblRouterPort);
 		lblRouterPort.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		txtRouterPort = new JTextField();
-		txtRouterPort.setBounds(240, 55, 90, 19);
+		txtRouterPort.setBounds(243, 60, 90, 19);
 		networkPanel.add(txtRouterPort);
 		
 		
 		JLabel lblRouterPassword = new JLabel(Transl._t("Password:"));
-		lblRouterPassword.setBounds(10, 80, 228, 15);
+		lblRouterPassword.setBounds(10, 85, 228, 15);
 		networkPanel.add(lblRouterPassword);
 		lblRouterPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(240, 80, 90, 19);
+		passwordField.setBounds(243, 85, 90, 19);
 		networkPanel.add(passwordField);
 	}
 

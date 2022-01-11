@@ -22,6 +22,7 @@ public class ParticipatingTunnelsTracker extends Thread implements Tracker {
 	 * Start daemon that checks to current inbound bandwidth of the router.
 	 */
 	public ParticipatingTunnelsTracker(int interval) {
+		super("IToopie-PTT");
 		updateInterval = interval;
 		this.setDaemon(true);
 		this.start();
@@ -38,7 +39,7 @@ public class ParticipatingTunnelsTracker extends Thread implements Tracker {
 			try {
 				Thread.sleep(updateInterval);
 			} catch (InterruptedException e) {
-				// nop
+				break;
 			}
 
 		}

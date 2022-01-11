@@ -21,6 +21,7 @@ public class InboundBandwidthTracker extends Thread implements Tracker {
 	 * Start daemon that checks to current inbound bandwidth of the router.
 	 */
 	public InboundBandwidthTracker(int interval) {
+		super("IToopie-IBT");
 		updateInterval = interval;
 		this.setDaemon(true);
 		this.start();
@@ -38,7 +39,7 @@ public class InboundBandwidthTracker extends Thread implements Tracker {
 			try {
 				Thread.sleep(updateInterval);
 			} catch (InterruptedException e) {
-				// nop
+				break;
 			}
 
 		}

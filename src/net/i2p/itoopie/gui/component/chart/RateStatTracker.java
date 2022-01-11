@@ -25,6 +25,7 @@ public class RateStatTracker extends Thread implements Tracker {
 	 * Start daemon that checks to current inbound bandwidth of the router.
 	 */
 	public RateStatTracker(String rateStat, long period, int interval) {
+		super("IToopie-RST");
 		this.rateStat = rateStat;
 		this.period = period;
 		updateInterval = interval;
@@ -49,7 +50,7 @@ public class RateStatTracker extends Thread implements Tracker {
 			try {
 				Thread.sleep(updateInterval);
 			} catch (InterruptedException e) {
-				// nop
+				break;
 			}
 
 		}

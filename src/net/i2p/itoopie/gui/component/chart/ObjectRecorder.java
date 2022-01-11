@@ -155,6 +155,7 @@ public class ObjectRecorder extends Thread {
    *          the interval of inspection in ms.
    */
   public ObjectRecorder(final Tracker toinspect, final long interval) {
+    super("IToopie-OR");
     this.m_interval = interval;
     this.m_toinspect = toinspect;
     this.setDaemon(true);
@@ -356,7 +357,7 @@ public class ObjectRecorder extends Thread {
       try {
         Thread.sleep(this.m_interval);
       } catch (final InterruptedException e) {
-        // nop
+        break;
       }
       this.inspect();
     }

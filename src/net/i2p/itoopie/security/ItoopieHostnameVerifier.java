@@ -20,10 +20,12 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 	private static final Object _uiLock = new Object();
 	private final Main _main;
 	private final File _dir;
+	private final CertificateManager certificateManager;
 
 	public ItoopieHostnameVerifier(Main main, File dir) {
 		_main = main;
 		_dir = dir;
+		certificateManager = new CertificateManager(dir);
 	}
 
 	public boolean verify(String urlHostName, SSLSession session) {
@@ -36,12 +38,12 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 					return false; // Deny recently denied hosts.
 				}
 
-				if (CertificateManager.contains(_dir, serverHost)) {
-					if (CertificateManager.verifyCert(_dir, serverHost, CertificateHelper.convert(certs[0]))) {
+				if (certificateManager.contains(serverHost)) {
+					if (certificateManager.verifyCert(serverHost, CertificateHelper.convert(certs[0]))) {
 						return true; // Remote host has provided valid certificate that is stored locally.
 					} else {
 						// Remote host has provided a certificate that != the stored certificate for this host
-						if (CertificateGUI.overwriteCert(_main, _dir, serverHost, certs[0])) {
+						if (CertificateGUI.overwriteCert(_main, certificateManager, serverHost, certs[0])) {
 							return true;
 						} else {
 							recentlyDeniedHosts.add(session.getPeerHost() + ":" + session.getPeerPort());
@@ -50,7 +52,7 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 					}
 				} else {
 					// GUI, Add new host! new host
-					if (CertificateGUI.saveNewCert(_main, _dir, serverHost, certs[0])) {
+					if (CertificateGUI.saveNewCert(_main, certificateManager, serverHost, certs[0])) {
 						return true;
 					} else {
 						recentlyDeniedHosts.add(session.getPeerHost() + ":" + session.getPeerPort());

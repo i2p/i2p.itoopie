@@ -34,17 +34,17 @@ public class CertificateManager {
 	private static final String DEFAULT_KEYSTORE_PASSWORD = "nut'nfancy";
 	private static final String DEFAULT_KEYSTORE_ALGORITHM  = "SunX509";
 	public static final String DEFAULT_CERT_SPI = "X.509";
-	private static KeyStore _ks;
-	private static Log _log;
-	
-	static {
-		_log = LogFactory.getLog(CertificateManager.class);
-	}
+	private KeyStore _ks;
+	private final Log _log = LogFactory.getLog(CertificateManager.class);
+	private final File dir;
 
+	public CertificateManager(File d) {
+		dir = d;
+	}
 	
-	public static boolean verifyCert(File dir, String storedCertAlias, X509Certificate cert) {
+	public boolean verifyCert(String storedCertAlias, X509Certificate cert) {
 		try {
-			X509Certificate storedCert = (X509Certificate) getDefaultKeyStore(dir).getCertificate(storedCertAlias);
+			X509Certificate storedCert = (X509Certificate) getDefaultKeyStore().getCertificate(storedCertAlias);
 			storedCert.verify(cert.getPublicKey());
 			return true;
 		} catch (KeyStoreException e) {
@@ -54,9 +54,9 @@ public class CertificateManager {
 		}
 	}
 
-	public static boolean contains(File dir, String certName) {
+	public boolean contains(String certName) {
 		try {
-			return getDefaultKeyStore(dir).containsAlias(certName);
+			return getDefaultKeyStore().containsAlias(certName);
 		} catch (KeyStoreException e) {
 			_log.error("Error reading certificate with alias, " + certName + " from KeyStore", e);
 		}
@@ -98,11 +98,11 @@ public class CertificateManager {
 	 * @param cert - X509Certificate to store
 	 * @return - True if store was successful, false in other cases.
 	 */
-	public static boolean forcePutServerCert(File dir, String name, X509Certificate cert) {
-		KeyStore ks = getDefaultKeyStore(dir);
+	public boolean forcePutServerCert(String name, X509Certificate cert) {
+		KeyStore ks = getDefaultKeyStore();
 		try {
 			ks.setCertificateEntry(name, cert);
-			saveKeyStore(ks, dir);
+			saveKeyStore(ks);
 			return true;
 		} catch (KeyStoreException e) {
 			e.printStackTrace();
@@ -118,14 +118,14 @@ public class CertificateManager {
 	 * @param cert - X509Certificate to overwrite
 	 * @return - True if the overwrite was successful, false in other cases
 	 */
-	public static boolean overwriteServerCert(File dir, String name, X509Certificate cert){
-		KeyStore ks = getDefaultKeyStore(dir);
+	public boolean overwriteServerCert(String name, X509Certificate cert){
+		KeyStore ks = getDefaultKeyStore();
 		try {
 			if (ks.containsAlias(name)){
 				return false;
 			} else {
-				getDefaultKeyStore(dir).setCertificateEntry(name, cert);
-				saveKeyStore(ks, dir);
+				getDefaultKeyStore().setCertificateEntry(name, cert);
+				saveKeyStore(ks);
 				return true;
 			}
 		} catch (KeyStoreException e) {
@@ -159,7 +159,7 @@ public class CertificateManager {
 	 * Get KeyStore containing server certs.
 	 * @return - KeyStore used for keeping track of server.
 	 */
-	private static synchronized KeyStore getDefaultKeyStore(File dir) {
+	private synchronized KeyStore getDefaultKeyStore() {
 		if (_ks == null){
 			try {
 				_ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
@@ -177,7 +177,7 @@ public class CertificateManager {
 			try {
 				_ks = KeyStore.getInstance(DEFAULT_KEYSTORE_TYPE);
 				_ks.load(null, DEFAULT_KEYSTORE_PASSWORD.toCharArray());
-				saveKeyStore(_ks, dir);
+				saveKeyStore(_ks);
 				return _ks;
 			} catch (Exception e){
 				// Log perhaps?
@@ -188,7 +188,7 @@ public class CertificateManager {
 		}
 	}
 	
-	private static void saveKeyStore(KeyStore ks, File dir) {
+	private void saveKeyStore(KeyStore ks) {
 		try {
 			ks.store(new FileOutputStream(new File(dir, DEFAULT_KEYSTORE_LOCATION)), DEFAULT_KEYSTORE_PASSWORD.toCharArray());
 		} catch (KeyStoreException e) {

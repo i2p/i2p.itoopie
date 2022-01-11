@@ -23,18 +23,13 @@ import org.apache.commons.logging.LogFactory;
 
 public class CertificateHelper {
 
-	private static Log _log;
-	
-	static {
-		_log = LogFactory.getLog(CertificateHelper.class);
-	}
-	
 	public static X509Certificate certFromBase64(String base64){
 		try {
 			CertificateFactory cf = CertificateFactory.getInstance(CertificateManager.DEFAULT_CERT_SPI);
 			byte[] bytes = Base64.decode(base64);
 			return (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(bytes));
 		} catch (CertificateException e) {
+			Log _log = LogFactory.getLog(CertificateHelper.class);
 			_log.fatal("Unable to load service interface provider, " + 
 					CertificateManager.DEFAULT_CERT_SPI +
 					" used for reading base64 encoded certificates", e);

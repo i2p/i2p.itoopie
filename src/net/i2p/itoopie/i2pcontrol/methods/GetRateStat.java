@@ -17,7 +17,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class GetRateStat{
-	private final static Log _log = LogFactory.getLog(GetRateStat.class);
 	
 	@SuppressWarnings("unchecked")
 	public static Double execute(String stat, long period)
@@ -42,6 +41,7 @@ public class GetRateStat{
 				Double dbl = (Double) inParams.get("Result"); 
 				return dbl;
 			} catch (ClassCastException e){
+				Log _log = LogFactory.getLog(GetRateStat.class);
 				_log.debug("Error: Tried to cast a BigDecimal as Double");
 			}
 			try {
@@ -49,9 +49,11 @@ public class GetRateStat{
 				Double dbl = bigNum.doubleValue();
 				return dbl;
 			} catch (ClassCastException e){
+				Log _log = LogFactory.getLog(GetRateStat.class);
 				_log.debug("Error: Tried to cast a double as a BigDecimal");
 			} 
 		}catch (UnrecoverableFailedRequestException e) {
+			Log _log = LogFactory.getLog(GetRateStat.class);
 			_log.error("getRateStat failed.", e);
 		}
 		return new Double(0);

@@ -16,7 +16,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class GetEcho {
-	private final static Log _log = LogFactory.getLog(GetEcho.class);
 	
 	@SuppressWarnings("unchecked")
 	public static String execute(String str) 
@@ -34,8 +33,10 @@ public class GetEcho {
 			Map inParams = (HashMap) resp.getResult();
 			return (String) inParams.get("Result");
 		} catch (UnrecoverableFailedRequestException e) {
+			Log _log = LogFactory.getLog(GetEcho.class);
 			_log.error("GetEcho failed.", e);
 		} catch (InvalidParametersException e) {
+			Log _log = LogFactory.getLog(GetEcho.class);
 			_log.error("Remote host rejected provided parameters: " + req.toJSON().toJSONString());
 		}
 		return null;

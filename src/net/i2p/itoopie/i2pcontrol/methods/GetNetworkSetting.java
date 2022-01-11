@@ -22,7 +22,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class GetNetworkSetting {
-	private final static Log _log = LogFactory.getLog(GetNetworkSetting.class);
 	
 	public static EnumMap<NETWORK_SETTING, Object> execute(NETWORK_SETTING ... options) 
 			throws InvalidPasswordException, JSONRPC2SessionException{
@@ -61,8 +60,10 @@ public class GetNetworkSetting {
 				return new EnumMap<NETWORK_SETTING, Object>(NETWORK_SETTING.class);
 			}		
 		} catch (UnrecoverableFailedRequestException e) {
+			Log _log = LogFactory.getLog(GetNetworkSetting.class);
 			_log.error("getNetworkInfo failed.", e);
 		} catch (InvalidParametersException e) {
+			Log _log = LogFactory.getLog(GetNetworkSetting.class);
 			_log.error("Remote host rejected provided parameters: " + req.toJSON().toJSONString());
 		}
 		return null;

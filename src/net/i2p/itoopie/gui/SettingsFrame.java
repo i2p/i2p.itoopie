@@ -72,8 +72,7 @@ public class SettingsFrame extends TabLogoPanel {
 
 
 
-	private static final Log _log = LogFactory.getLog(SettingsFrame.class);
-	private static Boolean instanceShown = false;
+	private final Log _log = LogFactory.getLog(SettingsFrame.class);
 
 	// ConnectPanel
 	private JTextField txtRouterIP;

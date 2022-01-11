@@ -20,8 +20,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class GetI2PControl {
-	private final static Log _log = LogFactory.getLog(GetI2PControl.class);
-	
 	
 	public static EnumMap<I2P_CONTROL, Object> execute(I2P_CONTROL ... settings) 
 			throws InvalidPasswordException, JSONRPC2SessionException{
@@ -58,8 +56,10 @@ public class GetI2PControl {
 				return new EnumMap<I2P_CONTROL, Object>(I2P_CONTROL.class);
 			}
 		} catch (UnrecoverableFailedRequestException e) {
+			Log _log = LogFactory.getLog(GetI2PControl.class);
 			_log.error("getI2PControl failed.", e);
 		} catch (InvalidParametersException e) {
+			Log _log = LogFactory.getLog(GetI2PControl.class);
 			_log.error("getI2PControl was rejected by remote host as invalid.", e);
 		}
 		return null;

@@ -20,8 +20,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class SetNetworkSetting {
-	private final static Log _log = LogFactory.getLog(SetNetworkSetting.class);
-	
 	
 	public static EnumMap<NETWORK_SETTING, Object> execute(Map<NETWORK_SETTING,String> settings) 
 			throws InvalidPasswordException, JSONRPC2SessionException, InvalidParametersException{
@@ -59,6 +57,7 @@ public class SetNetworkSetting {
 				return new EnumMap<NETWORK_SETTING, Object>(NETWORK_SETTING.class);
 			}
 		} catch (UnrecoverableFailedRequestException e) {
+			Log _log = LogFactory.getLog(SetNetworkSetting.class);
 			_log.error("setNetworkInfo failed.", e);
 		}
 		return null;

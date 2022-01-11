@@ -23,7 +23,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class GetRouterInfo {
-	private final static Log _log = LogFactory.getLog(GetRouterInfo.class);
 	private static HashMap<Integer, NETWORK_STATUS> enumMap;
 	
 	public static enum NETWORK_STATUS{
@@ -89,8 +88,10 @@ public class GetRouterInfo {
 				return new EnumMap<ROUTER_INFO, Object>(ROUTER_INFO.class);
 			}		
 		} catch (UnrecoverableFailedRequestException e) {
+			Log _log = LogFactory.getLog(GetRouterInfo.class);
 			_log.error("getRouterInfo failed.", e);
 		} catch (InvalidParametersException e) {
+			Log _log = LogFactory.getLog(GetRouterInfo.class);
 			_log.error("Remote host rejected provided parameters: " + req.toJSON().toJSONString());
 		}
 		return null;

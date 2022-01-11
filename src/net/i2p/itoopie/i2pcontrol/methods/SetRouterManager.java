@@ -22,8 +22,6 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class SetRouterManager {
-	private final static Log _log = LogFactory.getLog(SetRouterManager.class);
-	
 	
 	public static EnumMap<ROUTER_MANAGER, Object> execute(Map<ROUTER_MANAGER,String> commands) 
 			throws InvalidPasswordException, JSONRPC2SessionException{
@@ -63,8 +61,10 @@ public class SetRouterManager {
 				return new EnumMap<ROUTER_MANAGER, Object>(ROUTER_MANAGER.class);
 			}
 		} catch (UnrecoverableFailedRequestException e) {
+			Log _log = LogFactory.getLog(SetRouterManager.class);
 			_log.error("setRouterManager failed.", e);
 		} catch (InvalidParametersException e) {
+			Log _log = LogFactory.getLog(SetRouterManager.class);
 			_log.error("Remote host rejected provided parameters: " + req.toJSON().toJSONString());
 		}
 		return null;

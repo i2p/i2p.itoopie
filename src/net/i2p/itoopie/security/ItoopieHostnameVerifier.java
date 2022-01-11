@@ -11,11 +11,17 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import net.i2p.itoopie.gui.CertificateGUI;
+import net.i2p.itoopie.gui.Main;
 
 public class ItoopieHostnameVerifier implements HostnameVerifier {
-	private static final Log _log = LogFactory.getLog(ItoopieHostnameVerifier.class);
+	private final Log _log = LogFactory.getLog(ItoopieHostnameVerifier.class);
 	private static final HashSet<String> recentlyDeniedHosts = new HashSet<String>();
 	private static final Object _uiLock = new Object();
+	private final Main _main;
+
+	public ItoopieHostnameVerifier(Main main) {
+		_main = main;
+	}
 
 	public boolean verify(String urlHostName, SSLSession session) {
 		String serverHost = session.getPeerHost() + ":" + session.getPeerPort();
@@ -32,7 +38,7 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 						return true; // Remote host has provided valid certificate that is stored locally.
 					} else {
 						// Remote host has provided a certificate that != the stored certificate for this host
-						if (CertificateGUI.overwriteCert(serverHost, certs[0])) {
+						if (CertificateGUI.overwriteCert(_main, serverHost, certs[0])) {
 							return true;
 						} else {
 							recentlyDeniedHosts.add(session.getPeerHost() + ":" + session.getPeerPort());
@@ -41,7 +47,7 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 					}
 				} else {
 					// GUI, Add new host! new host
-					if (CertificateGUI.saveNewCert(serverHost, certs[0])) {
+					if (CertificateGUI.saveNewCert(_main, serverHost, certs[0])) {
 						return true;
 					} else {
 						recentlyDeniedHosts.add(session.getPeerHost() + ":" + session.getPeerPort());
@@ -60,6 +66,8 @@ public class ItoopieHostnameVerifier implements HostnameVerifier {
 	 * host that has had it's certificate denied recently.
 	 */
 	public static void clearRecentlyDenied() {
-		recentlyDeniedHosts.clear();
+		synchronized (_uiLock) {
+			recentlyDeniedHosts.clear();
+		}
 	}
 }

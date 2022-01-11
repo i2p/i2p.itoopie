@@ -10,25 +10,18 @@ import net.i2p.itoopie.util.IconLoader;
 
 public class RegisteredFrame extends JFrame implements WindowListener{
 	private static final long serialVersionUID = 3351260168651061327L;
+	private final WindowHandler windowHandler;
 
-	public RegisteredFrame(String name) {
-        super(name);
-        super.addWindowListener(this);
-        WindowHandler.register(this);
-        this.setIconImage(IconLoader.getIcon("itoopie", 128));
+	public RegisteredFrame(String name, WindowHandler wh) {
+		super(name);
+		super.addWindowListener(this);
+		windowHandler = wh;
+		windowHandler.register(this);
+		this.setIconImage(IconLoader.getIcon("itoopie", 128));
 	}
 
-    
-    public RegisteredFrame() {
-        super();
-        super.addWindowListener(this);
-        WindowHandler.register(this);
-        this.setIconImage(IconLoader.getIcon("itoopie", 128));
-    }
-
-
     public void windowClosing(WindowEvent e) {
-        WindowHandler.deRegister(this);
+        windowHandler.deRegister(this);
         this.dispose();
     }
 

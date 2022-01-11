@@ -73,7 +73,8 @@ public class JSONRPC2Interface {
 	}
 	
 	public static void testSettings() throws InvalidPasswordException, JSONRPC2SessionException{
-        HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier());
+		// set in gui/Main
+		//HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier());
 		setupSession();
 		Authenticate.execute();
 	}

@@ -28,45 +28,44 @@ import net.i2p.itoopie.util.IsJar;
  */
 public class TrayManager {
 
-    private static TrayManager instance = null;
     ///The tray area, or null if unsupported
-    protected SystemTray tray = null;
+    protected SystemTray tray;
     ///Our tray icon, or null if unsupported
-    protected TrayIcon trayIcon = null;
-    
+    protected TrayIcon trayIcon;
+    private final net.i2p.itoopie.Main main;    
     
     /**
      * Instantiate tray manager.
      */
-    protected TrayManager() {}
-    
-    public static synchronized TrayManager getInstance() {
-        if(instance == null) {
-               instance = new TrayManager();
-        }
-        return instance;
+    public TrayManager(net.i2p.itoopie.Main m) {
+        main = m;
     }
-
+    
     /**
      * Add the tray icon to the system tray and start everything up.
      */
     public synchronized void startManager() {
+	final WindowHandler windowHandler = new WindowHandler();
+	windowHandler.toggleFrames();
+	// so the tray icon works right on Gnome
+	try { Thread.sleep(500); } catch (InterruptedException ie) {}
     	SwingUtilities.invokeLater(new Runnable(){
     		public void run(){
 		        if(SystemTray.isSupported()) {
+		            final Image img = IconLoader.getTrayImage();
 		            tray = SystemTray.getSystemTray();
-		            trayIcon = new TrayIcon(IconLoader.getTrayImage(), "itoopie", getMainMenu());
+		            trayIcon = new TrayIcon(img, "itoopie", getMainMenu());
 		            trayIcon.setImageAutoSize(true); //Resize image to fit the system tray
+		            try {
+		                tray.add(trayIcon);
+		            } catch (AWTException e) { e.printStackTrace(); }
 		            
 		            trayIcon.addMouseListener(new MouseAdapter(){
 						@Override
 						public void mouseClicked(MouseEvent arg0) {
-							WindowHandler.toggleFrames();
+							windowHandler.toggleFrames();
 						}
 		            });
-		            try {
-		                tray.add(trayIcon);
-		            } catch (AWTException e) {}
 		        }
     		}
     	});
@@ -106,7 +105,7 @@ public class TrayManager {
                     
                     @Override
                     protected Object doInBackground() throws Exception {
-                        Main.beginShutdown();
+                        main.beginShutdown();
                         return null;
                     }
                 }.execute();

@@ -10,7 +10,6 @@ import java.util.Timer;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import javax.net.ssl.HttpsURLConnection;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -23,7 +22,6 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.GUIHelper;
 import net.i2p.itoopie.gui.TrayManager;
-import net.i2p.itoopie.gui.WindowHandler;
 import net.i2p.itoopie.i2pcontrol.InvalidParametersException;
 import net.i2p.itoopie.i2pcontrol.InvalidPasswordException;
 import net.i2p.itoopie.i2pcontrol.JSONRPC2Interface;
@@ -39,7 +37,6 @@ import net.i2p.itoopie.i2pcontrol.methods.SetI2PControl;
 import net.i2p.itoopie.i2pcontrol.methods.SetNetworkSetting;
 import net.i2p.itoopie.i2pcontrol.methods.SetRouterManager;
 import net.i2p.itoopie.maintenance.ReseedMonitor;
-import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 
 /**
  * The main class of the application.
@@ -47,32 +44,35 @@ import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 public class Main {
     
     ///Manages the lifetime of the tray icon.
-    private TrayManager trayManager = null;
-    private static ConfigurationManager _conf;
+    private TrayManager trayManager;
+    private final ConfigurationManager _conf;
     private static Timer reseedMonitor;
-    private static Log _log;
+    private final Log _log;
+
+    public Main() {
+        _conf = ConfigurationManager.getInstance();
+        _log = LogFactory.getLog(Main.class);
+    }
 
     /**
      * Start the tray icon code (loads tray icon in the tray area).
      * @throws Exception 
      */
     public void startUp() throws Exception {
-        trayManager = TrayManager.getInstance();
+        trayManager = new TrayManager(this);
         trayManager.startManager();
     }
     
     public static void main(String[] args) {
-        beginStartup(args);
+        Main main = new Main();
+        main.beginStartup(args);
     }
 
     /**
      * Main method launching the application.
      */
-    public static void beginStartup(String[] args) {
+    public void beginStartup(String[] args) {
         System.setProperty("java.awt.headless", "false");
-        _conf = ConfigurationManager.getInstance();
-        _log = LogFactory.getLog(Main.class);
-        HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier());
         
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -84,16 +84,13 @@ public class Main {
         }
 
 
-        final Main main = new Main();
-        main.launchForeverLoop();
+        launchForeverLoop();
         try {
-			main.startUp();
+			startUp();
 		} catch (Exception e) {
 			_log.error("Error during TrayManager launch.", e);
 		}
         
-        // Popup Main window.
-        WindowHandler.toggleFrames();
         
         
 		// Start running periodic task after 2 minutes, run periodically every 10th minute.
@@ -104,7 +101,7 @@ public class Main {
     }
     
     @SuppressWarnings("static-access")
-	public static void beginShutdown(){
+    public void beginShutdown(){
     	_conf.writeConfFile();
     	System.exit(0);
     }
@@ -131,6 +128,7 @@ public class Main {
     }
     
     
+/*
     private static void testStuff(){
         _conf.parseConfigStr("server.hostname=127.0.0.1");
         _conf.parseConfigStr("server.port=5555");
@@ -138,7 +136,6 @@ public class Main {
         
         
         // Try port switching
-        /*
         System.out.println("\nI2PControl - Port Switch");
         try {
 	        HashMap<I2P_CONTROL, String> hm = new HashMap<I2P_CONTROL, String>();
@@ -268,7 +265,6 @@ public class Main {
         	System.out.println("Bad parameters sent..");
         }
         
-        */
         // Test reading all router info
 		System.out.println("\nGetRouterInfo");
         try {
@@ -287,7 +283,6 @@ public class Main {
 
         
         // Test restart - worked at one point :) Possibly now as well.
-        /*
         System.out.println("\nSetRouterRunner: Restart");
         try {
 			SetRouterRunner.execute(ROUTER_RUNNER.RESTART);
@@ -295,10 +290,9 @@ public class Main {
 			System.out.println("Invalid password..");
 		} catch (JSONRPC2SessionException e) {
 			System.out.println("Connection failed..");
-		}*/
+		}
         
         // Test restart graceful - worked at one point :) Possibly now as well.
-        /*
         System.out.println("\nSetRouterRunner: Restart Graceful");
         try {
 			SetRouterRunner.execute(ROUTER_RUNNER.RESTART_GRACEFUL);
@@ -306,9 +300,8 @@ public class Main {
 			System.out.println("Invalid password..");
 		} catch (JSONRPC2SessionException e) {
 			System.out.println("Connection failed..");
-		}*/
+		}
         
-        /*
 		// Test shutdown - worked at one point :) Possibly now as well.
         System.out.println("\nSetRouterRunner: Shutdown ");
         try {
@@ -318,7 +311,6 @@ public class Main {
 		} catch (JSONRPC2SessionException e) {
 			System.out.println("Connection failed..");
 		}
-		*/
     }
-
+*/
 }

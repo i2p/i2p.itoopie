@@ -32,11 +32,7 @@ import net.i2p.itoopie.security.ItoopieHostnameVerifier;
  */
 public class ReseedMonitor extends TimerTask{
 	private static final Long MIN_KNOWN_PEERS = new Long(30);
-	private static final Log _log;
-	
-	static {
-		_log = LogFactory.getLog(ReseedMonitor.class);
-	}
+	private final Log _log = LogFactory.getLog(ReseedMonitor.class);
 
 	@Override
 	public void run(){
@@ -60,6 +56,7 @@ public class ReseedMonitor extends TimerTask{
 		
 	}
 	
+/*
 	public static void main(String[] args){
 		System.out.println("Reading config file..");
 		ConfigurationManager _conf = ConfigurationManager.getInstance();
@@ -105,5 +102,5 @@ public class ReseedMonitor extends TimerTask{
 			e.printStackTrace();
 		}
 	}
-
+*/
 }

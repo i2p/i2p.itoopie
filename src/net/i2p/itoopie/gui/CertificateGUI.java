@@ -15,12 +15,14 @@ import net.i2p.itoopie.security.CertificateManager;
 
 public class CertificateGUI {
 	
+/*
 	public static void main(String[] args){
 		System.out.println("Save new cert: " + saveNewCert(null,null));	
 		System.out.println("Overwrite cert: " + overwriteCert(null,null));		
 	}
+*/
 
-	public static synchronized boolean saveNewCert(String hostname, X509Certificate cert){
+	public static synchronized boolean saveNewCert(Main main, String hostname, X509Certificate cert){
 		JFrame frame = new JFrame();
 		frame.setLayout(new BorderLayout());
 		JButton bt = new JButton();
@@ -58,7 +60,7 @@ public class CertificateGUI {
 		
 		if (n == JOptionPane.YES_OPTION){
 			CertificateManager.forcePutServerCert(hostname, CertificateHelper.convert(cert));
-			updateUI();
+			updateUI(main);
 			return true;
 		} else {
 			return false;
@@ -66,7 +68,7 @@ public class CertificateGUI {
 	}
 	
 
-	public static boolean overwriteCert(String hostname, X509Certificate cert){
+	public static boolean overwriteCert(Main main, String hostname, X509Certificate cert){
 		JFrame frame = new JFrame();
 		
 		String title = Transl._t("Warning, new remote host detected");
@@ -108,7 +110,7 @@ public class CertificateGUI {
 				    JOptionPane.ERROR_MESSAGE);
 			if (n == JOptionPane.YES_OPTION){
 				CertificateManager.forcePutServerCert(hostname, CertificateHelper.convert(cert));
-				updateUI();
+				updateUI(main);
 				return true; // Confirmation positive
 			} else {
 				return false; // Confirmation negative
@@ -121,7 +123,7 @@ public class CertificateGUI {
 	/**
 	 * Upon new cert accepted it is probable a good idea to show it by updating the GUI.
 	 */
-	private static void updateUI(){
+	private static void updateUI(final Main main) {
 		// Sleep before updating.
 		(new Thread(){
 			@Override
@@ -133,7 +135,7 @@ public class CertificateGUI {
 		
 					@Override
 					public void run() {
-						Main.fireNewChange();
+						main.fireNewChange();
 					}
 				});
 			}

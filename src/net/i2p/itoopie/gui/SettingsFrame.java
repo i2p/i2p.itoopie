@@ -90,15 +90,17 @@ public class SettingsFrame extends TabLogoPanel {
 	
 	private final ConfigurationManager _conf;
 	private final OverviewTab _otab;
+	private final Main _main;
 
 	/**
 	 * Create the application.
 	 */
-	public SettingsFrame(String imageName, OverviewTab otab) {
+	public SettingsFrame(String imageName, Main m, OverviewTab otab) {
 		super(imageName);
 		setLayout(null);
 		_conf = ConfigurationManager.getInstance();
 		_otab = otab;
+		_main = m;
 		initialize();
 	}
 	
@@ -200,7 +202,7 @@ public class SettingsFrame extends TabLogoPanel {
 						newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_LOCALLY && newAddressStatus != REMOTE_SAVE_STATUS.SAVE_FAILED_REMOTELY
 */
 				    ) {
-					Main.fireNewChange();
+					_main.fireNewChange();
 				}
 			}
 		});

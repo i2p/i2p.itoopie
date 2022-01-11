@@ -6,19 +6,19 @@ import java.util.HashSet;
 import javax.swing.JFrame;
 
 public class WindowHandler {
-	private static final HashSet<JFrame> _frames = new HashSet<JFrame>();
-	private static JFrame mainFrame;
-	private static boolean areFramesShown = false;
-	
-	public static void register(JFrame frame){
+	private final HashSet<JFrame> _frames = new HashSet<JFrame>();
+	private JFrame mainFrame;
+	private boolean areFramesShown;
+
+	public void register(JFrame frame){
 		_frames.add(frame);
 	}
 	
-	public static void registerMain(JFrame frame){
+	public void registerMain(JFrame frame){
 		mainFrame = frame;
 	}
 	
-	public static void deRegister(JFrame frame){
+	public void deRegister(JFrame frame){
 		// don't remove the main frame when
 		// the user clicks on the X, so we have the updated
 		// graph when the user clicks on the icon again
@@ -28,7 +28,7 @@ public class WindowHandler {
 			_frames.remove(frame);
 	}
 	
-	public static void hideFrames(){
+	public void hideFrames(){
 		for (JFrame frame : _frames){
 			frame.setVisible(false);
 		}
@@ -38,7 +38,7 @@ public class WindowHandler {
 		areFramesShown = false;
 	}
 	
-	public static void showFrames(){
+	public void showFrames(){
 		for (JFrame frame : _frames){
 			frame.setVisible(true);
 		}
@@ -48,9 +48,9 @@ public class WindowHandler {
 		areFramesShown = true;
 	}
 	
-	public static void toggleFrames(){
+	public void toggleFrames(){
 		if (_frames.isEmpty()){
-			new Main();
+			new Main(this);
 		} else {
 			if (areFramesShown){
 				hideFrames();

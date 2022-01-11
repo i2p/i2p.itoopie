@@ -22,10 +22,9 @@ import net.i2p.app.*;
 import static net.i2p.app.ClientAppState.*;
 import net.i2p.util.Log;
 
+import net.i2p.itoopie.Main;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.GUIHelper;
-import net.i2p.itoopie.gui.TrayManager;
-import net.i2p.itoopie.gui.WindowHandler;
 
 /**
  *
@@ -35,18 +34,19 @@ public class Itoopie implements ClientApp {
     private final I2PAppContext _context;
     private final Log _log;
     private final ClientAppManager _mgr;
-    private TrayManager trayManager;
+    private final Main _main;
     private ClientAppState _state = UNINITIALIZED;
 
     public Itoopie(I2PAppContext ctx, ClientAppManager mgr, String args[]) {
         _context = ctx;
         _log = ctx.logManager().getLog(Itoopie.class);
         _mgr = mgr;
-        _state = INITIALIZED;
         // Set the conf dir so ConfigurationManager can find it
         File d = new File(ctx.getConfigDir(), "plugins");
         d = new File(d, "itoopie");
         System.setProperty(ConfigurationManager.PROP_CONF_DIR, d.getAbsolutePath());
+        _main = new Main();
+        _state = INITIALIZED;
     }
 
     /**
@@ -63,14 +63,13 @@ public class Itoopie implements ClientApp {
             _log.error("Start while state = " + _state);
             return;
         }
-        trayManager = TrayManager.getInstance();
-        trayManager.startManager();
+        System.setProperty("java.awt.headless", "false");
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             GUIHelper.setDefaultStyle();
         } catch (Exception ex) {}
         // Popup Main window.
-        WindowHandler.toggleFrames();
+        _main.startUp();
         changeState(RUNNING);
     }
 
@@ -78,9 +77,7 @@ public class Itoopie implements ClientApp {
         if (_state == STOPPED)
             return;
         changeState(STOPPING);
-        trayManager.stopManager();
-        // TODO stop it
-        trayManager = null;
+        _main.stop();
         changeState(STOPPED);
     }
 

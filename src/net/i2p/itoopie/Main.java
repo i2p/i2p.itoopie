@@ -100,8 +100,15 @@ public class Main {
 
         //testStuff(); // Delete Me
     }
+
+    /**
+     *  For plugin
+     */
+    public void stop() {
+        if (trayManager != null)
+            trayManager.stopManager();
+    }
     
-    @SuppressWarnings("static-access")
     public void beginShutdown(){
     	_conf.writeConfFile();
     	System.exit(0);

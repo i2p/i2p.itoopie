@@ -30,7 +30,7 @@ import net.i2p.itoopie.i18n.Transl;
 
 
 public class BandwidthChart extends Chart2D{
-	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
+	private final ConfigurationManager _conf;
 	private final static int DEFAULT_UPDATE_INTERVAL = 10000; // Update every 2500th ms
 	private final static int DEFAULT_GRAPH_INTERVAL = 3600*1000; // The graph will cover a maximum of this time
 	private ObjRecorder2Trace2DAdapter bwInAdapter;
@@ -38,9 +38,9 @@ public class BandwidthChart extends Chart2D{
 	private InboundBandwidthTracker bwInTracker;
 	private OutboundBandwidthTracker bwOutTracker;
 	
-	public BandwidthChart(){
+	public BandwidthChart(ConfigurationManager conf) {
 		super();
-		
+		_conf = conf;
 		int updateInterval = _conf.getConf("graph.updateinterval", DEFAULT_UPDATE_INTERVAL);
 		int graphInterval = _conf.getConf("graph.graphinterval", DEFAULT_GRAPH_INTERVAL);
 		
@@ -83,14 +83,14 @@ public class BandwidthChart extends Chart2D{
 	    // force ranges:
 	    getAxisY().setRangePolicy(new RangePolicyMinimumViewport(new Range(0, 5)));
 
-	    bwInTracker = new InboundBandwidthTracker();
-	    bwOutTracker = new OutboundBandwidthTracker();
+	    bwInTracker = new InboundBandwidthTracker(updateInterval);
+	    bwOutTracker = new OutboundBandwidthTracker(updateInterval);
 	    
 	    bwInAdapter = new ObjRecorder2Trace2DAdapter(dataBWIn, bwInTracker, "m_value", updateInterval/2);
 	    bwOutAdapter = new ObjRecorder2Trace2DAdapter(dataBWOut, bwOutTracker, "m_value", updateInterval/2);
 	}
 	
-	
+/*
 	public static void main(final String[] args) {
 		  JFrame frame = new JFrame();
 		  Container contentPane = frame.getContentPane();
@@ -102,4 +102,5 @@ public class BandwidthChart extends Chart2D{
 		  frame.setResizable(true);
 		  frame.setVisible(true);
 	  }
+*/
 }

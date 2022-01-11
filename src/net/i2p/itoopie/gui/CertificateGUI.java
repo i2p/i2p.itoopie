@@ -1,6 +1,7 @@
 package net.i2p.itoopie.gui;
 
 import java.awt.BorderLayout;
+import java.io.File;
 
 import javax.security.cert.X509Certificate;
 import javax.swing.BoxLayout;
@@ -22,7 +23,7 @@ public class CertificateGUI {
 	}
 */
 
-	public static synchronized boolean saveNewCert(Main main, String hostname, X509Certificate cert){
+	public static synchronized boolean saveNewCert(Main main, File dir, String hostname, X509Certificate cert){
 		JFrame frame = new JFrame();
 		frame.setLayout(new BorderLayout());
 		JButton bt = new JButton();
@@ -59,7 +60,7 @@ public class CertificateGUI {
 		    JOptionPane.INFORMATION_MESSAGE);
 		
 		if (n == JOptionPane.YES_OPTION){
-			CertificateManager.forcePutServerCert(hostname, CertificateHelper.convert(cert));
+			CertificateManager.forcePutServerCert(dir, hostname, CertificateHelper.convert(cert));
 			updateUI(main);
 			return true;
 		} else {
@@ -68,7 +69,7 @@ public class CertificateGUI {
 	}
 	
 
-	public static boolean overwriteCert(Main main, String hostname, X509Certificate cert){
+	public static boolean overwriteCert(Main main, File dir, String hostname, X509Certificate cert){
 		JFrame frame = new JFrame();
 		
 		String title = Transl._t("Warning, new remote host detected");
@@ -109,7 +110,7 @@ public class CertificateGUI {
 				    JOptionPane.YES_NO_OPTION,
 				    JOptionPane.ERROR_MESSAGE);
 			if (n == JOptionPane.YES_OPTION){
-				CertificateManager.forcePutServerCert(hostname, CertificateHelper.convert(cert));
+				CertificateManager.forcePutServerCert(dir, hostname, CertificateHelper.convert(cert));
 				updateUI(main);
 				return true; // Confirmation positive
 			} else {

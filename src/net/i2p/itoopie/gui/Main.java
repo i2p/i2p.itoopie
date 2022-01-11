@@ -16,6 +16,7 @@ import javax.swing.JRootPane;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
+import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.gui.component.RegisteredFrame;
 import net.i2p.itoopie.gui.component.TabLogoPanel;
 import net.i2p.itoopie.gui.component.util.TabChangeListener;
@@ -36,6 +37,7 @@ public class Main {
 	private JFrame frame;
 	private JTabbedPane tabbedPane;
 	private final WindowHandler windowHandler;
+	private final ConfigurationManager _conf;
 	public final static int FRAME_WIDTH = 550;
 	public final static int FRAME_HEIGHT = 400;
 	public final static int TABBED_PANE_HEIGHT = FRAME_HEIGHT - 66;
@@ -61,9 +63,10 @@ public class Main {
 	/**
 	 * Create the application.
 	 */
-	public Main(WindowHandler wh) {
+	public Main(WindowHandler wh, ConfigurationManager conf) {
 		windowHandler = wh;
-	        HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier(this));
+		_conf = conf;
+	        HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier(this, conf.getAppConfDir()));
 		initialize();
 	}
 
@@ -88,7 +91,7 @@ public class Main {
 		root.add(tabbedPane);
 		tabbedPane.setBounds(0, 0, FRAME_WIDTH-9, TABBED_PANE_HEIGHT);
 
-		OverviewTab overviewTab = new OverviewTab("itoopie-opaque12");
+		OverviewTab overviewTab = new OverviewTab("itoopie-opaque12", _conf);
 		tabbedPane.addTab(' ' + Transl._t("Overview") + ' ', null, overviewTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(overviewTab));
 		
@@ -100,7 +103,7 @@ public class Main {
 		
 
 		// pass overview tab to settingsframe to reset the charts on change
-		TabLogoPanel settingsTab = new SettingsFrame("itoopie-opaque12", this, overviewTab);
+		TabLogoPanel settingsTab = new SettingsFrame("itoopie-opaque12", this, _conf, overviewTab);
 		tabbedPane.addTab(' ' + Transl._t("Settings") + ' ', icon, settingsTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(settingsTab));
 		

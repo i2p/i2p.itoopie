@@ -10,8 +10,6 @@ import javax.net.ssl.HttpsURLConnection;
 import net.i2p.itoopie.ItoopieVersion;
 import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i2pcontrol.methods.Authenticate;
-import net.i2p.itoopie.security.CertificateHelper;
-import net.i2p.itoopie.security.ItoopieHostnameVerifier;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -24,31 +22,30 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class JSONRPC2Interface {
 	private static Log _log;
-	private static ConfigurationManager _conf;
 	private static int nonce;
 	private static final int MAX_NBR_RETRIES = 2;
 	private static JSONRPC2Session session;
 	private static String token;
+	private final static String DEFAULT_PASSWORD = "itoopie";
+	private static String pw = DEFAULT_PASSWORD;
 		
 	static {
 		_log = LogFactory.getLog(JSONRPC2Interface.class);
-		_conf = ConfigurationManager.getInstance();
 		Random rnd = new Random();
 		nonce = rnd.nextInt();
-		setupSession();
 	}
 
 	public static synchronized int incrNonce() {
 		return ++nonce;
 	}
 
-	public static void setupSession() {
+	public static void setupSession(ConfigurationManager conf) {
 		URL srvURL = null;
-		String srvHost = _conf.getConf("server.hostname", "localhost");
+		String srvHost = conf.getConf("server.hostname", "localhost");
 		if (srvHost.contains(":"))
 			srvHost = '[' + srvHost + ']';
-		int srvPort = _conf.getConf("server.port", 7650);
-		String srvTarget = _conf.getConf("server.target", "jsonrpc");
+		int srvPort = conf.getConf("server.port", 7650);
+		String srvTarget = conf.getConf("server.target", "jsonrpc");
 		String method;
 		if (srvPort == 7657) {
 			// Use HTTP for the xmlrpc webapp in the HTTP router console
@@ -68,15 +65,16 @@ public class JSONRPC2Interface {
 			_log.error("Bad URL: " + method + "://" + srvHost + ":" + srvPort + "/"
 					+ srvTarget, e);
 		}
+		pw = conf.getConf("server.password", DEFAULT_PASSWORD);
 		session = new JSONRPC2Session(srvURL);
 		session.trustAllCerts(true);
 	}
 	
-	public static void testSettings() throws InvalidPasswordException, JSONRPC2SessionException{
+	public static void testSettings(ConfigurationManager conf) throws InvalidPasswordException, JSONRPC2SessionException{
 		// set in gui/Main
 		//HttpsURLConnection.setDefaultHostnameVerifier(new ItoopieHostnameVerifier());
-		setupSession();
-		Authenticate.execute();
+		setupSession(conf);
+		Authenticate.execute(pw);
 	}
 
 	public static JSONRPC2Response sendReq(JSONRPC2Request req)
@@ -133,17 +131,17 @@ public class JSONRPC2Interface {
 					// break;
 				case -32002:
 					// No token
-					token = Authenticate.execute();
+					token = Authenticate.execute(pw);
 					throw new FailedRequestException();
 					// break;
 				case -32003:
 					// Invalid token
-					token = Authenticate.execute();
+					token = Authenticate.execute(pw);
 					throw new FailedRequestException();
 					//break;
 				case -32004:
 					// Token expired
-					token = Authenticate.execute();
+					token = Authenticate.execute(pw);
 					throw new FailedRequestException();
 					// break;
 				case -32005:

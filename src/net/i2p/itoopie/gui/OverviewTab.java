@@ -32,7 +32,7 @@ import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
 import net.i2p.itoopie.util.DataHelper;
 
 public class OverviewTab extends TabLogoPanel {
-	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
+	private final ConfigurationManager _conf;
 	private final static int DEFAULT_INFO_UPDATE_INTERVAL = 30*1000; // Milliseconds.
 	
 	private final JLabel lblI2P;
@@ -47,12 +47,13 @@ public class OverviewTab extends TabLogoPanel {
 	private final BandwidthChart bwChart;
 	private final ParticipatingTunnelsChart partTunnelChart;
 
-	public OverviewTab(String imageName) {
+	public OverviewTab(String imageName, ConfigurationManager conf) {
 		super(imageName);
+		_conf = conf;
 		super.setLayout(null);
 
-		bwChart = new BandwidthChart();
-		partTunnelChart = new ParticipatingTunnelsChart();
+		bwChart = new BandwidthChart(_conf);
+		partTunnelChart = new ParticipatingTunnelsChart(_conf);
 		ChartPanel pt = new ChartPanel(partTunnelChart);
 		pt.setSize(300, 135);
 		pt.setLocation(5, 10);
@@ -211,6 +212,7 @@ public class OverviewTab extends TabLogoPanel {
 	/**
 	 * Launch the application.
 	 */
+/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -227,6 +229,6 @@ public class OverviewTab extends TabLogoPanel {
 		});
 	}
 	
-	
+*/	
 	
 }

@@ -5,10 +5,17 @@ import java.util.HashSet;
 
 import javax.swing.JFrame;
 
+import net.i2p.itoopie.configuration.ConfigurationManager;
+
 public class WindowHandler {
 	private final HashSet<JFrame> _frames = new HashSet<JFrame>();
 	private JFrame mainFrame;
 	private boolean areFramesShown;
+	private final ConfigurationManager _conf;
+
+	public WindowHandler(ConfigurationManager conf) {
+		_conf = conf;
+	}
 
 	public void register(JFrame frame){
 		_frames.add(frame);
@@ -50,7 +57,7 @@ public class WindowHandler {
 	
 	public void toggleFrames(){
 		if (_frames.isEmpty()){
-			new Main(this);
+			new Main(this, _conf);
 		} else {
 			if (areFramesShown){
 				hideFrames();

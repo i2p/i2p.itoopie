@@ -14,19 +14,15 @@ import net.i2p.itoopie.i2pcontrol.methods.RouterInfo.ROUTER_INFO;
 
 public class ParticipatingTunnelsTracker extends Thread implements Tracker {
 	
-	private static ConfigurationManager _conf = ConfigurationManager.getInstance();
 	/** Last read bw */
 	private double m_value = 0;
-	
-	/** Poll router for current ratestat every updateInterval seconds */
-	private final static int DEFAULT_UPDATE_INTERVAL = 100; // Update every 100th ms
-
-	private int updateInterval = _conf.getConf("graph.updateinterval", DEFAULT_UPDATE_INTERVAL);
+	private final int updateInterval;
 
 	/**
 	 * Start daemon that checks to current inbound bandwidth of the router.
 	 */
-	public ParticipatingTunnelsTracker() {
+	public ParticipatingTunnelsTracker(int interval) {
+		updateInterval = interval;
 		this.setDaemon(true);
 		this.start();
 	}

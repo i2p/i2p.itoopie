@@ -50,7 +50,7 @@ public class Main {
     private final Log _log;
 
     public Main() {
-        _conf = ConfigurationManager.getInstance();
+        _conf = new ConfigurationManager();
         _log = LogFactory.getLog(Main.class);
     }
 
@@ -59,7 +59,8 @@ public class Main {
      * @throws Exception 
      */
     public void startUp() throws Exception {
-        trayManager = new TrayManager(this);
+        JSONRPC2Interface.setupSession(_conf);
+        trayManager = new TrayManager(this, _conf);
         trayManager.startManager();
     }
     

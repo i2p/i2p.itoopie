@@ -19,6 +19,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 import net.i2p.itoopie.Main;
+import net.i2p.itoopie.configuration.ConfigurationManager;
 import net.i2p.itoopie.i18n.Transl;
 import net.i2p.itoopie.util.IconLoader;
 import net.i2p.itoopie.util.IsJar;
@@ -33,19 +34,21 @@ public class TrayManager {
     ///Our tray icon, or null if unsupported
     protected TrayIcon trayIcon;
     private final net.i2p.itoopie.Main main;    
+    private final ConfigurationManager _conf;
     
     /**
      * Instantiate tray manager.
      */
-    public TrayManager(net.i2p.itoopie.Main m) {
+    public TrayManager(net.i2p.itoopie.Main m, ConfigurationManager conf) {
         main = m;
+	_conf = conf;
     }
     
     /**
      * Add the tray icon to the system tray and start everything up.
      */
     public synchronized void startManager() {
-	final WindowHandler windowHandler = new WindowHandler();
+	final WindowHandler windowHandler = new WindowHandler(_conf);
 	windowHandler.toggleFrames();
 	// so the tray icon works right on Gnome
 	try { Thread.sleep(500); } catch (InterruptedException ie) {}

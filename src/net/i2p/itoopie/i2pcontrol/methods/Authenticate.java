@@ -18,17 +18,13 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException;
 
 public class Authenticate {
-	private final static ConfigurationManager _conf = ConfigurationManager.getInstance();
-	private final static Log _log = LogFactory.getLog(Authenticate.class);
-	private final static String DEFAULT_PASSWORD = "itoopie";
 	
-	public static String execute()
+	public static String execute(String password)
 			throws InvalidPasswordException, JSONRPC2SessionException {
 		JSONRPC2Request req = new JSONRPC2Request("Authenticate", JSONRPC2Interface.incrNonce());
 
 		Map outParams = new HashMap();
-		outParams.put("Password",
-				_conf.getConf("server.password", _conf.getConf("server.password", DEFAULT_PASSWORD)));
+		outParams.put("Password", password);
 		outParams.put("API", ItoopieVersion.I2PCONTROL_API_VERSION);
 		req.setParams(outParams);
 
@@ -40,6 +36,7 @@ public class Authenticate {
 		}catch (UnrecoverableFailedRequestException e) {
 			return null; // Shouldn't normally happen.
 		} catch (InvalidParametersException e) {
+			Log _log = LogFactory.getLog(Authenticate.class);
 			_log.error("getNewToken() invalid parameters used");
 		}
 		return null;

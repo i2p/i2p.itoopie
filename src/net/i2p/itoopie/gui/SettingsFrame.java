@@ -95,10 +95,10 @@ public class SettingsFrame extends TabLogoPanel {
 	/**
 	 * Create the application.
 	 */
-	public SettingsFrame(String imageName, Main m, OverviewTab otab) {
+	public SettingsFrame(String imageName, Main m, ConfigurationManager conf, OverviewTab otab) {
 		super(imageName);
 		setLayout(null);
-		_conf = ConfigurationManager.getInstance();
+		_conf = conf;
 		_otab = otab;
 		_main = m;
 		initialize();
@@ -393,7 +393,7 @@ public class SettingsFrame extends TabLogoPanel {
 			_conf.setConf("server.hostname", ipText);
 			_conf.setConf("server.port", port);
 			_conf.setConf("server.password", pwText);
-			JSONRPC2Interface.testSettings();
+			JSONRPC2Interface.testSettings(_conf);
 			if (!oldIP.equals(ipText) || oldPort != port)
 				_otab.clearGraphs();
 		} catch (InvalidPasswordException e) {

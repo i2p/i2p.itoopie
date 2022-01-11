@@ -24,7 +24,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ConfigurationManager {
 	private static final String DEFAULT_CONFIG_NAME = "itoopie.conf";
-	private static final Log _log = LogFactory.getLog(ConfigurationManager.class);
+	private final Log _log = LogFactory.getLog(ConfigurationManager.class);
 	private static final String APP_DIR_NAME = "itoopie";
 	/**
 	 * For plugin
@@ -32,23 +32,15 @@ public class ConfigurationManager {
 	public static final String PROP_CONF_DIR = "itoopie.confdir";
 
 	
-	private static ConfigurationManager instance;
 	//Configurations with a String as value
-	private static Map<String, String> stringConfigurations = new HashMap<String, String>();
+	private Map<String, String> stringConfigurations = new HashMap<String, String>();
 	//Configurations with a Boolean as value
-	private static Map<String, Boolean> booleanConfigurations = new HashMap<String, Boolean>();
+	private Map<String, Boolean> booleanConfigurations = new HashMap<String, Boolean>();
 	//Configurations with an Integer as value
-	private static Map<String, Integer> integerConfigurations = new HashMap<String, Integer>();
+	private Map<String, Integer> integerConfigurations = new HashMap<String, Integer>();
 
-	private ConfigurationManager() {
+	public ConfigurationManager() {
 		readConfFile();
-	}
-	
-	public synchronized static ConfigurationManager getInstance() {
-		if(instance == null) {
-			instance = new ConfigurationManager();
-		}
-		return instance;
 	}
 	
 	/**
@@ -68,7 +60,7 @@ public class ConfigurationManager {
 	/**
 	 * Reads configuration from file itoopie.conf, every line is parsed as key=value.
 	 */
-	public static void readConfFile(){
+	public void readConfFile(){
 		File f = new File(getAppConfDir(), DEFAULT_CONFIG_NAME);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(f));
@@ -87,7 +79,7 @@ public class ConfigurationManager {
 	/**
 	 * Write configuration into default config file.
 	 */
-	public static void writeConfFile(){
+	public void writeConfFile(){
 		TreeMap<String,String> tree = new TreeMap<String,String>();
 		for (Entry<String,String> e : stringConfigurations.entrySet()){
 			tree.put(e.getKey(), e.getValue());
@@ -115,7 +107,7 @@ public class ConfigurationManager {
 	 * where value will (in order) be parsed as integer/boolean/string. 
 	 * @param str
 	 */
-	public static void parseConfigStr(String str){
+	public void parseConfigStr(String str){
 		int eqIndex = str.indexOf('=');
 		if (eqIndex != -1){
 			String key = str.substring(0, eqIndex).trim().toLowerCase();
@@ -219,7 +211,7 @@ public class ConfigurationManager {
 	 * Get the file path to the configuration directory. If the directory does not yet exist, creates it.
 	 * @return Application configuration directory.
 	 */
-	public static File getAppConfDir() {
+	public File getAppConfDir() {
 		String dir;
 		// for plugin
 		String override = System.getProperty(PROP_CONF_DIR);

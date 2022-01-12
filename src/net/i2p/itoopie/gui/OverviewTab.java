@@ -155,7 +155,7 @@ public class OverviewTab extends TabLogoPanel {
 	 * @since 0.0.4
 	 */
 	@Override
-	public void removeNotify() {
+	public void destroy() {
 		running = false;
 		bwChart.destroy();
 		partTunnelChart.destroy();

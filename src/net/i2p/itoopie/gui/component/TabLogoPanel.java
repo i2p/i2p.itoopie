@@ -11,4 +11,6 @@ public abstract class TabLogoPanel extends LogoPanel {
 	}
 
 	public abstract void onTabFocus(ChangeEvent e);
+
+	public void destroy() {};
 }

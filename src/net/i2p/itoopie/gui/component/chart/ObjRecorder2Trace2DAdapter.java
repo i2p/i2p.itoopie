@@ -159,4 +159,8 @@ public class ObjRecorder2Trace2DAdapter implements ChangeListener {
       this.m_view.addPoint(tmpx, tmpy);
     }
   }
+
+  public void kill() {
+	m_inspector.kill();
+  }
 }

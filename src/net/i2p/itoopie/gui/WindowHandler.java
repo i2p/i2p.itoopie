@@ -25,6 +25,14 @@ public class WindowHandler {
 		mainFrame = frame;
 	}
 	
+	public void destroyMain() {
+		if (mainFrame != null) {
+			mainFrame.dispose();
+			_frames.remove(mainFrame);
+			mainFrame = null;
+		}
+	}
+
 	public void deRegister(JFrame frame){
 		// don't remove the main frame when
 		// the user clicks on the X, so we have the updated

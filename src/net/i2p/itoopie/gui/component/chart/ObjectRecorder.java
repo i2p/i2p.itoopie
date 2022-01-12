@@ -142,6 +142,7 @@ public class ObjectRecorder extends Thread {
 
   /** The instance to inspect. */
   protected Tracker m_toinspect;
+  private volatile boolean running;
 
   /**
    * Creates an instance that will inspect the given Object in the given time
@@ -353,7 +354,8 @@ public class ObjectRecorder extends Thread {
    */
   @Override
   public void run() {
-    while (true) {
+    running = true;
+    while (running) {
       try {
         Thread.sleep(this.m_interval);
       } catch (final InterruptedException e) {
@@ -361,6 +363,11 @@ public class ObjectRecorder extends Thread {
       }
       this.inspect();
     }
+  }
+
+  public void kill() {
+	running = false;
+	interrupt();
   }
 
   /**

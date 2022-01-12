@@ -46,6 +46,7 @@ public class OverviewTab extends TabLogoPanel {
 	private final MultiLineLabel lblNetworkStatusSpecified;
 	private final BandwidthChart bwChart;
 	private final ParticipatingTunnelsChart partTunnelChart;
+	private volatile boolean running;
 
 	public OverviewTab(String imageName, ConfigurationManager conf) {
 		super(imageName);
@@ -134,19 +135,33 @@ public class OverviewTab extends TabLogoPanel {
 		
 		final int updateInterval = _conf.getConf("overview.info.updateinterval", DEFAULT_INFO_UPDATE_INTERVAL);
 		
-		(new Thread(){
+		(new Thread("IToopie-OT"){
 			@Override
 			public void run() {
-				while (true) {
+				running = true;
+				while (running) {
 					populateInfo();
 					try {
 						Thread.sleep(updateInterval);
-					} catch (Exception e){} // Never stop.
+					} catch (InterruptedException e) {
+						break;
+					}
 				}
 			}
 		}).start();
 	}
 	
+	/**
+	 * @since 0.0.4
+	 */
+	@Override
+	public void removeNotify() {
+		running = false;
+		bwChart.destroy();
+		partTunnelChart.destroy();
+		super.removeNotify();
+	}
+
 	/**
 	 * @since 0.0.4
 	 */

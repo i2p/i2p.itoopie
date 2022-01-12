@@ -35,6 +35,7 @@ public class TrayManager {
     protected TrayIcon trayIcon;
     private final net.i2p.itoopie.Main main;    
     private final ConfigurationManager _conf;
+    private WindowHandler _wh;
     
     /**
      * Instantiate tray manager.
@@ -49,6 +50,7 @@ public class TrayManager {
      */
     public synchronized void startManager() {
 	final WindowHandler windowHandler = new WindowHandler(_conf);
+	_wh = windowHandler;
 	windowHandler.toggleFrames();
 	// so the tray icon works right on Gnome
 	try { Thread.sleep(500); } catch (InterruptedException ie) {}
@@ -85,6 +87,8 @@ public class TrayManager {
                 trayIcon = null;
             }
         } catch (Exception e) {}
+        if (_wh != null)
+	    _wh.destroyMain();
     }
 
     protected void languageChanged() {

@@ -75,7 +75,14 @@ public class ParticipatingTunnelsChart extends Chart2D {
 	    partTunnelTracker = new ParticipatingTunnelsTracker(updateInterval);
 	    partTunnelAdapter = new ObjRecorder2Trace2DAdapter(dataPartTunnels, partTunnelTracker, "m_value", updateInterval/2);
 	}
-	
+
+	@Override
+	public void destroy() {
+		partTunnelTracker.kill();
+		partTunnelAdapter.kill();
+		super.destroy();
+	}
+
 /*
 	  public static void main(final String[] args) {
 		  JFrame frame = new JFrame();

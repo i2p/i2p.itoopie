@@ -16,6 +16,7 @@ public class OutboundBandwidthTracker extends Thread implements Tracker {
 	/** Last read bw */
 	private double m_value = 0;
 	private final int updateInterval;
+	private volatile boolean running;
 
 	/**
 	 * Start daemon that checks to current inbound bandwidth of the router.
@@ -32,8 +33,8 @@ public class OutboundBandwidthTracker extends Thread implements Tracker {
 	 */
 	@Override
 	public void run() {
-		
-		while (true) {
+		running = true;
+		while (running) {
 			
 			runOnce();
 			try {
@@ -55,6 +56,14 @@ public class OutboundBandwidthTracker extends Thread implements Tracker {
 		} catch (JSONRPC2SessionException e) {
 			m_value = 0;
 		}
+	}
+
+	/**
+	 * @since 0.0.4
+	 */
+	public void kill() {
+		running = false;
+		interrupt();
 	}
 
 	/**

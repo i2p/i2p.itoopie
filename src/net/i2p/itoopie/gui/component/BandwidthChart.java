@@ -89,6 +89,15 @@ public class BandwidthChart extends Chart2D{
 	    bwInAdapter = new ObjRecorder2Trace2DAdapter(dataBWIn, bwInTracker, "m_value", updateInterval/2);
 	    bwOutAdapter = new ObjRecorder2Trace2DAdapter(dataBWOut, bwOutTracker, "m_value", updateInterval/2);
 	}
+
+	@Override
+	public void destroy() {
+		bwInTracker.kill();
+		bwOutTracker.kill();
+		bwInAdapter.kill();
+		bwOutAdapter.kill();
+		super.destroy();
+	}
 	
 /*
 	public static void main(final String[] args) {

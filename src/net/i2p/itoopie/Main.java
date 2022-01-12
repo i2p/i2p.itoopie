@@ -85,7 +85,9 @@ public class Main {
         }
 
 
-        launchForeverLoop();
+	// not for plugin
+	if (System.getProperty(ConfigurationManager.PROP_CONF_DIR) == null)
+	        launchForeverLoop();
         try {
 			startUp();
 		} catch (Exception e) {
@@ -94,9 +96,12 @@ public class Main {
         
         
         
+	// not for plugin
+	if (System.getProperty(ConfigurationManager.PROP_CONF_DIR) == null) {
 		// Start running periodic task after 2 minutes, run periodically every 10th minute.
-        reseedMonitor = new Timer();
+		reseedMonitor = new Timer();
 		reseedMonitor.scheduleAtFixedRate(new ReseedMonitor(), 2*60*1000, 10*60*1000);
+	}
 
         //testStuff(); // Delete Me
     }
@@ -130,7 +135,7 @@ public class Main {
                 }
             }
         };
-        Thread t = new Thread(r);
+        Thread t = new Thread(r, "IToopie-LFL");
         t.setDaemon(false);
         t.start();
     }

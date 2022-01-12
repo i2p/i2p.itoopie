@@ -61,4 +61,12 @@ public class RegisteredFrame extends JFrame implements WindowListener{
 		// TODO Auto-generated method stub
 		
 	}
+
+	/**
+	 * @since 0.0.4
+	 */
+	public void kill() {
+		dispose();
+	}
+
 }

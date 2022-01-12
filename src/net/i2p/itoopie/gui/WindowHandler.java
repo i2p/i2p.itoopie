@@ -6,10 +6,11 @@ import java.util.HashSet;
 import javax.swing.JFrame;
 
 import net.i2p.itoopie.configuration.ConfigurationManager;
+import net.i2p.itoopie.gui.component.RegisteredFrame;
 
 public class WindowHandler {
 	private final HashSet<JFrame> _frames = new HashSet<JFrame>();
-	private JFrame mainFrame;
+	private RegisteredFrame mainFrame;
 	private boolean areFramesShown;
 	private final ConfigurationManager _conf;
 
@@ -21,13 +22,13 @@ public class WindowHandler {
 		_frames.add(frame);
 	}
 	
-	public void registerMain(JFrame frame){
+	public void registerMain(RegisteredFrame frame){
 		mainFrame = frame;
 	}
 	
 	public void destroyMain() {
 		if (mainFrame != null) {
-			mainFrame.dispose();
+			mainFrame.kill();
 			_frames.remove(mainFrame);
 			mainFrame = null;
 		}

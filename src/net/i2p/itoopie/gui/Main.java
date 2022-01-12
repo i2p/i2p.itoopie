@@ -34,8 +34,9 @@ import java.awt.FlowLayout;
 
 public class Main {
 
-	private JFrame frame;
+	private RegisteredFrame frame;
 	private JTabbedPane tabbedPane;
+	private OverviewTab overviewTab;
 	private final WindowHandler windowHandler;
 	private final ConfigurationManager _conf;
 	public final static int FRAME_WIDTH = 550;
@@ -71,13 +72,31 @@ public class Main {
 	}
 
 	/**
+	 * Stop all the threads in overview tab
+	 * on plugin stop, but not on frame x-out
+	 * @since 0.0.4
+	 */
+	private class KillableFrame extends RegisteredFrame {
+		public KillableFrame(String s, WindowHandler wh) {
+			super(s, wh);
+		}
+
+		@Override
+		public void kill() {
+			if (overviewTab != null)
+				overviewTab.destroy();
+			super.kill();
+		}
+	}
+
+	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		GUIHelper.setDefaultStyle();
 		//GUIHelper.setTabLooks();
 		
-		frame = new RegisteredFrame("itoopie", windowHandler);
+		frame = new KillableFrame("itoopie", windowHandler);
 		frame.setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 		frame.setResizable(false);
 		frame.setBackground(GUIHelper.VERY_LIGHT);
@@ -91,7 +110,7 @@ public class Main {
 		root.add(tabbedPane);
 		tabbedPane.setBounds(0, 0, FRAME_WIDTH-9, TABBED_PANE_HEIGHT);
 
-		OverviewTab overviewTab = new OverviewTab("itoopie-opaque12", _conf);
+		overviewTab = new OverviewTab("itoopie-opaque12", _conf);
 		tabbedPane.addTab(' ' + Transl._t("Overview") + ' ', null, overviewTab, null);
 		tabbedPane.addChangeListener(new TabChangeListener(overviewTab));
 		

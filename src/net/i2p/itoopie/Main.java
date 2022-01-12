@@ -46,7 +46,7 @@ public class Main {
     ///Manages the lifetime of the tray icon.
     private TrayManager trayManager;
     private final ConfigurationManager _conf;
-    private static Timer reseedMonitor;
+    //private Timer reseedMonitor;
     private final Log _log;
 
     public Main() {
@@ -96,12 +96,14 @@ public class Main {
         
         
         
+/*
 	// not for plugin
 	if (System.getProperty(ConfigurationManager.PROP_CONF_DIR) == null) {
 		// Start running periodic task after 2 minutes, run periodically every 10th minute.
 		reseedMonitor = new Timer();
 		reseedMonitor.scheduleAtFixedRate(new ReseedMonitor(), 2*60*1000, 10*60*1000);
 	}
+*/
 
         //testStuff(); // Delete Me
     }

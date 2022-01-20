@@ -90,6 +90,17 @@ public class BandwidthChart extends Chart2D{
 	    bwOutAdapter = new ObjRecorder2Trace2DAdapter(dataBWOut, bwOutTracker, "m_value", updateInterval/2);
 	}
 
+	/**
+	 * @since 0.0.4
+	 */
+	public void clearData() {
+		bwInTracker.clearData();
+		bwOutTracker.clearData();
+		for (ITrace2D trace : getTraces()) {
+			trace.removeAllPoints();
+		}
+	}
+
 	@Override
 	public void destroy() {
 		bwInTracker.kill();

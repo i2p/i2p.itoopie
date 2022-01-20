@@ -6,4 +6,6 @@ package net.i2p.itoopie.gui.component.chart;
 public interface Tracker {
 	
 	public double getData();
+
+	public void clearData();
 }

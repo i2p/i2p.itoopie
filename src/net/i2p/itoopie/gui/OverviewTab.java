@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.util.EnumMap;
 
-import info.monitorenter.gui.chart.Chart2D;
-import info.monitorenter.gui.chart.ITrace2D;
 import info.monitorenter.gui.chart.views.ChartPanel;
 
 import javax.swing.BorderFactory;
@@ -166,12 +164,8 @@ public class OverviewTab extends TabLogoPanel {
 	 * @since 0.0.4
 	 */
 	public void clearGraphs() {
-		for (ITrace2D trace : bwChart.getTraces()) {
-			trace.removeAllPoints();
-		}
-		for (ITrace2D trace : partTunnelChart.getTraces()) {
-			trace.removeAllPoints();
-		}
+		bwChart.clearData();
+		partTunnelChart.clearData();
 	}
 
 	private void populateInfo(){

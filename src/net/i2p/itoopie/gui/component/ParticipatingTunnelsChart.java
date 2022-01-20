@@ -76,6 +76,16 @@ public class ParticipatingTunnelsChart extends Chart2D {
 	    partTunnelAdapter = new ObjRecorder2Trace2DAdapter(dataPartTunnels, partTunnelTracker, "m_value", updateInterval/2);
 	}
 
+	/**
+	 * @since 0.0.4
+	 */
+	public void clearData() {
+		partTunnelTracker.clearData();
+		for (ITrace2D trace : getTraces()) {
+			trace.removeAllPoints();
+		}
+	}
+
 	@Override
 	public void destroy() {
 		partTunnelTracker.kill();

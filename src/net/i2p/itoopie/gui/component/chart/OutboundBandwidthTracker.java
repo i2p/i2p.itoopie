@@ -70,4 +70,9 @@ public class OutboundBandwidthTracker extends Thread implements Tracker {
 	 * @since 0.0.4
 	 */
 	public double getData() { return m_value; }
+
+	/**
+	 * @since 0.0.4
+	 */
+	public void clearData() { m_value = 0; }
 }

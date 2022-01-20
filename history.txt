@@ -5,6 +5,8 @@
  * Layout fixes and adjustments
  * Fixes for long translated strings
  * Fixes for i2pd
+ * Fix IPv6 address host
+ * Fix tray icon on Gnome
  * Graph adjustments
  * Localize time format on graphs
  * Move Settings from a popup frame to a new tab
@@ -15,9 +17,12 @@
  * Clear graph after changing router host/port
  * Don't clear graph when user closes the window
  * Update to jchart2d 3.2.2 2011-09-25
+ * Disable reseed monitor
  * Remove debug output
+ * Refactoring
  * README updates
  * Pulled in new and updated translations
+ * Preliminary changes for plugin version
 
 
 0.0.3 - 2015-03-02

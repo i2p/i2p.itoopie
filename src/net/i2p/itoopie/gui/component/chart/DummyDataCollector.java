@@ -66,4 +66,9 @@ public class DummyDataCollector extends Thread implements Tracker {
 	 * @since 0.0.4
 	 */
 	public double getData() { return m_number; }
+
+	/**
+	 * @since 0.0.4
+	 */
+	public void clearData() { m_number = 0; }
 }

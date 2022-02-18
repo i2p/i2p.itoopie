@@ -1,4 +1,4 @@
-0.0.4 - 2022-01-xx
+0.0.4 - 2022-02-18
 ***
  * Build fixes
  * Support i2pcontrol HTTP Java console webapp at port 7657

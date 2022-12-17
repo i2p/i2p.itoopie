@@ -6,13 +6,14 @@
 # Translators:
 # polacco <polacco@i2pmail.org>, 2015
 # Przemyslaw Ka. <przemyslaw.karpeta@gmail.com>, 2021
+# Waldemar Napora, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2021-03-12 13:25+0000\n"
-"Last-Translator: Przemyslaw Ka. <przemyslaw.karpeta@gmail.com>\n"
+"POT-Creation-Date: 2022-02-01 12:39+0000\n"
+"PO-Revision-Date: 2015-01-11 19:37+0000\n"
+"Last-Translator: Waldemar Napora, 2022\n"
 "Language-Team: Polish (http://www.transifex.com/otf/I2P/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,343 +27,305 @@ msgid ""
 "Development began during the summer of 2011 and the first alpha was launched in July.\n"
 "\n"
 "I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online."
-msgstr ""
+msgstr "itoopie i I2PControl były sponsorowane przez Relakks & Ipredator.\nRozwój rozpoczął się latem 2011 roku, a pierwsza alfa została uruchomiona w lipcu.\n\nChciałbym podziękować Janowi-Erikowi Fiske i Peterowi Sunde za aktywne wspieranie prywatności i anonimowości w sieci."
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:43
-#: src/net/i2p/itoopie/gui/OverviewTab.java:74
+#: src/net/i2p/itoopie/gui/OverviewTab.java:77
 msgid "Version:"
 msgstr "Wersja:"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:30
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:33
 msgid "New remote host detected"
 msgstr "Wykryto nowy zdalny host"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:31
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:34
 #, java-format
 msgid ""
 "Would you like permanently trust the certificate from the remote host {0}?"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:44
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:87
-msgid "Certificate info"
-msgstr "Informacje o certyfikacie"
-
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:45
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:88
-msgid "Name: "
-msgstr "Nazwa:"
-
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:46
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:89
-msgid "Algorithm: "
-msgstr "Algorytm:"
+msgstr "Czy chcesz na stałe zaufać certyfikatowi ze zdalnego hosta {0}?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:47
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:90
-msgid "Serial: "
-msgstr ""
+msgid "Certificate info"
+msgstr "Informacje o certyfikacie"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:48
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:91
+msgid "Name: "
+msgstr "Nazwa:"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:49
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:92
+msgid "Algorithm: "
+msgstr "Algorytm:"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:50
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:93
+msgid "Serial: "
+msgstr ""
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:51
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:94
 msgid "SHA-1 ID-hash: "
 msgstr ""
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:72
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:75
 msgid "Warning, new remote host detected"
-msgstr ""
+msgstr "Uwaga, wykryto nowego zdalnego hosta"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:73
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:76
 #, java-format
 msgid "The certificate of {0} has changed!"
 msgstr "Zmienił się certyfikat {0}!"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:74
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:77
 msgid ""
 "Are you sure you want to permanently trust the new certificate from the "
 "remote host?"
 msgstr "Czy na pewno chcesz dodać nowy certyfikat do zaufanych?"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:105
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:108
 msgid "Are you sure that you trust the new certificate?"
 msgstr "Czy na pewno ufasz nowemu certyfikatowi?"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:106
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:109
 msgid "Is that your final answer?"
 msgstr "Czy to Twoja ostateczna odpowiedź?"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
-msgid "Settings read from I2P router."
-msgstr "Ustawienia odczytane z węzła I2P."
-
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:48
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:60
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:65
 msgid "Settings aren't valid, not saving."
 msgstr "Ustawienia nie są poprawne, nie zapisano."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:61
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:50
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:66
 msgid "I2P router rejected settings."
 msgstr "Węzeł I2P odrzucił ustawienia."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:50
-msgid "Not connected, unable to save."
-msgstr ""
-
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:62
+msgid "Not connected, unable to save."
+msgstr "Nie połączono, nie można zapisać."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:67
 msgid "Saved settings on I2P router."
 msgstr "Zapisano ustawienia na węźle I2P."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:63
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:53
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:68
 msgid "Saved settings on I2P router. I2P router needs to be restarted."
 msgstr "Zapisano ustawienia na węźle I2P. Węzeł I2P musi być zrestartowany."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:96
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:170
+#. This is confusing and probably isn't supported on the i2pcontrol side,
+#. certainly not with the webapp.
+#. JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
+#. separator.setBounds((96)/2, 108, (getWidth()-96), 2);
+#. add(separator);
+#. JPanel newChangePanel = new JPanel();
+#. newChangePanel.setLayout(null);
+#. newChangePanel.setOpaque(false);
+#. newChangePanel.setBounds(0, 110, 426, 135);
+#. add(newChangePanel);
+#. setupChangePanel(newChangePanel);
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:97
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:139
 msgid "Apply"
 msgstr "Zastosuj"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:132
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:133
 msgid "Bandwidth:"
 msgstr "Przepustowość:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:137
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:138
 msgid "Download:"
-msgstr ""
+msgstr "Pobierz:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:146
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:160
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:148
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:163
 msgid "KB/s"
 msgstr "KB/s"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:151
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:153
 msgid "Upload:"
-msgstr ""
+msgstr "Prześlij:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:165
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:170
 msgid "Share:"
-msgstr ""
+msgstr "Udostępnij:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:184
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:190
 msgid "Network:"
 msgstr "Sieć:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:189
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:195
 msgid "TCP port:"
 msgstr "Numer portu TCP:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:199
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:206
 msgid "UDP port:"
 msgstr "Numer portu UDP:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:209
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:217
 msgid "UPNP:"
 msgstr "UPnP"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:211
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:219
 msgid "Enable UPNP"
 msgstr "Włącz UPnP"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:285
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:302
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:414
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:535
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:304
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:321
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:383
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a port."
 msgstr "\"{0}\" nie może być zinterpretowane jako port."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:286
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:303
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:415
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:536
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:305
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:322
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:384
 msgid "Port must be a number in the range 1-65535."
 msgstr "Numer portu musi być liczbą w przedziale 1-65535."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:287
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:304
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:416
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:537
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:306
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:323
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:385
 msgid "Invalid port."
 msgstr "Nieprawidłowy numer portu."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:319
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:336
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:338
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:355
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a speed."
 msgstr "\"{0}\" nie może być zinterpretowane jako prędkość."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:320
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:337
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:339
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:356
 msgid "Speed must be a number larger than 0."
 msgstr "Prędkość musi być liczbą większą od 0."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:321
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:340
 msgid "Invalid download speed."
 msgstr "Nieprawidłowa prędkość pobierania."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:338
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:357
 msgid "Invalid upload speed."
 msgstr "Nieprawidłowa prędkość wysyłania."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:353
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:372
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a percentage."
 msgstr "\"{0}\" nie może być zinterpretowane jako procent."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:354
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:373
 msgid "Percentage must be a number in the range 0-100."
 msgstr "Procent musi być liczbą w przedziale 0-100."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:355
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:374
 msgid "Invalid share percentage."
 msgstr "Nieprawidłowy udział procentowy."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:397
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:416
 msgid ""
 "The new settings have been applied,\n"
 "but the I2P router needs to be restarted for some to take effect.\n"
 "\n"
 "Would you like to restart the I2P router now?"
-msgstr ""
+msgstr "Nowe ustawienia zostały zastosowane,\nale żeby zaczęły działać, należy ponownie uruchomić router I2P.\n\nCzy chcesz teraz zrestartować router I2P?"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:400
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:419
 msgid "Restart needed for new settings."
 msgstr "Aby skorzystać z nowych ustawień, potrzebny jest restart."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:408
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:427
 msgid "Restarting I2P node"
 msgstr "Restartowanie węzła I2P"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:410
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:412
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:429
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:431
 msgid "Restart failed"
 msgstr "Restart nie udany"
 
-#: src/net/i2p/itoopie/gui/Main.java:85
+#: src/net/i2p/itoopie/gui/Main.java:114
 msgid "Overview"
 msgstr "Przegląd"
 
-#: src/net/i2p/itoopie/gui/Main.java:90
-msgid "Configuration"
-msgstr "Ustawienia"
+#: src/net/i2p/itoopie/gui/Main.java:120
+msgid "I2P Control"
+msgstr "Kontrola I2P"
 
-#: src/net/i2p/itoopie/gui/Main.java:95
-msgid "About"
-msgstr "O programie"
-
-#: src/net/i2p/itoopie/gui/Main.java:115
+#: src/net/i2p/itoopie/gui/Main.java:126
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:88
+#: src/net/i2p/itoopie/gui/Main.java:132
+msgid "About"
+msgstr "O programie"
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:93
 msgid "Uptime:"
 msgstr "Czas działania:"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:101
+#: src/net/i2p/itoopie/gui/OverviewTab.java:108
 msgid "Status:"
 msgstr "Stan:"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:113
+#: src/net/i2p/itoopie/gui/OverviewTab.java:123
 msgid "Net Status:"
 msgstr "Stan sieci:"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:64
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:69
 msgid "No changes found, settings not saved."
-msgstr ""
+msgstr "Nie znaleziono zmian, nie zapisano ustawień."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:179
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:148
 msgid "Settings saved."
 msgstr "Zapisano ustawienia."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:183
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:152
 msgid "Settings not saved, no changes found."
-msgstr ""
+msgstr "Ustawienia nie zostały zapisane, nie znaleziono zmian."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:189
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:192
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:195
-msgid "New remote address"
-msgstr "Nowy adres zdalny"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:202
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:205
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:208
-msgid "New remote port"
-msgstr "Nowy zdalny port"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:215
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:218
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:221
-msgid "New remote password"
-msgstr "Nowe zdalne hasło"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:236
-msgid "Discard"
-msgstr "Odrzuć"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:253
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:213
 msgid "Connect to I2P node"
 msgstr "Połącz z węzłem I2P"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:259
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:219
 msgid "IP address:"
 msgstr "Adres IP:"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:269
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:229
 msgid "Port:"
 msgstr "Port:"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:279
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:239
 msgid "Password:"
 msgstr "Hasło:"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:291
-msgid "Change I2PControl"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:297
-msgid "Change address:"
-msgstr "Zmień adres IP:"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:307
-msgid "Change port:"
-msgstr "Zmień port:"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:317
-msgid "New password:"
-msgstr "Nowe hasło:"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:328
-msgid "Repeat password:"
-msgstr "Powtórz hasło:"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:398
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:367
 #, java-format
 msgid "\"{0}\" cannot be interpreted as an ip address."
 msgstr "\"{0}\" nie może być zinterpretowane jako adres IP."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:399
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:368
 msgid "Try entering the ip address of the machine running i2p."
 msgstr ""
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:400
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:369
 msgid "Invalid ip address."
 msgstr "Nieprawidłowy adres IP."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:431
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:402
 msgid ""
 "The password was not accepted as valid by the specified host.\n"
 "\n"
 "(the default password is \"itoopie\")"
-msgstr ""
+msgstr "Hasło nie zostało zaakceptowane jako prawidłowe przez określonego hosta.\n\n(domyślne hasło to \"itoopie\")"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:433
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:404
 msgid "Rejected password."
 msgstr "Hasło odrzucone."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:443
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:414
 msgid ""
 "The remote host at the ip and port did not respond.\n"
 "\n"
@@ -370,25 +333,9 @@ msgid ""
 "maybe the I2P router is not started."
 msgstr ""
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:446
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:417
 msgid "Connection failed."
 msgstr "Nie udało się połączyć."
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:479
-msgid "The new password and the repeated new password do not match."
-msgstr "Wpisane hasła się różnią."
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:480
-msgid "Mistyped password."
-msgstr "Błąd we wpisywaniu hasła."
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:489
-msgid "The new password is the same as the old password."
-msgstr "Nowe hasło jest takie samo jak stare."
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:490
-msgid "No new password."
-msgstr "Brak nowego hasła."
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:13
 msgid "Connected to I2P router."
@@ -402,7 +349,7 @@ msgstr "Nie można połączyć z węzłem I2P."
 msgid "I2P router rejected password."
 msgstr "Węzeł I2P odrzucił hasło."
 
-#: src/net/i2p/itoopie/gui/TrayManager.java:87
+#: src/net/i2p/itoopie/gui/TrayManager.java:106
 msgid "Exit itoopie"
 msgstr "Zamknij itoopie"
 
@@ -414,74 +361,69 @@ msgstr "Ruch wejściowy (KB/s)"
 msgid "Bandwidth Out [KB/s]"
 msgstr "Ruch wyjściowy (KB/s)"
 
-#: src/net/i2p/itoopie/gui/component/BandwidthChart.java:70
-#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:58
-msgid "Time"
-msgstr "Czas"
-
-#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:48
+#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:49
 msgid "Number of tunnels we are participating in."
 msgstr "Ilość tuneli, w których bierzemy udział."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:29
 msgid "Ok."
 msgstr "OK."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
 msgid "Testing."
 msgstr "Testowanie."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
 msgid "Firewalled."
 msgstr "Za zaporą sieciową."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:33
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
 msgid "Hidden."
 msgstr "Ukryty."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:34
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:33
 msgid "Warning, firewalled and fast."
-msgstr ""
+msgstr "Uwaga, za zaporą ogniową i szybki."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:34
 msgid "Warning, firewalled and floodfill."
 msgstr ""
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
 msgid "Warning, firewalled with inbound TCP enabled."
-msgstr ""
+msgstr "Uwaga, za zaporą ogniową z włączonym przychodzącym TCP."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
+msgid "Warning, firewalled with UDP disabled."
+msgstr "Uwaga, za zaporą ogniową z wyłączonym UDP."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
-msgid "Warning, firewalled with UDP disabled."
-msgstr ""
-
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
 msgid "Error, I2CP issue. Check logs."
 msgstr "Błąd, problem z I2CP. Sprawdź logi."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
 msgid "Error, clock skew. Try setting system clock."
 msgstr "Błąd, odchylenie zegara. Ustaw zegar systemowy."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:40
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
 msgid "Error, private TCP address."
-msgstr ""
+msgstr "Błąd, prywatny adres TCP."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:41
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:40
 msgid "Error, behind symmetric NAT. Can't recieve connections."
 msgstr "Błąd, za symetrycznym NAT-em. Nie otrzymuję połączeń."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:41
 msgid "Error, UDP port already in use."
 msgstr "Błąd, port UDP jest już w użyciu."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
 msgid "Error, no active peers. Check connection and firewall."
-msgstr ""
+msgstr "Uwaga, brak aktywnych peerów. Sprawdź połączenie i zaporę ogniową."
 
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:44
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
 msgid "Error, UDP disabled and TCP unset."
-msgstr ""
+msgstr "Błąd, wyłączony UDP i nieustawiony TCP."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
 msgid "local host (127.0.0.1)"
@@ -491,7 +433,7 @@ msgstr "host lokalny (127.0.0.1)"
 msgid "any host (0.0.0.0)"
 msgstr "dowolny host (0.0.0.0)"
 
-#: src/net/i2p/itoopie/security/CertificateHelper.java:78
+#: src/net/i2p/itoopie/security/CertificateHelper.java:73
 msgid "Unable to create hash of the given cert, "
 msgstr ""
 

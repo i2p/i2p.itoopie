@@ -31,7 +31,7 @@ import net.i2p.itoopie.security.ItoopieHostnameVerifier;
  *
  */
 public class ReseedMonitor extends TimerTask{
-	private static final Long MIN_KNOWN_PEERS = new Long(30);
+	private static final long MIN_KNOWN_PEERS = 30;
 	private final Log _log = LogFactory.getLog(ReseedMonitor.class);
 
 	@Override

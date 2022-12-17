@@ -90,7 +90,8 @@ public class JSONRPC2Interface {
 			throw new UnrecoverableFailedRequestException(); // Max retries reached. Throw exception.
 		}
 		HashMap outParams = (HashMap) req.getParams();
-		outParams.put("Token", token); // Add authentication token
+                if (token != null)
+		    outParams.put("Token", token); // Add authentication token
 		req.setParams(outParams);
 
 		JSONRPC2Response resp = null;

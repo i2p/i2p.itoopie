@@ -1,0 +1,485 @@
+# itoopie
+# Copyright (C) 2011  itoopie
+# This file is distributed under the same license as the routerconsole package.
+# To contribute translations, see http://www.i2p2.de/newdevelopers
+# 
+# Translators:
+# aylar b, 2022
+msgid ""
+msgstr ""
+"Project-Id-Version: I2P\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-01 12:39+0000\n"
+"PO-Revision-Date: 2015-01-11 19:37+0000\n"
+"Last-Translator: aylar b, 2022\n"
+"Language-Team: Turkmen (http://www.transifex.com/otf/I2P/language/tk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tk\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/net/i2p/itoopie/gui/AboutTab.java:29
+msgid ""
+"itoopie and I2PControl were sponsored by Relakks & Ipredator.\n"
+"Development began during the summer of 2011 and the first alpha was launched in July.\n"
+"\n"
+"I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online."
+msgstr "itoopie we I2PControl hemaýatkäri - Relakks & Ipredator.\nIşläp düzülişi 2011-nji ýylyň tomsunda başlady we ilkinji alfa wersiýasy iýul aýynda çykaryldy.\n\nOnlaýn gizlinlige we anonimligine işjeň kömegi üçin Žan-Erik Fiske we Piter Sunde taňryýalkasyn diýmek isleýärin."
+
+#: src/net/i2p/itoopie/gui/AboutTab.java:43
+#: src/net/i2p/itoopie/gui/OverviewTab.java:77
+msgid "Version:"
+msgstr "Wersiya:"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:33
+msgid "New remote host detected"
+msgstr "Täze uzakdan esasy enjam ýüze çykaryldy"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:34
+#, java-format
+msgid ""
+"Would you like permanently trust the certificate from the remote host {0}?"
+msgstr "{0} uzakdan esasy enjamyň şahadatnamasyna hemişelik ynanmak isleýärsiňmi?"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:47
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:90
+msgid "Certificate info"
+msgstr "Şahadatnama maglumaty"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:48
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:91
+msgid "Name: "
+msgstr "Ady:"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:49
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:92
+msgid "Algorithm: "
+msgstr "Algoritm:"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:50
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:93
+msgid "Serial: "
+msgstr "Seriýa:"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:51
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:94
+msgid "SHA-1 ID-hash: "
+msgstr "SHA-1 ID-heş: "
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:75
+msgid "Warning, new remote host detected"
+msgstr "Duýduryş, täze uzakdan esasy enjam ýüze çykaryldy"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:76
+#, java-format
+msgid "The certificate of {0} has changed!"
+msgstr "{0} şahadatnamasy üýtgedi!"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:77
+msgid ""
+"Are you sure you want to permanently trust the new certificate from the "
+"remote host?"
+msgstr "Uzakdan esasy enjamyň täze şahadatnama hemişelik ynanmak isleýändigiňiz çynmy?"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:108
+msgid "Are you sure that you trust the new certificate?"
+msgstr "Täze şahadatnama ynanýandygyňyz çynmy?"
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:109
+msgid "Is that your final answer?"
+msgstr "Bu siziň ahyrky jogabyňyzmy?"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:65
+msgid "Settings aren't valid, not saving."
+msgstr "Sazlamalaryň güýji ýöränok, ýatda saklanmaýar."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:50
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:66
+msgid "I2P router rejected settings."
+msgstr "I2P routeri sazlamalary ret etdi."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
+msgid "Not connected, unable to save."
+msgstr "Bagly däl, ýatda saklap bolanok."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:67
+msgid "Saved settings on I2P router."
+msgstr "I2P routerinde sazlamalar ýatda saklandy."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:53
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:68
+msgid "Saved settings on I2P router. I2P router needs to be restarted."
+msgstr "I2P routerinde sazlamalar ýatda saklandy. I2P routerini öçürip ýakmaly."
+
+#. This is confusing and probably isn't supported on the i2pcontrol side,
+#. certainly not with the webapp.
+#. JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
+#. separator.setBounds((96)/2, 108, (getWidth()-96), 2);
+#. add(separator);
+#. JPanel newChangePanel = new JPanel();
+#. newChangePanel.setLayout(null);
+#. newChangePanel.setOpaque(false);
+#. newChangePanel.setBounds(0, 110, 426, 135);
+#. add(newChangePanel);
+#. setupChangePanel(newChangePanel);
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:97
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:139
+msgid "Apply"
+msgstr "Ulan"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:133
+msgid "Bandwidth:"
+msgstr "Diapazon giňligi:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:138
+msgid "Download:"
+msgstr "Al:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:148
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:163
+msgid "KB/s"
+msgstr "KB/s"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:153
+msgid "Upload:"
+msgstr "Ýükle:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:170
+msgid "Share:"
+msgstr "Paýlaş:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:190
+msgid "Network:"
+msgstr "Tor:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:195
+msgid "TCP port:"
+msgstr "TCP porty:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:206
+msgid "UDP port:"
+msgstr "UDP porty:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:217
+msgid "UPNP:"
+msgstr "UPNP:"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:219
+msgid "Enable UPNP"
+msgstr "UPNP işlet"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:304
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:321
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:383
+#, java-format
+msgid "\"{0}\" cannot be interpreted as a port."
+msgstr "\"{0}\" port hökmünde kabul edip bolmaz."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:305
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:322
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:384
+msgid "Port must be a number in the range 1-65535."
+msgstr "Port 1-65535 arasynda bir san bolmaly."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:306
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:323
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:385
+msgid "Invalid port."
+msgstr "Makul däl port."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:338
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:355
+#, java-format
+msgid "\"{0}\" cannot be interpreted as a speed."
+msgstr "\"{0}\" tizlik hökmünde kabul edip bolmaz."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:339
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:356
+msgid "Speed must be a number larger than 0."
+msgstr "Tizlik 0-dan uly bir san bolmaly."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:340
+msgid "Invalid download speed."
+msgstr "Makul däl alyş tizligi."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:357
+msgid "Invalid upload speed."
+msgstr "Makul däl ýükleýiş tizligi."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:372
+#, java-format
+msgid "\"{0}\" cannot be interpreted as a percentage."
+msgstr "\"{0}\" göterim hökmünde kabul edip bolmaz."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:373
+msgid "Percentage must be a number in the range 0-100."
+msgstr "Göterim 0-100 arasynda bir san bolmaly."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:374
+msgid "Invalid share percentage."
+msgstr "Makul däl paýlaşmaklyk göterimi."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:416
+msgid ""
+"The new settings have been applied,\n"
+"but the I2P router needs to be restarted for some to take effect.\n"
+"\n"
+"Would you like to restart the I2P router now?"
+msgstr "Täze sazlamalar ulanyldy,\nýöne olaryň güýje girmegi üçin I2P routeri öçürip ýakmak gerek.\n\nI2P routerini häzir öçürip ýakmak isleýärsiňizmi?"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:419
+msgid "Restart needed for new settings."
+msgstr "Täze sazlamalar üçin öçürip ýakmaly."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:427
+msgid "Restarting I2P node"
+msgstr "I2P düwüni öçürip ýakylýar"
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:429
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:431
+msgid "Restart failed"
+msgstr "Öçürip täzeden ýakyp bolmady"
+
+#: src/net/i2p/itoopie/gui/Main.java:114
+msgid "Overview"
+msgstr "Umumy görkeziş"
+
+#: src/net/i2p/itoopie/gui/Main.java:120
+msgid "I2P Control"
+msgstr "I2P Dolandyryşy"
+
+#: src/net/i2p/itoopie/gui/Main.java:126
+msgid "Settings"
+msgstr "Sazlamalar"
+
+#: src/net/i2p/itoopie/gui/Main.java:132
+msgid "About"
+msgstr "Hakynda"
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:93
+msgid "Uptime:"
+msgstr "Işleýiş möhleti:"
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:108
+msgid "Status:"
+msgstr "Status:"
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:123
+msgid "Net Status:"
+msgstr "Toruň ýagdaýy:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:69
+msgid "No changes found, settings not saved."
+msgstr "Hiçhili üýtgeşme ýok, sazlamalar ýatda saklanmady."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:148
+msgid "Settings saved."
+msgstr "Sazlamalar yatda saklanyldy."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:152
+msgid "Settings not saved, no changes found."
+msgstr "Sazlamalar ýatda saklanmady, hiçhili üýtgeşme ýok."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:213
+msgid "Connect to I2P node"
+msgstr "I2P düwünine baglan"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:219
+msgid "IP address:"
+msgstr "IP salgysy:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:229
+msgid "Port:"
+msgstr "Port:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:239
+msgid "Password:"
+msgstr "Parol:"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:367
+#, java-format
+msgid "\"{0}\" cannot be interpreted as an ip address."
+msgstr "\"{0}\" ip salgysy hökmünde kabul edip bolmaz."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:368
+msgid "Try entering the ip address of the machine running i2p."
+msgstr "Enjamyň işledýän i2p-niň ip salgysyny ýazyp barla"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:369
+msgid "Invalid ip address."
+msgstr "Makul bolmadyk ip salgy."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:402
+msgid ""
+"The password was not accepted as valid by the specified host.\n"
+"\n"
+"(the default password is \"itoopie\")"
+msgstr "Parol görkezilen esasy enjam tarapyndan ýörgünli hökmünde kabul edilmedi.\n\n(asyl bellenen parol - \"itoopie\")"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:404
+msgid "Rejected password."
+msgstr "Ret edilen parol"
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:414
+msgid ""
+"The remote host at the ip and port did not respond.\n"
+"\n"
+"Maybe I2PControl is not running on the remote I2P router, \n"
+"maybe the I2P router is not started."
+msgstr "Ip we portdaky uzakdan esasy enjam jogap berenok.\n\nBelki I2PControl uzakdan I2P routerinde işledilmedik,\nbelki I2P router öçük."
+
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:417
+msgid "Connection failed."
+msgstr "Baglanyp bolmady."
+
+#: src/net/i2p/itoopie/gui/StatusHandler.java:13
+msgid "Connected to I2P router."
+msgstr "I2P routerine baglandy."
+
+#: src/net/i2p/itoopie/gui/StatusHandler.java:14
+msgid "Unable to connect to I2P router."
+msgstr "I2P routerine baglanyp bolanok."
+
+#: src/net/i2p/itoopie/gui/StatusHandler.java:15
+msgid "I2P router rejected password."
+msgstr "I2P router paroly ret etdi."
+
+#: src/net/i2p/itoopie/gui/TrayManager.java:106
+msgid "Exit itoopie"
+msgstr "itoopie-den çyk"
+
+#: src/net/i2p/itoopie/gui/component/BandwidthChart.java:52
+msgid "Bandwidth In [KB/s]"
+msgstr "Giriş diapazon giňligi [KB/s]"
+
+#: src/net/i2p/itoopie/gui/component/BandwidthChart.java:61
+msgid "Bandwidth Out [KB/s]"
+msgstr "Çykyş diapazon giňligi [KB/s]"
+
+#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:49
+msgid "Number of tunnels we are participating in."
+msgstr "Biziň gatnaşýan tunnellerimiziň sany"
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:29
+msgid "Ok."
+msgstr "Bolýar."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
+msgid "Testing."
+msgstr "Synag edilýär."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
+msgid "Firewalled."
+msgstr "Gorag diwary goýuldy."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
+msgid "Hidden."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:33
+msgid "Warning, firewalled and fast."
+msgstr "Duýduryş, gorag diwary goýuldy we çalt."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:34
+msgid "Warning, firewalled and floodfill."
+msgstr "Duýduryş, gorag diwary goýuldy we "
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
+msgid "Warning, firewalled with inbound TCP enabled."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
+msgid "Warning, firewalled with UDP disabled."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
+msgid "Error, I2CP issue. Check logs."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
+msgid "Error, clock skew. Try setting system clock."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
+msgid "Error, private TCP address."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:40
+msgid "Error, behind symmetric NAT. Can't recieve connections."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:41
+msgid "Error, UDP port already in use."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
+msgid "Error, no active peers. Check connection and firewall."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
+msgid "Error, UDP disabled and TCP unset."
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
+msgid "local host (127.0.0.1)"
+msgstr ""
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:48
+msgid "any host (0.0.0.0)"
+msgstr ""
+
+#: src/net/i2p/itoopie/security/CertificateHelper.java:73
+msgid "Unable to create hash of the given cert, "
+msgstr ""
+
+#. milliseconds
+#. Note to translators, may be negative or zero, 2999 maximum.
+#. {0,number,####} prevents 1234 from being output as 1,234 in the English
+#. locale.
+#. If you want the digit separator in your locale, translate as {0}.
+#: src/net/i2p/itoopie/util/DataHelper.java:25
+#, java-format
+msgid "1 ms"
+msgid_plural "{0,number,####} ms"
+msgstr[0] ""
+msgstr[1] ""
+
+#. seconds
+#: src/net/i2p/itoopie/util/DataHelper.java:28
+#, java-format
+msgid "1 second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#. minutes
+#: src/net/i2p/itoopie/util/DataHelper.java:31
+#, java-format
+msgid "1 minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#. hours
+#: src/net/i2p/itoopie/util/DataHelper.java:34
+#, java-format
+msgid "1 hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#. >1000 days
+#: src/net/i2p/itoopie/util/DataHelper.java:37
+msgid "n/a"
+msgstr "ýok"
+
+#. days
+#: src/net/i2p/itoopie/util/DataHelper.java:40
+#, java-format
+msgid "1 day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""

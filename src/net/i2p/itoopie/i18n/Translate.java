@@ -24,10 +24,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public abstract class Translate {
     private static final String _localeLang = Locale.getDefault().getLanguage();
-    @SuppressWarnings("unchecked")
-	private static final Map<String, ResourceBundle> _bundles = new ConcurrentHashMap(2);
-    @SuppressWarnings("unchecked")
-	private static final ConcurrentHashMap<String,Boolean> _missing = new ConcurrentHashMap(2);
+    private static final Map<String, ResourceBundle> _bundles = new ConcurrentHashMap<String, ResourceBundle>(2);
+    private static final ConcurrentHashMap<String, Boolean> _missing = new ConcurrentHashMap<String, Boolean>(2);
     /** use to look for untagged strings */
     private static final String TEST_LANG = "xx";
     private static final String TEST_STRING = "XXXX";

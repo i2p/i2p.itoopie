@@ -1,4 +1,5 @@
-[I2P.itoopie]
+[o:otf:p:I2P:r:itoopie]
+file_filter = locale/messages_<lang>.po
 source_file = locale/messages_en.po
 source_lang = en
 trans.ar = locale/messages_ar.po
@@ -36,4 +37,5 @@ trans.zh_TW = locale/messages_zh_TW.po
 
 [main]
 host = https://www.transifex.com
+lang_map = ru_RU: ru, sv_SE: sv, tr_TR: tr, uk_UA: uk, zh_CN: zh, et_EE: et, id: in, he: iw
 

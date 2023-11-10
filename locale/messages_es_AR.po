@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2022-02-01 12:39+0000\n"
 "PO-Revision-Date: 2015-01-11 19:37+0000\n"
 "Last-Translator: hottuna <dev@robertfoss.se>\n"
-"Language-Team: Spanish (Argentina) (http://www.transifex.com/otf/I2P/language/es_AR/)\n"
+"Language-Team: Spanish (Argentina) (http://app.transifex.com/otf/I2P/language/es_AR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -443,36 +443,36 @@ msgstr "No se pudo crear un hash (identificador criptográfico) del certificado 
 #, java-format
 msgid "1 ms"
 msgid_plural "{0,number,####} ms"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "1 ms"
+msgstr[1] "{0,number,####} ms"
+msgstr[2] "{0,number,####} ms"
 
 #. seconds
 #: src/net/i2p/itoopie/util/DataHelper.java:28
 #, java-format
 msgid "1 second"
 msgid_plural "{0} seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "1 segundo"
+msgstr[1] "{0} segundos"
+msgstr[2] "{0} segundos"
 
 #. minutes
 #: src/net/i2p/itoopie/util/DataHelper.java:31
 #, java-format
 msgid "1 minute"
 msgid_plural "{0} minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "1 minuto"
+msgstr[1] "{0} minutos"
+msgstr[2] "{0} minutos"
 
 #. hours
 #: src/net/i2p/itoopie/util/DataHelper.java:34
 #, java-format
 msgid "1 hour"
 msgid_plural "{0} hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "1 hora"
+msgstr[1] "{0} horas"
+msgstr[2] "{0} horas"
 
 #. >1000 days
 #: src/net/i2p/itoopie/util/DataHelper.java:37
@@ -484,6 +484,6 @@ msgstr "n/d"
 #, java-format
 msgid "1 day"
 msgid_plural "{0} days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "1 día"
+msgstr[1] "{0} días"
+msgstr[2] "{0} días"

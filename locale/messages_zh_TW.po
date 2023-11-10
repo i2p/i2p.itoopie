@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2022-02-01 12:39+0000\n"
 "PO-Revision-Date: 2015-01-11 19:37+0000\n"
 "Last-Translator: 0a744893951e0d1706ff74a7afccf561, 2019\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/otf/I2P/language/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (http://app.transifex.com/otf/I2P/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -444,28 +444,28 @@ msgstr "无法创建指定证书的哈希值，"
 #, java-format
 msgid "1 ms"
 msgid_plural "{0,number,####} ms"
-msgstr[0] ""
+msgstr[0] "{0,number,####} 毫秒"
 
 #. seconds
 #: src/net/i2p/itoopie/util/DataHelper.java:28
 #, java-format
 msgid "1 second"
 msgid_plural "{0} seconds"
-msgstr[0] ""
+msgstr[0] "{0} 秒"
 
 #. minutes
 #: src/net/i2p/itoopie/util/DataHelper.java:31
 #, java-format
 msgid "1 minute"
 msgid_plural "{0} minutes"
-msgstr[0] ""
+msgstr[0] "{0} 分钟"
 
 #. hours
 #: src/net/i2p/itoopie/util/DataHelper.java:34
 #, java-format
 msgid "1 hour"
 msgid_plural "{0} hours"
-msgstr[0] ""
+msgstr[0] "{0} 小时"
 
 #. >1000 days
 #: src/net/i2p/itoopie/util/DataHelper.java:37
@@ -477,4 +477,4 @@ msgstr "不可用"
 #, java-format
 msgid "1 day"
 msgid_plural "{0} days"
-msgstr[0] ""
+msgstr[0] "{0} 天"

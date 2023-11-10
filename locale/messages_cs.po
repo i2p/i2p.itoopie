@@ -4,7 +4,7 @@
 # To contribute translations, see http://www.i2p2.de/newdevelopers
 # 
 # Translators:
-# slrslr, 2022
+# slrslr, 2022-2023
 # slrslr, 2021
 msgid ""
 msgstr ""
@@ -12,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-01 12:39+0000\n"
 "PO-Revision-Date: 2015-01-11 19:37+0000\n"
-"Last-Translator: slrslr, 2022\n"
-"Language-Team: Czech (http://www.transifex.com/otf/I2P/language/cs/)\n"
+"Last-Translator: slrslr, 2022-2023\n"
+"Language-Team: Czech (http://app.transifex.com/otf/I2P/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -374,7 +374,7 @@ msgstr "Testování."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
 msgid "Firewalled."
-msgstr "Neprůchodné."
+msgstr "Firewalled."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
 msgid "Hidden."
@@ -445,40 +445,40 @@ msgstr "Není možné vytvořit hash daného certifikátu,"
 #, java-format
 msgid "1 ms"
 msgid_plural "{0,number,####} ms"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "1 ms"
+msgstr[1] "{0,number,####} ms"
+msgstr[2] "{0,number,####} ms"
+msgstr[3] "{0,number,####} ms"
 
 #. seconds
 #: src/net/i2p/itoopie/util/DataHelper.java:28
 #, java-format
 msgid "1 second"
 msgid_plural "{0} seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "1 sekunda"
+msgstr[1] "{0} sekundy"
+msgstr[2] "{0} sekund"
+msgstr[3] "{0} sekund"
 
 #. minutes
 #: src/net/i2p/itoopie/util/DataHelper.java:31
 #, java-format
 msgid "1 minute"
 msgid_plural "{0} minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "1 minuta"
+msgstr[1] "{0} minuty"
+msgstr[2] "{0} minut"
+msgstr[3] "{0} minut"
 
 #. hours
 #: src/net/i2p/itoopie/util/DataHelper.java:34
 #, java-format
 msgid "1 hour"
 msgid_plural "{0} hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "1 hodina"
+msgstr[1] "{0} hodiny"
+msgstr[2] "{0} hodin"
+msgstr[3] "{0} hodin"
 
 #. >1000 days
 #: src/net/i2p/itoopie/util/DataHelper.java:37
@@ -490,7 +490,7 @@ msgstr "neaplikovatelné"
 #, java-format
 msgid "1 day"
 msgid_plural "{0} days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "1 den"
+msgstr[1] "{0} dny"
+msgstr[2] "{0} dnů"
+msgstr[3] "{0} dnů"

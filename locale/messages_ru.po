@@ -9,14 +9,15 @@
 # Tabula Rasa I2P <uiamaedr@10minutesmail.com>, 2015
 # yume, 2015
 # Алексей Коломенцев, 2022
+# Темак, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-01 12:39+0000\n"
 "PO-Revision-Date: 2015-01-11 19:37+0000\n"
-"Last-Translator: Алексей Коломенцев, 2022\n"
-"Language-Team: Russian (Russia) (http://www.transifex.com/otf/I2P/language/ru_RU/)\n"
+"Last-Translator: Темак, 2023\n"
+"Language-Team: Russian (Russia) (http://app.transifex.com/otf/I2P/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +30,7 @@ msgid ""
 "Development began during the summer of 2011 and the first alpha was launched in July.\n"
 "\n"
 "I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online."
-msgstr "itoopie и I2PControl были проспонсированы Relakks и Ipredator.\nРазработка началась летом 2011, и первая альфа версия вышла в июле. \n\nХотелось бы поблагодарить Jan-Erik Fiske и Peter Sunde за активную помощь приватности и анонимности в Сети."
+msgstr "itoopie и I2PControl были проспонсированы Relakks и Ipredator.\nРазработка началась летом 2011, и первая альфа версия вышла в июле. \n\nХотелось бы поблагодарить Jan-Erik Fiske и Peter Sunde за постоянную помощь приватности и анонимности в сети."
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:43
 #: src/net/i2p/itoopie/gui/OverviewTab.java:77
@@ -38,18 +39,18 @@ msgstr "Версия:"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:33
 msgid "New remote host detected"
-msgstr "Обнаружен новый удаленный хост"
+msgstr "Обнаружен новый удалённый хост"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:34
 #, java-format
 msgid ""
 "Would you like permanently trust the certificate from the remote host {0}?"
-msgstr "Вы хотите установить постоянное доверие к сертификату удаленного хоста {0}?"
+msgstr "Вы хотите установить постоянное доверие к сертификату удалённого хоста {0}?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:47
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:90
 msgid "Certificate info"
-msgstr "Информация о сертификате"
+msgstr "Сведения о сертификате"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:48
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:91
@@ -73,7 +74,7 @@ msgstr "SHA-1 ID-хэш"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:75
 msgid "Warning, new remote host detected"
-msgstr "Внимание, обнаружен новый удаленный хост"
+msgstr "Внимание, обнаружен новый удалённый хост"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:76
 #, java-format
@@ -180,7 +181,7 @@ msgstr "Включить UPNP"
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:383
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a port."
-msgstr "\"{0}\" невозможно интерпретировать как порт"
+msgstr "«{0}» невозможно интерпретировать как порт"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:305
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:322
@@ -198,7 +199,7 @@ msgstr "Недопустимый порт."
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:355
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a speed."
-msgstr "\"{0}\" невозможно интерпретировать как скорость."
+msgstr "«{0}» невозможно интерпретировать как скорость."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:339
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:356
@@ -216,7 +217,7 @@ msgstr "Недопустимая скорость отдачи."
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:372
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a percentage."
-msgstr "\"{0}\" невозможно интерпретировать как проценты."
+msgstr "«{0}» невозможно интерпретировать как проценты."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:373
 msgid "Percentage must be a number in the range 0-100."
@@ -269,11 +270,11 @@ msgstr "Время работы:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:108
 msgid "Status:"
-msgstr "Статус:"
+msgstr "Состояние:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:123
 msgid "Net Status:"
-msgstr "Статус сети:"
+msgstr "Состояние сети:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:69
 msgid "No changes found, settings not saved."
@@ -321,7 +322,7 @@ msgid ""
 "The password was not accepted as valid by the specified host.\n"
 "\n"
 "(the default password is \"itoopie\")"
-msgstr "Пароль не принят указанным хостом.\n\n(пароль по умолчанию - \"itoopie\")"
+msgstr "Пароль не принят указанным хостом.\n\n(пароль по умолчанию — «itoopie»)"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:404
 msgid "Rejected password."
@@ -341,7 +342,7 @@ msgstr "Сбой соединения."
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:13
 msgid "Connected to I2P router."
-msgstr "Маршрутизатор I2P подключен."
+msgstr "Маршрутизатор I2P подключён."
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:14
 msgid "Unable to connect to I2P router."
@@ -369,7 +370,7 @@ msgstr "Туннели, в которых мы принимаем участие
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:29
 msgid "Ok."
-msgstr "Ok."
+msgstr "Ладно"
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
 msgid "Testing."
@@ -393,11 +394,11 @@ msgstr "Предупреждение: заблокирован извне, flood
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
 msgid "Warning, firewalled with inbound TCP enabled."
-msgstr "Предупреждение: заблокирован извне при включенных входящих TCP-соединениях"
+msgstr "Предупреждение: заблокирован извне при включённых входящих TCP-соединениях"
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
 msgid "Warning, firewalled with UDP disabled."
-msgstr "Предупреждение: заблокирован извне при отключенном UDP"
+msgstr "Предупреждение: заблокирован извне при отключённом UDP"
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
 msgid "Error, I2CP issue. Check logs."
@@ -405,7 +406,7 @@ msgstr "Ошибка: проблема I2CP. Проверьте логи."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
 msgid "Error, clock skew. Try setting system clock."
-msgstr "Ошибка: часы сбиты. Попробуйте настроить системные часы."
+msgstr "Ошибка: часы сбиты. Попытайтесь настроить системные часы."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
 msgid "Error, private TCP address."
@@ -425,7 +426,7 @@ msgstr "Ошибка: нет активных пиров. Проверьте И�
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
 msgid "Error, UDP disabled and TCP unset."
-msgstr "Ошибка: UDP отключен и TCP не настроен."
+msgstr "Ошибка: UDP отключён и TCP не настроен."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
 msgid "local host (127.0.0.1)"

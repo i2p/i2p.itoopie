@@ -4,7 +4,7 @@
 # To contribute translations, see http://www.i2p2.de/newdevelopers
 # 
 # Translators:
-# slrslr, 2022-2023
+# slrslr, 2022-2024
 # slrslr, 2021
 msgid ""
 msgstr ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-01 12:39+0000\n"
 "PO-Revision-Date: 2015-01-11 19:37+0000\n"
-"Last-Translator: slrslr, 2022-2023\n"
+"Last-Translator: slrslr, 2022-2024\n"
 "Language-Team: Czech (http://app.transifex.com/otf/I2P/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,7 +262,7 @@ msgstr "O programu"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:93
 msgid "Uptime:"
-msgstr "Uptime:"
+msgstr "Dostupnost:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:108
 msgid "Status:"

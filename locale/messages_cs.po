@@ -374,7 +374,7 @@ msgstr "Testování."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
 msgid "Firewalled."
-msgstr "Firewalled."
+msgstr "Za firewallem."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
 msgid "Hidden."

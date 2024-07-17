@@ -39,11 +39,8 @@ http://i2p-projekt.i2p/spec/proposals/118-i2pcontrol-api-2
 https://geti2p.net/spec/proposals/118-i2pcontrol-api-2
 
 
-Pre-built binaries for itoopie version 0.3 (2015-03-02):
-Clearnet installer: https://github.com/robertfoss/itoopie.net/raw/master/files/itoopie-install.exe
-Clearnet SHA512: https://raw.githubusercontent.com/robertfoss/itoopie.net/master/files/itoopie-install.exe.sha512
-I2P installer: http://stats.i2p/i2p/plugins/others/itoopie-install.exe
-I2P SHA512: http://stats.i2p/i2p/plugins/others/itoopie-install.exe.sha512
+Pre-built binaries:
+http://stats.i2p/i2p/plugins/others/
 Source: i2p.itoopie branch in git: https://github.com/i2p/i2p.itoopie
 java -jar itoopie-install.exe to install on non-Windows.
 

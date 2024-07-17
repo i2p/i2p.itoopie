@@ -1,3 +1,8 @@
+0.0.5 - 2024-07-17
+***
+ * Translation updates
+
+
 0.0.4 - 2022-02-18
 ***
  * Build fixes

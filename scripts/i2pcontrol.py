@@ -1,19 +1,19 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #
 # If it fails "No module named yaml"
-# then sudo apt install python-yaml
+# then sudo apt install python3-yaml
 #
 
 import argparse
 import json
-import urllib2
-import httplib
+import urllib.request
+import httplib2
 import socket
 import ssl
 import sys
 import yaml
-from urllib2 import HTTPError, URLError
+from urllib.request import HTTPError
 from string import whitespace
 
 # Info about requestable data can be found at https://geti2p.net/i2pcontrol.html & https://geti2p.net/ratestats.html
@@ -44,10 +44,8 @@ def getToken():
 		jsonResp = sendMsg(loginStr)
 		return jsonResp.get("result").get("Token")
 
-	except HTTPError, e:
+	except HTTPError as e:
 		print("HTTPError: %s" % e.reason)
-	except URLError, e:
-		print("URLError: %s" % e.reason)
 
 def getRate(rateName, ratePeriod):
 	checkToken()
@@ -130,7 +128,7 @@ def getAdvancedInfo(infoName):
 def sendMsg(jsonStr):
 		global msgId
 		https_handler = UnauthenticatedHTTPSHandler()
-		url_opener = urllib2.build_opener(https_handler)
+		url_opener = urllib.request.build_opener(https_handler)
 		if (usessl != 0):
 			handle = url_opener.open("https://"+address+":"+ str(port) + "/jsonrpc/", jsonStr)
 		else:
@@ -148,7 +146,7 @@ def sendMsg(jsonStr):
 ###
 # Overrides the version in httplib so that we can ignore server certificate authenticity
 ###
-class UnauthenticatedHTTPSConnection(httplib.HTTPSConnection):
+class UnauthenticatedHTTPSConnection(httplib2.HTTPSConnectionWithTimeout):
     def connect(self):
         # 
         sock = socket.create_connection((self.host, self.port), self.timeout)
@@ -161,10 +159,10 @@ class UnauthenticatedHTTPSConnection(httplib.HTTPSConnection):
 ###
 # HTTPS handler which uses SSLv3 and ignores server cert authenticity
 ###
-class UnauthenticatedHTTPSHandler(urllib2.HTTPSHandler):
+class UnauthenticatedHTTPSHandler(urllib.request.HTTPSHandler):
     def __init__(self, connection_class = UnauthenticatedHTTPSConnection):
         self.specialized_conn_class = connection_class
-        urllib2.HTTPSHandler.__init__(self)
+        urllib.request.HTTPSHandler.__init__(self)
     def https_open(self, req):
         return self.do_open(self.specialized_conn_class, req)
 
@@ -192,9 +190,9 @@ def zabbix_config(fileName, outfile):
 def from_file(infile, parameter):
 	try:
 		yamlDict = yaml.load(open(infile,'r'))
-		print yamlDict[parameter]
-	except IOError, e:	
-		print "File \""+ infile +"\" couldn't be read."	
+		print(yamlDict[parameter])
+	except IOError as e:	
+		print("File \""+ infile +"\" couldn't be read.")
 def main():
 	global address
 	global port
@@ -325,30 +323,30 @@ def main():
 			period = int(options.rate_stat[1])
 			if (period < 60000):
 				raise ValueError
-			print getRate(options.rate_stat[0], period)
-		except ValueError, e:
+			print(getRate(options.rate_stat[0], period))
+		except ValueError as e:
 			print("Error: \""+options.rate_stat[1]+"\" is not an integer > 60000 \n\n")
 			parser.parse_args(["-h"])
 		sys.exit()
 
 	if (options.router_info != None):
-		print getRouterInfo(options.router_info[0])
+		print(getRouterInfo(options.router_info[0]))
 		sys.exit()
 
 	if (options.i2pcontrol_info != None):
-		print getControlInfo(options.i2pcontrol_info[0])
+		print(getControlInfo(options.i2pcontrol_info[0]))
 		sys.exit()
 
 	if (options.routermanager_info != None):
-		print getRouterManagerInfo(options.routermanager_info[0])
+		print(getRouterManagerInfo(options.routermanager_info[0]))
 		sys.exit()
 
 	if (options.network_info != None):
-		print getNetworkInfo(options.network_info[0])
+		print(getNetworkInfo(options.network_info[0]))
 		sys.exit()
 
 	if (options.advanced_info != None):
-		print getAdvancedInfo(options.advanced_info[0])
+		print(getAdvancedInfo(options.advanced_info[0]))
 		sys.exit()
 	
 	if (options.zabbix != None):

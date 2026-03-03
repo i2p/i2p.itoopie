@@ -4,7 +4,7 @@
 # To contribute translations, see http://www.i2p2.de/newdevelopers
 # 
 # Translators:
-# Kaya Zeren <kayazeren@gmail.com>, 2015-2017,2019-2022
+# Kaya Zeren <kayazeren@gmail.com>, 2015-2017,2019-2022,2025
 # Ozancan Karataş <ozancankaratas96@outlook.com>, 2015
 msgid ""
 msgstr ""
@@ -12,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-01 12:39+0000\n"
 "PO-Revision-Date: 2015-01-11 19:37+0000\n"
-"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2015-2017,2019-2022\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/otf/I2P/language/tr_TR/)\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2015-2017,2019-2022,2025\n"
+"Language-Team: Turkish (Turkey) (http://app.transifex.com/otf/I2P/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,7 @@ msgid ""
 "Development began during the summer of 2011 and the first alpha was launched in July.\n"
 "\n"
 "I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online."
-msgstr "itoopie ve I2PControl Relakks ve Ipredator tarafından desteklenmektedir.\nGeliştirilmeye 2011 yazında başlandı ve ilk alpha Temmuz ayında yayınlandı.\n\nJan-Erik Fiske ve Peter Sunde'a çevrimiçi gizlilik ve isimsiz kalmaya etkin yardımları nedeniyle teşekkür ederiz."
+msgstr "itoopie ve I2PControl Relakks ve Ipredator tarafından desteklenmektedir.\nGeliştirilmeye 2011 yazında başlandı ve ilk alpha Temmuz ayında yayınlandı.\n\nJan-Erik Fiske ve Peter Sunde'a çevrim içi gizlilik ve isimsiz kalmaya etkin yardımları nedeniyle teşekkür ederiz."
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:43
 #: src/net/i2p/itoopie/gui/OverviewTab.java:77
@@ -362,7 +362,7 @@ msgstr "Gidiş bant genişliği [KB/s]"
 
 #: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:49
 msgid "Number of tunnels we are participating in."
-msgstr "Katılınacak tünel sayısı."
+msgstr "Katkıda bulunulacak tünel sayısı."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:29
 msgid "Ok."
@@ -394,7 +394,7 @@ msgstr "Uyarı, geliş TCP bağlantısı etkin olarak güvenlik duvarlı."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
 msgid "Warning, firewalled with UDP disabled."
-msgstr "Uyarı, UDP devre dışı olarak güvenlik duvarlı."
+msgstr "Uyarı, UDP ile güvenlik duvarlı etkisizleştirilmiş."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
 msgid "Error, I2CP issue. Check logs."
@@ -422,7 +422,7 @@ msgstr "Hata, etkin bir eş yok. Bağlantı ve güvenlik duvarını denetleyin."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
 msgid "Error, UDP disabled and TCP unset."
-msgstr "Hata, UDP devre dışı ve TCP ayarlanmamış."
+msgstr "Hata, UDP etkisizleştirilmiş ve TCP ayarlanmamış."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
 msgid "local host (127.0.0.1)"

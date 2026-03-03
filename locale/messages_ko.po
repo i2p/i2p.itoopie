@@ -4,14 +4,15 @@
 # To contribute translations, see http://www.i2p2.de/newdevelopers
 # 
 # Translators:
+# Sehun Ahn, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2019-10-02 09:00+0000\n"
-"Last-Translator: Plusb Preco <plusb21@gmail.com>\n"
-"Language-Team: Korean (http://www.transifex.com/otf/I2P/language/ko/)\n"
+"POT-Creation-Date: 2022-02-01 12:39+0000\n"
+"PO-Revision-Date: 2015-01-11 19:37+0000\n"
+"Last-Translator: Sehun Ahn, 2026\n"
+"Language-Team: Korean (http://app.transifex.com/otf/I2P/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,474 +25,415 @@ msgid ""
 "Development began during the summer of 2011 and the first alpha was launched in July.\n"
 "\n"
 "I'd like to thank Jan-Erik Fiske and Peter Sunde for actively helping privacy and anonymity online."
-msgstr ""
+msgstr "itoopie와 I2PControl은 Relakks & Ipredator의 후원을 받았습니다.\n개발은 2011년 여름에 시작되었으며 첫 알파 버전은 7월에 출시되었습니다.\n\n온라인 프라이버시와 익명성 보호를 위해 적극적으로 도와주신 Jan-Erik Fiske와 Peter Sunde에게 감사드립니다."
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:43
-#: src/net/i2p/itoopie/gui/OverviewTab.java:74
+#: src/net/i2p/itoopie/gui/OverviewTab.java:77
 msgid "Version:"
 msgstr "버전:"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:30
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:33
 msgid "New remote host detected"
-msgstr ""
+msgstr "새 원격 호스트 탐지됨"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:31
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:34
 #, java-format
 msgid ""
 "Would you like permanently trust the certificate from the remote host {0}?"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:44
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:87
-msgid "Certificate info"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:45
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:88
-msgid "Name: "
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:46
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:89
-msgid "Algorithm: "
-msgstr ""
+msgstr "원격 호스트 {0}의 인증서를 영구적으로 신뢰하시겠습니까?"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:47
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:90
-msgid "Serial: "
-msgstr ""
+msgid "Certificate info"
+msgstr "인증서 정보"
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:48
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:91
+msgid "Name: "
+msgstr "이름: "
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:49
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:92
+msgid "Algorithm: "
+msgstr "알고리즘: "
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:50
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:93
+msgid "Serial: "
+msgstr "시리얼: "
+
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:51
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:94
 msgid "SHA-1 ID-hash: "
-msgstr ""
+msgstr "SHA-1 ID-hash: "
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:72
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:75
 msgid "Warning, new remote host detected"
-msgstr ""
+msgstr "경고, 새 원격 호스트 탐지됨"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:73
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:76
 #, java-format
 msgid "The certificate of {0} has changed!"
-msgstr ""
+msgstr "{0}의 인증서가 변경되었습니다!"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:74
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:77
 msgid ""
 "Are you sure you want to permanently trust the new certificate from the "
 "remote host?"
-msgstr ""
+msgstr "원격 호스트의 새 인증서를 영구적으로 신뢰하시겠습니까?"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:105
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:108
 msgid "Are you sure that you trust the new certificate?"
-msgstr ""
+msgstr "정말로 새 인증서를 신뢰하시겠습니까?"
 
-#: src/net/i2p/itoopie/gui/CertificateGUI.java:106
+#: src/net/i2p/itoopie/gui/CertificateGUI.java:109
 msgid "Is that your final answer?"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:46
-msgid "Settings read from I2P router."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:48
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:60
-msgid "Settings aren't valid, not saving."
-msgstr ""
+msgstr "그것이 최종적인 답변이십니까?"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:49
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:61
-msgid "I2P router rejected settings."
-msgstr ""
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:65
+msgid "Settings aren't valid, not saving."
+msgstr "설정이 유효하지 않아 저장되지 않습니다."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:50
-msgid "Not connected, unable to save."
-msgstr ""
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:66
+msgid "I2P router rejected settings."
+msgstr "I2P 라우터가 설정을 거부했습니다."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:62
-msgid "Saved settings on I2P router."
-msgstr ""
+msgid "Not connected, unable to save."
+msgstr "연결되지 않아 저장할 수 없습니다."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:63
-msgid "Saved settings on I2P router. I2P router needs to be restarted."
-msgstr ""
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:67
+msgid "Saved settings on I2P router."
+msgstr "I2P 라우터에 설정 저장됨."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:96
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:170
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:53
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:68
+msgid "Saved settings on I2P router. I2P router needs to be restarted."
+msgstr "I2P 라우터에 설정이 저장되었습니다. I2P 라우터를 재시작해야 합니다."
+
+#. This is confusing and probably isn't supported on the i2pcontrol side,
+#. certainly not with the webapp.
+#. JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
+#. separator.setBounds((96)/2, 108, (getWidth()-96), 2);
+#. add(separator);
+#. JPanel newChangePanel = new JPanel();
+#. newChangePanel.setLayout(null);
+#. newChangePanel.setOpaque(false);
+#. newChangePanel.setBounds(0, 110, 426, 135);
+#. add(newChangePanel);
+#. setupChangePanel(newChangePanel);
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:97
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:139
 msgid "Apply"
 msgstr "적용"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:132
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:133
 msgid "Bandwidth:"
 msgstr "대역폭:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:137
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:138
 msgid "Download:"
-msgstr ""
+msgstr "다운로드: "
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:146
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:160
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:148
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:163
 msgid "KB/s"
 msgstr "KB/s"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:151
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:153
 msgid "Upload:"
-msgstr ""
+msgstr "업로드: "
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:165
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:170
 msgid "Share:"
-msgstr ""
+msgstr "공유: "
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:184
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:190
 msgid "Network:"
-msgstr ""
+msgstr "네트워크: "
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:189
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:195
 msgid "TCP port:"
-msgstr ""
+msgstr "TCP 포트: "
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:199
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:206
 msgid "UDP port:"
 msgstr "UDP 포트:"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:209
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:217
 msgid "UPNP:"
-msgstr ""
+msgstr "UPNP: "
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:211
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:219
 msgid "Enable UPNP"
-msgstr ""
+msgstr "UPNP 활성화"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:285
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:302
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:414
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:535
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:304
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:321
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:383
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a port."
-msgstr ""
+msgstr "\"{0}\"는 포트로 해석되지 않습니다."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:286
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:303
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:415
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:536
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:305
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:322
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:384
 msgid "Port must be a number in the range 1-65535."
-msgstr ""
+msgstr "포트는 1-65535 사이의 숫자여야 합니다."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:287
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:304
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:416
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:537
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:306
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:323
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:385
 msgid "Invalid port."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:319
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:336
-#, java-format
-msgid "\"{0}\" cannot be interpreted as a speed."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:320
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:337
-msgid "Speed must be a number larger than 0."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:321
-msgid "Invalid download speed."
-msgstr ""
+msgstr "잘못된 포트"
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:338
-msgid "Invalid upload speed."
-msgstr ""
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:355
+#, java-format
+msgid "\"{0}\" cannot be interpreted as a speed."
+msgstr "\"{0}\"는 속도로 해석되지 않습니다."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:353
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:339
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:356
+msgid "Speed must be a number larger than 0."
+msgstr "속도는 0보다 큰 숫자여야 합니다."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:340
+msgid "Invalid download speed."
+msgstr "잘못된 다운로드 속도."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:357
+msgid "Invalid upload speed."
+msgstr "잘못된 업로드 속도."
+
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:372
 #, java-format
 msgid "\"{0}\" cannot be interpreted as a percentage."
-msgstr ""
+msgstr "\"{0}\"는 비율로 해석되지 않습니다."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:354
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:373
 msgid "Percentage must be a number in the range 0-100."
-msgstr ""
+msgstr "비율은 0-100 사이의 숫자여야 합니다."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:355
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:374
 msgid "Invalid share percentage."
-msgstr ""
+msgstr "잘못된 공유 비율"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:397
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:416
 msgid ""
 "The new settings have been applied,\n"
 "but the I2P router needs to be restarted for some to take effect.\n"
 "\n"
 "Would you like to restart the I2P router now?"
-msgstr ""
+msgstr "새 설정이 적용되었습니다,\n그러나 일부 설정을 적용하려면 I2P 라우터를 재시작해야 합니다.\n\n지금 I2P 라우터를 재시작하시겠습니까?"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:400
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:419
 msgid "Restart needed for new settings."
-msgstr ""
+msgstr "새 설정 적용을 위해 재시작 필요."
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:408
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:427
 msgid "Restarting I2P node"
-msgstr ""
+msgstr "I2P 노드 재시작"
 
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:410
-#: src/net/i2p/itoopie/gui/ConfigurationTab.java:412
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:429
+#: src/net/i2p/itoopie/gui/ConfigurationTab.java:431
 msgid "Restart failed"
-msgstr ""
+msgstr "재시작 실패"
 
-#: src/net/i2p/itoopie/gui/Main.java:85
+#: src/net/i2p/itoopie/gui/Main.java:114
 msgid "Overview"
 msgstr "미리보기"
 
-#: src/net/i2p/itoopie/gui/Main.java:90
-msgid "Configuration"
-msgstr "설정"
+#: src/net/i2p/itoopie/gui/Main.java:120
+msgid "I2P Control"
+msgstr "I2P 제어"
 
-#: src/net/i2p/itoopie/gui/Main.java:95
-msgid "About"
-msgstr "알아보기"
-
-#: src/net/i2p/itoopie/gui/Main.java:115
+#: src/net/i2p/itoopie/gui/Main.java:126
 msgid "Settings"
 msgstr "설정"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:88
+#: src/net/i2p/itoopie/gui/Main.java:132
+msgid "About"
+msgstr "알아보기"
+
+#: src/net/i2p/itoopie/gui/OverviewTab.java:93
 msgid "Uptime:"
 msgstr "가동 시간:"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:101
+#: src/net/i2p/itoopie/gui/OverviewTab.java:108
 msgid "Status:"
 msgstr "상태:"
 
-#: src/net/i2p/itoopie/gui/OverviewTab.java:113
+#: src/net/i2p/itoopie/gui/OverviewTab.java:123
 msgid "Net Status:"
-msgstr ""
+msgstr "네트워크 상태: "
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:64
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:69
 msgid "No changes found, settings not saved."
-msgstr ""
+msgstr "변경 사항이 없어 설정이 저장되지 않았습니다."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:179
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:148
 msgid "Settings saved."
 msgstr "설정 저장됨."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:183
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:152
 msgid "Settings not saved, no changes found."
-msgstr ""
+msgstr "설정 저장되지 않음, 변경 사항이 없습니다."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:189
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:192
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:195
-msgid "New remote address"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:202
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:205
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:208
-msgid "New remote port"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:215
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:218
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:221
-msgid "New remote password"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:236
-msgid "Discard"
-msgstr "삭제"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:253
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:213
 msgid "Connect to I2P node"
-msgstr ""
+msgstr "I2P 노드 연결"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:259
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:219
 msgid "IP address:"
-msgstr ""
+msgstr "IP 주소: "
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:269
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:229
 msgid "Port:"
 msgstr "포트  : "
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:279
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:239
 msgid "Password:"
 msgstr "패스워드:"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:291
-msgid "Change I2PControl"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:297
-msgid "Change address:"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:307
-msgid "Change port:"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:317
-msgid "New password:"
-msgstr "새 패스워드:"
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:328
-msgid "Repeat password:"
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:398
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:367
 #, java-format
 msgid "\"{0}\" cannot be interpreted as an ip address."
-msgstr ""
+msgstr "\"{0}\"는 ip 주소로 해석되지 않습니다."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:399
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:368
 msgid "Try entering the ip address of the machine running i2p."
-msgstr ""
+msgstr "i2p를 실행 중인 기기의 ip 주소를 입력해 보십시오."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:400
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:369
 msgid "Invalid ip address."
-msgstr ""
+msgstr "잘못된 ip 주소."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:431
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:402
 msgid ""
 "The password was not accepted as valid by the specified host.\n"
 "\n"
 "(the default password is \"itoopie\")"
-msgstr ""
+msgstr "지정된 호스트에서 비밀번호를 유효한 것으로 받아들이지 않습니다.\n\n(기본 패스워드는 \"itoopie\" 입니다)"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:433
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:404
 msgid "Rejected password."
-msgstr ""
+msgstr "패스워드 거절됨"
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:443
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:414
 msgid ""
 "The remote host at the ip and port did not respond.\n"
 "\n"
 "Maybe I2PControl is not running on the remote I2P router, \n"
 "maybe the I2P router is not started."
-msgstr ""
+msgstr "해당 ip와 포트의 원격 호스트가 응답하지 않습니다.\n\n원격 I2P 라우터에서 I2PControl이 실행 중이지 않을 수도 있습니다.\nI2P 라우터가 시작되지 않았을 수도 있습니다."
 
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:446
+#: src/net/i2p/itoopie/gui/SettingsFrame.java:417
 msgid "Connection failed."
-msgstr "연결에 실패했습니다."
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:479
-msgid "The new password and the repeated new password do not match."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:480
-msgid "Mistyped password."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:489
-msgid "The new password is the same as the old password."
-msgstr ""
-
-#: src/net/i2p/itoopie/gui/SettingsFrame.java:490
-msgid "No new password."
-msgstr ""
+msgstr "연결 실패."
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:13
 msgid "Connected to I2P router."
-msgstr ""
+msgstr "I2P 라우터 연결됨."
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:14
 msgid "Unable to connect to I2P router."
-msgstr ""
+msgstr "I2P 라우터에 연결할 수 없음"
 
 #: src/net/i2p/itoopie/gui/StatusHandler.java:15
 msgid "I2P router rejected password."
-msgstr ""
+msgstr "I2P 라우터가 패스워드를 거부."
 
-#: src/net/i2p/itoopie/gui/TrayManager.java:87
+#: src/net/i2p/itoopie/gui/TrayManager.java:106
 msgid "Exit itoopie"
-msgstr ""
+msgstr "itoopie 나가기"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:52
 msgid "Bandwidth In [KB/s]"
-msgstr ""
+msgstr "수신 대역폭 [KB/s]"
 
 #: src/net/i2p/itoopie/gui/component/BandwidthChart.java:61
 msgid "Bandwidth Out [KB/s]"
-msgstr ""
+msgstr "송신 대역폭 [KB/s]"
 
-#: src/net/i2p/itoopie/gui/component/BandwidthChart.java:70
-#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:58
-msgid "Time"
-msgstr "시간"
-
-#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:48
+#: src/net/i2p/itoopie/gui/component/ParticipatingTunnelsChart.java:49
 msgid "Number of tunnels we are participating in."
-msgstr ""
+msgstr "참여 중인 터널 수."
+
+#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:29
+msgid "Ok."
+msgstr "정상."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:30
-msgid "Ok."
-msgstr ""
+msgid "Testing."
+msgstr "테스트 중."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:31
-msgid "Testing."
-msgstr ""
+msgid "Firewalled."
+msgstr "방화벽 있음."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:32
-msgid "Firewalled."
-msgstr ""
+msgid "Hidden."
+msgstr "숨겨짐."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:33
-msgid "Hidden."
-msgstr ""
+msgid "Warning, firewalled and fast."
+msgstr "경고, 방화벽 있음. 빠른 대역폭."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:34
-msgid "Warning, firewalled and fast."
-msgstr ""
+msgid "Warning, firewalled and floodfill."
+msgstr "경고, 방화벽 있음. 플러드필 사용."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:35
-msgid "Warning, firewalled and floodfill."
-msgstr ""
+msgid "Warning, firewalled with inbound TCP enabled."
+msgstr "경고, 방화벽 있음. 수신 TCP 활성화됨."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:36
-msgid "Warning, firewalled with inbound TCP enabled."
-msgstr ""
+msgid "Warning, firewalled with UDP disabled."
+msgstr "경고, 방화벽 있음. UDP 비활성화됨."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:37
-msgid "Warning, firewalled with UDP disabled."
-msgstr ""
+msgid "Error, I2CP issue. Check logs."
+msgstr "오류, I2CP 이슈. 로그 확인 필요."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:38
-msgid "Error, I2CP issue. Check logs."
-msgstr ""
+msgid "Error, clock skew. Try setting system clock."
+msgstr "오류, 클럭 스큐. 시스템 클럭 설정 시도 필요."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:39
-msgid "Error, clock skew. Try setting system clock."
-msgstr ""
+msgid "Error, private TCP address."
+msgstr "오류, 사설 TCP 주소."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:40
-msgid "Error, private TCP address."
-msgstr ""
+msgid "Error, behind symmetric NAT. Can't recieve connections."
+msgstr "오류, symmetric NAT 뒤에 있음. 연결 수신 불가."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:41
-msgid "Error, behind symmetric NAT. Can't recieve connections."
-msgstr ""
+msgid "Error, UDP port already in use."
+msgstr "오류, UDP 포트 이미 사용중."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:42
-msgid "Error, UDP port already in use."
-msgstr ""
+msgid "Error, no active peers. Check connection and firewall."
+msgstr "오류, 활성 피어 없음. 연결 및 방화벽 확인 필요."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:43
-msgid "Error, no active peers. Check connection and firewall."
-msgstr ""
-
-#: src/net/i2p/itoopie/i2pcontrol/methods/GetRouterInfo.java:44
 msgid "Error, UDP disabled and TCP unset."
-msgstr ""
+msgstr "오류, UDP 비활성화 및 TCP 설정 없음."
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:39
 msgid "local host (127.0.0.1)"
-msgstr ""
+msgstr "로컬 호스트 (127.0.0.1)"
 
 #: src/net/i2p/itoopie/i2pcontrol/methods/I2PControl.java:48
 msgid "any host (0.0.0.0)"
-msgstr ""
+msgstr "모든 호스트 (0.0.0.0)"
 
-#: src/net/i2p/itoopie/security/CertificateHelper.java:78
+#: src/net/i2p/itoopie/security/CertificateHelper.java:73
 msgid "Unable to create hash of the given cert, "
-msgstr ""
+msgstr "지정된 인증서의 해시를 생성할 수 없습니다, "
 
 #. milliseconds
 #. Note to translators, may be negative or zero, 2999 maximum.
@@ -502,28 +444,28 @@ msgstr ""
 #, java-format
 msgid "1 ms"
 msgid_plural "{0,number,####} ms"
-msgstr[0] ""
+msgstr[0] "{0,number,####} ms"
 
 #. seconds
 #: src/net/i2p/itoopie/util/DataHelper.java:28
 #, java-format
 msgid "1 second"
 msgid_plural "{0} seconds"
-msgstr[0] ""
+msgstr[0] "{0}초"
 
 #. minutes
 #: src/net/i2p/itoopie/util/DataHelper.java:31
 #, java-format
 msgid "1 minute"
 msgid_plural "{0} minutes"
-msgstr[0] ""
+msgstr[0] "{0}분"
 
 #. hours
 #: src/net/i2p/itoopie/util/DataHelper.java:34
 #, java-format
 msgid "1 hour"
 msgid_plural "{0} hours"
-msgstr[0] ""
+msgstr[0] "{0}시간"
 
 #. >1000 days
 #: src/net/i2p/itoopie/util/DataHelper.java:37
@@ -535,4 +477,4 @@ msgstr "n/a"
 #, java-format
 msgid "1 day"
 msgid_plural "{0} days"
-msgstr[0] ""
+msgstr[0] "{0}일"

@@ -10,14 +10,17 @@ msgstr ""
 "Project-Id-Version: I2P\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-19 12:53+0000\n"
-"PO-Revision-Date: 2018-10-04 01:00+0000\n"
-"Last-Translator: erinm\n"
-"Language-Team: Dutch (http://www.transifex.com/otf/I2P/language/nl/)\n"
+"PO-Revision-Date: 2026-03-13 19:06+0000\n"
+"Last-Translator: SecularSteve "
+"<secularsteve@users.noreply.localizationlab.weblate.cloud>\n"
+"Language-Team: Dutch <https://localizationlab.weblate.cloud/projects/i2p/"
+"itoopie/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #: src/net/i2p/itoopie/gui/AboutTab.java:29
 msgid ""
@@ -50,22 +53,22 @@ msgstr "Certificaatinfo"
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:45
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:88
 msgid "Name: "
-msgstr "Naam:"
+msgstr "Naam: "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:46
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:89
 msgid "Algorithm: "
-msgstr "Algoritme:"
+msgstr "Algoritme: "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:47
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:90
 msgid "Serial: "
-msgstr "Serial:"
+msgstr "Serieel: "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:48
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:91
 msgid "SHA-1 ID-hash: "
-msgstr "SHA-1 ID-hash:"
+msgstr "SHA-1 ID-hash: "
 
 #: src/net/i2p/itoopie/gui/CertificateGUI.java:72
 msgid "Warning, new remote host detected"
@@ -111,7 +114,7 @@ msgstr "Niet verbonden, kan niet opslaan."
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:51
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:62
 msgid "Saved settings on I2P router."
-msgstr "Instellingen opgeslagen op I2P-router"
+msgstr "Instellingen opgeslagen op I2P-router."
 
 #: src/net/i2p/itoopie/gui/ConfigurationTab.java:52
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:63
@@ -257,7 +260,7 @@ msgstr "Instellingen"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:88
 msgid "Uptime:"
-msgstr "Uptime"
+msgstr "Up-time:"
 
 #: src/net/i2p/itoopie/gui/OverviewTab.java:101
 msgid "Status:"
@@ -323,15 +326,15 @@ msgstr "I2PControl wijzigen"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:297
 msgid "Change address:"
-msgstr "Adres wijzigen"
+msgstr "Adres wijzigen:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:307
 msgid "Change port:"
-msgstr "Poort wijzigen"
+msgstr "Poort wijzigen:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:317
 msgid "New password:"
-msgstr "Nieuw wachtwoord"
+msgstr "Nieuw wachtwoord:"
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:328
 msgid "Repeat password:"
@@ -371,7 +374,7 @@ msgstr "De externe host op het opgegeven IP-adres en poort gaf geen reactie.\n\n
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:446
 msgid "Connection failed."
-msgstr "Verbinding mislukt:"
+msgstr "Verbinding mislukt."
 
 #: src/net/i2p/itoopie/gui/SettingsFrame.java:479
 msgid "The new password and the repeated new password do not match."
@@ -492,7 +495,7 @@ msgstr "eender welke host (0.0.0.0)"
 
 #: src/net/i2p/itoopie/security/CertificateHelper.java:78
 msgid "Unable to create hash of the given cert, "
-msgstr "Kan geen hash van het gegeven certificaat maken,"
+msgstr "Kan geen hash van het gegeven certificaat maken, "
 
 #. milliseconds
 #. Note to translators, may be negative or zero, 2999 maximum.
